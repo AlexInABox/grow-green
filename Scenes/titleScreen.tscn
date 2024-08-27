@@ -1,13 +1,13 @@
 [gd_scene load_steps=2 format=3 uid="uid://bp4pm6nyj77pp"]
 
-[ext_resource type="Script" path="res://Scripts/TitleScreenButtonManager.cs" id="1_7ukpk"]
+[ext_resource type="Script" path="res://Scripts/StartGameButton.cs" id="1_j8xma"]
 
 [node name="TitleScreen" type="Node2D"]
 
 [node name="Button" type="Button" parent="."]
-offset_left = 344.0
-offset_top = 187.0
-offset_right = 352.0
-offset_bottom = 195.0
-text = "Level 1"
-script = ExtResource("1_7ukpk")
+offset_left = 409.0
+offset_top = 318.0
+offset_right = 725.0
+offset_bottom = 349.0
+text = "Das ist mein Button bitte nicht drücken!"
+script = ExtResource("1_j8xma")
