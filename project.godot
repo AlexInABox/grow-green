@@ -11,8 +11,12 @@ config_version=5
 [application]
 
 config/name="GrowGreen"
+run/main_scene="res://Scenes/titleScreen.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://icon.svg"
+
+[dotnet]
+
+project/assembly_name="GrowGreen"
 
 [rendering]
 
