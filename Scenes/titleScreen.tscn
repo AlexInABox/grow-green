@@ -5,9 +5,10 @@
 [node name="TitleScreen" type="Node2D"]
 
 [node name="Button" type="Button" parent="."]
-offset_left = 409.0
-offset_top = 318.0
-offset_right = 725.0
-offset_bottom = 349.0
+offset_left = 319.0
+offset_top = 554.0
+offset_right = 635.0
+offset_bottom = 596.0
+scale = Vector2(3, 3)
 text = "Das ist mein Button bitte nicht drücken!"
 script = ExtResource("1_j8xma")

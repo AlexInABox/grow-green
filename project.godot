@@ -11,8 +11,18 @@ config_version=5
 [application]
 
 config/name="GrowGreen"
+config/description="Das ist mein Spiel!"
+config/version="4.5.2"
 run/main_scene="res://Scenes/titleScreen.tscn"
 config/features=PackedStringArray("4.3", "C#", "GL Compatibility")
+boot_splash/bg_color=Color(0.486275, 0.286275, 0.172549, 0.854902)
+boot_splash/show_image=false
+
+[display]
+
+window/size/viewport_width=1600
+window/size/viewport_height=1200
+window/size/resizable=false
 
 [dotnet]
 
