@@ -20,13 +20,17 @@ boot_splash/show_image=false
 
 [display]
 
-window/size/viewport_width=1600
-window/size/viewport_height=1200
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/size/resizable=false
 
 [dotnet]
 
 project/assembly_name="GrowGreen"
+
+[gui]
+
+theme/custom_font="res://PixelifySans-VariableFont_wght.ttf"
 
 [rendering]
 
