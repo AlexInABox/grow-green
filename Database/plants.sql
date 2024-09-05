@@ -2,7 +2,7 @@ INSERT INTO plants (class, name, water, place, level)
 VALUES ('Agave', 'Jahrhundertpflanze', 10, 'sun', 'easy'),
 	('Aglaonema', 'Kolbenpfaden', 7, 'cloud', 'easy'),
 	('Alocasia', 'Elefantenohr', 3, 'sun', 'hard'),
-	('Aloe Vera', 'Wüstenlilie', 10, 'sun', 'easy'),
+	('Aloe Vera', 'Wuestenlilie', 10, 'sun', 'easy'),
 	('Anthurium', 'Flamingoblumen', 7, 'partly', 'medium'),
 	('Aralia', 'Polyscias', 3, 'partly', 'medium'),
 	('Areca', 'Goldfruchtpalme', 3, 'partly', 'medium'),
