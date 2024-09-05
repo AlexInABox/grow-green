@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://bp4pm6nyj77pp"]
 
 [ext_resource type="Script" path="res://Scripts/StartGameButton.cs" id="1_j8xma"]
-[ext_resource type="Texture2D" uid="uid://cbcbowgwq3vjr" path="res://Textures/SnoopyAlien.png" id="2_dtjgp"]
-[ext_resource type="Texture2D" uid="uid://dt32ba3qmhdsh" path="res://Textures/PotAlien.png" id="3_6runn"]
+[ext_resource type="Texture2D" uid="uid://budx05tdgqvy0" path="res://Textures/Aliens/alien_snoopy.png" id="2_dtjgp"]
+[ext_resource type="Texture2D" uid="uid://dp4q5eewdkote" path="res://Textures/Aliens/alien_bookbalancer.png" id="3_6runn"]
 [ext_resource type="Script" path="res://Scripts/SnoopyAlien.cs" id="3_408km"]
-[ext_resource type="Texture2D" uid="uid://15achmvu1p8w" path="res://Textures/LadyAlien.png" id="4_8djou"]
-[ext_resource type="Texture2D" uid="uid://bhjdmjg540mr2" path="res://Textures/TitleBackgroundDemo.png" id="7_d8aej"]
+[ext_resource type="Texture2D" uid="uid://6n1r7dwg1utg" path="res://Textures/Aliens/alien_cutehat.png" id="4_8djou"]
+[ext_resource type="Texture2D" uid="uid://dg4m3mxd4m8kt" path="res://Textures/TitleBackgroundDemo.png" id="7_d8aej"]
 [ext_resource type="Texture2D" uid="uid://uq5amk2rjiey" path="res://Textures/Buttons/UI_Flat_Banner01a.png" id="7_e4g20"]
 
 [node name="TitleScreen" type="Node2D"]

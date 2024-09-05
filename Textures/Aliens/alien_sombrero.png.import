@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://15achmvu1p8w"
-path="res://.godot/imported/LadyAlien.png-bcc2c4050041a98648d818710331addb.ctex"
+uid="uid://bjx3snqfb17jy"
+path="res://.godot/imported/alien_sombrero.png-fc258f2c29a8101983ae5fab7d6c336a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/LadyAlien.png"
-dest_files=["res://.godot/imported/LadyAlien.png-bcc2c4050041a98648d818710331addb.ctex"]
+source_file="res://Textures/Aliens/alien_sombrero.png"
+dest_files=["res://.godot/imported/alien_sombrero.png-fc258f2c29a8101983ae5fab7d6c336a.ctex"]
 
 [params]
 

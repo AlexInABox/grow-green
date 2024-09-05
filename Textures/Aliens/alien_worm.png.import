@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dg4m3mxd4m8kt"
-path="res://.godot/imported/TitleBackgroundDemo.png-4aa2a713df7e974400105a67ebc9d03d.ctex"
+uid="uid://don867uga6wtk"
+path="res://.godot/imported/alien_worm.png-bfa0125cdd604b466cd0531ce814cbfa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/TitleBackgroundDemo.png"
-dest_files=["res://.godot/imported/TitleBackgroundDemo.png-4aa2a713df7e974400105a67ebc9d03d.ctex"]
+source_file="res://Textures/Aliens/alien_worm.png"
+dest_files=["res://.godot/imported/alien_worm.png-bfa0125cdd604b466cd0531ce814cbfa.ctex"]
 
 [params]
 
