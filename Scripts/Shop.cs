@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public partial class Shop : Node
 {
 	List<Plant> offers;
-    bool opened;
+	bool opened;
 
 	Player player;
 
