@@ -7,7 +7,7 @@ public partial class DatabaseWrapper
 {
 	private string pathToDB = @"Database/plants.db";
 
-	public async void InitializeDatabase(){
+	public void InitializeDatabase(){
 
 		//Create a local database and load the .sql file into it
 		string connectionString = "Data Source=" + pathToDB;
