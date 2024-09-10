@@ -5,7 +5,7 @@ using Microsoft.Data.Sqlite;
 
 public partial class DatabaseWrapper
 {
-	private string pathToDB = @"Database/plants.db";
+	private string pathToDB = @"Database/plants.db"; 
 
 	public void InitializeDatabase(){
 
@@ -36,5 +36,9 @@ public partial class DatabaseWrapper
 
             connection.Close();
         }
-	}
+    }
+
+    //TODO: Add getter method for retrieving all plants from the database as a List<Plant>
+    //TODO: Add setter method for saving a game state to another database
+    //TODO: Add a load method (getter) for loading a previously saved game state
 }
