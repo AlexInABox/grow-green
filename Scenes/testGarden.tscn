@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dvf2by6ii450u"]
+[gd_scene load_steps=3 format=3 uid="uid://dvf2by6ii450u"]
 
 [ext_resource type="Script" path="res://Scripts/Player.cs" id="1_bvvvi"]
+[ext_resource type="Script" path="res://Scripts/ClickablePlant.cs" id="2_7ghkp"]
 
 [node name="TestGarden" type="Node2D"]
 
@@ -8,10 +9,25 @@
 script = ExtResource("1_bvvvi")
 
 [node name="Node2D" type="Node2D" parent="."]
-position = Vector2(286, 259)
+position = Vector2(652, 324)
 
 [node name="Button" type="Button" parent="Node2D"]
-modulate = Color(0.970277, 0.25277, 0.914019, 1)
-self_modulate = Color(0.221289, 0.714509, 0.607338, 1)
-offset_right = 334.0
-offset_bottom = 368.0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("2_7ghkp")
+
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2(698, 324)
+
+[node name="Button" type="Button" parent="Node2D2"]
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("2_7ghkp")
+
+[node name="Node2D3" type="Node2D" parent="."]
+position = Vector2(750, 324)
+
+[node name="Button" type="Button" parent="Node2D3"]
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("2_7ghkp")
