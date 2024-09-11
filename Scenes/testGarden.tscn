@@ -1,34 +1,71 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvf2by6ii450u"]
+[gd_scene load_steps=8 format=3 uid="uid://dvf2by6ii450u"]
 
 [ext_resource type="Script" path="res://Scripts/Player.cs" id="1_bvvvi"]
-[ext_resource type="Script" path="res://Scripts/ClickablePlant.cs" id="2_7ghkp"]
+[ext_resource type="Script" path="res://Scripts/Pot.cs" id="2_xjim7"]
+[ext_resource type="Texture2D" uid="uid://m7pbbugmb62d" path="res://Textures/Plants/topf.png" id="3_2mpvm"]
+[ext_resource type="Script" path="res://Scripts/SnoopyAlien.cs" id="4_y0nte"]
+[ext_resource type="Texture2D" uid="uid://ckt2lbmbvplv7" path="res://Textures/Coin2.png" id="6_oyvyb"]
+[ext_resource type="Script" path="res://Scripts/CoinCount.cs" id="7_2j3d7"]
+[ext_resource type="Texture2D" uid="uid://dm8qfia335esp" path="res://Textures/TestBackground.png" id="7_frndc"]
 
 [node name="TestGarden" type="Node2D"]
 
 [node name="Player" type="Node" parent="."]
 script = ExtResource("1_bvvvi")
 
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(652, 324)
+[node name="EmptyPot" type="Node2D" parent="."]
+position = Vector2(239, 300)
+scale = Vector2(8, 8)
 
-[node name="Button" type="Button" parent="Node2D"]
+[node name="Button" type="Button" parent="EmptyPot"]
+modulate = Color(1, 1, 1, 0)
 offset_right = 8.0
 offset_bottom = 8.0
-script = ExtResource("2_7ghkp")
+script = ExtResource("2_xjim7")
 
-[node name="Node2D2" type="Node2D" parent="."]
-position = Vector2(698, 324)
+[node name="Pot" type="Sprite2D" parent="EmptyPot"]
+z_index = 25
+texture_filter = 3
+position = Vector2(4, -1)
+texture = ExtResource("3_2mpvm")
+script = ExtResource("4_y0nte")
 
-[node name="Button" type="Button" parent="Node2D2"]
+[node name="EmptyPot2" type="Node2D" parent="."]
+position = Vector2(410, 298)
+scale = Vector2(8, 8)
+
+[node name="Button" type="Button" parent="EmptyPot2"]
+modulate = Color(1, 1, 1, 0)
 offset_right = 8.0
 offset_bottom = 8.0
-script = ExtResource("2_7ghkp")
+script = ExtResource("2_xjim7")
 
-[node name="Node2D3" type="Node2D" parent="."]
-position = Vector2(750, 324)
+[node name="Pot" type="Sprite2D" parent="EmptyPot2"]
+z_index = 25
+texture_filter = 3
+position = Vector2(4, -1)
+texture = ExtResource("3_2mpvm")
+script = ExtResource("4_y0nte")
 
-[node name="Button" type="Button" parent="Node2D3"]
-offset_left = 0.00012207
-offset_right = 8.00012
-offset_bottom = 8.0
-script = ExtResource("2_7ghkp")
+[node name="Button2" type="Button" parent="."]
+texture_filter = 3
+offset_left = 1699.0
+offset_top = 46.0
+offset_right = 1872.0
+offset_bottom = 101.0
+theme_override_font_sizes/font_size = 23
+icon = ExtResource("6_oyvyb")
+icon_alignment = 2
+expand_icon = true
+script = ExtResource("7_2j3d7")
+
+[node name="PlayerController" type="Node2D" parent="."]
+script = ExtResource("1_bvvvi")
+
+[node name="TestBackground" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-1, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("7_frndc")
+centered = false
+offset = Vector2(0.5, 0.5)
