@@ -13,10 +13,16 @@ public partial class Plant : Node
     public string description; // Description
     public float cycle; // How often it needs to be watered
     public int waterStatus; // Current water level (0-100)
+    long watertStatusTimestamp;
     public bool isDead; // True if the plant is dead
     public int wateringImpact; // Amount of water added per click
     public int decayRate; // Decay per Time (from 100)
 
+
+    public Plant(){
+		watertStatusTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds();
+		GD.Print("KYS! : EPOCH: " + watertStatusTimestamp);
+	}
     public override void _Ready()
     {
         CheckForGrowth();
