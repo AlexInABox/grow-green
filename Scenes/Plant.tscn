@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b7a4wgpyrv26e"]
 
 [ext_resource type="Script" path="res://Scripts/ClickablePlant.cs" id="1_gqkpi"]
-[ext_resource type="Texture2D" uid="uid://qxbmq1eilhiy" path="res://Textures/Plants/agave3.png" id="2_cm01p"]
+[ext_resource type="Texture2D" uid="uid://b6hmioiqca432" path="res://Textures/Plants/agave1.png" id="2_t5afu"]
 
 [node name="Plant" type="Node2D"]
 texture_filter = 3
@@ -25,4 +25,4 @@ mouse_default_cursor_shape = 7
 
 [node name="Plant" type="Sprite2D" parent="."]
 z_index = 25
-texture = ExtResource("2_cm01p")
+texture = ExtResource("2_t5afu")

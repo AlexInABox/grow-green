@@ -62,7 +62,6 @@ script = ExtResource("7_2j3d7")
 script = ExtResource("1_bvvvi")
 
 [node name="TestBackground" type="Sprite2D" parent="."]
-visible = false
 z_index = -1
 z_as_relative = false
 position = Vector2(-1, 1)

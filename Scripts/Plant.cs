@@ -3,85 +3,94 @@ using System;
 
 public partial class Plant : Node
 {
+    public int cost; // Cost to purchase
+    public int sellValue; // Value when fully grown
+    public int yield; // Money Production per Day when fully grown
+    public int growDurationInDays; // Needed days for next stage (e.g., 7 days)
+    public int currentGrowProgress; // Current Progress (e.g., 3/7 days)
+    public int stage; // Current Stage 0=DriedOut, 1=Seed, 2=Sprout, 3=YoungPlant, 4=FullyGrown, 5=Rotten
+    public string name; // Name
+    public string description; // Description
+    public float cycle; // How often it needs to be watered
+    public int waterStatus; // Current water level (0-100)
+    public bool isDead; // True if the plant is dead
+    public int wateringImpact; // Amount of water added per click
+    public int decayRate; // Decay per Time (from 100)
 
-	public int cost; //Cost to purchase
-	public int sellValue; //Value when fully grown
-	public int yield; //Money Production per Day when fully grown
-	public int growDurationInDays; //Needed days for next stage (e.g. 7 days)
-	public int currentGrowProgress; //Current Progress (e.g. 3/7 days)
-	public int stage; //Current Stage 0=DriedOut, 1=Seed .... 3=FullyGrown, 4=Rotten
-	public String name; //Name
-	public String description; //Description
-	public float cycle; //How often does it need to be watered
-	public int waterStatus; //Current water level (0-100)
-	public bool isDead; //True if the plant is dead
-	public int wateringImpact; //Amount of water added per click
-	public int decayRate; //Decay per Time (fromm 100)
+    public override void _Ready()
+    {
+        CheckForGrowth();
+        if (GetWaterStatus() == 0)
+        {
+            GD.Print("The plant has dried out and is dead!");
+            isDead = true;
+        }
+    }
 
+    public double GetWaterStatus()
+    {
+        return waterStatus;
+    }
 
-	// Called when the node enters the scene tree for the first time.
-	/*public Plant(int cost, int sellValue, int yield, int growDurationInDays, int currentGrowProgress, int stage, string name, string description, float cycle, int wateringImpact, int decayRate)
-	{
-		this.cost = cost;
-		this.sellValue = sellValue;
-		this.yield = yield;
-		this.growDurationInDays = growDurationInDays;
-		this.currentGrowProgress = currentGrowProgress;
-		this.stage = stage;
-		this.name = name;
-		this.description = description;
-		this.cycle = cycle;
-		this.wateringImpact = wateringImpact;
-		this.decayRate = decayRate;
-	}*/
+    public void Decay()
+    {
+        waterStatus -= decayRate;
+        if (waterStatus <= 0)
+        {
+            waterStatus = 0;
+            isDead = true;
+        }
+    }
 
-	public override void _Ready()
-	{
-		CheckForGrowth();
-		if (GetWaterStatus() == 0) {
-			GD.Print("KYS! im mining bittcoin now! :3");
-			this.isDead = true;
-		}
+    public void SetWaterStatus(float value)
+    {
+        waterStatus = (int)value;
+    }
 
-	}
+    public void WaterPlant()
+    {
+        waterStatus += wateringImpact;
+        if (waterStatus > 100) waterStatus = 100; // Ensure water status does not exceed 100
+        CheckForGrowth();
+    }
 
-	public double GetWaterStatus(){
-		return waterStatus;
-	}
+    public void NextStage()
+    {
+        if (stage < 4) // Ensure stage does not exceed the maximum stage
+        {
+            stage++;
+            currentGrowProgress = 0; // Reset grow progress for the next stage
+        }
+    }
 
-	public void Decay()
-	{
-		waterStatus = waterStatus - decayRate;
-	}
-	public void SetWaterStatus(float value){}
-	public void WaterPlant(){
-		waterStatus += wateringImpact;
-		
-	}
+    public void CheckForGrowth()
+    {
+        if (currentGrowProgress >= growDurationInDays)
+        {
+            NextStage();
+        }
+        else
+        {
+            currentGrowProgress++;
+        }
+    }
 
-	public void NextStage(){
-		GD.PushError("KYS!!");
-	}
+    public bool CheckForDead()
+    {
+        if (GetWaterStatus() <= 0 || GetWaterStatus() >= 100)
+        {
+            GD.Print("The plant is dead!");
+            isDead = true;
+        }
+        return isDead;
+    }
 
-	public void CheckForGrowth(){
-		if (currentGrowProgress >= growDurationInDays){
-			NextStage();
-		}
-	}
-	
-	public bool CheckForDead(){
-		if (GetWaterStatus() >= 100 || GetWaterStatus() <= 0) {
-			GD.Print("KYS! Dont kill the plant idio!");
-			this.isDead = true;
-			
-		}
-		return isDead;
-	}
-	
-	
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-
-	}
+    public override void _Process(double delta)
+    {
+        if (!isDead)
+        {
+            Decay();
+            CheckForGrowth();
+        }
+    }
 }

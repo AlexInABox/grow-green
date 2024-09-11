@@ -1,19 +1,29 @@
 using Godot;
 using System;
 
-public partial class ClickablePlant : Node2D // Change from Button to Node2D
+public partial class ClickablePlant : Node2D
 {
     int counter = 0;
     Plant plant = new Plant();
     Player player = new Player();
     Button plantButton;
     Sprite2D plantSprite;
+    private Timer growthTimer; // Timer for plant growth
 
-    // Called when the node enters the scene tree for the first time.
+    // Tracks the current growth stage
+    private int growthStage = 0;
+
+    // Array of growth stage textures
+    private string[] growthTextures = {
+        "res://Textures/Plants/agave1.png",         // Stage 1: Seed
+        "res://Textures/Plants/agave2.png",       // Stage 2: Sprout
+        "res://Textures/Plants/agave3.png",  // Stage 3: Young Plant
+    };
+
     public override void _Ready()
     {
-        // Get the Button node from the scene
-        plantButton = GetNode<Button>("Button"); 
+        // Get the Button and Sprite2D nodes from the scene
+        plantButton = GetNode<Button>("Button");
         plantSprite = GetNode<Sprite2D>("Plant");
         plantButton.Pressed += ButtonPressed; // Connect the button signal
 
@@ -25,6 +35,14 @@ public partial class ClickablePlant : Node2D // Change from Button to Node2D
 
         // Update the button text with water status
         plantButton.Text = plant.GetWaterStatus().ToString();
+
+        // Create and configure the growth timer
+        growthTimer = new Timer();
+        growthTimer.WaitTime = 1.0f; // Change every 5 seconds
+        growthTimer.Autostart = true; // Automatically start the timer
+        growthTimer.OneShot = false; // Repeat the timer
+        growthTimer.Timeout += OnGrowthTimerTimeout; // Connect timer timeout signal
+        AddChild(growthTimer); // Add the timer as a child of this node
     }
 
     private void ButtonPressed()
@@ -33,7 +51,7 @@ public partial class ClickablePlant : Node2D // Change from Button to Node2D
         {
             plant.WaterPlant();
             plantButton.Text = plant.GetWaterStatus().ToString();
-            
+
             // Check again if the plant is dead after watering
             if (plant.CheckForDead())
             {
@@ -49,7 +67,7 @@ public partial class ClickablePlant : Node2D // Change from Button to Node2D
             QueueFree(); // Remove the entire plant scene
         }
     }
-    
+
     private void ChangePlantTexture(string texturePath)
     {
         // Load the new texture
@@ -66,7 +84,21 @@ public partial class ClickablePlant : Node2D // Change from Button to Node2D
         }
     }
 
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
+    private void OnGrowthTimerTimeout()
+    {
+        // Grow the plant by changing its texture
+        if (growthStage < growthTextures.Length)
+        {
+            ChangePlantTexture(growthTextures[growthStage]);
+            growthStage++; // Advance to the next growth stage
+        }
+        else
+        {
+            // Stop the timer if the plant is fully grown
+            growthTimer.Stop();
+        }
+    }
+
     public override void _Process(double delta)
     {
     }
