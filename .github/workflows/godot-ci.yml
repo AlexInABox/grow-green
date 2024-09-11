@@ -35,7 +35,7 @@ jobs:
           mkdir -v -p build/windows
           cd build/windows/
           pwd
-          godot --headless --verbose --build-solutions --export-release "Windows Desktop" grow-green.exe
+          godot --headless --build-solutions --export-release "Windows Desktop" /__w/grow-green/grow-green/build/windows/grow-green.exe
       - name: Proof Artifact Location
         run: 
           cd /__w/grow-green/grow-green/build/windows/ &&
