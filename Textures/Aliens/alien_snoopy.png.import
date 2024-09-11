@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cuav11g6foe40"
-path="res://.godot/imported/PlantDemo.png-dca0aa914ada82a6d34b404988af846e.ctex"
+uid="uid://budx05tdgqvy0"
+path="res://.godot/imported/alien_snoopy.png-6b3d2e43001fb39c5c2278aa4767a0f3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/PlantDemo.png"
-dest_files=["res://.godot/imported/PlantDemo.png-dca0aa914ada82a6d34b404988af846e.ctex"]
+source_file="res://Textures/Aliens/alien_snoopy.png"
+dest_files=["res://.godot/imported/alien_snoopy.png-6b3d2e43001fb39c5c2278aa4767a0f3.ctex"]
 
 [params]
 

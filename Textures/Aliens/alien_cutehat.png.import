@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbcbowgwq3vjr"
-path="res://.godot/imported/SnoopyAlien.png-cb96af860305814dc2ed9fb1ce5a9142.ctex"
+uid="uid://6n1r7dwg1utg"
+path="res://.godot/imported/alien_cutehat.png-ee10c62b388ef93771278609f3b3f403.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/SnoopyAlien.png"
-dest_files=["res://.godot/imported/SnoopyAlien.png-cb96af860305814dc2ed9fb1ce5a9142.ctex"]
+source_file="res://Textures/Aliens/alien_cutehat.png"
+dest_files=["res://.godot/imported/alien_cutehat.png-ee10c62b388ef93771278609f3b3f403.ctex"]
 
 [params]
 
