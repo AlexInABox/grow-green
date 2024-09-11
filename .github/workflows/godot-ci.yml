@@ -38,7 +38,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: windows
-          path: ../build/windows/$EXPORT_NAME.exe
+          path: build/windows/$EXPORT_NAME.exe
 
   export-linux:
     name: Linux Export
