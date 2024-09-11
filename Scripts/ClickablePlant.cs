@@ -7,12 +7,14 @@ public partial class ClickablePlant : Node2D // Change from Button to Node2D
     Plant plant = new Plant();
     Player player = new Player();
     Button plantButton;
+    Sprite2D plantSprite;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         // Get the Button node from the scene
-        plantButton = GetNode<Button>("Button"); // Adjust the path if necessary
+        plantButton = GetNode<Button>("Button"); 
+        plantSprite = GetNode<Sprite2D>("Plant");
         plantButton.Pressed += ButtonPressed; // Connect the button signal
 
         // Initialize plant and player properties
@@ -36,6 +38,7 @@ public partial class ClickablePlant : Node2D // Change from Button to Node2D
             if (plant.CheckForDead())
             {
                 plantButton.Text = "x"; // Show plant is dead
+                ChangePlantTexture("res://Textures/Plants/verfault.png");
             }
         }
         else
@@ -44,6 +47,22 @@ public partial class ClickablePlant : Node2D // Change from Button to Node2D
             player.coins += 100; // Add 100 coins
             GD.Print("Plant is dead. Player awarded 100 coins.");
             QueueFree(); // Remove the entire plant scene
+        }
+    }
+    
+    private void ChangePlantTexture(string texturePath)
+    {
+        // Load the new texture
+        Texture2D newTexture = (Texture2D)GD.Load(texturePath);
+        
+        // Assign the new texture to the Sprite2D
+        if (newTexture != null && plantSprite != null)
+        {
+            plantSprite.Texture = newTexture;
+        }
+        else
+        {
+            GD.Print("Failed to load texture or find Sprite2D.");
         }
     }
 
