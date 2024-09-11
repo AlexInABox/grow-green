@@ -28,6 +28,7 @@ script = ExtResource("2_7ghkp")
 position = Vector2(750, 324)
 
 [node name="Button" type="Button" parent="Node2D3"]
-offset_right = 8.0
+offset_left = 0.00012207
+offset_right = 8.00012
 offset_bottom = 8.0
 script = ExtResource("2_7ghkp")
