@@ -26,7 +26,6 @@ script = ExtResource("2_xjim7")
 [node name="Pot" type="Sprite2D" parent="EmptyPot"]
 z_index = 25
 texture_filter = 3
-position = Vector2(4, -1)
 texture = ExtResource("3_2mpvm")
 script = ExtResource("4_y0nte")
 
@@ -43,7 +42,7 @@ script = ExtResource("2_xjim7")
 [node name="Pot" type="Sprite2D" parent="EmptyPot2"]
 z_index = 25
 texture_filter = 3
-position = Vector2(4, -1)
+position = Vector2(-0.125, 0.125)
 texture = ExtResource("3_2mpvm")
 script = ExtResource("4_y0nte")
 
@@ -64,6 +63,8 @@ script = ExtResource("1_bvvvi")
 
 [node name="TestBackground" type="Sprite2D" parent="."]
 visible = false
+z_index = -1
+z_as_relative = false
 position = Vector2(-1, 1)
 scale = Vector2(2, 2)
 texture = ExtResource("7_frndc")
