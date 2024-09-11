@@ -69,10 +69,10 @@ jobs:
         run: 
           mkdir -v -p build/
           cd $PROJECT_PATH
-          dotnet build --output ../build/
+          dotnet build --output build/
 
       - name: 𝌚 Archieve Project Artifacts
         uses: actions/upload-artifact@v4
         with: 
           name: growgreen
-          path: ../build/
+          path: build/
