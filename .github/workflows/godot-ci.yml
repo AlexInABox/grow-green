@@ -33,13 +33,14 @@ jobs:
       - name: Windows Build
         run: |
           mkdir -v -p build/windows
-          ls -l
-          godot --headless --verbose --export-release "Windows Desktop" ../build/windows/$EXPORT_NAME.exe
+          cd build
+          pwd
+          godot --headless --verbose --export-release "Windows Desktop" ../build/windows/grow-green.exe
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: windows
-          path: build/windows/$EXPORT_NAME.exe
+          path: build/windows/grow-green.exe
 
   export-linux:
     name: Linux Export
