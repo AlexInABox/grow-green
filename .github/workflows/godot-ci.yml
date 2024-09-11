@@ -35,12 +35,12 @@ jobs:
           mkdir -v -p build/windows
           cd build
           pwd
-          godot --headless --verbose --export-release "Windows Desktop" ../build/windows/grow-green.exe
+          godot --headless --verbose --export-release "Windows Desktop" /__w/grow-green/grow-green/build/windows/grow-green.exe
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: windows
-          path: build/windows/grow-green.exe
+          path: /__w/grow-green/grow-green/build/windows/grow-green.exe
 
   export-linux:
     name: Linux Export
