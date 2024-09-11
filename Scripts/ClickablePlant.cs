@@ -1,6 +1,5 @@
 using Godot;
 using System;
-using GrowGreen.Scripts;
 
 public partial class ClickablePlant : Button
 {

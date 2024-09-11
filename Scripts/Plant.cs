@@ -20,7 +20,7 @@ public partial class Plant : Node
 
 
 	// Called when the node enters the scene tree for the first time.
-	public Plant(int cost, int sellValue, int yield, int growDurationInDays, int currentGrowProgress, int stage, string name, string description, float cycle, int wateringImpact, int decayRate)
+	/*public Plant(int cost, int sellValue, int yield, int growDurationInDays, int currentGrowProgress, int stage, string name, string description, float cycle, int wateringImpact, int decayRate)
 	{
 		this.cost = cost;
 		this.sellValue = sellValue;
@@ -33,7 +33,7 @@ public partial class Plant : Node
 		this.cycle = cycle;
 		this.wateringImpact = wateringImpact;
 		this.decayRate = decayRate;
-	}
+	}*/
 
 	public override void _Ready()
 	{
