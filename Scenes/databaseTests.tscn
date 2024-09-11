@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1rnoxd81oid4"]
+
+[ext_resource type="Script" path="res://Scripts/DatabaseButton.cs" id="1_f1gw8"]
+
+[node name="DatabaseTests" type="Node2D"]
+
+[node name="Load Game" type="Button" parent="."]
+z_index = 2
+z_as_relative = false
+offset_left = 696.0
+offset_top = 320.0
+offset_right = 865.0
+offset_bottom = 348.0
+scale = Vector2(3, 3)
+text = "Initialisiere die freaky Datenbank"
+script = ExtResource("1_f1gw8")
+
+[node name="New Game" type="Button" parent="."]
+z_index = 2
+z_as_relative = false
+offset_left = 696.0
+offset_top = 424.0
+offset_right = 865.0
+offset_bottom = 452.0
+scale = Vector2(3, 3)
+text = "ich kann nichts"
+
+[node name="Settings" type="Button" parent="."]
+z_index = 2
+z_as_relative = false
+offset_left = 696.0
+offset_top = 528.0
+offset_right = 865.0
+offset_bottom = 556.0
+scale = Vector2(3, 3)
+text = "ich kann nichts"
+
+[node name="Credits" type="Button" parent="."]
+z_index = 2
+z_as_relative = false
+offset_left = 696.0
+offset_top = 632.0
+offset_right = 865.0
+offset_bottom = 660.0
+scale = Vector2(3, 3)
+text = "ich kann nichts"

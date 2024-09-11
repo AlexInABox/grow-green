@@ -16,3 +16,6 @@ mono_crash.*.json
 
 #Macos
 .DS_Store
+
+#Ignore the .db file
+Database/plants.db

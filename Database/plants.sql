@@ -1,3 +1,13 @@
+DROP TABLE IF EXISTS plants;
+CREATE TABLE "plants" (
+	"class"	TEXT,
+	"name"	TEXT,
+	"water"	INTEGER,
+	"place"	TEXT,
+	"level"	TEXT,
+	PRIMARY KEY("class")
+);
+
 INSERT INTO plants (class, name, water, place, level)
 VALUES ('Agave', 'Jahrhundertpflanze', 10, 'sun', 'easy'),
 	('Aglaonema', 'Kolbenpfaden', 7, 'cloud', 'easy'),
