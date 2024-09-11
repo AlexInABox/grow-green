@@ -63,13 +63,13 @@ jobs:
           godot --version
 
       - name: 🧑‍🔬 Generate .NET Bindings
-        run: godot --headless --build-solutions --quit || exit 0
+        run: godot --headless --build-solutions --export-release $PROJECT_PATH/build/ || exit 0
 
       - name: 🦺 Build Projects
         run: 
-          mkdir -v -p build/
+          mkdir -v -p $PROJECT_PATH/build/
           cd $PROJECT_PATH
-          dotnet build --output build/
+          dotnet build --output $PROJECT_PATH/build/
 
       - name: 𝌚 Archieve Project Artifacts
         uses: actions/upload-artifact@v4
