@@ -38,9 +38,9 @@ jobs:
           godot --headless --verbose --build-solutions --export-release "Windows Desktop" grow-green.exe
       - name: Proof Artifact Location
         run: 
-          ls -l
-          pwd
-          cd /__w/grow-green/grow-green/build/windows/
+          ls -l &&
+          pwd &&
+          cd /__w/grow-green/grow-green/build/windows/ &&
           ls -l
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
