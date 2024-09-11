@@ -26,6 +26,8 @@ jobs:
       - name: Install git-lfs
         run: |
           apt-get update && apt-get install git-lfs
+          cd /root/.local/share/godot/export_templates/
+          ls -la
       - name: Checkout
         uses: actions/checkout@v4
         with:
