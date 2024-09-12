@@ -1,5 +1,4 @@
 name: "Godot Release"
-run-name: ${{ github.actor }} is building this GODOT Project for Release!
 on:
   workflow_dispatch:
       inputs:
