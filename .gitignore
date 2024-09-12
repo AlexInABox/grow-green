@@ -19,3 +19,6 @@ mono_crash.*.json
 
 #Ignore the .db file
 Database/plants.db
+
+#Rider .idea folder
+.idea/
