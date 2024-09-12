@@ -64,6 +64,11 @@ jobs:
       - name: Setup
         run: |
           mkdir -v -p ~/.local/share/godot/export_templates/
+          mv /root/.local/share/godot/export_templates/4.3.stable.mono ~/.local/share/godot/export_templates/4.3.stable.mono
+      - name: Linux Build
+        run: |
+          mkdir -v -p build/linux
+           wget https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
           dpkg -i packages-microsoft-prod.deb
           rm packages-microsoft-prod.deb
           apt-get update
@@ -71,11 +76,6 @@ jobs:
           apt-get install -y dotnet-sdk-8.0
           echo 'export DOTNET_ROOT=$HOME/.dotnet' >> ~/.bashrc
           source ~/.bashrc
-          mv /root/.local/share/godot/export_templates/4.3.stable.mono ~/.local/share/godot/export_templates/4.3.stable.mono
-      - name: Linux Build
-        run: |
-          mkdir -v -p build/linux
-          cd $PROJECT_PATH
           godot --headless --verbose --export-release "Linux" ../build/linux/GrowGreen.x86_64
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
@@ -96,6 +96,11 @@ jobs:
       - name: Setup
         run: |
           mkdir -v -p ~/.local/share/godot/export_templates/
+          mv /root/.local/share/godot/export_templates/4.3.stable.mono ~/.local/share/godot/export_templates/4.3.stable.mono
+      - name: Mac Build
+        run: |
+          mkdir -v -p build/mac
+           wget https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
           dpkg -i packages-microsoft-prod.deb
           rm packages-microsoft-prod.deb
           apt-get update
@@ -103,11 +108,6 @@ jobs:
           apt-get install -y dotnet-sdk-8.0
           echo 'export DOTNET_ROOT=$HOME/.dotnet' >> ~/.bashrc
           source ~/.bashrc
-          mv /root/.local/share/godot/export_templates/4.3.stable.mono ~/.local/share/godot/export_templates/4.3.stable.mono
-      - name: Mac Build
-        run: |
-          mkdir -v -p build/mac
-          cd $PROJECT_PATH
           godot --headless --verbose --export-release "macOS" ../build/mac/GrowGreen.zip
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
