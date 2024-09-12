@@ -41,7 +41,7 @@ jobs:
 
         - name: Prepare Godot 4
           run: |
-            wget -q -O godot_linux.zip https://github.com/godotengine/godot/releases/download/${{ env.GODOT_VERSION }}-stable/Godot_v${{ env.GODOT_VERSION }}-stable_mono_linux.x86_64.zip
+            wget -q -O godot_linux.zip https://github.com/godotengine/godot/releases/download/${{ env.GODOT_VERSION }}-stable/Godot_v${{ env.GODOT_VERSION }}-stable_mono_linux_x86_64.zip
             unzip godot_linux.zip
             wget -q -O godot_export_templates.tpz https://github.com/godotengine/godot-builds/releases/download/${{ env.GODOT_VERSION }}-stable/Godot_v${{ env.GODOT_VERSION }}-stable_export_templates.tpz
             mkdir -p ~/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable
