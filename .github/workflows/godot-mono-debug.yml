@@ -36,7 +36,7 @@ jobs:
       - name: Windows Build
         run: |
           mkdir -v -p build/windows
-          apt-get install -y dotnet-sdk-8.0
+          apt-get install -y dotnet
           echo 'export DOTNET_ROOT=$HOME/.dotnet' >> ~/.bashrc
           source ~/.bashrc
           godot --headless --verbose --export-release "Windows Desktop" ../build/windows/GrowGreen.exe
@@ -59,7 +59,7 @@ jobs:
       - name: Setup
         run: |
           mkdir -v -p ~/.local/share/godot/export_templates/
-          apt-get install -y dotnet-sdk-8.0
+          apt-get install -y dotnet
           echo 'export DOTNET_ROOT=$HOME/.dotnet' >> ~/.bashrc
           source ~/.bashrc
           mv /root/.local/share/godot/export_templates/4.3.stable.mono ~/.local/share/godot/export_templates/4.3.stable.mono
@@ -87,7 +87,7 @@ jobs:
       - name: Setup
         run: |
           mkdir -v -p ~/.local/share/godot/export_templates/
-          apt-get install -y dotnet-sdk-8.0
+          apt-get install -y dotnet
           echo 'export DOTNET_ROOT=$HOME/.dotnet' >> ~/.bashrc
           source ~/.bashrc
           mv /root/.local/share/godot/export_templates/4.3.stable.mono ~/.local/share/godot/export_templates/4.3.stable.mono
