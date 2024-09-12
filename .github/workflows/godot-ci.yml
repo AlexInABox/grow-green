@@ -40,7 +40,7 @@ jobs:
           run: pacman -Syu --noconfirm git bash yasm python python-pip wget unzip tar mingw-w64
 
         - name: Set permissions
-          run: sudo chmod -R 777 .
+          run: chmod -R 777 .
 
         - name: Prepare Godot 4
           run: |
