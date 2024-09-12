@@ -44,10 +44,7 @@ jobs:
           mv /root/.local/share/godot/export_templates/4.3.stable.mono ~/.local/share/godot/export_templates/4.3.stable.mono
           chmod -R 777 ~/.local/share/godot/export_templates
           cd ~/.local/share/godot/export_templates/4.3.stable.mono
-          pwd
-          ls -a
           cd
-          pwd
 
           
       - name: Setup .NET
@@ -83,10 +80,23 @@ jobs:
           lfs: true
 
           
-      - name: Setup Directories
+      - name: Set permissions
+        run: chmod -R 777 .
+
+      - name: Setting extra variables
+        run: |
+            echo "DATE=$(date + '%Y-%m-%d')" >> $GITHUB_ENV
+            echo "MAIN_FOLDER=$(pwd)" >> $GITHUB_ENV
+          
+
+      
+      - name: Setup Godot Templates
         run: |
           mkdir -v -p ~/.local/share/godot/export_templates/
           mv /root/.local/share/godot/export_templates/4.3.stable.mono ~/.local/share/godot/export_templates/4.3.stable.mono
+          chmod -R 777 ~/.local/share/godot/export_templates
+          cd ~/.local/share/godot/export_templates/4.3.stable.mono
+          cd
 
           
       - name: Setup .NET
@@ -120,10 +130,25 @@ jobs:
         uses: actions/checkout@v4
         with:
           lfs: true
-      - name: Setup Directories
+
+
+      - name: Set permissions
+        run: chmod -R 777 .
+
+      - name: Setting extra variables
+        run: |
+            echo "DATE=$(date + '%Y-%m-%d')" >> $GITHUB_ENV
+            echo "MAIN_FOLDER=$(pwd)" >> $GITHUB_ENV
+          
+
+      
+      - name: Setup Godot Templates
         run: |
           mkdir -v -p ~/.local/share/godot/export_templates/
           mv /root/.local/share/godot/export_templates/4.3.stable.mono ~/.local/share/godot/export_templates/4.3.stable.mono
+          chmod -R 777 ~/.local/share/godot/export_templates
+          cd ~/.local/share/godot/export_templates/4.3.stable.mono
+          cd
 
           
       - name: Setup .NET
