@@ -44,7 +44,6 @@ jobs:
             mkdir -p ~/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable
             unzip godot_export_templates.tpz -d ~/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable
             mv ~/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable/templates/* ~/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable/
-            sed -i 's/config\/version="[^"]*"/config\/version="${{ env.DATE }}-debug"/' ${{ env.GODOT_PROJECT_LOCATION }}
 
         - name: Building Linux
           run: |
