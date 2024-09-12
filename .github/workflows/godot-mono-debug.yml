@@ -43,11 +43,7 @@ jobs:
           apt-get update
           apt-get install -y dotnet-host
           apt-get install -y dotnet-sdk-8.0
-          export DOTNET_ROOT=$HOME/.dotnet
-
-          
-      - name: Display .NET SDK Info
-        run: dotnet --info
+          export DOTNET_ROOT=/usr/share/dotnet
 
       - name: Windows Build
         run: |
