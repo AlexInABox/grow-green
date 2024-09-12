@@ -2,7 +2,7 @@ name: "Godot Debug"
 on:
   workflow_dispatch:
       inputs:
-        based_question:
+        question:
           description: 'Alexx on top?'
           required: false
           default: 'YESSS'
