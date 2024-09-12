@@ -40,8 +40,7 @@ jobs:
           apt-get update
           apt-get install -y dotnet-host
           apt-get install -y dotnet-sdk-8.0
-          echo 'export DOTNET_ROOT=$HOME/.dotnet' >> ~/.bashrc
-          source ~/.bashrc
+          export DOTNET_ROOT=$HOME/.dotnet
       - name: Windows Build
         run: |
           mkdir -v -p build/windows
@@ -74,8 +73,7 @@ jobs:
           apt-get update
           apt-get install -y dotnet-host
           apt-get install -y dotnet-sdk-8.0
-          echo 'export DOTNET_ROOT=$HOME/.dotnet' >> ~/.bashrc
-          source ~/.bashrc
+          export DOTNET_ROOT=$HOME/.dotnet
       - name: Linux Build
         run: |
           mkdir -v -p build/linux
@@ -108,8 +106,7 @@ jobs:
           apt-get update
           apt-get install -y dotnet-host
           apt-get install -y dotnet-sdk-8.0
-          echo 'export DOTNET_ROOT=$HOME/.dotnet' >> ~/.bashrc
-          source ~/.bashrc
+          export DOTNET_ROOT=$HOME/.dotnet
       - name: Mac Build
         run: |
           mkdir -v -p build/mac
