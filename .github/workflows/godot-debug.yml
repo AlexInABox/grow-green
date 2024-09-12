@@ -1,4 +1,5 @@
-name: "godot-ci-debug"
+name: "godot-ci debug"
+run-name: ${{ github.actor }} is building this GODOT Project for Debug!
 on:
   workflow_dispatch:
       inputs:
