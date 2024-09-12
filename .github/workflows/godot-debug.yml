@@ -17,7 +17,6 @@ env:
   EXPORT_FOLDER_LINUX: bin/Linux
   EXPORT_FOLDER_MACOS: bin/MacOS
   EXPORT_FOLDER_WINDOWS: bin/Windows
-  EXPORT_FOLDER_WEB: bin/Web
   APPLICATION_NAME: GrowGreen
 
 jobs:
@@ -76,3 +75,15 @@ jobs:
           with:
             name: ${{ env.APPLICATION_NAME }}_windows_debug_${{ env.DATE }}
             path: ${{ env.EXPORT_FOLDER_WINDOWS }}/
+
+
+        - name: Building MacOS
+          run: |
+            mkdir -p ${{ env.EXPORT_FOLDER_MACOS }}
+            ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 --import ${{ env.GODOT_PROJECT_LOCATION }} --quiet --headless --export-debug "macOS" ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_MACOS }}/${{ env.APPLICATION_NAME }}.dmg
+
+        - name: Upload MacOS Artifact
+          uses: actions/upload-artifact@v4
+          with:
+            name: ${{ env.APPLICATION_NAME }}_macos_debug_${{ env.DATE }}
+            path: ${{ env.EXPORT_FOLDER_MACOS }}/
