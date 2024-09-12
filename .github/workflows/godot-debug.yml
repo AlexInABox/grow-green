@@ -1,4 +1,4 @@
-name: "godot-ci export"
+name: "godot-ci-debug"
 on:
   workflow_dispatch:
       inputs:
@@ -19,11 +19,9 @@ env:
   EXPORT_FOLDER_WINDOWS: bin/Windows
   EXPORT_FOLDER_WEB: bin/Web
   APPLICATION_NAME: GrowGreen
-  EXPORT_NAME: grow-green
-  PROJECT_PATH: grow-green
 
 jobs:
-  build:
+  GODOT_Build:
     runs-on: ubuntu-latest
     container:
         image: archlinux:latest
