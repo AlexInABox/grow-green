@@ -2,7 +2,7 @@ name: "godot-ci export"
 on:
   workflow_dispatch:
       inputs:
-        create_release:
+        based_question:
           description: 'Alexx on top?'
           required: false
           default: 'YESSS'
@@ -12,29 +12,64 @@ on:
             - 'nuUh!'
           
 env:
-  GODOT_VERSION: 4.2.1
+  GODOT_VERSION: 4.5.2
+  GODOT_PROJECT_LOCATION: ./project.godot
+  EXPORT_FOLDER_LINUX: bin/Linux
+  EXPORT_FOLDER_MACOS: bin/MacOS
+  EXPORT_FOLDER_WINDOWS: bin/Windows
+  EXPORT_FOLDER_WEB: bin/Web
+  APPLICATION_NAME: GrowGreen
   EXPORT_NAME: grow-green
   PROJECT_PATH: grow-green
 
 jobs:
-  Godot:
+  build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        platform: [linux, windows, mac]
+    container:
+        image: archlinux:latest
     steps:
-      - uses: actions/checkout@v4
-        with:
-          lfs: true
-      - name: Build
-        id: build
-        uses: manleydev/build-godot-action@v1.4.1
-        with:
-          name: example
-          preset: ${{ matrix.platform }}
-          debugMode: "true"
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: Client - ${{ matrix.platform }}
-          path: ${{ github.workspace }}/${{ steps.build.outputs.build }}
+        - name: Setting extra variables
+          run: |
+            echo "DATE=$(date + '%Y-%m-%d')" >> $GITHUB_ENV
+            echo "MAIN_FOLDER=$(pwd)" >> $GITHUB_ENV
+
+        - name: Installing Dependencies
+          run: pacman -Syu --noconfirm git bash yasm python python-pip wget unzip tar mingw-w64
+
+        - name: Prepare Godot 4
+          run: |
+            wget -q -O godot_linux.zip https://github.com/godotengine/godot-builds/releases/download/${{ env.GODOT_VERSION }}-stable/Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64.zip
+            unzip godot_linux.zip
+            wget -q -O godot_export_templates.tpz https://github.com/godotengine/godot-builds/releases/download/${{ env.GODOT_VERSION }}-stable/Godot_v${{ env.GODOT_VERSION }}-stable_export_templates.tpz
+            mkdir -p ~/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable
+            unzip godot_export_templates.tpz -d ~/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable
+            mv ~/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable/templates/* ~/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable/
+            sed -i 's/config\/version="[^"]*"/config\/version="${{ env.DATE }}-debug"/' ${{ env.GODOT_PROJECT_LOCATION }}
+
+        - name: Building Linux
+          run: |
+            mkdir -p ${{ env.EXPORT_FOLDER_LINUX }}
+            ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 --import ${{ env.GODOT_PROJECT_LOCATION }} --quiet --headless --export-debug Linux ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_LINUX }}/${{ env.APPLICATION_NAME }}.x86_64
+            chmod +x ${{ env.EXPORT_FOLDER_LINUX }}/${{ env.APPLICATION_NAME }}.sh
+            chmod +x ${{ env.EXPORT_FOLDER_LINUX }}/${{ env.APPLICATION_NAME }}.x86_64
+        - name: Tar files
+          run: tar -cvf ${{ env.APPLICATION_NAME }}_linux_debug_${{ env.DATE }}.tar ${{ env.EXPORT_FOLDER_LINUX }}
+
+        - name: Upload Linux Artifact
+          uses: actions/upload-artifact@v4
+          with:
+            name: ${{ env.APPLICATION_NAME }}_linux_debug_${{ env.DATE }}.tar
+            path: ${{ env.APPLICATION_NAME }}_linux_debug_${{ env.DATE }}.tar
+
+
+
+        - name: Building Windows
+          run: |
+            mkdir -p ${{ env.EXPORT_FOLDER_WINDOWS }}
+            ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 --import ${{ env.GODOT_PROJECT_LOCATION }} --quiet --headless --export-debug Windows ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_WINDOWS }}/${{ env.APPLICATION_NAME }}.exe
+
+        - name: Upload Windows Artifact
+          uses: actions/upload-artifact@v4
+          with:
+            name: ${{ env.APPLICATION_NAME }}_windows_debug_${{ env.DATE }}
+            path: ${{ env.EXPORT_FOLDER_WINDOWS }}/
