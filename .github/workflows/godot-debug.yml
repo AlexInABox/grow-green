@@ -34,7 +34,7 @@ jobs:
             echo "MAIN_FOLDER=$(pwd)" >> $GITHUB_ENV
 
         - name: Installing Dependencies
-          run: pacman -Syu --noconfirm git bash yasm python python-pip wget unzip tar mingw-w64
+          run: pacman -Syu --noconfirm git bash yasm python python-pip wget unzip tar mingw-w64 libfontconfig
 
         - name: Set permissions
           run: chmod -R 777 .
@@ -79,7 +79,6 @@ jobs:
 
         - name: Building MacOS
           run: |
-            sudo apt-get install libfontconfig
             mkdir -p ${{ env.EXPORT_FOLDER_MACOS }}
             ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 --import ${{ env.GODOT_PROJECT_LOCATION }} --quiet --headless --export-debug "macOS" ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_MACOS }}/${{ env.APPLICATION_NAME }}.app
 
