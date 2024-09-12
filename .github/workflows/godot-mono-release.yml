@@ -75,7 +75,7 @@ jobs:
           draft: false
           prerelease: false
           release_name: windows
-          tag_name: ${{ github.ref }}
+          tag_name: windows-${{ github.run_number }}
         env:
           GITHUB_TOKEN: ${{ github.token }}
 
@@ -148,7 +148,7 @@ jobs:
           draft: false
           prerelease: false
           release_name: linux
-          tag_name: ${{ github.ref }}
+          tag_name: ${{ github.run_number }}
         env:
           GITHUB_TOKEN: ${{ github.token }}
 
@@ -222,7 +222,7 @@ jobs:
           draft: false
           prerelease: false
           release_name: windows
-          tag_name: ${{ github.ref }}
+          tag_name: ${{ github.run_number }}
         env:
           GITHUB_TOKEN: ${{ github.token }}
 
