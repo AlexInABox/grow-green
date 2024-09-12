@@ -68,26 +68,13 @@ jobs:
           name: windows
           path: build/windows
 
-      - name: Release Windows
-        uses: actions/create-release@v1
-        id: create_windows_release
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
         with:
-          draft: false
-          prerelease: false
-          release_name: windows
-          tag_name: windows-${{ github.run_number }}
+          draft: true
+          files: build/windows/GrowGreen.exe
         env:
-          GITHUB_TOKEN: ${{ github.token }}
-
-      - name: Upload Windows Artifact
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        with:
-          upload_url: ${{ steps.create_windows_release.outputs.upload_url }}
-          asset_path: build/windows/GrowGreen.exe
-          asset_name: GrowGreen.exe
-          asset_content_type: application/zip
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   export-linux:
     name: Linux Export
@@ -141,27 +128,13 @@ jobs:
           name: linux
           path: build/linux
 
-      - name: Release Linux
-        uses: actions/create-release@v1
-        id: create_linux_release
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
         with:
-          draft: false
-          prerelease: false
-          release_name: linux
-          tag_name: ${{ github.run_number }}
+          draft: true
+          files: build/linux/GrowGreen.x86_64
         env:
-          GITHUB_TOKEN: ${{ github.token }}
-
-
-      - name: Upload Linux Artifact
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        with:
-          upload_url: ${{ steps.create_linux_release.outputs.upload_url }}
-          asset_path: build/linux/GrowGreen.x86_64
-          asset_name: GrowGreen.x86_64
-          asset_content_type: application/zip
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   export-mac:
     name: Mac Export
@@ -215,23 +188,10 @@ jobs:
           name: mac
           path: build/mac
 
-      - name: Release MacOS
-        uses: actions/create-release@v1
-        id: create_macos_release
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
         with:
-          draft: false
-          prerelease: false
-          release_name: windows
-          tag_name: ${{ github.run_number }}
+          draft: true
+          files: build/mac/GrowGreen.zip
         env:
-          GITHUB_TOKEN: ${{ github.token }}
-
-      - name: Upload MacOS Artifact
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        with:
-          upload_url: ${{ steps.create_macos_release.outputs.upload_url }}
-          asset_path: build/mac/GrowGreen.zip
-          asset_name: GrowGreen.zip
-          asset_content_type: application/zip
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
