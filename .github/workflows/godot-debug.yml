@@ -41,17 +41,29 @@ jobs:
 
         - name: Prepare Godot 4
           run: |
+            # get godot, unzip and move to folder
             wget -q -O godot_linux.zip https://github.com/godotengine/godot/releases/download/${{ env.GODOT_VERSION }}-stable/Godot_v${{ env.GODOT_VERSION }}-stable_mono_linux_x86_64.zip
-            unzip godot_linux.zip
+            unzip -q godot_linux.zip
+            mv Godot_v${{ env.GODOT_VERSION }}-stable_mono_linux_x86_64 Godot
+
+            # get export templates, unzip, move to folder, set permissions
             wget -q -O godot_export_templates.tpz https://github.com/godotengine/godot-builds/releases/download/${{ env.GODOT_VERSION }}-stable/Godot_v${{ env.GODOT_VERSION }}-stable_export_templates.tpz
             mkdir -p ~/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable
             unzip godot_export_templates.tpz -d ~/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable
+            chmod -R 777 ~/.local/share/godot/export_templates
+            chmod +x Godot/Godot_v${{ env.GODOT_VERSION }}-stable_mono_linux.x86_64
+
+            # move templates
             mv ~/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable/templates/* ~/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable/
+
+            # proof existence of templates
+            ls -la ~/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable
+            ls -la Godot/
 
         - name: Building Linux
           run: |
             mkdir -p ${{ env.EXPORT_FOLDER_LINUX }}
-            cd Godot_v${{ env.GODOT_VERSION }}-stable_mono_linux_x86_64
+            cd Godot
             ./Godot_v${{ env.GODOT_VERSION }}-stable_mono_linux.x86_64 --import ${{ env.GODOT_PROJECT_LOCATION }} --quiet --headless --export-debug Linux ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_LINUX }}/${{ env.APPLICATION_NAME }}.x86_64
             chmod +x ${{ env.EXPORT_FOLDER_LINUX }}/${{ env.APPLICATION_NAME }}.sh
             chmod +x ${{ env.EXPORT_FOLDER_LINUX }}/${{ env.APPLICATION_NAME }}.x86_64
