@@ -73,7 +73,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           draft: true
-          files: build/windows/GrowGreen.exe
+          files: build/windows/GrowGreen_windows.exe
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -134,7 +134,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           draft: true
-          files: build/linux/GrowGreen.x86_64
+          files: build/linux/GrowGreen_linux.x86_64
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -195,6 +195,6 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           draft: true
-          files: build/mac/GrowGreen.zip
+          files: build/mac/GrowGreen_macos.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
