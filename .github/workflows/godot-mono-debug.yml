@@ -113,7 +113,7 @@ jobs:
       - name: Linux Build
         run: |
           mkdir -v -p build/linux
-          godot --headless --verbose --export-release "Linux" ../build/linux/GrowGreen.x86_64
+          godot --headless --verbose --export-release "Linux" ./build/linux/GrowGreen.x86_64
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
@@ -165,7 +165,7 @@ jobs:
       - name: Mac Build
         run: |
           mkdir -v -p build/mac
-          godot --headless --verbose --export-release "macOS" ../build/mac/GrowGreen.zip
+          godot --headless --verbose --export-release "macOS" ./build/mac/GrowGreen.zip
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
