@@ -63,6 +63,26 @@ jobs:
             name: ${{ env.APPLICATION_NAME }}_linux_release_${{ env.DATE }}.tar
             path: ${{ env.APPLICATION_NAME }}_linux_release_${{ env.DATE }}.tar
 
+        - name: Create Linux Release
+          id: create_linux_release
+          uses: actions/create-release@v1
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+          with:
+            tag_name: ${{ github.ref }}
+            release_name: Release ${{ github.ref }}
+            draft: false
+            prerelease: false
+
+        - name: Upload Linux Artifact to Release
+          uses: actions/upload-release-asset@v1
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          with:
+            upload_url: ${{ steps.create_linux_release.outputs.upload_url }}
+            asset_path: ${{ env.APPLICATION_NAME }}_linux_release_${{ env.DATE }}.tar
+            asset_name: ${{ env.APPLICATION_NAME }}_linux_release_${{ env.DATE }}.tar
+            asset_content_type: application/x-tar
 
 
         - name: Building Windows
@@ -75,3 +95,24 @@ jobs:
           with:
             name: ${{ env.APPLICATION_NAME }}_windows_release_${{ env.DATE }}
             path: ${{ env.EXPORT_FOLDER_WINDOWS }}/
+
+        - name: Create Windows Release
+          id: create_windows_release
+          uses: actions/create-release@v1
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+          with:
+            tag_name: ${{ github.ref }}
+            release_name: Release ${{ github.ref }}
+            draft: false
+            prerelease: false
+
+        - name: Upload Artifact to Release
+          uses: actions/upload-release-asset@v1
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          with:
+            upload_url: ${{ steps.create_windows_release.outputs.upload_url }}
+            asset_path: ${{ env.EXPORT_FOLDER_WINDOWS }}/${{ env.APPLICATION_NAME }}.exe
+            asset_name: ${{ env.APPLICATION_NAME }}_windows_release_${{ env.DATE }}.exe
+            asset_content_type: application/octet-stream
