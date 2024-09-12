@@ -34,7 +34,7 @@ jobs:
             echo "MAIN_FOLDER=$(pwd)" >> $GITHUB_ENV
 
         - name: Installing Dependencies
-          run: pacman -Syu --noconfirm git bash yasm python python-pip wget unzip tar mingw-w64 fontconfig
+          run: pacman -Syu --noconfirm git bash yasm python python-pip wget unzip tar mingw-w64 fontconfig dotnet-sdk
 
         - name: Set permissions
           run: chmod -R 777 .
