@@ -21,7 +21,7 @@ jobs:
     name: Windows Export
     runs-on: ubuntu-latest
     container:
-      image: barichello/godot-ci:mono-${GODOT_VERSION}
+      image: barichello/godot-ci:mono-${{ env.GODOT_VERSION }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -31,13 +31,13 @@ jobs:
       - name: Setup Godot 4
         run: |
           mkdir -v -p ~/.local/share/godot/export_templates/
-          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+          mv /root/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable ~/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable
       
       - name: Windows Build
         run: |
           mkdir -v -p build/windows
           cd $PROJECT_PATH
-          godot --headless --verbose --export-release "Windows Desktop" ../build/windows/$EXPORT_NAME.exe
+          godot --headless --verbose --export-release "Windows Desktop" ../build/windows/${{ env.EXPORT_NAME }}.exe
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
@@ -48,7 +48,7 @@ jobs:
     name: Linux Export
     runs-on: ubuntu-20.04
     container:
-      image: barichello/godot-ci:mono-${GODOT_VERSION}
+      image: barichello/godot-ci:mono-${{ env.GODOT_VERSION }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -57,12 +57,12 @@ jobs:
       - name: Setup
         run: |
           mkdir -v -p ~/.local/share/godot/export_templates/
-          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+          mv /root/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable ~/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable
       - name: Linux Build
         run: |
           mkdir -v -p build/linux
           cd $PROJECT_PATH
-          godot --headless --verbose --export-release "Linux" ../build/linux/$EXPORT_NAME.x86_64
+          godot --headless --verbose --export-release "Linux" ../build/linux/${{ env.EXPORT_NAME }}.x86_64
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
@@ -73,7 +73,7 @@ jobs:
     name: Mac Export
     runs-on: ubuntu-latest
     container:
-      image: barichello/godot-ci:mono-${GODOT_VERSION}
+      image: barichello/godot-ci:mono-${{ env.GODOT_VERSION }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -82,12 +82,12 @@ jobs:
       - name: Setup
         run: |
           mkdir -v -p ~/.local/share/godot/export_templates/
-          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+          mv /root/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable ~/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable
       - name: Mac Build
         run: |
           mkdir -v -p build/mac
           cd $PROJECT_PATH
-          godot --headless --verbose --export-release "macOS" ../build/mac/$EXPORT_NAME.zip
+          godot --headless --verbose --export-release "macOS" ../build/mac/${{ env.EXPORT_NAME }}.zip
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
