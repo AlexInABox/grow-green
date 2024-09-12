@@ -70,7 +70,7 @@ jobs:
           path: build/windows
 
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           draft: true
           files: build/windows/GrowGreen.exe
@@ -131,7 +131,7 @@ jobs:
           path: build/linux
 
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           draft: true
           files: build/linux/GrowGreen.x86_64
@@ -192,7 +192,7 @@ jobs:
           path: build/mac
 
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           draft: true
           files: build/mac/GrowGreen.zip
