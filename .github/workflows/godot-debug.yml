@@ -41,7 +41,7 @@ jobs:
 
         - name: Prepare Godot 4
           run: |
-            wget -q -O godot_linux.zip https://github.com/godotengine/godot-builds/releases/download/${{ env.GODOT_VERSION }}-stable/Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64.zip
+            wget -q -O godot_linux.zip https://github.com/godotengine/godot-builds/releases/download/${{ env.GODOT_VERSION }}-stable/Godot_v${{ env.GODOT_VERSION }}-stable_mono_linux.x86_64.zip
             unzip godot_linux.zip
             wget -q -O godot_export_templates.tpz https://github.com/godotengine/godot-builds/releases/download/${{ env.GODOT_VERSION }}-stable/Godot_v${{ env.GODOT_VERSION }}-stable_export_templates.tpz
             mkdir -p ~/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable
@@ -51,7 +51,7 @@ jobs:
         - name: Building Linux
           run: |
             mkdir -p ${{ env.EXPORT_FOLDER_LINUX }}
-            ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 --import ${{ env.GODOT_PROJECT_LOCATION }} --quiet --headless --export-debug Linux ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_LINUX }}/${{ env.APPLICATION_NAME }}.x86_64
+            ./Godot_v${{ env.GODOT_VERSION }}-stable_mono_linux.x86_64 --import ${{ env.GODOT_PROJECT_LOCATION }} --quiet --headless --export-debug Linux ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_LINUX }}/${{ env.APPLICATION_NAME }}.x86_64
             chmod +x ${{ env.EXPORT_FOLDER_LINUX }}/${{ env.APPLICATION_NAME }}.sh
             chmod +x ${{ env.EXPORT_FOLDER_LINUX }}/${{ env.APPLICATION_NAME }}.x86_64
         - name: Tar files
@@ -68,7 +68,7 @@ jobs:
         - name: Building Windows
           run: |
             mkdir -p ${{ env.EXPORT_FOLDER_WINDOWS }}
-            ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 --import ${{ env.GODOT_PROJECT_LOCATION }} --quiet --headless --export-debug "Windows Desktop" ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_WINDOWS }}/${{ env.APPLICATION_NAME }}.exe
+            ./Godot_v${{ env.GODOT_VERSION }}-stable_mono_linux.x86_64 --import ${{ env.GODOT_PROJECT_LOCATION }} --quiet --headless --export-debug "Windows Desktop" ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_WINDOWS }}/${{ env.APPLICATION_NAME }}.exe
 
         - name: Upload Windows Artifact
           uses: actions/upload-artifact@v4
@@ -80,7 +80,7 @@ jobs:
         - name: Building MacOS
           run: |
             mkdir -p ${{ env.EXPORT_FOLDER_MACOS }}
-            ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 --import ${{ env.GODOT_PROJECT_LOCATION }} --quiet --headless --export-debug "macOS" ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_MACOS }}/${{ env.APPLICATION_NAME }}.app
+            ./Godot_v${{ env.GODOT_VERSION }}-stable_mono_linux.x86_64 --import ${{ env.GODOT_PROJECT_LOCATION }} --quiet --headless --export-debug "macOS" ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_MACOS }}/${{ env.APPLICATION_NAME }}.app
 
         - name: Upload MacOS Artifact
           uses: actions/upload-artifact@v4
