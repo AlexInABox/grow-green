@@ -1,4 +1,4 @@
-name: "Godot Mono Debug"
+name: "Godot Mono Release"
 on:
   workflow_dispatch:
       inputs:
