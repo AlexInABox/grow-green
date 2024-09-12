@@ -1,4 +1,5 @@
-name: "godot-ci-release"
+name: "godot-ci release"
+run-name: ${{ github.actor }} is building this GODOT Project for Release!
 on:
   workflow_dispatch:
       inputs:
