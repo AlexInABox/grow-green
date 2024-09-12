@@ -15,9 +15,6 @@ env:
   GODOT_VERSION: 4.3
   EXPORT_NAME: GrowGreen
   PROJECT_PATH: grow-green
-  EXPORT_FOLDER_LINUX: bin/Linux
-  EXPORT_FOLDER_MACOS: bin/MacOS
-  EXPORT_FOLDER_WINDOWS: bin/Windows
 
 jobs:
   export-windows:
