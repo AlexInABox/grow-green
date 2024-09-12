@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cxgao5s1phj5n"]
+
+[ext_resource type="FontFile" uid="uid://16884th6cwds" path="res://Fonts/Jersey25-Regular.ttf" id="1_tjju2"]
+
+[resource]
+default_font = ExtResource("1_tjju2")
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/font_sizes/font_size = 76
