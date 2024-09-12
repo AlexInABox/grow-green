@@ -36,7 +36,9 @@ jobs:
       - name: Windows Build
         run: |
           mkdir -v -p build/windows
-          pwd
+          apt-get install -y dotnet-sdk-8.0
+          echo 'export DOTNET_ROOT=$HOME/.dotnet' >> ~/.bashrc
+          source ~/.bashrc
           godot --headless --verbose --export-release "Windows Desktop" ../build/windows/GrowGreen.exe
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
@@ -57,6 +59,9 @@ jobs:
       - name: Setup
         run: |
           mkdir -v -p ~/.local/share/godot/export_templates/
+          apt-get install -y dotnet-sdk-8.0
+          echo 'export DOTNET_ROOT=$HOME/.dotnet' >> ~/.bashrc
+          source ~/.bashrc
           mv /root/.local/share/godot/export_templates/4.3.stable.mono ~/.local/share/godot/export_templates/4.3.stable.mono
       - name: Linux Build
         run: |
@@ -82,6 +87,9 @@ jobs:
       - name: Setup
         run: |
           mkdir -v -p ~/.local/share/godot/export_templates/
+          apt-get install -y dotnet-sdk-8.0
+          echo 'export DOTNET_ROOT=$HOME/.dotnet' >> ~/.bashrc
+          source ~/.bashrc
           mv /root/.local/share/godot/export_templates/4.3.stable.mono ~/.local/share/godot/export_templates/4.3.stable.mono
       - name: Mac Build
         run: |
