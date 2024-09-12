@@ -1,0 +1,237 @@
+name: "Godot Mono Release"
+on:
+  workflow_dispatch:
+      inputs:
+        question:
+          description: 'Alexx on top?'
+          required: false
+          default: 'YESSS'
+          type: choice
+          options:
+            - 'YESSS'
+            - 'nuUh!'
+
+env:
+  GODOT_VERSION: 4.3
+  EXPORT_NAME: GrowGreen
+  PROJECT_PATH: grow-green
+
+jobs:
+  export-windows:
+    name: Windows Export
+    runs-on: ubuntu-latest
+    container:
+      image: barichello/godot-ci:mono-4.3
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: true # large file storage
+
+      - name: Set permissions
+        run: chmod -R 777 .
+
+      - name: Setting extra variables
+        run: |
+            echo "DATE=$(date + '%Y-%m-%d')" >> $GITHUB_ENV
+            echo "MAIN_FOLDER=$(pwd)" >> $GITHUB_ENV
+          
+
+      
+      - name: Setup Godot Templates
+        run: |
+          mkdir -v -p ~/.local/share/godot/export_templates/
+          mv /root/.local/share/godot/export_templates/4.3.stable.mono ~/.local/share/godot/export_templates/4.3.stable.mono
+          chmod -R 777 ~/.local/share/godot/export_templates
+          cd ~/.local/share/godot/export_templates/4.3.stable.mono
+          cd
+
+          
+      - name: Setup .NET
+        run: |
+          wget https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+          dpkg -i packages-microsoft-prod.deb
+          rm packages-microsoft-prod.deb
+          apt-get update
+          apt-get install -y dotnet-host
+          apt-get install -y dotnet-sdk-8.0
+          export DOTNET_ROOT=/usr/share/dotnet
+
+      - name: Windows Build
+        run: |
+          mkdir -v -p build/windows
+          godot --headless --verbose --export-release "Windows Desktop" ./build/windows/GrowGreen.exe
+          
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows
+          path: build/windows
+
+      - name: Release Windows
+        uses: actions/create-release@v1
+        id: create_windows_release
+        with:
+          draft: false
+          prerelease: false
+          release_name: windows
+          tag_name: ${{ github.ref }}
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+
+      - name: Upload Windows Artifact
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          upload_url: ${{ steps.create_windows_release.outputs.upload_url }}
+          asset_path: build/windows/GrowGreen.exe
+          asset_name: GrowGreen.exe
+          asset_content_type: application/zip
+
+  export-linux:
+    name: Linux Export
+    runs-on: ubuntu-20.04
+    container:
+      image: barichello/godot-ci:mono-4.3
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+          
+      - name: Set permissions
+        run: chmod -R 777 .
+
+      - name: Setting extra variables
+        run: |
+            echo "DATE=$(date + '%Y-%m-%d')" >> $GITHUB_ENV
+            echo "MAIN_FOLDER=$(pwd)" >> $GITHUB_ENV
+          
+
+      
+      - name: Setup Godot Templates
+        run: |
+          mkdir -v -p ~/.local/share/godot/export_templates/
+          mv /root/.local/share/godot/export_templates/4.3.stable.mono ~/.local/share/godot/export_templates/4.3.stable.mono
+          chmod -R 777 ~/.local/share/godot/export_templates
+          cd ~/.local/share/godot/export_templates/4.3.stable.mono
+          cd
+
+          
+      - name: Setup .NET
+        run: |
+          wget https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+          dpkg -i packages-microsoft-prod.deb
+          rm packages-microsoft-prod.deb
+          apt-get update
+          apt-get install -y dotnet-host
+          apt-get install -y dotnet-sdk-8.0
+          export DOTNET_ROOT=/usr/share/dotnet
+
+          
+      - name: Linux Build
+        run: |
+          mkdir -v -p build/linux
+          godot --headless --verbose --export-release "Linux" ./build/linux/GrowGreen.x86_64
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux
+          path: build/linux
+
+      - name: Release Linux
+        uses: actions/create-release@v1
+        id: create_linux_release
+        with:
+          draft: false
+          prerelease: false
+          release_name: linux
+          tag_name: ${{ github.ref }}
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+
+
+      - name: Upload Linux Artifact
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          upload_url: ${{ steps.create_linux_release.outputs.upload_url }}
+          asset_path: build/linux/GrowGreen.x86_64
+          asset_name: GrowGreen.x86_64
+          asset_content_type: application/zip
+
+  export-mac:
+    name: Mac Export
+    runs-on: ubuntu-latest
+    container:
+      image: barichello/godot-ci:mono-4.3
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+
+      - name: Set permissions
+        run: chmod -R 777 .
+
+      - name: Setting extra variables
+        run: |
+            echo "DATE=$(date + '%Y-%m-%d')" >> $GITHUB_ENV
+            echo "MAIN_FOLDER=$(pwd)" >> $GITHUB_ENV
+          
+
+      
+      - name: Setup Godot Templates
+        run: |
+          mkdir -v -p ~/.local/share/godot/export_templates/
+          mv /root/.local/share/godot/export_templates/4.3.stable.mono ~/.local/share/godot/export_templates/4.3.stable.mono
+          chmod -R 777 ~/.local/share/godot/export_templates
+          cd ~/.local/share/godot/export_templates/4.3.stable.mono
+          cd
+
+          
+      - name: Setup .NET
+        run: |
+          wget https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+          dpkg -i packages-microsoft-prod.deb
+          rm packages-microsoft-prod.deb
+          apt-get update
+          apt-get install -y dotnet-host
+          apt-get install -y dotnet-sdk-8.0
+          export DOTNET_ROOT=/usr/share/dotnet
+
+          
+      - name: Mac Build
+        run: |
+          mkdir -v -p build/mac
+          godot --headless --verbose --export-release "macOS" ./build/mac/GrowGreen.zip
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: mac
+          path: build/mac
+
+      - name: Release MacOS
+        uses: actions/create-release@v1
+        id: create_macos_release
+        with:
+          draft: false
+          prerelease: false
+          release_name: windows
+          tag_name: ${{ github.ref }}
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+
+      - name: Upload MacOS Artifact
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          upload_url: ${{ steps.create_macos_release.outputs.upload_url }}
+          asset_path: build/mac/GrowGreen.zip
+          asset_name: GrowGreen.zip
+          asset_content_type: application/zip
