@@ -11,7 +11,7 @@ CREATE TABLE "plants" (
 	PRIMARY KEY("class")
 );
 
-INSERT INTO plants (class, name, water, place, level)
+INSERT INTO plants (class, name, water, place, level, cost, value, yield)
 VALUES ('Agave', 'Jahrhundertpflanze', 10, 'sunny', 'easy', 5, 3, 1),
 	('Aglaonema', 'Kolbenpfaden', 7, 'cloudy', 'easy', 5, 3, 1),
 	('Alocasia', 'Elefantenohr', 3, 'sunny', 'hard', 8, 6, 3),
