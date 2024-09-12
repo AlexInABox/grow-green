@@ -28,11 +28,26 @@ jobs:
         with:
           lfs: true # large file storage
 
+      - name: Set permissions
+        run: chmod -R 777 .
+
+      - name: Setting extra variables
+        run: |
+            echo "DATE=$(date + '%Y-%m-%d')" >> $GITHUB_ENV
+            echo "MAIN_FOLDER=$(pwd)" >> $GITHUB_ENV
+          
+
       
-      - name: Setup Directories
+      - name: Setup Godot Templates
         run: |
           mkdir -v -p ~/.local/share/godot/export_templates/
           mv /root/.local/share/godot/export_templates/4.3.stable.mono ~/.local/share/godot/export_templates/4.3.stable.mono
+          chmod -R 777 ~/.local/share/godot/export_templates
+          cd ~/.local/share/godot/export_templates/4.3.stable.mono
+          pwd
+          ls -a
+          cd
+          pwd
 
           
       - name: Setup .NET
@@ -48,7 +63,8 @@ jobs:
       - name: Windows Build
         run: |
           mkdir -v -p build/windows
-          godot --headless --verbose --export-release "Windows Desktop" ../build/windows/GrowGreen.exe
+          godot --headless --verbose --export-release "Windows Desktop" ./build/windows/GrowGreen.exe
+          
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
@@ -65,10 +81,14 @@ jobs:
         uses: actions/checkout@v4
         with:
           lfs: true
+
+          
       - name: Setup Directories
         run: |
           mkdir -v -p ~/.local/share/godot/export_templates/
           mv /root/.local/share/godot/export_templates/4.3.stable.mono ~/.local/share/godot/export_templates/4.3.stable.mono
+
+          
       - name: Setup .NET
         run: |
           wget https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
@@ -77,7 +97,9 @@ jobs:
           apt-get update
           apt-get install -y dotnet-host
           apt-get install -y dotnet-sdk-8.0
-          export DOTNET_ROOT=$HOME/.dotnet
+          export DOTNET_ROOT=/usr/share/dotnet
+
+          
       - name: Linux Build
         run: |
           mkdir -v -p build/linux
@@ -102,6 +124,8 @@ jobs:
         run: |
           mkdir -v -p ~/.local/share/godot/export_templates/
           mv /root/.local/share/godot/export_templates/4.3.stable.mono ~/.local/share/godot/export_templates/4.3.stable.mono
+
+          
       - name: Setup .NET
         run: |
           wget https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
@@ -110,7 +134,9 @@ jobs:
           apt-get update
           apt-get install -y dotnet-host
           apt-get install -y dotnet-sdk-8.0
-          export DOTNET_ROOT=$HOME/.dotnet
+          export DOTNET_ROOT=/usr/share/dotnet
+
+          
       - name: Mac Build
         run: |
           mkdir -v -p build/mac
