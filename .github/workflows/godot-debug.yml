@@ -67,6 +67,7 @@ jobs:
 
         - name: Building Windows
           run: |
+            sudo apt-get install libfontconfig
             mkdir -p ${{ env.EXPORT_FOLDER_WINDOWS }}
             ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 --import ${{ env.GODOT_PROJECT_LOCATION }} --quiet --headless --export-debug "Windows Desktop" ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_WINDOWS }}/${{ env.APPLICATION_NAME }}.exe
 
