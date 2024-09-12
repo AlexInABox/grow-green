@@ -71,4 +71,4 @@ VALUES ('Agave', 'Jahrhundertpflanze', 10, 'sunny', 'easy', 5, 3, 1),
 	('Tradescantia', 'Wanderjude', 7, 'partly', 'medium', 7, 5, 2),
 	('Veitchia', '', 3, 'cloudy', 'easy', 5, 3, 1),
 	('Yucca', 'Palmlilie', 10, 'sunny', 'easy', 5, 3, 1),
-	('Zamioculcas', 'Glücksfeder', 10, 'cloudy', 'easy');
+	('Zamioculcas', 'Glücksfeder', 10, 'cloudy', 'easy', 5, 3, 1);
