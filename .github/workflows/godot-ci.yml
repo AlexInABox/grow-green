@@ -12,7 +12,7 @@ on:
             - 'nuUh!'
           
 env:
-  GODOT_VERSION: 4.5.2
+  GODOT_VERSION: 4.3
   GODOT_PROJECT_LOCATION: ./project.godot
   EXPORT_FOLDER_LINUX: bin/Linux
   EXPORT_FOLDER_MACOS: bin/MacOS
