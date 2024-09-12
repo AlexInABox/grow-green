@@ -13,7 +13,7 @@ on:
           
 env:
   GODOT_VERSION: 4.3
-  GODOT_PROJECT_LOCATION: ./project.godot
+  GODOT_PROJECT_LOCATION: project.godot
   EXPORT_FOLDER_LINUX: bin/Linux
   EXPORT_FOLDER_MACOS: bin/MacOS
   EXPORT_FOLDER_WINDOWS: bin/Windows
