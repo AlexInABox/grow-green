@@ -225,8 +225,8 @@ jobs:
         with:
           draft: true
           files: |
-            build/windows/GrowGreen_windows.exe
-            build/linux/GrowGreen_linux.x86_64
-            build/mac/GrowGreen_macos.zip
+            build/windows/
+            build/linux/
+            build/mac/
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
