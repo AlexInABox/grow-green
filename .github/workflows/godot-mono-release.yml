@@ -88,20 +88,15 @@ jobs:
         uses: actions/checkout@v4
         with:
           lfs: true # large file storage
-      
-      - name: .NET installation
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: "8.0.x"
 
-      - name: Install Godot Headless
+      - name: Setup Godot-mono
         run: |
-          brew install --cask godot
+          brew install --cask godot-mono
+          export PATH=/Applications/Godot_mono.app/Contents/MacOS:$PATH
+
 
       - name: Setup Godot Templates
         run: |
-          chsh -s /bin/bash
-          sh
           export GODOT_TEMPLATES_PATH="$HOME/Library/Application Support/Godot/export_templates/"
           mkdir -p "$GODOT_TEMPLATES_PATH"
           mv "/Applications/Godot_mono_export_templates_v${{ env.GODOT_VERSION }}.stable.zip" "$GODOT_TEMPLATES_PATH${{ env.GODOT_VERSION }}.stable.mono"
@@ -109,7 +104,6 @@ jobs:
       - name: MacOS Build
         run: |
           mkdir -v -p builds/mac
-          chsh -s /bin/zsh
           godot --headless --verbose --export-release "macOS" builds/mac/${{ env.EXPORT_NAME }}.dmg
 
       - name: Upload binary as artifact
