@@ -121,21 +121,15 @@ jobs:
       - name: Download binaries
         uses: actions/download-artifact@v4
         with:
-          path: builds/
-
-      - name: Show me whats going on kindly
-        run: |
-          sudo apt update
-          sudo apt install tree -y
-          tree
+          path: builds
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           draft: true
           files: |
-            builds/${{ env.EXPORT_NAME }}.exe
-            builds/${{ env.EXPORT_NAME }}.x86_64
-            builds/${{ env.EXPORT_NAME }}.zip
+            builds/windows/${{ env.EXPORT_NAME }}.exe
+            builds/linux/${{ env.EXPORT_NAME }}.x86_64
+            builds/mac/${{ env.EXPORT_NAME }}.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
