@@ -105,12 +105,13 @@ jobs:
         run: |
           mkdir -v -p builds/mac
           godot --headless --verbose --export-release "macOS" builds/mac/${{ env.EXPORT_NAME }}.zip
+          unzip builds/mac/${{ env.EXPORT_NAME }}.zip -d builds/mac
 
       - name: Upload binary as artifact
         uses: actions/upload-artifact@v4
         with:
           name: mac
-          path: builds/mac/${{ env.EXPORT_NAME }}.zip
+          path: builds/mac/${{ env.EXPORT_NAME }}.app
 
   create-release:
     name: Create Release
@@ -130,6 +131,6 @@ jobs:
           files: |
             builds/windows/${{ env.EXPORT_NAME }}.exe
             builds/linux/${{ env.EXPORT_NAME }}.x86_64
-            builds/mac/${{ env.EXPORT_NAME }}.zip
+            builds/mac/${{ env.EXPORT_NAME }}.app
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
