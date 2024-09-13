@@ -82,9 +82,7 @@ jobs:
 
   build-mac:
     name: Build MacOS
-    runs-on: ubuntu-latest
-    container:
-      image: barichello/godot-ci:mono-4.3
+    runs-on: macos-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -96,21 +94,25 @@ jobs:
         with:
           dotnet-version: "8.0.x"
 
+      - name: Install Godot Headless
+        run: |
+          brew install --cask godot
+
       - name: Setup Godot Templates
         run: |
-          mkdir -v -p ~/.local/share/godot/export_templates/
-          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable.mono ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable.mono
+          mkdir -p "~/Library/Application Support/Godot/export_templates/"
+          mv /Applications/Godot_mono_export_templates_v${{ env.GODOT_VERSION }}.stable.zip "~/Library/Application Support/Godot/export_templates/${{ env.GODOT_VERSION }}.stable.mono"
 
       - name: MacOS Build
         run: |
           mkdir -v -p builds/mac
-          godot --headless --verbose --export-release "macOS" builds/mac/${{ env.EXPORT_NAME }}.zip
+          godot --headless --verbose --export-release "macOS" builds/mac/${{ env.EXPORT_NAME }}.dmg
 
       - name: Upload binary as artifact
         uses: actions/upload-artifact@v4
         with:
           name: mac
-          path: builds/mac/${{ env.EXPORT_NAME }}.zip
+          path: builds/mac/${{ env.EXPORT_NAME }}.dmg
 
   create-release:
     name: Create Release
@@ -130,6 +132,6 @@ jobs:
           files: |
             builds/windows/${{ env.EXPORT_NAME }}.exe
             builds/linux/${{ env.EXPORT_NAME }}.x86_64
-            builds/mac/${{ env.EXPORT_NAME }}.zip
+            builds/mac/${{ env.EXPORT_NAME }}.dmg
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
