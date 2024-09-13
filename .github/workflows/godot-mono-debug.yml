@@ -1,4 +1,4 @@
-name: "Godot Mono Debug"
+name: "DEBUG"
 on:
   workflow_dispatch:
       inputs:
