@@ -107,7 +107,7 @@ jobs:
 
       - name: List Export Templates
         shell: bash
-        run: ls "$HOME/Library/Application\ Support/Godot/templates/${GODOT_VERSION}.stable"
+        run: ls "$HOME/Library/Application\ Support/Godot/export_templates/${GODOT_VERSION}.stable"
 
       - name: MacOS Build
         run: |
