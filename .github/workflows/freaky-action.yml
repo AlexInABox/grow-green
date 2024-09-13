@@ -41,6 +41,7 @@ jobs:
         run: |
           mkdir -v -p builds/windows
           godot --headless --verbose --export-release "Windows Desktop" builds/windows/${EXPORT_NAME}.exe
+          apt update
           apt install tree -y 
           tree
 
