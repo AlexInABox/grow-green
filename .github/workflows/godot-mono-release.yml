@@ -20,6 +20,7 @@ jobs:
   export-windows:
     name: Windows Export
     runs-on: ubuntu-latest
+    permissions: write-all
     container:
       image: barichello/godot-ci:mono-4.3
     steps:
@@ -60,7 +61,7 @@ jobs:
       - name: Windows Build
         run: |
           mkdir -v -p build/windows
-          godot --headless --verbose --export-release "Windows Desktop" ./build/windows/GrowGreen.exe
+          godot --headless --verbose --export-release "Windows Desktop" ./build/windows/GrowGreen_windows.exe
           
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
@@ -68,30 +69,17 @@ jobs:
           name: windows
           path: build/windows
 
-      - name: Release Windows
-        uses: actions/create-release@v1
-        id: create_windows_release
-        with:
-          draft: false
-          prerelease: false
-          release_name: windows
-          tag_name: ${{ github.ref }}
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
 
-      - name: Upload Windows Artifact
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+      - name: Cache Artifact Upload
+        uses: actions/cache@v4
         with:
-          upload_url: ${{ steps.create_windows_release.outputs.upload_url }}
-          asset_path: build/windows/GrowGreen.exe
-          asset_name: GrowGreen.exe
-          asset_content_type: application/zip
+          path: build/windows
+          key: windows
 
   export-linux:
     name: Linux Export
     runs-on: ubuntu-20.04
+    permissions: write-all
     container:
       image: barichello/godot-ci:mono-4.3
     steps:
@@ -134,38 +122,23 @@ jobs:
       - name: Linux Build
         run: |
           mkdir -v -p build/linux
-          godot --headless --verbose --export-release "Linux" ./build/linux/GrowGreen.x86_64
+          godot --headless --verbose --export-release "Linux" ./build/linux/GrowGreen_linux.x86_64
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: linux
           path: build/linux
 
-      - name: Release Linux
-        uses: actions/create-release@v1
-        id: create_linux_release
+      - name: Cache Artifact Upload
+        uses: actions/cache@v4
         with:
-          draft: false
-          prerelease: false
-          release_name: linux
-          tag_name: ${{ github.ref }}
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-
-
-      - name: Upload Linux Artifact
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        with:
-          upload_url: ${{ steps.create_linux_release.outputs.upload_url }}
-          asset_path: build/linux/GrowGreen.x86_64
-          asset_name: GrowGreen.x86_64
-          asset_content_type: application/zip
+          path: build/linux
+          key: linux
 
   export-mac:
     name: Mac Export
     runs-on: ubuntu-latest
+    permissions: write-all
     container:
       image: barichello/godot-ci:mono-4.3
     steps:
@@ -208,30 +181,51 @@ jobs:
       - name: Mac Build
         run: |
           mkdir -v -p build/mac
-          godot --headless --verbose --export-release "macOS" ./build/mac/GrowGreen.zip
+          godot --headless --verbose --export-release "macOS" ./build/mac/GrowGreen_macos.zip
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: mac
           path: build/mac
 
-      - name: Release MacOS
-        uses: actions/create-release@v1
-        id: create_macos_release
+      - name: Cache Artifact Upload
+        uses: actions/cache@v4
         with:
-          draft: false
-          prerelease: false
-          release_name: windows
-          tag_name: ${{ github.ref }}
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+          path: build/mac
+          key: mac
 
-      - name: Upload MacOS Artifact
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+  create-release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    permissions: write-all
+    container:
+      image: barichello/godot-ci:mono-4.3
+    steps:
+      - name: Cache Windows Artifact
+        uses: actions/cache@v4
         with:
-          upload_url: ${{ steps.create_macos_release.outputs.upload_url }}
-          asset_path: build/mac/GrowGreen.zip
-          asset_name: GrowGreen.zip
-          asset_content_type: application/zip
+          path: build/windows
+          key: windows
+
+      - name: Cache Linux Artifact
+        uses: actions/cache@v4
+        with:
+          path: build/linux
+          key: linux
+
+      - name: Cache MacOS Artifact
+        uses: actions/cache@v4
+        with:
+          path: build/mac
+          key: mac
+      
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          draft: true
+          files: |
+            build/windows/GrowGreen_windows.exe
+            build/linux/GrowGreen_linux.x86_64
+            build/mac/GrowGreen_macos.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
