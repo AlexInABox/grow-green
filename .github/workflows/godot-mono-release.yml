@@ -197,6 +197,7 @@ jobs:
   create-release:
     name: Create Release
     runs-on: ubuntu-latest
+    needs: [ export-windows, export-linux, export-mac ]
     permissions: write-all
     container:
       image: barichello/godot-ci:mono-4.3
@@ -224,8 +225,8 @@ jobs:
         with:
           draft: true
           files: |
-            build/windows/GrowGreen_windows.exe
-            build/linux/GrowGreen_linux.x86_64
-            build/mac/GrowGreen_macos.zip
+            build/windows/
+            build/linux/
+            build/mac/
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
