@@ -126,7 +126,7 @@ jobs:
       - name: Show me whats going on kindly
         run: |
           sudo apt update
-          sudo apt install tree
+          sudo apt install tree -y
           tree
 
       - name: Create GitHub Release
