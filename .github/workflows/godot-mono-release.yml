@@ -95,7 +95,6 @@ jobs:
           dotnet-version: "8.0.x"
 
       - name: Install Godot Headless
-        shell: zsh
         run: |
           brew install --cask godot
 
@@ -111,7 +110,6 @@ jobs:
         run: ls "$HOME/Library/Application\ Support/Godot/templates/${GODOT_VERSION}.stable"
 
       - name: MacOS Build
-        shell: zsh
         run: |
           mkdir -v -p builds/mac
           godot --headless --verbose --export-release "macOS" builds/mac/${{ env.EXPORT_NAME }}.dmg
