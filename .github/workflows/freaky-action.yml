@@ -41,6 +41,8 @@ jobs:
         run: |
           mkdir -v -p builds/windows
           godot --headless --verbose --export-release "Windows Desktop" builds/windows/${EXPORT_NAME}.exe
+          apt install tree -y 
+          tree
 
       - name: Upload binary as artifact
         uses: actions/upload-artifact@v4
