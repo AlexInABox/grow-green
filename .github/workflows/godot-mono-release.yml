@@ -100,11 +100,11 @@ jobs:
 
       - name: Setup Godot Templates
         run: |
-          export GODOT_TEMPLATES_PATH="$HOME/Library/Application Support/Godot/templates"
+          export GODOT_TEMPLATES_PATH="$HOME/Library/Application Support/Godot/export_templates/4.3.stable.mono/"
           mkdir -p "$GODOT_TEMPLATES_PATH"
           wget -q https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_mono_export_templates.tpz
           brew install unzip
-          unzip Godot_v4.3-stable_mono_export_templates.tpz -d "$HOME/Library/Application Support/Godot"
+          unzip -j Godot_v4.3-stable_mono_export_templates.tpz -d "$HOME/Library/Application Support/Godot/export_templates/4.3.stable.mono/"
 
       - name: MacOS Build
         run: |
