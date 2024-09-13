@@ -27,6 +27,11 @@ jobs:
         with:
           lfs: true # large file storage
       
+      - name: .NET installation
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: "6.0.x"
+          
       - name: Setup Godot Templates
         run: |
           mkdir -v -p ~/.local/share/godot/export_templates/
