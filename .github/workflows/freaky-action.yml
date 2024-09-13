@@ -123,6 +123,12 @@ jobs:
         with:
           path: builds/
 
+      - name: Show me whats going on kindly
+        run: |
+          apt update
+          apt install tree
+          tree
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
