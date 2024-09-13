@@ -72,13 +72,13 @@ jobs:
       - name: Linux Build
         run: |
           mkdir -v -p builds/linux
-          godot --headless --verbose --export-release "Linux" builds/linux/${{ env.EXPORT_NAME }}_linux.x86_64
+          godot --headless --verbose --export-release "Linux" builds/linux/${{ env.EXPORT_NAME }}.x86_64
 
       - name: Upload binary as artifact
         uses: actions/upload-artifact@v4
         with:
           name: linux
-          path: builds/linux/${{ env.EXPORT_NAME }}_linux.x86_64
+          path: builds/linux/${{ env.EXPORT_NAME }}.x86_64
 
   build-mac:
     name: Build MacOS
