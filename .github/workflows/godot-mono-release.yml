@@ -36,7 +36,9 @@ jobs:
         run: |
             echo "DATE=$(date + '%Y-%m-%d')" >> $GITHUB_ENV
             echo "MAIN_FOLDER=$(pwd)" >> $GITHUB_ENV
-          
+
+      - name: Installing Dependencies
+        run: apt install zip unzip
 
       
       - name: Setup Godot Templates
@@ -69,7 +71,6 @@ jobs:
           name: windows
           path: build/windows
 
-
       - name: Cache Artifact Upload
         uses: actions/cache@v4
         with:
@@ -97,7 +98,8 @@ jobs:
             echo "DATE=$(date + '%Y-%m-%d')" >> $GITHUB_ENV
             echo "MAIN_FOLDER=$(pwd)" >> $GITHUB_ENV
           
-
+      - name: Installing Dependencies
+        run: apt install zip unzip
       
       - name: Setup Godot Templates
         run: |
@@ -123,6 +125,10 @@ jobs:
         run: |
           mkdir -v -p build/linux
           godot --headless --verbose --export-release "Linux" ./build/linux/GrowGreen_linux.x86_64
+      - name: ZIP Compress File Directory
+        run: |
+          
+          
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
@@ -156,7 +162,8 @@ jobs:
             echo "DATE=$(date + '%Y-%m-%d')" >> $GITHUB_ENV
             echo "MAIN_FOLDER=$(pwd)" >> $GITHUB_ENV
           
-
+      - name: Installing Dependencies
+        run: apt install zip unzip
       
       - name: Setup Godot Templates
         run: |
@@ -182,6 +189,7 @@ jobs:
         run: |
           mkdir -v -p build/mac
           godot --headless --verbose --export-release "macOS" ./build/mac/GrowGreen_macos.zip
+      
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
@@ -225,8 +233,8 @@ jobs:
         with:
           draft: true
           files: |
-            build/windows/
-            build/linux/
-            build/mac/
+            build/windows/GrowGreen_windows.exe
+            build/linux/GrowGreen_linux.x86_64
+            build/mac/GrowGreen_macos.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
