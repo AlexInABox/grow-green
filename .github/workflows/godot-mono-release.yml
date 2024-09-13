@@ -93,13 +93,17 @@ jobs:
         run: |
           brew install --cask godot-mono
           export PATH=/Applications/Godot_mono.app/Contents/MacOS:$PATH
+          
+          
+
 
 
       - name: Setup Godot Templates
         run: |
-          export GODOT_TEMPLATES_PATH="$HOME/Library/Application Support/Godot/export_templates/"
+          export GODOT_TEMPLATES_PATH="$HOME/Library/Application Support/Godot/templates"
           mkdir -p "$GODOT_TEMPLATES_PATH"
-          mv "/Applications/Godot_mono_export_templates_v${{ env.GODOT_VERSION }}.stable.zip" "$GODOT_TEMPLATES_PATH${{ env.GODOT_VERSION }}.stable.mono"
+          wget https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_mono_export_templates.tpz
+          unzip Godot_v4.3-stable_mono_export_templates.tpz -d $HOME/Library/Application Support/Godot
 
       - name: MacOS Build
         run: |
