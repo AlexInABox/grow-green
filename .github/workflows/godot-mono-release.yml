@@ -100,8 +100,9 @@ jobs:
 
       - name: Setup Godot Templates
         run: |
-          mkdir -p "~/Library/Application Support/Godot/export_templates/"
-          mv /Applications/Godot_mono_export_templates_v${{ env.GODOT_VERSION }}.stable.zip "~/Library/Application Support/Godot/export_templates/${{ env.GODOT_VERSION }}.stable.mono"
+          export GODOT_TEMPLATES_PATH="$HOME/Library/Application Support/Godot/export_templates/"
+          mkdir -p "$GODOT_TEMPLATES_PATH"
+          mv "/Applications/Godot_mono_export_templates_v${{ env.GODOT_VERSION }}.stable.zip" "$GODOT_TEMPLATES_PATH${{ env.GODOT_VERSION }}.stable.mono"
 
       - name: MacOS Build
         run: |
