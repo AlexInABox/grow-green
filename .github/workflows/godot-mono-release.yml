@@ -102,8 +102,8 @@ jobs:
         shell: bash
         run: |
           curl -L https://github.com/godotengine/godot-builds/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_mono_export_templates.tpz -o godot_export_templates.tpz
-          mkdir -p "$HOME/Library/Application\ Support/Godot/templates/${GODOT_VERSION}.stable"
-          tar -xf godot_export_templates.tpz -C "$HOME/Library/Application\ Support/Godot/templates/${GODOT_VERSION}.stable"
+          mkdir -p "$HOME/Library/Application\ Support/Godot/export_templates/${GODOT_VERSION}.stable"
+          tar -xf godot_export_templates.tpz -C "$HOME/Library/Application\ Support/Godot/export_templates/${GODOT_VERSION}.stable"
 
       - name: List Export Templates
         shell: bash
