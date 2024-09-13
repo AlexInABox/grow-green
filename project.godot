@@ -32,7 +32,8 @@ project/assembly_name="GrowGreen"
 
 [gui]
 
-theme/custom_font="res://PixelifySans-VariableFont_wght.ttf"
+theme/custom_font="res://Fonts/Jersey25-Regular.ttf"
+theme/default_font_antialiasing=0
 
 [rendering]
 

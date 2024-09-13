@@ -25,3 +25,6 @@ Database/plants.db
 
 #Ignore the .db file
 Database/plants.db
+
+#Rider .idea folder
+.idea/
