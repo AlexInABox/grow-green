@@ -39,7 +39,7 @@ jobs:
 
       - name: Windows Build
         run: |
-          mkdir -v -p build/windows
+          mkdir -v -p builds/windows
           godot --headless --verbose --export-release "Windows Desktop" builds/windows/$EXPORT_NAME.exe
           
       - name: Upload Artifact
