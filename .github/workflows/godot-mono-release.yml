@@ -102,7 +102,7 @@ jobs:
         run: |
           export GODOT_TEMPLATES_PATH="$HOME/Library/Application Support/Godot/templates"
           mkdir -p "$GODOT_TEMPLATES_PATH"
-          wget https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_mono_export_templates.tpz
+          wget -q https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_mono_export_templates.tpz
           brew install unzip
           unzip Godot_v4.3-stable_mono_export_templates.tpz -d "$HOME/Library/Application Support/Godot"
 
