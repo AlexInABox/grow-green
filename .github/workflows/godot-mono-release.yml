@@ -98,7 +98,7 @@ jobs:
           export GODOT_TEMPLATES_PATH="$HOME/Library/Application Support/Godot/export_templates/${{ env.GODOT_VERSION}}.stable.mono/"
           mkdir -p "$GODOT_TEMPLATES_PATH"
           wget -q https://github.com/godotengine/godot/releases/download/${{ env.GODOT_VERSION}}-stable/Godot_v${{ env.GODOT_VERSION}}-stable_mono_export_templates.tpz
-          unzip -j Godot_v${{ env.GODOT_VERSION}}-stable_mono_export_templates.tpz -d $GODOT_TEMPLATES_PATH
+          unzip -j Godot_v${{ env.GODOT_VERSION}}-stable_mono_export_templates.tpz -d "$GODOT_TEMPLATES_PATH"
 
       - name: MacOS Build
         run: |
