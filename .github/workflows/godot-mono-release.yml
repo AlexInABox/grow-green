@@ -197,6 +197,7 @@ jobs:
   create-release:
     name: Create Release
     runs-on: ubuntu-latest
+    needs: [ export-windows, export-linux, export-mac ]
     permissions: write-all
     container:
       image: barichello/godot-ci:mono-4.3
