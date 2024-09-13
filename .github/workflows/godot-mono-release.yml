@@ -108,6 +108,7 @@ jobs:
 
       - name: MacOS Build
         run: |
+          export PATH=/Applications/Godot_mono.app/Contents/MacOS:$PATH
           mkdir -v -p builds/mac
           godot --headless --verbose --export-release "macOS" builds/mac/${{ env.EXPORT_NAME }}.dmg
 
