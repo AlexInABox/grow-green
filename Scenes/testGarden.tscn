@@ -1,71 +1,787 @@
-[gd_scene load_steps=8 format=3 uid="uid://dvf2by6ii450u"]
+[gd_scene load_steps=7 format=3 uid="uid://dvf2by6ii450u"]
 
-[ext_resource type="Script" path="res://Scripts/Player.cs" id="1_bvvvi"]
-[ext_resource type="Script" path="res://Scripts/Pot.cs" id="2_xjim7"]
 [ext_resource type="Texture2D" uid="uid://m7pbbugmb62d" path="res://Textures/Plants/topf.png" id="3_2mpvm"]
-[ext_resource type="Script" path="res://Scripts/SnoopyAlien.cs" id="4_y0nte"]
-[ext_resource type="Texture2D" uid="uid://ckt2lbmbvplv7" path="res://Textures/Coin2.png" id="6_oyvyb"]
-[ext_resource type="Script" path="res://Scripts/CoinCount.cs" id="7_2j3d7"]
 [ext_resource type="Texture2D" uid="uid://dm8qfia335esp" path="res://Textures/TestBackground.png" id="7_frndc"]
+[ext_resource type="Texture2D" uid="uid://bttoba0d2q6lj" path="res://Textures/Plants/agave2.png" id="9_314a6"]
+[ext_resource type="Theme" uid="uid://bik6akg25n2fr" path="res://Themes/plant_location_button.tres" id="10_idhnu"]
+[ext_resource type="Script" path="res://Scripts/Plant.cs" id="10_t56wp"]
+[ext_resource type="Script" path="res://Scripts/PlantButton.cs" id="12_qebhy"]
 
 [node name="TestGarden" type="Node2D"]
-
-[node name="Player" type="Node" parent="."]
-script = ExtResource("1_bvvvi")
-
-[node name="EmptyPot" type="Node2D" parent="."]
-position = Vector2(239, 300)
-scale = Vector2(8, 8)
-
-[node name="Button" type="Button" parent="EmptyPot"]
-modulate = Color(1, 1, 1, 0)
-offset_right = 8.0
-offset_bottom = 8.0
-script = ExtResource("2_xjim7")
-
-[node name="Pot" type="Sprite2D" parent="EmptyPot"]
-z_index = 25
-texture_filter = 3
-texture = ExtResource("3_2mpvm")
-script = ExtResource("4_y0nte")
-
-[node name="EmptyPot2" type="Node2D" parent="."]
-position = Vector2(410, 298)
-scale = Vector2(8, 8)
-
-[node name="Button" type="Button" parent="EmptyPot2"]
-modulate = Color(1, 1, 1, 0)
-offset_right = 8.0
-offset_bottom = 8.0
-script = ExtResource("2_xjim7")
-
-[node name="Pot" type="Sprite2D" parent="EmptyPot2"]
-z_index = 25
-texture_filter = 3
-position = Vector2(-0.125, 0.125)
-texture = ExtResource("3_2mpvm")
-script = ExtResource("4_y0nte")
-
-[node name="Button2" type="Button" parent="."]
-texture_filter = 3
-offset_left = 1699.0
-offset_top = 46.0
-offset_right = 1872.0
-offset_bottom = 101.0
-theme_override_font_sizes/font_size = 23
-icon = ExtResource("6_oyvyb")
-icon_alignment = 2
-expand_icon = true
-script = ExtResource("7_2j3d7")
-
-[node name="PlayerController" type="Node2D" parent="."]
-script = ExtResource("1_bvvvi")
 
 [node name="TestBackground" type="Sprite2D" parent="."]
 z_index = -1
 z_as_relative = false
-position = Vector2(-1, 1)
 scale = Vector2(2, 2)
 texture = ExtResource("7_frndc")
 centered = false
 offset = Vector2(0.5, 0.5)
+metadata/_edit_lock_ = true
+
+[node name="plant_location-1" type="Node2D" parent="."]
+position = Vector2(500, 300)
+
+[node name="Pot" type="Sprite2D" parent="plant_location-1"]
+scale = Vector2(10, 10)
+texture = ExtResource("3_2mpvm")
+metadata/_edit_lock_ = true
+
+[node name="Plant" type="Sprite2D" parent="plant_location-1"]
+scale = Vector2(10, 10)
+texture = ExtResource("9_314a6")
+script = ExtResource("10_t56wp")
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="plant_location-1"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(20, 20)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("10_idhnu")
+script = ExtResource("12_qebhy")
+metadata/_edit_lock_ = true
+
+[node name="plant_location-2" type="Node2D" parent="."]
+position = Vector2(675, 300)
+
+[node name="Pot" type="Sprite2D" parent="plant_location-2"]
+scale = Vector2(10, 10)
+texture = ExtResource("3_2mpvm")
+metadata/_edit_lock_ = true
+
+[node name="Plant" type="Sprite2D" parent="plant_location-2"]
+scale = Vector2(10, 10)
+texture = ExtResource("9_314a6")
+script = ExtResource("10_t56wp")
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="plant_location-2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(20, 20)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("10_idhnu")
+script = ExtResource("12_qebhy")
+metadata/_edit_lock_ = true
+
+[node name="plant_location-3" type="Node2D" parent="."]
+position = Vector2(865, 294)
+
+[node name="Pot" type="Sprite2D" parent="plant_location-3"]
+scale = Vector2(10, 10)
+texture = ExtResource("3_2mpvm")
+metadata/_edit_lock_ = true
+
+[node name="Plant" type="Sprite2D" parent="plant_location-3"]
+scale = Vector2(10, 10)
+texture = ExtResource("9_314a6")
+script = ExtResource("10_t56wp")
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="plant_location-3"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(20, 20)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("10_idhnu")
+script = ExtResource("12_qebhy")
+metadata/_edit_lock_ = true
+
+[node name="plant_location-4" type="Node2D" parent="."]
+position = Vector2(501, 475)
+
+[node name="Pot" type="Sprite2D" parent="plant_location-4"]
+scale = Vector2(10, 10)
+texture = ExtResource("3_2mpvm")
+metadata/_edit_lock_ = true
+
+[node name="Plant" type="Sprite2D" parent="plant_location-4"]
+scale = Vector2(10, 10)
+texture = ExtResource("9_314a6")
+script = ExtResource("10_t56wp")
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="plant_location-4"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(20, 20)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("10_idhnu")
+script = ExtResource("12_qebhy")
+metadata/_edit_lock_ = true
+
+[node name="plant_location-5" type="Node2D" parent="."]
+position = Vector2(662, 480)
+
+[node name="Pot" type="Sprite2D" parent="plant_location-5"]
+scale = Vector2(10, 10)
+texture = ExtResource("3_2mpvm")
+metadata/_edit_lock_ = true
+
+[node name="Plant" type="Sprite2D" parent="plant_location-5"]
+scale = Vector2(10, 10)
+texture = ExtResource("9_314a6")
+script = ExtResource("10_t56wp")
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="plant_location-5"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(20, 20)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("10_idhnu")
+script = ExtResource("12_qebhy")
+metadata/_edit_lock_ = true
+
+[node name="plant_location-6" type="Node2D" parent="."]
+position = Vector2(837, 480)
+
+[node name="Pot" type="Sprite2D" parent="plant_location-6"]
+scale = Vector2(10, 10)
+texture = ExtResource("3_2mpvm")
+metadata/_edit_lock_ = true
+
+[node name="Plant" type="Sprite2D" parent="plant_location-6"]
+scale = Vector2(10, 10)
+texture = ExtResource("9_314a6")
+script = ExtResource("10_t56wp")
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="plant_location-6"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(20, 20)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("10_idhnu")
+script = ExtResource("12_qebhy")
+metadata/_edit_lock_ = true
+
+[node name="plant_location-7" type="Node2D" parent="."]
+position = Vector2(1027, 474)
+
+[node name="Pot" type="Sprite2D" parent="plant_location-7"]
+scale = Vector2(10, 10)
+texture = ExtResource("3_2mpvm")
+metadata/_edit_lock_ = true
+
+[node name="Plant" type="Sprite2D" parent="plant_location-7"]
+scale = Vector2(10, 10)
+texture = ExtResource("9_314a6")
+script = ExtResource("10_t56wp")
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="plant_location-7"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(20, 20)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("10_idhnu")
+script = ExtResource("12_qebhy")
+metadata/_edit_lock_ = true
+
+[node name="plant_location-8" type="Node2D" parent="."]
+position = Vector2(663, 655)
+
+[node name="Pot" type="Sprite2D" parent="plant_location-8"]
+scale = Vector2(10, 10)
+texture = ExtResource("3_2mpvm")
+metadata/_edit_lock_ = true
+
+[node name="Plant" type="Sprite2D" parent="plant_location-8"]
+scale = Vector2(10, 10)
+texture = ExtResource("9_314a6")
+script = ExtResource("10_t56wp")
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="plant_location-8"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(20, 20)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("10_idhnu")
+script = ExtResource("12_qebhy")
+metadata/_edit_lock_ = true
+
+[node name="plant_location-9" type="Node2D" parent="."]
+position = Vector2(827, 654)
+
+[node name="Pot" type="Sprite2D" parent="plant_location-9"]
+scale = Vector2(10, 10)
+texture = ExtResource("3_2mpvm")
+metadata/_edit_lock_ = true
+
+[node name="Plant" type="Sprite2D" parent="plant_location-9"]
+scale = Vector2(10, 10)
+texture = ExtResource("9_314a6")
+script = ExtResource("10_t56wp")
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="plant_location-9"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(20, 20)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("10_idhnu")
+script = ExtResource("12_qebhy")
+metadata/_edit_lock_ = true
+
+[node name="plant_location-10" type="Node2D" parent="."]
+position = Vector2(1002, 654)
+
+[node name="Pot" type="Sprite2D" parent="plant_location-10"]
+scale = Vector2(10, 10)
+texture = ExtResource("3_2mpvm")
+metadata/_edit_lock_ = true
+
+[node name="Plant" type="Sprite2D" parent="plant_location-10"]
+scale = Vector2(10, 10)
+texture = ExtResource("9_314a6")
+script = ExtResource("10_t56wp")
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="plant_location-10"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(20, 20)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("10_idhnu")
+script = ExtResource("12_qebhy")
+metadata/_edit_lock_ = true
+
+[node name="plant_location-11" type="Node2D" parent="."]
+position = Vector2(1192, 648)
+
+[node name="Pot" type="Sprite2D" parent="plant_location-11"]
+scale = Vector2(10, 10)
+texture = ExtResource("3_2mpvm")
+metadata/_edit_lock_ = true
+
+[node name="Plant" type="Sprite2D" parent="plant_location-11"]
+scale = Vector2(10, 10)
+texture = ExtResource("9_314a6")
+script = ExtResource("10_t56wp")
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="plant_location-11"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(20, 20)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("10_idhnu")
+script = ExtResource("12_qebhy")
+metadata/_edit_lock_ = true
+
+[node name="plant_location-12" type="Node2D" parent="."]
+position = Vector2(828, 829)
+
+[node name="Pot" type="Sprite2D" parent="plant_location-12"]
+scale = Vector2(10, 10)
+texture = ExtResource("3_2mpvm")
+metadata/_edit_lock_ = true
+
+[node name="Plant" type="Sprite2D" parent="plant_location-12"]
+scale = Vector2(10, 10)
+texture = ExtResource("9_314a6")
+script = ExtResource("10_t56wp")
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="plant_location-12"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(20, 20)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("10_idhnu")
+script = ExtResource("12_qebhy")
+metadata/_edit_lock_ = true
+
+[node name="plant_location-13" type="Node2D" parent="."]
+position = Vector2(1042, 117)
+
+[node name="Pot" type="Sprite2D" parent="plant_location-13"]
+scale = Vector2(10, 10)
+texture = ExtResource("3_2mpvm")
+metadata/_edit_lock_ = true
+
+[node name="Plant" type="Sprite2D" parent="plant_location-13"]
+scale = Vector2(10, 10)
+texture = ExtResource("9_314a6")
+script = ExtResource("10_t56wp")
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="plant_location-13"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(20, 20)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("10_idhnu")
+script = ExtResource("12_qebhy")
+metadata/_edit_lock_ = true
+
+[node name="plant_location-14" type="Node2D" parent="."]
+position = Vector2(1217, 117)
+
+[node name="Pot" type="Sprite2D" parent="plant_location-14"]
+scale = Vector2(10, 10)
+texture = ExtResource("3_2mpvm")
+metadata/_edit_lock_ = true
+
+[node name="Plant" type="Sprite2D" parent="plant_location-14"]
+scale = Vector2(10, 10)
+texture = ExtResource("9_314a6")
+script = ExtResource("10_t56wp")
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="plant_location-14"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(20, 20)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("10_idhnu")
+script = ExtResource("12_qebhy")
+metadata/_edit_lock_ = true
+
+[node name="plant_location-15" type="Node2D" parent="."]
+position = Vector2(1407, 111)
+
+[node name="Pot" type="Sprite2D" parent="plant_location-15"]
+scale = Vector2(10, 10)
+texture = ExtResource("3_2mpvm")
+metadata/_edit_lock_ = true
+
+[node name="Plant" type="Sprite2D" parent="plant_location-15"]
+scale = Vector2(10, 10)
+texture = ExtResource("9_314a6")
+script = ExtResource("10_t56wp")
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="plant_location-15"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(20, 20)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("10_idhnu")
+script = ExtResource("12_qebhy")
+metadata/_edit_lock_ = true
+
+[node name="plant_location-16" type="Node2D" parent="."]
+position = Vector2(1043, 292)
+
+[node name="Pot" type="Sprite2D" parent="plant_location-16"]
+scale = Vector2(10, 10)
+texture = ExtResource("3_2mpvm")
+metadata/_edit_lock_ = true
+
+[node name="Plant" type="Sprite2D" parent="plant_location-16"]
+scale = Vector2(10, 10)
+texture = ExtResource("9_314a6")
+script = ExtResource("10_t56wp")
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="plant_location-16"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(20, 20)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("10_idhnu")
+script = ExtResource("12_qebhy")
+metadata/_edit_lock_ = true
+
+[node name="plant_location-17" type="Node2D" parent="."]
+position = Vector2(1204, 297)
+
+[node name="Pot" type="Sprite2D" parent="plant_location-17"]
+scale = Vector2(10, 10)
+texture = ExtResource("3_2mpvm")
+metadata/_edit_lock_ = true
+
+[node name="Plant" type="Sprite2D" parent="plant_location-17"]
+scale = Vector2(10, 10)
+texture = ExtResource("9_314a6")
+script = ExtResource("10_t56wp")
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="plant_location-17"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(20, 20)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("10_idhnu")
+script = ExtResource("12_qebhy")
+metadata/_edit_lock_ = true
+
+[node name="plant_location-18" type="Node2D" parent="."]
+position = Vector2(1379, 297)
+
+[node name="Pot" type="Sprite2D" parent="plant_location-18"]
+scale = Vector2(10, 10)
+texture = ExtResource("3_2mpvm")
+metadata/_edit_lock_ = true
+
+[node name="Plant" type="Sprite2D" parent="plant_location-18"]
+scale = Vector2(10, 10)
+texture = ExtResource("9_314a6")
+script = ExtResource("10_t56wp")
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="plant_location-18"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(20, 20)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("10_idhnu")
+script = ExtResource("12_qebhy")
+metadata/_edit_lock_ = true
+
+[node name="plant_location-19" type="Node2D" parent="."]
+position = Vector2(1569, 291)
+
+[node name="Pot" type="Sprite2D" parent="plant_location-19"]
+scale = Vector2(10, 10)
+texture = ExtResource("3_2mpvm")
+metadata/_edit_lock_ = true
+
+[node name="Plant" type="Sprite2D" parent="plant_location-19"]
+scale = Vector2(10, 10)
+texture = ExtResource("9_314a6")
+script = ExtResource("10_t56wp")
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="plant_location-19"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(20, 20)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("10_idhnu")
+script = ExtResource("12_qebhy")
+metadata/_edit_lock_ = true
+
+[node name="plant_location-20" type="Node2D" parent="."]
+position = Vector2(1205, 472)
+
+[node name="Pot" type="Sprite2D" parent="plant_location-20"]
+scale = Vector2(10, 10)
+texture = ExtResource("3_2mpvm")
+metadata/_edit_lock_ = true
+
+[node name="Plant" type="Sprite2D" parent="plant_location-20"]
+scale = Vector2(10, 10)
+texture = ExtResource("9_314a6")
+script = ExtResource("10_t56wp")
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="plant_location-20"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(20, 20)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("10_idhnu")
+script = ExtResource("12_qebhy")
+metadata/_edit_lock_ = true
+
+[node name="plant_location-21" type="Node2D" parent="."]
+position = Vector2(1369, 471)
+
+[node name="Pot" type="Sprite2D" parent="plant_location-21"]
+scale = Vector2(10, 10)
+texture = ExtResource("3_2mpvm")
+metadata/_edit_lock_ = true
+
+[node name="Plant" type="Sprite2D" parent="plant_location-21"]
+scale = Vector2(10, 10)
+texture = ExtResource("9_314a6")
+script = ExtResource("10_t56wp")
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="plant_location-21"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(20, 20)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("10_idhnu")
+script = ExtResource("12_qebhy")
+metadata/_edit_lock_ = true
+
+[node name="plant_location-22" type="Node2D" parent="."]
+position = Vector2(1544, 471)
+
+[node name="Pot" type="Sprite2D" parent="plant_location-22"]
+scale = Vector2(10, 10)
+texture = ExtResource("3_2mpvm")
+metadata/_edit_lock_ = true
+
+[node name="Plant" type="Sprite2D" parent="plant_location-22"]
+scale = Vector2(10, 10)
+texture = ExtResource("9_314a6")
+script = ExtResource("10_t56wp")
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="plant_location-22"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(20, 20)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("10_idhnu")
+script = ExtResource("12_qebhy")
+metadata/_edit_lock_ = true
+
+[node name="plant_location-23" type="Node2D" parent="."]
+position = Vector2(1734, 465)
+
+[node name="Pot" type="Sprite2D" parent="plant_location-23"]
+scale = Vector2(10, 10)
+texture = ExtResource("3_2mpvm")
+metadata/_edit_lock_ = true
+
+[node name="Plant" type="Sprite2D" parent="plant_location-23"]
+scale = Vector2(10, 10)
+texture = ExtResource("9_314a6")
+script = ExtResource("10_t56wp")
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="plant_location-23"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(20, 20)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("10_idhnu")
+script = ExtResource("12_qebhy")
+metadata/_edit_lock_ = true
+
+[node name="plant_location-24" type="Node2D" parent="."]
+position = Vector2(1370, 646)
+
+[node name="Pot" type="Sprite2D" parent="plant_location-24"]
+scale = Vector2(10, 10)
+texture = ExtResource("3_2mpvm")
+metadata/_edit_lock_ = true
+
+[node name="Plant" type="Sprite2D" parent="plant_location-24"]
+scale = Vector2(10, 10)
+texture = ExtResource("9_314a6")
+script = ExtResource("10_t56wp")
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="plant_location-24"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(20, 20)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("10_idhnu")
+script = ExtResource("12_qebhy")
+metadata/_edit_lock_ = true

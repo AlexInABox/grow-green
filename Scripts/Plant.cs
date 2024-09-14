@@ -1,102 +1,147 @@
 using Godot;
 using System;
 
-public partial class Plant : Node
+public partial class Plant : Sprite2D
 {
+    //constants
+    public string className; // Class name
+    public string name; // Name
+    public float decayRatePerDay; // Decay per Time (from 100)
+    public float growRatePerDay = 10; // Rate of growth per day
+    public int wateringImpact = 10; // Amount of water added per click
     public int cost; // Cost to purchase
     public int sellValue; // Value when fully grown
     public int yield; // Money Production per Day when fully grown
-    public int growDurationInDays; // Needed days for next stage (e.g., 7 days)
-    public int currentGrowProgress; // Current Progress (e.g., 3/7 days)
-    public int stage; // Current Stage 0=DriedOut, 1=Seed, 2=Sprout, 3=YoungPlant, 4=FullyGrown, 5=Rotten
-    public string name; // Name
-    public string description; // Description
-    public float cycle; // How often it needs to be watered
-    public int waterStatus; // Current water level (0-100)
-    long watertStatusTimestamp;
-    public bool isDead; // True if the plant is dead
-    public int wateringImpact; // Amount of water added per click
-    public int decayRate; // Decay per Time (from 100)
+    //end-of constants
+
+    public float growProgress; // Current Progress (0-100)
+    public long growProgressTimestamp; // epoch
+    public float waterLevel; // Current water level (0-100)
+    public long waterLevelTimestamp; // epoch
+    public bool withered = false; // True if the plant is dead
+    public bool rotten = false; // True if the plant is dead
+    
+    private string[] growthTextures;
 
 
-    public Plant(){
-		watertStatusTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds();
-		GD.Print("KYS! : EPOCH: " + watertStatusTimestamp);
-	}
+    public Plant() {
+        this.className = "Agave";
+        this.name = "TestName";
+        this.decayRatePerDay = 100 / 0.001f;
+        this.cost = 5;
+        this.sellValue = 3;
+        this.yield = 1;
+        this.growRatePerDay = 1000000;
+
+        this.growProgress = 1;
+        this.growProgressTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds();
+        this.waterLevel = 50;
+        this.waterLevelTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds();
+    }
+    public Plant(string className, string name, int waterEveryXDays, int cost, int sellValue, int yield) {
+        this.className = className;
+        this.name = name;
+        this.decayRatePerDay = 100 / waterEveryXDays;
+        this.cost = cost;
+        this.sellValue = sellValue;
+        this.yield = yield;
+
+        growProgress = 1;
+        growProgressTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds();
+        waterLevel = 50;
+        waterLevelTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds();
+    }
+
+    public Plant(string className, string name, int waterEveryXDays, int cost, int sellValue, int yield, float growProgress, long growProgressTimestamp, float waterLevel, long waterLevelTimestamp, bool withered, bool rotten) {
+        this.className = className;
+        this.name = name;
+        this.decayRatePerDay = 100 / waterEveryXDays;
+        this.cost = cost;
+        this.sellValue = sellValue;
+        this.yield = yield;
+
+        this.growProgress = growProgress;
+        this.growProgressTimestamp = growProgressTimestamp;
+        this.waterLevel = waterLevel;
+        this.waterLevelTimestamp = waterLevelTimestamp;
+        this.withered = withered;
+        this.rotten = rotten;
+    }
+
     public override void _Ready()
     {
-        CheckForGrowth();
-        if (GetWaterStatus() == 0)
-        {
-            GD.Print("The plant has dried out and is dead!");
-            isDead = true;
+        string normalizedClassName = className.ToLower().Replace(" ", "_");
+        growthTextures = new string[5]{
+            "res://Textures/Plants/withered.png", //Dried up
+            "res://Textures/Plants/rotten.png", //Had too much to dink
+            $"res://Textures/Plants/{normalizedClassName}1.png",         // Stage 1: Seed
+            $"res://Textures/Plants/{normalizedClassName}2.png",       // Stage 2: Sprout
+            $"res://Textures/Plants/{normalizedClassName}3.png",  // Stage 3: Young Plant
+        };
+        RefreshMetadata();
+        
+    }
+
+    public void RefreshMetadata() {
+        RecalculateWaterLevel();
+        RecalculateGrowProgress();
+        RefreshTexture();
+    }
+
+    public void WaterPlant() {
+        waterLevel += wateringImpact;
+        RefreshMetadata();
+    }
+
+    private void RecalculateWaterLevel() {
+        long timeSinceLastTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds() - waterLevelTimestamp;
+        waterLevel -= (decayRatePerDay / 24 / 60 / 60) * timeSinceLastTimestamp;
+        GD.Print("WaterLevel: " + waterLevel);
+        waterLevelTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds();
+
+        if (waterLevel > 100) rotten = true;
+        if (waterLevel <= 0) withered = true;
+    }
+
+    private void RecalculateGrowProgress() {
+        if (withered) {
+            growProgress = -1;
+            return;
+        }
+        if (rotten) {
+            growProgress = 0;
+            return;
+        }
+
+        long timeSinceLastTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds() - growProgressTimestamp;
+        growProgress += (growRatePerDay / 24 / 60 / 60) * timeSinceLastTimestamp;
+        GD.Print("GrowProgress: " + growProgress);
+        growProgressTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds();
+    }
+
+    private void RefreshTexture() {
+        if (growProgress == -1) {
+            Texture = (Texture2D)GD.Load(growthTextures[0]);
+            return;
+        }
+        if (growProgress == 0) {
+            Texture = (Texture2D)GD.Load(growthTextures[1]);
+            return;
+        }
+        if (growProgress > 0) {
+            Texture = (Texture2D)GD.Load(growthTextures[2]);
+        }
+        if (growProgress > 40) {
+            Texture = (Texture2D)GD.Load(growthTextures[3]);
+        }
+        if (growProgress > 80) {
+            Texture = (Texture2D)GD.Load(growthTextures[4]);
         }
     }
 
-    public double GetWaterStatus()
-    {
-        return waterStatus;
-    }
-
-    public void Decay()
-    {
-        waterStatus -= decayRate;
-        if (waterStatus <= 0)
-        {
-            waterStatus = 0;
-            isDead = true;
-        }
-    }
-
-    public void SetWaterStatus(float value)
-    {
-        waterStatus = (int)value;
-    }
-
-    public void WaterPlant()
-    {
-        waterStatus += wateringImpact;
-        if (waterStatus > 100) waterStatus = 100; // Ensure water status does not exceed 100
-        CheckForGrowth();
-    }
-
-    public void NextStage()
-    {
-        if (stage < 4) // Ensure stage does not exceed the maximum stage
-        {
-            stage++;
-            currentGrowProgress = 0; // Reset grow progress for the next stage
-        }
-    }
-
-    public void CheckForGrowth()
-    {
-        if (currentGrowProgress >= growDurationInDays)
-        {
-            NextStage();
-        }
-        else
-        {
-            currentGrowProgress++;
-        }
-    }
-
-    public bool CheckForDead()
-    {
-        if (GetWaterStatus() <= 0 || GetWaterStatus() >= 100)
-        {
-            GD.Print("The plant is dead!");
-            isDead = true;
-        }
-        return isDead;
-    }
 
     public override void _Process(double delta)
     {
-        if (!isDead)
-        {
-            Decay();
-            CheckForGrowth();
-        }
+        RefreshMetadata();
     }
 }
