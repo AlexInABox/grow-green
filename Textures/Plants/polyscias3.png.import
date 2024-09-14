@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cy3msxufb8o7e"
-path="res://.godot/imported/vertrocknet.png-1dbfa9c505f9f44266d92ac422931ee2.ctex"
+uid="uid://ctkwvn2xgppt"
+path="res://.godot/imported/polyscias3.png-ebc0b9e4ed8a2be81eaba05ae51263ed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Plants/vertrocknet.png"
-dest_files=["res://.godot/imported/vertrocknet.png-1dbfa9c505f9f44266d92ac422931ee2.ctex"]
+source_file="res://Textures/Plants/polyscias3.png"
+dest_files=["res://.godot/imported/polyscias3.png-ebc0b9e4ed8a2be81eaba05ae51263ed.ctex"]
 
 [params]
 

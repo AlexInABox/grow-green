@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://m7pbbugmb62d"
-path="res://.godot/imported/topf.png-88445a0bc05f50754eeb59d986b72738.ctex"
+uid="uid://dg7plm6hk3okt"
+path="res://.godot/imported/anthurium1.png-2b8b8f0d1037d705e25c07752c2c1777.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Plants/topf.png"
-dest_files=["res://.godot/imported/topf.png-88445a0bc05f50754eeb59d986b72738.ctex"]
+source_file="res://Textures/Plants/anthurium1.png"
+dest_files=["res://.godot/imported/anthurium1.png-2b8b8f0d1037d705e25c07752c2c1777.ctex"]
 
 [params]
 
