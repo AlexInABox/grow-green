@@ -14,7 +14,7 @@ public partial class PlantButton : Button
 
     private void ButtonPressed()
     {
-        //plantSprite = GetNode<Sprite2D>("../Plant");
+        myPlant = GetNode<Plant>("../Plant");
         myPlant.WaterPlant();
     }
 
