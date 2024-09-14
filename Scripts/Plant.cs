@@ -5,7 +5,7 @@ public partial class Plant : Sprite2D
 {
     //constants
     public string className; // Class name
-    public string name; // Name
+    public string plantName; // Name
     public float decayRatePerDay; // Decay per Time (from 100)
     public float growRatePerDay = 10; // Rate of growth per day
     public int wateringImpact = 10; // Amount of water added per click
@@ -26,19 +26,19 @@ public partial class Plant : Sprite2D
 
     public Plant() {
         this.className = "Agave";
-        this.name = "TestName";
+        this.plantName = "TestName";
         this.decayRatePerDay = 100 / 0.001f;
         this.cost = 5;
         this.sellValue = 3;
         this.yield = 1;
-        this.growRatePerDay = 1000000;
+        this.growRatePerDay = 10;
 
         this.growProgress = 1;
         this.waterLevel = 50;
     }
     public Plant(string className, string name, int waterEveryXDays, int cost, int sellValue, int yield) {
         this.className = className;
-        this.name = name;
+        this.plantName = name;
         this.decayRatePerDay = 100 / waterEveryXDays;
         this.cost = cost;
         this.sellValue = sellValue;
@@ -50,7 +50,7 @@ public partial class Plant : Sprite2D
 
     public Plant(string className, string name, int waterEveryXDays, int cost, int sellValue, int yield, float growProgress, long growProgressTimestamp, float waterLevel, long waterLevelTimestamp, bool withered, bool rotten) {
         this.className = className;
-        this.name = name;
+        this.plantName = name;
         this.decayRatePerDay = 100 / waterEveryXDays;
         this.cost = cost;
         this.sellValue = sellValue;
@@ -66,6 +66,8 @@ public partial class Plant : Sprite2D
 
     public override void _Ready()
     {
+        Name = "Plant";
+
         if (waterLevelTimestamp == 0) waterLevelTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds();
         if (growProgressTimestamp == 0) growProgressTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds();
 
@@ -95,7 +97,7 @@ public partial class Plant : Sprite2D
     private void RecalculateWaterLevel() {
         long timeSinceLastTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds() - waterLevelTimestamp;
         waterLevel -= (decayRatePerDay / 24 / 60 / 60) * timeSinceLastTimestamp;
-        GD.Print("WaterLevel: " + waterLevel);
+        //GD.Print("WaterLevel: " + waterLevel);
         waterLevelTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds();
 
         if (waterLevel > 100) rotten = true;
@@ -114,7 +116,7 @@ public partial class Plant : Sprite2D
 
         long timeSinceLastTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds() - growProgressTimestamp;
         growProgress += (growRatePerDay / 24 / 60 / 60) * timeSinceLastTimestamp;
-        GD.Print("GrowProgress: " + growProgress);
+        //GD.Print("GrowProgress: " + growProgress);
         growProgressTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds();
     }
 

@@ -9,12 +9,12 @@ public partial class PlantButton : Button
     public override void _Ready()
     {
         Pressed += ButtonPressed;
-        myPlant = GetNode<Plant>("../Plant"); //will error when sprite hasnt loaded yet. but works anyways for some reason
+        //myPlant = GetNode<Plant>("../Plant"); //will error when sprite hasnt loaded yet. but works anyways for some reason
     }
 
     private void ButtonPressed()
     {
-        //plantSprite = GetNode<Sprite2D>("../Plant");
+        myPlant = GetNode<Plant>("../Plant");
         myPlant.WaterPlant();
     }
 

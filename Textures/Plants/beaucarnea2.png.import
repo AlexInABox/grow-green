@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b88sutudp8tcu"
-path="res://.godot/imported/verfault.png-af10d17d3909a76fb5dcfb52a55952d1.ctex"
+uid="uid://drwrdqdd8eudu"
+path="res://.godot/imported/beaucarnea2.png-b96023f8abbd6ce98ddee8305ed15067.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Plants/verfault.png"
-dest_files=["res://.godot/imported/verfault.png-af10d17d3909a76fb5dcfb52a55952d1.ctex"]
+source_file="res://Textures/Plants/beaucarnea2.png"
+dest_files=["res://.godot/imported/beaucarnea2.png-b96023f8abbd6ce98ddee8305ed15067.ctex"]
 
 [params]
 
