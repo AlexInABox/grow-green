@@ -17,5 +17,16 @@ mono_crash.*.json
 #Macos
 .DS_Store
 
+#Jetbrains Rider
+.idea/
+
 #Ignore the .db file
 Database/plants.db
+
+#Ignore the .db file
+Database/plants.db
+
+#Rider .idea folder
+.idea/
+GrowGreen.exe
+GrowGreen.console.exe
