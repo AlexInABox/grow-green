@@ -31,7 +31,7 @@ public partial class Plant : Sprite2D
         this.cost = 5;
         this.sellValue = 3;
         this.yield = 1;
-        this.growRatePerDay = 1000000;
+        this.growRatePerDay = 10;
 
         this.growProgress = 1;
         this.waterLevel = 50;
