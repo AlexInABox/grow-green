@@ -15,9 +15,9 @@ public partial class Plant : Sprite2D
     //end-of constants
 
     public float growProgress; // Current Progress (0-100)
-    public long growProgressTimestamp; // epoch
+    public long growProgressTimestamp = 0; // epoch
     public float waterLevel; // Current water level (0-100)
-    public long waterLevelTimestamp; // epoch
+    public long waterLevelTimestamp = 0; // epoch
     public bool withered = false; // True if the plant is dead
     public bool rotten = false; // True if the plant is dead
     
@@ -34,9 +34,7 @@ public partial class Plant : Sprite2D
         this.growRatePerDay = 1000000;
 
         this.growProgress = 1;
-        this.growProgressTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds();
         this.waterLevel = 50;
-        this.waterLevelTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds();
     }
     public Plant(string className, string name, int waterEveryXDays, int cost, int sellValue, int yield) {
         this.className = className;
@@ -47,9 +45,7 @@ public partial class Plant : Sprite2D
         this.yield = yield;
 
         growProgress = 1;
-        growProgressTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds();
         waterLevel = 50;
-        waterLevelTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds();
     }
 
     public Plant(string className, string name, int waterEveryXDays, int cost, int sellValue, int yield, float growProgress, long growProgressTimestamp, float waterLevel, long waterLevelTimestamp, bool withered, bool rotten) {
@@ -70,6 +66,9 @@ public partial class Plant : Sprite2D
 
     public override void _Ready()
     {
+        if (waterLevelTimestamp == 0) waterLevelTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds();
+        if (growProgressTimestamp == 0) growProgressTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds();
+
         string normalizedClassName = className.ToLower().Replace(" ", "_");
         growthTextures = new string[5]{
             "res://Textures/Plants/withered.png", //Dried up
