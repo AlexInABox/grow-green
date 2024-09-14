@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://f57aqowuk20c"]
+
+[ext_resource type="Texture2D" uid="uid://m7pbbugmb62d" path="res://Textures/Plants/pot.png" id="1_tugmu"]
+[ext_resource type="Texture2D" uid="uid://bttoba0d2q6lj" path="res://Textures/Plants/agave2.png" id="2_wrp6y"]
+[ext_resource type="Script" path="res://Scripts/Plant.cs" id="3_urc5w"]
+[ext_resource type="Theme" uid="uid://bik6akg25n2fr" path="res://Themes/plant_location_button.tres" id="4_42ljx"]
+[ext_resource type="Script" path="res://Scripts/PlantButton.cs" id="5_o0u11"]
+
+[node name="plant_wrapper" type="Node2D"]
+
+[node name="Pot" type="Sprite2D" parent="."]
+scale = Vector2(10, 10)
+texture = ExtResource("1_tugmu")
+metadata/_edit_lock_ = true
+
+[node name="Plant" type="Sprite2D" parent="."]
+scale = Vector2(10, 10)
+texture = ExtResource("2_wrp6y")
+script = ExtResource("3_urc5w")
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(20, 20)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("4_42ljx")
+script = ExtResource("5_o0u11")
+metadata/_edit_lock_ = true
