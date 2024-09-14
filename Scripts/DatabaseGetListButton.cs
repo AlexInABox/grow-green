@@ -1,6 +1,7 @@
+using System.Collections.Generic;
 using Godot;
 
-public partial class DatabaseButton : Button
+public partial class DatabaseGetListButton : Button
 {
 
     DatabaseWrapper db = new DatabaseWrapper();
@@ -13,8 +14,13 @@ public partial class DatabaseButton : Button
 
 	private void ButtonPressed()
 	{
-		GD.Print("KYS! im mining bittcoin now! :3");
-        db.InitializeDatabase();
+		GD.Print("Heres my list:");
+		List<Plant> plantList = db.GetListOfAllPlants();
+
+		foreach (var item in plantList)
+		{
+			GD.Print(item.className);
+		}
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

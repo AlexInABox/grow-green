@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk7n5xl4kts45"]
+
+[ext_resource type="Script" path="res://Scripts/ClickablePlant.cs" id="1_gqkpi"]
+[ext_resource type="Texture2D" uid="uid://b6hmioiqca432" path="res://Textures/Plants/agave1.png" id="2_t5afu"]
+
+[node name="Plant" type="Node2D"]
+texture_filter = 3
+script = ExtResource("1_gqkpi")
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 7
+
+[node name="Plant" type="Sprite2D" parent="."]
+z_index = 25
+texture = ExtResource("2_t5afu")
