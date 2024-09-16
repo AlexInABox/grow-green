@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using Godot;
 using Microsoft.Data.Sqlite;
 
@@ -18,7 +17,7 @@ public partial class DatabaseWrapper
         {
             connection.Open();
 
-            var sqlQueryFile = Godot.FileAccess.Open("res://Database/plants.sql", Godot.FileAccess.ModeFlags.Read);
+            var sqlQueryFile = FileAccess.Open("res://Database/plants.sql", FileAccess.ModeFlags.Read);
             string sqlQuery = sqlQueryFile.GetAsText();
             sqlQueryFile.Close();
             
