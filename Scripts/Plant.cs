@@ -71,7 +71,7 @@ public partial class Plant : Sprite2D
         if (waterLevelTimestamp == 0) waterLevelTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds();
         if (growProgressTimestamp == 0) growProgressTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds();
 
-        string normalizedClassName = className.ToLower().Replace(" ", "_");
+        string normalizedClassName = className.ToLower().Replace(" ", "");
         growthTextures = new string[5]{
             "res://Textures/Plants/withered.png", //Dried up
             "res://Textures/Plants/rotten.png", //Had too much to dink
