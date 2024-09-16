@@ -13,7 +13,6 @@ public partial class DatabaseInitializeButton : Button
 
 	private void ButtonPressed()
 	{
-		GD.Print("KYS! im mining bittcoin now! :3");
         db.InitializeDatabase();
 	}
 
