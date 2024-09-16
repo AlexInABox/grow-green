@@ -1,12 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using Godot;
 using Microsoft.Data.Sqlite;
 
 public partial class DatabaseWrapper
 {
-	private string pathToDB = @"Database/plants.db"; 
+	private readonly string pathToDB = ProjectSettings.GlobalizePath("user://plants.db"); 
 
 	public void InitializeDatabase(){
 
@@ -18,23 +17,16 @@ public partial class DatabaseWrapper
         {
             connection.Open();
 
-            // Read and execute SQL from .sql file
-            string sqlFilePath = @"Database/plants.sql";
-            if (File.Exists(sqlFilePath))
+            var sqlQueryFile = FileAccess.Open("res://Database/plants.sql", FileAccess.ModeFlags.Read);
+            string sqlQuery = sqlQueryFile.GetAsText();
+            sqlQueryFile.Close();
+            
+            using (var command = new SqliteCommand(sqlQuery, connection))
             {
-                string sqlQuery = File.ReadAllText(sqlFilePath);
-                using (var command = new SqliteCommand(sqlQuery, connection))
-                {
-                    command.ExecuteNonQuery();  // Execute the SQL commands in the file
-					GD.Print("SQL file executed successfully.");
+                command.ExecuteNonQuery();  // Execute the SQL commands in the file
+				GD.Print("SQL file executed successfully.");
 
-                }
             }
-            else
-            {
-                GD.Print("SQL file not found.");
-            }
-
             connection.Close();
         }
     }
