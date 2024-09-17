@@ -131,14 +131,14 @@ jobs:
       - name: Upload binary as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: windows
-          path: builds/windows
+          name: windows-compressed
+          path: builds/windows/${{ env.EXPORT_NAME }}.exe.7z
 
       - name: Upload binary as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: linux
-          path: builds/linux
+          name: linux-compressed
+          path: builds/linux/${{ env.EXPORT_NAME }}.x86_64.7z
 
   create-release:
     name: Create Release
