@@ -112,8 +112,8 @@ jobs:
           name: mac
           path: builds/mac/${{ env.EXPORT_NAME }}.dmg
 
-  generate-version:
-    name: Generate VERSION_NUMBER
+  calculate-version:
+    name: Calculate version
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -121,7 +121,7 @@ jobs:
         with:
           lfs: true # large file storage
 
-      - name: Read and generate file
+      - name: Read and write file
         run: |
           grep "^config/version" project.godot | cut -f2 -d"=" | sed 's/\"//g' > version.txt
 
@@ -164,7 +164,7 @@ jobs:
   create-release:
     name: Create Release
     runs-on: ubuntu-latest
-    needs: [ compress-all-binaries, generate-version ]
+    needs: [ compress-all-binaries, calculate-version ]
     permissions: write-all
     steps:
       - name: Download binaries
