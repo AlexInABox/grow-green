@@ -1,9 +1,10 @@
 using Godot;
+using System;
 
-public partial class DatabaseButton : Button
+public partial class GetToTestDatabaseButton : Button
 {
 
-    DatabaseWrapper db = new DatabaseWrapper();
+	
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -13,8 +14,10 @@ public partial class DatabaseButton : Button
 
 	private void ButtonPressed()
 	{
-		GD.Print("KYS! im mining bittcoin now! :3");
-        db.InitializeDatabase();
+		var newScenePath = "res://Scenes/databaseTests.tscn"; // Replace with your scene path
+		GetTree().ChangeSceneToFile(newScenePath);
+		Player player = new Player();
+		GameMode gameMode = new GameMode(player);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

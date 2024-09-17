@@ -1,17 +1,17 @@
 DROP TABLE IF EXISTS plants;
 CREATE TABLE "plants" (
-	"class"	TEXT,
+	"className"	TEXT,
 	"name"	TEXT,
-	"water"	INTEGER,
+	"waterEveryXDays"	INTEGER,
 	"place"	TEXT,
 	"level"	TEXT,
 	"cost" INTEGER,
-	"value" INTEGER,
+	"sellValue" INTEGER,
 	"yield" INTEGER,
-	PRIMARY KEY("class")
+	PRIMARY KEY("className")
 );
 
-INSERT INTO plants (class, name, water, place, level, cost, value, yield)
+INSERT INTO plants (className, name, waterEveryXDays, place, level, cost, sellValue, yield)
 VALUES ('Agave', 'Jahrhundertpflanze', 10, 'sunny', 'easy', 5, 3, 1),
 	('Aglaonema', 'Kolbenpfaden', 7, 'cloudy', 'easy', 5, 3, 1),
 	('Alocasia', 'Elefantenohr', 3, 'sunny', 'hard', 8, 6, 3),

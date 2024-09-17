@@ -88,29 +88,21 @@ jobs:
         uses: actions/checkout@v4
         with:
           lfs: true # large file storage
-      
-      - name: .NET installation
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: "8.0.x"
 
-      - name: Install Godot Headless
+      - name: Setup Godot-mono
         run: |
-          brew install --cask godot
+          brew install --cask godot-mono
 
       - name: Setup Godot Templates
-        shell: bash
         run: |
-          curl -L https://github.com/godotengine/godot-builds/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_mono_export_templates.tpz -o godot_export_templates.tpz
-          mkdir -p "Users/runner/Library/Application\ Support/Godot/export_templates/${GODOT_VERSION}.stable"
-          tar -xf godot_export_templates.tpz -C "Users/runner/Library/Application\ Support/Godot/export_templates/${GODOT_VERSION}.stable"
-
-      - name: List Export Templates
-        shell: bash
-        run: ls -a "Users/runner/Library/Application\ Support/Godot/export_templates/${GODOT_VERSION}.stable"
+          export GODOT_TEMPLATES_PATH="$HOME/Library/Application Support/Godot/export_templates/${{ env.GODOT_VERSION}}.stable.mono/"
+          mkdir -p "$GODOT_TEMPLATES_PATH"
+          wget -q https://github.com/godotengine/godot/releases/download/${{ env.GODOT_VERSION}}-stable/Godot_v${{ env.GODOT_VERSION}}-stable_mono_export_templates.tpz
+          unzip -j Godot_v${{ env.GODOT_VERSION}}-stable_mono_export_templates.tpz -d "$GODOT_TEMPLATES_PATH"
 
       - name: MacOS Build
         run: |
+          export PATH=/Applications/Godot_mono.app/Contents/MacOS:$PATH
           mkdir -v -p builds/mac
           godot --headless --verbose --export-release "macOS" builds/mac/${{ env.EXPORT_NAME }}.dmg
 
