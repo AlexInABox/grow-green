@@ -113,7 +113,7 @@ jobs:
           path: builds/mac/${{ env.EXPORT_NAME }}.dmg
 
   generate-version:
-    name: Generate version
+    name: Generate VERSION_NUMBER
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -123,13 +123,13 @@ jobs:
 
       - name: Read and generate file
         run: |
-          grep "^config/version" project.godot | cut -f2 -d"=" | sed 's/\"//g' > version
+          grep "^config/version" project.godot | cut -f2 -d"=" | sed 's/\"//g' > version.txt
 
       - name: Upload binary as artifact
         uses: actions/upload-artifact@v4
         with:
           name: version
-          path: version
+          path: version.txt
 
   compress-all-binaries:
     name: Compress binaries
@@ -174,7 +174,7 @@ jobs:
       
       - name: Read version number!
         id: read-version
-        run: echo "VERSION_NUMBER=$(cat builds/version)" >> "$GITHUB_OUTPUT"
+        run: echo "VERSION_NUMBER=$(cat builds/version/version.txt)" >> "$GITHUB_OUTPUT"
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
