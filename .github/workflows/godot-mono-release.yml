@@ -112,18 +112,24 @@ jobs:
           name: mac
           path: builds/mac/${{ env.EXPORT_NAME }}.dmg
 
-  read-version:
-    name: Read version
+  generate-version:
+    name: Generate version
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           lfs: true # large file storage
-      
-      - name: Read the version and normalize!
+
+      - name: Read and generate file
         run: |
-          echo VERSION_NUMBER=$(grep "^config/version" project.godot | cut -f2 -d"=" | sed 's/\"//g') >> "$GITHUB_OUTPUT"
+          grep "^config/version" project.godot | cut -f2 -d"=" | sed 's/\"//g' > version
+
+      - name: Upload binary as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: version
+          path: version
 
   compress-all-binaries:
     name: Compress binaries
@@ -157,10 +163,8 @@ jobs:
 
   create-release:
     name: Create Release
-    env:
-      VERSION_NUMBER: ${{ steps.read-version.outputs.VERSION_NUMBER }}
     runs-on: ubuntu-latest
-    needs: [ compress-all-binaries ]
+    needs: [ compress-all-binaries, generate-version ]
     permissions: write-all
     steps:
       - name: Download binaries
@@ -168,18 +172,15 @@ jobs:
         with:
           path: builds
       
-      - name: What is going on?
-        run: |
-          tree
-          echo $VERSION_NUMBER
-          echo ${{ env.VERSION_NUMBER }}
-          grep "^config/version" project.godot | cut -f2 -d"=" | sed 's/\"//g'
+      - name: Read version number!
+        id: read-version
+        run: echo "VERSION_NUMBER=$(cat builds/version)" >> "$GITHUB_OUTPUT"
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           draft: true
-          name: ${{ env.VERSION_NUMBER }}
+          name: ${{ steps.read-version.outputs.VERSION_NUMBER }}
           files: |
             builds/windows/${{ env.EXPORT_NAME }}.exe
             builds/windows-compressed/${{ env.EXPORT_NAME }}.exe.7z
