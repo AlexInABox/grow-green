@@ -7,6 +7,10 @@ public partial class DatabaseWrapper
 {
 	private readonly string pathToDB = ProjectSettings.GlobalizePath("user://plants.db"); 
 
+    public DatabaseWrapper(){
+        InitializeDatabase();
+    }
+    
 	public void InitializeDatabase(){
 
 		//Create a local database and load the .sql file into it
