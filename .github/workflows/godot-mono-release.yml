@@ -154,6 +154,7 @@ jobs:
       - name: What is going on?
         run: |
           tree
+          grep "^config/version" project.godot | cut -f2 -d"=" | sed 's/\"//g'
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
@@ -161,9 +162,9 @@ jobs:
           draft: true
           files: |
             builds/windows/${{ env.EXPORT_NAME }}.exe
-            builds/windows/${{ env.EXPORT_NAME }}.exe.zip
+            builds/windows-compressed/${{ env.EXPORT_NAME }}.exe.7z
             builds/linux/${{ env.EXPORT_NAME }}.x86_64
-            builds/linux/${{ env.EXPORT_NAME }}.x86_64.zip
+            builds/linux-compressed/${{ env.EXPORT_NAME }}.x86_64.7z
             builds/mac/${{ env.EXPORT_NAME }}.dmg
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
