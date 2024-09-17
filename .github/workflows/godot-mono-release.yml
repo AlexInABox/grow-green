@@ -112,8 +112,27 @@ jobs:
           name: mac
           path: builds/mac/${{ env.EXPORT_NAME }}.dmg
 
-  create-release:
-    name: Create Release
+  calculate-version:
+    name: Calculate version
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: true # large file storage
+
+      - name: Read and write file
+        run: |
+          grep "^config/version" project.godot | cut -f2 -d"=" | sed 's/\"//g' > version.txt
+
+      - name: Upload binary as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: version
+          path: version.txt
+
+  compress-all-binaries:
+    name: Compress binaries
     runs-on: ubuntu-latest
     needs: [ build-windows, build-linux, build-mac ]
     permissions: write-all
@@ -123,13 +142,50 @@ jobs:
         with:
           path: builds
 
+      - name: Create zip's right now!
+        run: |
+          cd builds/windows
+          7z a ${{ env.EXPORT_NAME }}.exe.7z ${{ env.EXPORT_NAME }}.exe
+          cd ../linux
+          7z a ${{ env.EXPORT_NAME }}.x86_64.7z ${{ env.EXPORT_NAME }}.x86_64
+
+      - name: Upload binary as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-compressed
+          path: builds/windows/${{ env.EXPORT_NAME }}.exe.7z
+
+      - name: Upload binary as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-compressed
+          path: builds/linux/${{ env.EXPORT_NAME }}.x86_64.7z
+
+  create-release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    needs: [ compress-all-binaries, calculate-version ]
+    permissions: write-all
+    steps:
+      - name: Download binaries
+        uses: actions/download-artifact@v4
+        with:
+          path: builds
+      
+      - name: Read version number!
+        id: read-version
+        run: echo "VERSION_NUMBER=$(cat builds/version/version.txt)" >> "$GITHUB_OUTPUT"
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           draft: true
+          name: ${{ steps.read-version.outputs.VERSION_NUMBER }}
           files: |
             builds/windows/${{ env.EXPORT_NAME }}.exe
+            builds/windows-compressed/${{ env.EXPORT_NAME }}.exe.7z
             builds/linux/${{ env.EXPORT_NAME }}.x86_64
+            builds/linux-compressed/${{ env.EXPORT_NAME }}.x86_64.7z
             builds/mac/${{ env.EXPORT_NAME }}.dmg
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
