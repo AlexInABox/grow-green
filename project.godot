@@ -12,11 +12,16 @@ config_version=5
 
 config/name="GrowGreen"
 config/description="Das ist mein Spiel!"
-config/version="4.5.2"
+config/version="0.5.2"
 run/main_scene="res://Scenes/titleScreen.tscn"
 config/features=PackedStringArray("4.3", "C#", "GL Compatibility")
-boot_splash/bg_color=Color(0.486275, 0.286275, 0.172549, 0.854902)
-boot_splash/show_image=false
+boot_splash/image="res://Textures/Logo/IconWithName.PNG"
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+config/icon="res://Textures/Logo/LogoWithName_rounded.png"
+config/macos_native_icon="res://Textures/Logo/LogoWithName_rounded.png"
+config/windows_native_icon="res://Textures/Logo/LogoWithName_rounded.png"
+boot_splash/minimum_display_time=3000
 
 [display]
 
@@ -32,7 +37,12 @@ project/assembly_name="GrowGreen"
 
 [gui]
 
-theme/custom_font="res://PixelifySans-VariableFont_wght.ttf"
+theme/custom_font="res://Fonts/Jersey25-Regular.ttf"
+theme/default_font_antialiasing=0
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
 
 [rendering]
 

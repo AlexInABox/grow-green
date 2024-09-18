@@ -1,0 +1,191 @@
+name: "RELEASE"
+on:
+  workflow_dispatch:
+      inputs:
+        question:
+          description: 'Alexx on top?'
+          required: false
+          default: 'YESSS'
+          type: choice
+          options:
+            - 'YESSS'
+            - 'nuUh!'
+
+env:
+  GODOT_VERSION: 4.3
+  EXPORT_NAME: GrowGreen
+
+jobs:
+  build-windows:
+    name: Build Windows
+    runs-on: ubuntu-latest
+    container:
+      image: barichello/godot-ci:mono-4.3
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: true # large file storage
+      
+      - name: .NET installation
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Setup Godot Templates
+        run: |
+          mkdir -v -p ~/.local/share/godot/export_templates/
+          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable.mono ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable.mono
+
+      - name: Windows Build
+        run: |
+          mkdir -v -p builds/windows
+          godot --headless --verbose --export-release "Windows Desktop" builds/windows/${{ env.EXPORT_NAME }}.exe
+
+      - name: Upload binary as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows
+          path: builds/windows/${{ env.EXPORT_NAME }}.exe
+
+  build-linux:
+    name: Build Linux
+    runs-on: ubuntu-latest
+    container:
+      image: barichello/godot-ci:mono-4.3
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: true # large file storage
+      
+      - name: .NET installation
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Setup Godot Templates
+        run: |
+          mkdir -v -p ~/.local/share/godot/export_templates/
+          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable.mono ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable.mono
+
+      - name: Linux Build
+        run: |
+          mkdir -v -p builds/linux
+          godot --headless --verbose --export-release "Linux" builds/linux/${{ env.EXPORT_NAME }}.x86_64
+
+      - name: Upload binary as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux
+          path: builds/linux/${{ env.EXPORT_NAME }}.x86_64
+
+  build-mac:
+    name: Build MacOS
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: true # large file storage
+
+      - name: Setup Godot-mono
+        run: |
+          brew install --cask godot-mono
+
+      - name: Setup Godot Templates
+        run: |
+          export GODOT_TEMPLATES_PATH="$HOME/Library/Application Support/Godot/export_templates/${{ env.GODOT_VERSION}}.stable.mono/"
+          mkdir -p "$GODOT_TEMPLATES_PATH"
+          wget -q https://github.com/godotengine/godot/releases/download/${{ env.GODOT_VERSION}}-stable/Godot_v${{ env.GODOT_VERSION}}-stable_mono_export_templates.tpz
+          unzip -j Godot_v${{ env.GODOT_VERSION}}-stable_mono_export_templates.tpz -d "$GODOT_TEMPLATES_PATH"
+
+      - name: MacOS Build
+        run: |
+          export PATH=/Applications/Godot_mono.app/Contents/MacOS:$PATH
+          mkdir -v -p builds/mac
+          godot --headless --verbose --export-release "macOS" builds/mac/${{ env.EXPORT_NAME }}.dmg
+
+      - name: Upload binary as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: mac
+          path: builds/mac/${{ env.EXPORT_NAME }}.dmg
+
+  calculate-version:
+    name: Calculate version
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: true # large file storage
+
+      - name: Read and write file
+        run: |
+          grep "^config/version" project.godot | cut -f2 -d"=" | sed 's/\"//g' > version.txt
+
+      - name: Upload binary as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: version
+          path: version.txt
+
+  compress-all-binaries:
+    name: Compress binaries
+    runs-on: ubuntu-latest
+    needs: [ build-windows, build-linux, build-mac ]
+    permissions: write-all
+    steps:
+      - name: Download binaries
+        uses: actions/download-artifact@v4
+        with:
+          path: builds
+
+      - name: Create zip's right now!
+        run: |
+          cd builds/windows
+          7z a ${{ env.EXPORT_NAME }}.exe.7z ${{ env.EXPORT_NAME }}.exe
+          cd ../linux
+          7z a ${{ env.EXPORT_NAME }}.x86_64.7z ${{ env.EXPORT_NAME }}.x86_64
+
+      - name: Upload binary as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-compressed
+          path: builds/windows/${{ env.EXPORT_NAME }}.exe.7z
+
+      - name: Upload binary as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-compressed
+          path: builds/linux/${{ env.EXPORT_NAME }}.x86_64.7z
+
+  create-release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    needs: [ compress-all-binaries, calculate-version ]
+    permissions: write-all
+    steps:
+      - name: Download binaries
+        uses: actions/download-artifact@v4
+        with:
+          path: builds
+      
+      - name: Read version number!
+        id: read-version
+        run: echo "VERSION_NUMBER=$(cat builds/version/version.txt)" >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          draft: true
+          name: ${{ steps.read-version.outputs.VERSION_NUMBER }}
+          files: |
+            builds/windows/${{ env.EXPORT_NAME }}.exe
+            builds/windows-compressed/${{ env.EXPORT_NAME }}.exe.7z
+            builds/linux/${{ env.EXPORT_NAME }}.x86_64
+            builds/linux-compressed/${{ env.EXPORT_NAME }}.x86_64.7z
+            builds/mac/${{ env.EXPORT_NAME }}.dmg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
