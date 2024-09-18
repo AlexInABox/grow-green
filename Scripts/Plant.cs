@@ -14,7 +14,7 @@ public partial class Plant : Sprite2D
     public int yield; // Money Production per Day when fully grown
     //end-of constants
 
-    public float growProgress; // Current Progress (0-100)
+    public float growProgress; // Current Progress (0-100) TEST
     public long growProgressTimestamp = 0; // epoch
     public float waterLevel; // Current water level (0-100)
     public long waterLevelTimestamp = 0; // epoch
