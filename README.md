@@ -1,5 +1,5 @@
 
-![Logo](Textures/Logo/LogoWithName_rounded.png)
+<img src="https://raw.githubusercontent.com/AlexInABox/grow-green/main/Textures/Logo/LogoWithName_rounded.png" alt="LogoWithName_rounded" style="height: 30px; width: 30px;"/>
 
 
 # Grow Green 
