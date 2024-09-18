@@ -15,6 +15,9 @@ plants and immerse themselves in the world of plants more easily. We will create
 understandable, intuitive interface. In the distant future, cooperation with flower stores and DIY stores may be possible, for the possibility of expanding the repertoire of plants, flowers and garden accessories.
 and garden accessories. In addition, an understanding of the plant world and ecosystems
 should be conveyed.
+&nbsp;
+
+Related paper to the project: [GrowGreen Paper](https://github.com/theoleuthardt/GrowGreenPaper/)
 
 
 ## Authors
