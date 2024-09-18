@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bp4pm6nyj77pp"]
+[gd_scene load_steps=20 format=3 uid="uid://bp4pm6nyj77pp"]
 
 [ext_resource type="Theme" uid="uid://cxgao5s1phj5n" path="res://Themes/mainMenuButtons.tres" id="1_0cr8b"]
 [ext_resource type="Script" path="res://Scripts/StartGameButton.cs" id="1_j8xma"]
@@ -15,6 +15,8 @@
 [ext_resource type="Script" path="res://Scripts/AlienButton.cs" id="11_m1rrk"]
 [ext_resource type="Texture2D" uid="uid://bjx3snqfb17jy" path="res://Textures/Aliens/alien_sombrero.png" id="14_vcq6k"]
 [ext_resource type="Texture2D" uid="uid://don867uga6wtk" path="res://Textures/Aliens/alien_worm.png" id="15_cykk0"]
+[ext_resource type="Texture2D" uid="uid://cfbffd0ksgdpo" path="res://Textures/Icons/Icons/Power.png" id="16_82qyu"]
+[ext_resource type="Script" path="res://Scripts/PowerButton.cs" id="16_wsys8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_epo8v"]
 shader = ExtResource("2_pgwvi")
@@ -43,7 +45,7 @@ offset_bottom = 1081.0
 [node name="Load Game" type="Button" parent="."]
 offset_left = 100.0
 offset_top = 400.0
-offset_right = 464.0
+offset_right = 473.0
 offset_bottom = 491.0
 scale = Vector2(1.4, 1.4)
 tooltip_text = "KRILL YOURSELF!"
@@ -64,7 +66,7 @@ script = ExtResource("1_j8xma")
 [node name="Settings" type="Button" parent="."]
 offset_left = 100.0
 offset_top = 700.0
-offset_right = 524.0
+offset_right = 470.0
 offset_bottom = 791.0
 scale = Vector2(1.4, 1.4)
 theme = ExtResource("1_0cr8b")
@@ -74,7 +76,7 @@ script = ExtResource("1_j8xma")
 [node name="Credits" type="Button" parent="."]
 offset_left = 100.0
 offset_top = 850.0
-offset_right = 334.0
+offset_right = 359.0
 offset_bottom = 941.0
 scale = Vector2(1.4, 1.4)
 theme = ExtResource("1_0cr8b")
@@ -198,3 +200,26 @@ script = ExtResource("11_m1rrk")
 position = Vector2(155, 237)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("15_cykk0")
+
+[node name="Power" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 483.0
+offset_top = 850.0
+offset_right = 574.0
+offset_bottom = 941.0
+scale = Vector2(1.4, 1.4)
+
+[node name="PowerButton" type="Button" parent="Power"]
+layout_mode = 0
+offset_left = 3.57143
+offset_top = 1.74046e-05
+offset_right = 94.5714
+offset_bottom = 91.0
+theme = ExtResource("1_0cr8b")
+script = ExtResource("16_wsys8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Power"]
+position = Vector2(47.1429, 40)
+scale = Vector2(4.53571, 4.95982)
+texture = ExtResource("16_82qyu")
