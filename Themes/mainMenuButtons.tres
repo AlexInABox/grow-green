@@ -1,10 +1,10 @@
 [gd_resource type="Theme" load_steps=7 format=3 uid="uid://cxgao5s1phj5n"]
 
 [ext_resource type="FontFile" uid="uid://16884th6cwds" path="res://Fonts/Jersey25-Regular.ttf" id="1_tjju2"]
-[ext_resource type="Texture2D" uid="uid://bflymd0g7jdct" path="res://Textures/Spritesheet_UI_Flat_Animated.png" id="2_rcvrk"]
+[ext_resource type="Texture2D" uid="uid://bflymd0g7jdct" path="res://Textures/Buttons/Spritesheet_UI_Flat_Animated.png" id="2_rkbdj"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cmawa"]
-texture = ExtResource("2_rcvrk")
+texture = ExtResource("2_rkbdj")
 texture_margin_left = 11.0
 texture_margin_top = 11.0
 texture_margin_right = 11.0
@@ -16,7 +16,7 @@ expand_margin_bottom = 5.0
 region_rect = Rect2(96, 32, 32, 32)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2cmgt"]
-texture = ExtResource("2_rcvrk")
+texture = ExtResource("2_rkbdj")
 texture_margin_left = 4.0
 texture_margin_top = 4.0
 texture_margin_right = 4.0
@@ -24,7 +24,7 @@ texture_margin_bottom = 4.0
 region_rect = Rect2(96, 96, 32, 32)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v7ddj"]
-texture = ExtResource("2_rcvrk")
+texture = ExtResource("2_rkbdj")
 texture_margin_left = 4.0
 texture_margin_top = 4.0
 texture_margin_right = 4.0
@@ -32,7 +32,7 @@ texture_margin_bottom = 4.0
 region_rect = Rect2(96, 96, 32, 32)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1s0vf"]
-texture = ExtResource("2_rcvrk")
+texture = ExtResource("2_rkbdj")
 texture_margin_left = 4.0
 texture_margin_top = 8.0
 texture_margin_right = 4.0
