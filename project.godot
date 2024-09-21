@@ -40,6 +40,10 @@ project/assembly_name="GrowGreen"
 theme/custom_font="res://Fonts/Jersey25-Regular.ttf"
 theme/default_font_antialiasing=0
 
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
