@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6n1r7dwg1utg"
-path="res://.godot/imported/alien_cutehat.png-ee10c62b388ef93771278609f3b3f403.ctex"
+uid="uid://don867uga6wtk"
+path="res://.godot/imported/5_alien.png-2dd2083dd49e255da9888bc8227ca52c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Aliens/alien_cutehat.png"
-dest_files=["res://.godot/imported/alien_cutehat.png-ee10c62b388ef93771278609f3b3f403.ctex"]
+source_file="res://Textures/Aliens/5_alien.png"
+dest_files=["res://.godot/imported/5_alien.png-2dd2083dd49e255da9888bc8227ca52c.ctex"]
 
 [params]
 

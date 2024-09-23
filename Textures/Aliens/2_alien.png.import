@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjx3snqfb17jy"
-path="res://.godot/imported/alien_sombrero.png-fc258f2c29a8101983ae5fab7d6c336a.ctex"
+uid="uid://dp4q5eewdkote"
+path="res://.godot/imported/2_alien.png-bbf5f6ecbb92d4188f61cf4a7ee9d7df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Aliens/alien_sombrero.png"
-dest_files=["res://.godot/imported/alien_sombrero.png-fc258f2c29a8101983ae5fab7d6c336a.ctex"]
+source_file="res://Textures/Aliens/2_alien.png"
+dest_files=["res://.godot/imported/2_alien.png-bbf5f6ecbb92d4188f61cf4a7ee9d7df.ctex"]
 
 [params]
 

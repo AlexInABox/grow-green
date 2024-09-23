@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dp4q5eewdkote"
-path="res://.godot/imported/alien_bookbalancer.png-17c2997b25f0bcb36a32df96411169aa.ctex"
+uid="uid://budx05tdgqvy0"
+path="res://.godot/imported/1_alien.png-5aabc566496e4eb2c27bfc57422355bd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Aliens/alien_bookbalancer.png"
-dest_files=["res://.godot/imported/alien_bookbalancer.png-17c2997b25f0bcb36a32df96411169aa.ctex"]
+source_file="res://Textures/Aliens/1_alien.png"
+dest_files=["res://.godot/imported/1_alien.png-5aabc566496e4eb2c27bfc57422355bd.ctex"]
 
 [params]
 
