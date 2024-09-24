@@ -30,3 +30,7 @@ Database/plants.db
 .idea/
 GrowGreen.exe
 GrowGreen.console.exe
+
+# Music Samples
+.mp3
+.mp3.import
