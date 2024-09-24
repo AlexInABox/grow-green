@@ -6,15 +6,16 @@ using Microsoft.Data.Sqlite;
 public partial class DatabaseWrapper
 {
 	private readonly string pathToPlantsDB = ProjectSettings.GlobalizePath("user://plants.db"); 
-    private readonly string pathToPlantsDBInitializer = "res://Database/plants.db";
-    private readonly string pathToSaveDB = ProjectSettings.GlobalizePath("user://Database/save.db"); 
-    private readonly string pathToSaveDBInitializer = "res://save.db";
+    private readonly string pathToPlantsDBInitializer = "res://Database/rebuildPlantsDB.sql";
+    private readonly string pathToSaveDB = ProjectSettings.GlobalizePath("user://save.db"); 
+    private readonly string pathToSaveDBInitializer = "res://Database/rebuildSaveDB.sql";
 
 
     public DatabaseWrapper(){
         RebuildDatabase(pathToPlantsDB, pathToPlantsDBInitializer);
 
         if (!FileAccess.FileExists(pathToSaveDB)){ //Only recreate save.db if it doesnt exist
+            GD.Print("I recreated the SAVE DB!!");
             RebuildDatabase(pathToSaveDB, pathToSaveDBInitializer);
         }
     }
@@ -26,6 +27,7 @@ public partial class DatabaseWrapper
         {
             connection.Open();
 
+            GD.Print(pathToDBInitializer);
             var sqlQueryFile = FileAccess.Open(pathToDBInitializer, FileAccess.ModeFlags.Read);
             string sqlQuery = sqlQueryFile.GetAsText();
             sqlQueryFile.Close();
