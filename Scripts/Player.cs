@@ -3,9 +3,16 @@ using System;
 
 public partial class Player : Node
 {
-    public String name;
+    public string name;
     public int coins;
     public int character;
+
+    public Player(string playerName, int money, int startCharacter)
+	{
+	    name = playerName;
+	    coins = money;
+	    character = startCharacter;
+	}
 
     public int AddCoins(int coinsToBeAdded)
     {
@@ -17,6 +24,7 @@ public partial class Player : Node
     {
 	    return this;
     }
+    
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
