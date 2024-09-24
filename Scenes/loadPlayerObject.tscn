@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://cfgs3tu8fhibx"]
+
+[node name="LoadPlayerObject" type="Node2D"]
