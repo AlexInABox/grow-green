@@ -40,31 +40,7 @@ public partial class DatabaseWrapper
             connection.Close();
         }
     }
-	public void InitializePlantDatabase(){
 
-		//Create a local database and load the .sql file into it
-		string connectionString = "Data Source=" + pathToPlantsDB;
-
-        // Open the connection
-        using (var connection = new SqliteConnection(connectionString))
-        {
-            connection.Open();
-
-            var sqlQueryFile = FileAccess.Open("res://Database/plants.sql", FileAccess.ModeFlags.Read);
-            string sqlQuery = sqlQueryFile.GetAsText();
-            sqlQueryFile.Close();
-            
-            using (var command = new SqliteCommand(sqlQuery, connection))
-            {
-                command.ExecuteNonQuery();  // Execute the SQL commands in the file
-				GD.Print("SQL file executed successfully.");
-
-            }
-            connection.Close();
-        }
-    }
-
-    //TODO: Add getter method for retrieving all plants from the database as a List<Plant>
     public List<Plant> GetListOfAllPlants(){
 
 		//Create a local database and load the .sql file into it
@@ -98,17 +74,21 @@ public partial class DatabaseWrapper
         return fillMeUp;
     }
 
+    public Plant ConstructPlantFromSave(string className, float growProgress, long growProgressTimestamp, float waterLevel, long waterLevelTimestamp, bool withered, bool rotten){
+        //TODO: OMG DO STUFF HERE!!
+    }
+
     public List<Plant> GetListOfOwnedPlants(){
 
 		//Create a local database and load the .sql file into it
-		string connectionString = "Data Source=" + pathToPlantsDB;
+		string connectionString = "Data Source=" + pathToSaveDB;
         List<Plant> fillMeUp = new List<Plant>();
         // Open the connection
         using (var connection = new SqliteConnection(connectionString))
         {
             connection.Open();
             //Praise the LORD
-            string sqlQuery = "SELECT * FROM plants";
+            string sqlQuery = "SELECT * FROM listOfOwnedPlants";
             using (var command = new SqliteCommand(sqlQuery, connection))
             {
                 var reader = command.ExecuteReader();
@@ -116,13 +96,14 @@ public partial class DatabaseWrapper
                 while(reader.Read()) {
 
                     string className = (string)reader["className"];
-                    string name = (string)reader["name"];
-                    int waterEveryXDays = Convert.ToInt32(reader["waterEveryXDays"]);
-                    int cost = Convert.ToInt32(reader["cost"]);
-                    int sellValue = Convert.ToInt32(reader["sellValue"]);
-                    int yield = Convert.ToInt32(reader["yield"]);
+                    float growProgress = (float)reader["growProgress"];
+                    long growProgressTimestamp = Convert.ToInt32(reader["growProgressTimestamp"]);
+                    float waterLevel = (float)reader["waterLevel"];
+                    long waterLevelTimestamp = Convert.ToInt32(reader["waterLevelTimestamp"]);
+                    bool withered = (bool)reader["withered"];
+                    bool rotten = (bool)reader["rotten"];
 
-                    Plant plantOnThisRow = new Plant(className, name, waterEveryXDays, cost, sellValue, yield);
+                    Plant plantOnThisRow = ConstructPlantFromSave(className, growProgress, growProgressTimestamp, waterLevel, waterLevelTimestamp, withered, rotten);
                     fillMeUp.Add(plantOnThisRow);
                 }
             }
