@@ -48,7 +48,6 @@ offset_top = 400.0
 offset_right = 473.0
 offset_bottom = 491.0
 scale = Vector2(1.4, 1.4)
-tooltip_text = "KRILL YOURSELF!"
 theme = ExtResource("1_0cr8b")
 text = "Spiel Laden"
 script = ExtResource("1_j8xma")

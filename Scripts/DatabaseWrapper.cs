@@ -14,7 +14,7 @@ public partial class DatabaseWrapper
     public DatabaseWrapper(){
         RebuildDatabase(pathToPlantsDB, pathToPlantsDBInitializer);
 
-        if (!FileAccess.FileExists(pathToSaveDB)){ //Only recreate save.db if it doesnt exist
+        if (!FileAccess.FileExists(pathToSaveDB)){ //Only recreate save db if it doesnt exist
             GD.Print("I recreated the SAVE DB!!");
             RebuildDatabase(pathToSaveDB, pathToSaveDBInitializer);
         }
@@ -74,8 +74,32 @@ public partial class DatabaseWrapper
         return fillMeUp;
     }
 
-    public Plant ConstructPlantFromSave(string className, float growProgress, long growProgressTimestamp, float waterLevel, long waterLevelTimestamp, bool withered, bool rotten){
-        //TODO: OMG DO STUFF HERE!!
+    private Plant ConstructPlantFromSave(string className, double growProgress, long growProgressTimestamp, double waterLevel, long waterLevelTimestamp, bool withered, bool rotten){
+        //Create a local database and load the .sql file into it
+		string connectionString = "Data Source=" + pathToPlantsDB;
+        Plant requestedPlant;
+        // Open the connection
+        using (var connection = new SqliteConnection(connectionString))
+        {
+            connection.Open();
+            //Praise the LORD
+            string sqlQuery = "SELECT * FROM plants WHERE plants.className == '" + className + "';";
+            using (var command = new SqliteCommand(sqlQuery, connection))
+            {
+                var reader = command.ExecuteReader();
+                reader.Read();
+
+                string name = (string)reader["name"];
+                int waterEveryXDays = Convert.ToInt32(reader["waterEveryXDays"]);
+                int cost = Convert.ToInt32(reader["cost"]);
+                int sellValue = Convert.ToInt32(reader["sellValue"]);
+                int yield = Convert.ToInt32(reader["yield"]);
+
+                requestedPlant = new Plant(className, name, waterEveryXDays, cost, sellValue, yield, growProgress, growProgressTimestamp, waterLevel, waterLevelTimestamp, withered, rotten);
+            }
+            connection.Close();
+        }
+        return requestedPlant;
     }
 
     public List<Plant> GetListOfOwnedPlants(){
@@ -96,12 +120,12 @@ public partial class DatabaseWrapper
                 while(reader.Read()) {
 
                     string className = (string)reader["className"];
-                    float growProgress = (float)reader["growProgress"];
+                    double growProgress = (double)reader["growProgress"];
                     long growProgressTimestamp = Convert.ToInt32(reader["growProgressTimestamp"]);
-                    float waterLevel = (float)reader["waterLevel"];
+                    double waterLevel = (double)reader["waterLevel"];
                     long waterLevelTimestamp = Convert.ToInt32(reader["waterLevelTimestamp"]);
-                    bool withered = (bool)reader["withered"];
-                    bool rotten = (bool)reader["rotten"];
+                    bool withered = Convert.ToInt32(reader["withered"]) != 0;
+                    bool rotten = Convert.ToInt32(reader["rotten"]) != 0;
 
                     Plant plantOnThisRow = ConstructPlantFromSave(className, growProgress, growProgressTimestamp, waterLevel, waterLevelTimestamp, withered, rotten);
                     fillMeUp.Add(plantOnThisRow);

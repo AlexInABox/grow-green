@@ -17,3 +17,5 @@ CREATE TABLE "listOfOwnedPlants" (
 	"rotten" BOOLEAN,
 	PRIMARY KEY("className")
 );
+INSERT INTO listOfOwnedPlants (className, growProgress, growProgressTimestamp, waterLevel, waterLevelTimestamp, withered, rotten)
+VALUES ('Agave', 0.55, 0, 0.55, 0, FALSE, FALSE);
