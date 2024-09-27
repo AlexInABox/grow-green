@@ -136,6 +136,13 @@ public partial class DatabaseWrapper
         return fillMeUp;
     }
 
+    public void SaveListOfOwnedPlants(List<Plant> listOfOwnedPlants){
+        clearListOfOwnedPlantsTable();
+
+        foreach (plant in listOfOwnedPlants) {
+            insertPlantIntoListOfOwnedPlantsTable(plant);
+        }
+    }
 
     //TODO: Add setter method for saving a game state to another database
     //TODO: Add a load method (getter) for loading a previously saved game state
