@@ -15,13 +15,17 @@ public partial class TestGardenLoader : Node
 
 	private void PlaceAllPlants(List<Plant> plantList) {
 		int counter = 0;
-		for (int x = 1; x <= 4; x++) {
-			for (int y = 1; y <= 11; y++) {
+		for (int x = 1; x <= 6; x++) {
+			for (int y = 1; y <= 12; y++) {
+				if (plantList.Count == counter){
+					return;
+				}
+
 				var plantPrefabInstance = plantPrefab.Instantiate();
 				AddChild(plantPrefabInstance);
 
 				var plantWrapper = plantPrefabInstance.GetNode<Node2D>("../plant_wrapper");
-				plantWrapper.Set("position", new Vector2(150*y, 200*x));
+				plantWrapper.Set("position", new Vector2(145*y, 175*x));
 				plantWrapper.Set("name", "freaky" + counter);
 
 				plantWrapper.AddChild(plantList[counter]);

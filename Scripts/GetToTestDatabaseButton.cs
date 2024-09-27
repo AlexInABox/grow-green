@@ -16,8 +16,6 @@ public partial class GetToTestDatabaseButton : Button
 	{
 		var newScenePath = "res://Scenes/databaseTests.tscn"; // Replace with your scene path
 		GetTree().ChangeSceneToFile(newScenePath);
-		Player player = new Player("Alex", 0, 4);
-		GameMode gameMode = new GameMode(player);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

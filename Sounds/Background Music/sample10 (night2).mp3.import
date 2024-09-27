@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://qb1bhtit7knl"
+path="res://.godot/imported/sample10 (night2).mp3-f092b395074a5bcfd2926c29b42d4204.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Background Music/sample10 (night2).mp3"
+dest_files=["res://.godot/imported/sample10 (night2).mp3-f092b395074a5bcfd2926c29b42d4204.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
