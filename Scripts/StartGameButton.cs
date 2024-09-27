@@ -13,14 +13,13 @@ public partial class StartGameButton : Button
 
 	private void ButtonPressed()
 	{
-		var newScenePath = "res://Scenes/testGarden.tscn";
+		var newScenePath = "res://Scenes/loadPlayerObject.tscn";
 		GetTree().ChangeSceneToFile(newScenePath);
 		
-		Player player = new Player("Alexxx", 100, characterNumber);
-		GameMode gameMode = new GameMode(player);
+		Player player = new Player(characterNumber);
 		
-		GD.Print("Player name: ", player.name);
-		GD.Print("Alien: ", player.character);
+		GD.Print("Player name: ", player.username);
+		GD.Print("Alien: ", player.characterId);
 	}
 	
 	public void SetCharacterNumber(int number)
