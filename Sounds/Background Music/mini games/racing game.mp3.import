@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b18vtk2jn7m85"
+path="res://.godot/imported/racing game.mp3-886a9f4e6bea2a4663b2c45cc02005dd.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Background Music/mini games/racing game.mp3"
+dest_files=["res://.godot/imported/racing game.mp3-886a9f4e6bea2a4663b2c45cc02005dd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -26,7 +26,11 @@ Database/plants.db
 #Ignore the .db file
 Database/plants.db
 
-#Rider .idea folder
+#Rider .idea folder test
 .idea/
 GrowGreen.exe
 GrowGreen.console.exe
+
+# Music Samples
+.mp3
+.mp3.import

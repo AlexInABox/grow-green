@@ -13,7 +13,6 @@ public partial class DatabaseInitializeButton : Button
 
 	private void ButtonPressed()
 	{
-        db.InitializeDatabase();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

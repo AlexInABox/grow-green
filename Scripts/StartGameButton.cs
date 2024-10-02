@@ -3,9 +3,8 @@ using System;
 
 public partial class StartGameButton : Button
 {
-
+	public int characterNumber = 6;
 	
-
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -14,10 +13,18 @@ public partial class StartGameButton : Button
 
 	private void ButtonPressed()
 	{
-		var newScenePath = "res://Scenes/testGarden.tscn"; // Replace with your scene path
+		var newScenePath = "res://Scenes/loadPlayerObject.tscn";
 		GetTree().ChangeSceneToFile(newScenePath);
-		Player player = new Player();
-		GameMode gameMode = new GameMode(player);
+		
+		Player player = new Player(characterNumber);
+		
+		GD.Print("Player name: ", player.username);
+		GD.Print("Alien: ", player.characterId);
+	}
+	
+	public void SetCharacterNumber(int number)
+	{
+		characterNumber = number;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
