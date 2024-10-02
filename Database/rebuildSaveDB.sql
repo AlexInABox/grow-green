@@ -14,8 +14,11 @@ CREATE TABLE "listOfOwnedPlants" (
 	"waterLevel" FLOAT,
 	"waterLevelTimestamp" INTEGER,
 	"withered" BOOLEAN,
-	"rotten" BOOLEAN,
-	PRIMARY KEY("className")
+	"rotten" BOOLEAN
 );
 INSERT INTO listOfOwnedPlants (className, growProgress, growProgressTimestamp, waterLevel, waterLevelTimestamp, withered, rotten)
-VALUES ('Agave', 0.55, 0, 0.55, 0, FALSE, FALSE);
+VALUES ('Agave', 0.55, 0, 0.55, 0, FALSE, FALSE),
+	('Alocasia', 0.55, 0, 0.55, 0, FALSE, FALSE),
+	('Calathea', 0.55, 0, 0.55, 0, FALSE, TRUE),
+	('Fatsia', 0.55, 0, 0.55, 0, FALSE, FALSE),
+	('Polyscias', 0.55, 0, 0.55, 0, FALSE, TRUE);

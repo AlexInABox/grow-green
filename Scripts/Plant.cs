@@ -33,7 +33,7 @@ public partial class Plant : Sprite2D
         this.yield = 1;
         this.growRatePerDay = 10;
 
-        this.growProgress = 1;
+        this.growProgress = 0.8;
         this.waterLevel = 50;
     }
     public Plant(string className, string name, int waterEveryXDays, int cost, int sellValue, int yield) {

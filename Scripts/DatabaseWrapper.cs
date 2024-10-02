@@ -136,7 +136,55 @@ public partial class DatabaseWrapper
         return fillMeUp;
     }
 
+    public void SaveListOfOwnedPlants(List<Plant> listOfOwnedPlants){
+        ClearListOfOwnedPlantsTable();
 
+        foreach (Plant plant in listOfOwnedPlants) {
+            InsertPlantIntoListOfOwnedPlantsTable(plant);
+        }
+    }
+
+    private void ClearListOfOwnedPlantsTable() {
+        //Create a local database and load the .sql file into it
+		string connectionString = "Data Source=" + pathToSaveDB;
+        // Open the connection
+        using (var connection = new SqliteConnection(connectionString))
+        {
+            connection.Open();
+            //Praise the LORD
+            string sqlQuery = "DELETE FROM listOfOwnedPlants";
+            using (var command = new SqliteCommand(sqlQuery, connection))
+            {
+                command.ExecuteReader();
+            }
+            connection.Close();
+        }
+    }
+
+    private void InsertPlantIntoListOfOwnedPlantsTable(Plant plant){
+        //Create a local database and load the .sql file into it
+		string connectionString = "Data Source=" + pathToSaveDB;
+        // Open the connection
+        using (var connection = new SqliteConnection(connectionString))
+        {
+            connection.Open();
+            //Praise the LORD
+            string className = plant.className;
+            double growProgress = plant.growProgress;
+            long growProgressTimestamp = plant.growProgressTimestamp;
+            double waterLevel = plant.waterLevel;
+            long waterLevelTimestamp = plant.waterLevelTimestamp;
+            bool withered = plant.withered;
+            bool rotten = plant.rotten;
+
+            string sqlQuery = $"INSERT INTO listOfOwnedPlants (className, growProgress, growProgressTimestamp, waterLevel, waterLevelTimestamp, withered, rotten) VALUES ('{className}', {growProgress}, {growProgressTimestamp}, {waterLevel}, {waterLevelTimestamp}, {withered}, {rotten})";
+            using (var command = new SqliteCommand(sqlQuery, connection))
+            {
+                command.ExecuteReader();
+            }
+            connection.Close();
+        }
+    }
     //TODO: Add setter method for saving a game state to another database
     //TODO: Add a load method (getter) for loading a previously saved game state
 }
