@@ -10,7 +10,7 @@ public partial class SceneManager : Node
 	List<Plant> listOfOwnedPlants = new DatabaseWrapper().GetListOfOwnedPlants();
 
 	// Called when the node enters the scene tree for the first time.
-	public override async void _Ready()
+	public override void _Ready()
 	{
 		foreach (var item in listOfOwnedPlants)
 		{
