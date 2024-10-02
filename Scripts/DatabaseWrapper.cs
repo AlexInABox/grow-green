@@ -137,11 +137,15 @@ public partial class DatabaseWrapper
     }
 
     public void SaveListOfOwnedPlants(List<Plant> listOfOwnedPlants){
-        clearListOfOwnedPlantsTable();
+        ClearListOfOwnedPlantsTable();
 
-        foreach (plant in listOfOwnedPlants) {
+        foreach (Plant plant in listOfOwnedPlants) {
             insertPlantIntoListOfOwnedPlantsTable(plant);
         }
+    }
+
+    private void ClearListOfOwnedPlantsTable() {
+        
     }
 
     //TODO: Add setter method for saving a game state to another database
