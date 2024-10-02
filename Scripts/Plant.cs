@@ -6,17 +6,17 @@ public partial class Plant : Sprite2D
     //constants
     public string className; // Class name
     public string plantName; // Name
-    public float decayRatePerDay; // Decay per Time (from 100)
-    public float growRatePerDay = 10; // Rate of growth per day
+    public double decayRatePerDay; // Decay per Time (from 100)
+    public double growRatePerDay = 10; // Rate of growth per day
     public int wateringImpact = 10; // Amount of water added per click
     public int cost; // Cost to purchase
     public int sellValue; // Value when fully grown
     public int yield; // Money Production per Day when fully grown
     //end-of constants
 
-    public float growProgress; // Current Progress (0-100)
+    public double growProgress; // Current Progress (0-100) TEST
     public long growProgressTimestamp = 0; // epoch
-    public float waterLevel; // Current water level (0-100)
+    public double waterLevel; // Current water level (0-100)
     public long waterLevelTimestamp = 0; // epoch
     public bool withered = false; // True if the plant is dead
     public bool rotten = false; // True if the plant is dead
@@ -27,7 +27,7 @@ public partial class Plant : Sprite2D
     public Plant() {
         this.className = "Agave";
         this.plantName = "TestName";
-        this.decayRatePerDay = 100 / 0.001f;
+        this.decayRatePerDay = 100 / 0.001;
         this.cost = 5;
         this.sellValue = 3;
         this.yield = 1;
@@ -48,7 +48,7 @@ public partial class Plant : Sprite2D
         waterLevel = 50;
     }
 
-    public Plant(string className, string name, int waterEveryXDays, int cost, int sellValue, int yield, float growProgress, long growProgressTimestamp, float waterLevel, long waterLevelTimestamp, bool withered, bool rotten) {
+    public Plant(string className, string name, int waterEveryXDays, int cost, int sellValue, int yield, double growProgress, long growProgressTimestamp, double waterLevel, long waterLevelTimestamp, bool withered, bool rotten) {
         this.className = className;
         this.plantName = name;
         this.decayRatePerDay = 100 / waterEveryXDays;
