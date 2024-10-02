@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/PlantButton.cs" id="5_o0u11"]
 
 [node name="plant_wrapper" type="Node2D"]
-scale = Vector2(10, 10)
+scale = Vector2(8, 8)
 
 [node name="Pot" type="Sprite2D" parent="."]
 texture = ExtResource("1_tugmu")
