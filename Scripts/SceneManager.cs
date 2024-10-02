@@ -1,7 +1,6 @@
 using Godot;
-using System;
 using System.Collections.Generic;
-using System.Data.Common;
+using System.Threading;
 
 public partial class SceneManager : Node
 {
@@ -9,7 +8,7 @@ public partial class SceneManager : Node
 	PackedScene plantPrefab = GD.Load<PackedScene>("res://Prefabs/plant_wrapper.tscn");
 
 	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
+	public override async void _Ready()
 	{
 		List<Plant> listOfOwnedPlants = db.GetListOfOwnedPlants();
 		foreach (var item in listOfOwnedPlants)
@@ -17,6 +16,14 @@ public partial class SceneManager : Node
 			GD.Print(item.className);
 		}
 
+		PlaceAllPlants(listOfOwnedPlants);
+
+		listOfOwnedPlants.Add(new Plant());
+		listOfOwnedPlants.Add(new Plant());
+		listOfOwnedPlants.Add(new Plant());
+		listOfOwnedPlants.Add(new Plant());
+
+		db.SaveListOfOwnedPlants(listOfOwnedPlants);
 		PlaceAllPlants(listOfOwnedPlants);
 	}
 
