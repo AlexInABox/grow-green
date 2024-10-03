@@ -8,10 +8,10 @@ public partial class StartGameButton : Button
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		Pressed += ButtonPressed;
+		Pressed += ButtonPressedEvent;
 	}
 
-	private void ButtonPressed()
+	private void ButtonPressedEvent()
 	{
 		var newScenePath = "res://Scenes/loadPlayerObject.tscn";
 		GetTree().ChangeSceneToFile(newScenePath);
