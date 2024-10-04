@@ -17,7 +17,7 @@ public partial class CreateGameButton : Button
 	{
 		titleScreenManager.SaveMyPlayerObjectAndCreateTheGame();
 
-		var newScenePath = "res://Scenes/loadPlayerObject.tscn";
+		var newScenePath = "res://Scenes/MainSzene.tscn";
 		GetTree().ChangeSceneToFile(newScenePath);
 
 	}
