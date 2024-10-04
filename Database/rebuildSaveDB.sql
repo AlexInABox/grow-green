@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS "player";
-CREATE TABLE "player" (
+DROP TABLE IF EXISTS "playerStats";
+CREATE TABLE "playerStats" (
 	"username"	TEXT,
 	"coins"	INTEGER,
 	"characterId"	INTEGER,
