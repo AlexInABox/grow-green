@@ -1,11 +1,25 @@
-[gd_scene load_steps=9 format=3 uid="uid://bqv77dvuy6ly0"]
+[gd_scene load_steps=22 format=3 uid="uid://bqv77dvuy6ly0"]
 
 [ext_resource type="Texture2D" uid="uid://da3gby3k4mva" path="res://Textures/Backgrounds/HOUSE.png" id="1_bo6pn"]
 [ext_resource type="Script" path="res://Scripts/MainSzene.cs" id="1_rm010"]
 [ext_resource type="Script" path="res://MainBackground.cs" id="3_320u7"]
 [ext_resource type="Shader" path="res://Shaders/shiny.gdshader" id="4_nrcbp"]
-[ext_resource type="Texture2D" uid="uid://b3gbsq84wldjp" path="res://Textures/Aliens/Paintings/1_wall_left.JPEG" id="5_0xr5x"]
-[ext_resource type="Texture2D" uid="uid://ct3dxqhmwwjlq" path="res://Textures/Aliens/Paintings/1_wall_right_remade.jpg" id="6_mhbub"]
+[ext_resource type="Script" path="res://Scripts/LoadPictures.cs" id="5_ggw0u"]
+[ext_resource type="Texture2D" uid="uid://bu6crxd3gecma" path="res://Textures/Aliens/Paintings/1_left.jpg" id="6_khafo"]
+[ext_resource type="Texture2D" uid="uid://86ken7uumcwe" path="res://Textures/Aliens/Paintings/1_middle.jpg" id="7_dhhgn"]
+[ext_resource type="Texture2D" uid="uid://bs1bmfr8vulgx" path="res://Textures/Aliens/Paintings/1_right.jpg" id="8_kithj"]
+[ext_resource type="Texture2D" uid="uid://bjijmmujmda5q" path="res://Textures/Aliens/Paintings/2_left.jpg" id="9_qtw7k"]
+[ext_resource type="Texture2D" uid="uid://c4qwiylo0wmjq" path="res://Textures/Aliens/Paintings/2_middle.jpg" id="10_gnigg"]
+[ext_resource type="Texture2D" uid="uid://b23rmoo1outrq" path="res://Textures/Aliens/Paintings/2_right.jpg" id="11_r0gxc"]
+[ext_resource type="Texture2D" uid="uid://bflx3rgw821iu" path="res://Textures/Aliens/Paintings/3_left.jpg" id="12_udq5q"]
+[ext_resource type="Texture2D" uid="uid://m3hq2sicgqo" path="res://Textures/Aliens/Paintings/3_middle.jpg" id="13_erhsp"]
+[ext_resource type="Texture2D" uid="uid://b2jk5cnfsgl24" path="res://Textures/Aliens/Paintings/3_right.jpg" id="14_1qcq5"]
+[ext_resource type="Texture2D" uid="uid://cfhcdgseutjpn" path="res://Textures/Aliens/Paintings/4_left.jpg" id="15_qquyh"]
+[ext_resource type="Texture2D" uid="uid://c3og7osy00bwb" path="res://Textures/Aliens/Paintings/4_middle.jpg" id="16_iq5hb"]
+[ext_resource type="Texture2D" uid="uid://dcxwr5a5cgt2b" path="res://Textures/Aliens/Paintings/4_right.jpg" id="17_haqhs"]
+[ext_resource type="Texture2D" uid="uid://jst8cgim30st" path="res://Textures/Aliens/Paintings/5_left.jpg" id="18_c0g2r"]
+[ext_resource type="Texture2D" uid="uid://btjoo2qxpotom" path="res://Textures/Aliens/Paintings/5_middle.jpg" id="19_8pyby"]
+[ext_resource type="Texture2D" uid="uid://lhsbbpvrph4e" path="res://Textures/Aliens/Paintings/5_right.jpg" id="20_hae6m"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1w0vq"]
 shader = ExtResource("4_nrcbp")
@@ -15,9 +29,6 @@ shader_parameter/highlight_strength = 0.5
 shader_parameter/color_mode_toggle = false
 shader_parameter/is_horizontal = false
 shader_parameter/pause_duration = 0.5
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_62mgs"]
-load_path = "res://.godot/imported/1_wall_middle.JPEG-afc89730384c8a52ff1789ee4efc3a7e.ctex"
 
 [node name="MainSzene" type="Node2D"]
 script = ExtResource("1_rm010")
@@ -60,8 +71,10 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("5_ggw0u")
 
-[node name="SnoopyAlienPictures" type="Control" parent="Pictures"]
+[node name="SnoopyAlienPictures" type="Control" parent="Pictures" groups=["Pictures"]]
+visible = false
 anchors_preset = 0
 offset_top = 176.0
 offset_bottom = 176.0
@@ -69,20 +82,143 @@ offset_bottom = 176.0
 [node name="leftSnoopy" type="Polygon2D" parent="Pictures/SnoopyAlienPictures"]
 z_index = -6
 position = Vector2(1, -5)
-texture = ExtResource("5_0xr5x")
-texture_scale = Vector2(9, 3)
+texture = ExtResource("6_khafo")
+texture_offset = Vector2(0, -20)
+texture_scale = Vector2(1.2, 0.5)
 polygon = PackedVector2Array(-5, -6, 134, 63, 135, 408, -2, 433)
 
 [node name="middleSnoopy" type="Polygon2D" parent="Pictures/SnoopyAlienPictures"]
 z_index = -6
 position = Vector2(194, -8)
-texture = SubResource("CompressedTexture2D_62mgs")
-texture_scale = Vector2(9, 3)
+texture = ExtResource("7_dhhgn")
+texture_offset = Vector2(-5, -120)
+texture_scale = Vector2(1.4, 0.7)
 polygon = PackedVector2Array(4, 99, 123, 153, 122, 386, 4, 408)
 
 [node name="rightSnoopy" type="Polygon2D" parent="Pictures/SnoopyAlienPictures"]
 z_index = -6
 position = Vector2(339, -18)
-texture = ExtResource("6_mhbub")
-texture_scale = Vector2(2, 0.5)
+texture = ExtResource("8_kithj")
+texture_offset = Vector2(0, -200)
+texture_scale = Vector2(1.5, 1.1)
+polygon = PackedVector2Array(20, 189, 105, 227, 105, 379, 17, 388)
+
+[node name="PotAlienPictures" type="Control" parent="Pictures" groups=["Pictures"]]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_top = 176.0
+offset_bottom = 176.0
+
+[node name="leftPot" type="Polygon2D" parent="Pictures/PotAlienPictures"]
+z_index = -6
+position = Vector2(1, -5)
+texture = ExtResource("9_qtw7k")
+texture_scale = Vector2(1.2, 0.45)
+polygon = PackedVector2Array(-5, -6, 134, 63, 135, 408, -2, 433)
+
+[node name="middlePot" type="Polygon2D" parent="Pictures/PotAlienPictures"]
+z_index = -6
+position = Vector2(194, -8)
+texture = ExtResource("10_gnigg")
+texture_offset = Vector2(-5, -120)
+texture_scale = Vector2(1.4, 0.7)
+polygon = PackedVector2Array(4, 99, 123, 153, 122, 386, 4, 408)
+
+[node name="rightPot" type="Polygon2D" parent="Pictures/PotAlienPictures"]
+z_index = -6
+position = Vector2(339, -18)
+texture = ExtResource("11_r0gxc")
+texture_offset = Vector2(-10, -200)
+texture_scale = Vector2(1.5, 1.1)
+polygon = PackedVector2Array(20, 189, 105, 227, 105, 379, 17, 388)
+
+[node name="LadyAlienPictures" type="Control" parent="Pictures" groups=["Pictures"]]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_top = 176.0
+offset_bottom = 176.0
+
+[node name="leftLady" type="Polygon2D" parent="Pictures/LadyAlienPictures"]
+z_index = -6
+position = Vector2(1, -5)
+texture = ExtResource("12_udq5q")
+texture_scale = Vector2(1.2, 0.45)
+polygon = PackedVector2Array(-5, -6, 134, 63, 135, 408, -2, 433)
+
+[node name="middleLady" type="Polygon2D" parent="Pictures/LadyAlienPictures"]
+z_index = -6
+position = Vector2(194, -8)
+texture = ExtResource("13_erhsp")
+texture_offset = Vector2(-5, -120)
+texture_scale = Vector2(1.4, 0.7)
+polygon = PackedVector2Array(4, 99, 123, 153, 122, 386, 4, 408)
+
+[node name="rightLady" type="Polygon2D" parent="Pictures/LadyAlienPictures"]
+z_index = -6
+position = Vector2(339, -18)
+texture = ExtResource("14_1qcq5")
+texture_offset = Vector2(-10, -200)
+texture_scale = Vector2(1.5, 1.1)
+polygon = PackedVector2Array(20, 189, 105, 227, 105, 379, 17, 388)
+
+[node name="SombreroAlienPictures" type="Control" parent="Pictures" groups=["Pictures"]]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_top = 176.0
+offset_bottom = 176.0
+
+[node name="leftSombrero" type="Polygon2D" parent="Pictures/SombreroAlienPictures"]
+z_index = -6
+position = Vector2(1, -5)
+texture = ExtResource("15_qquyh")
+texture_scale = Vector2(1.2, 0.45)
+polygon = PackedVector2Array(-5, -6, 134, 63, 135, 408, -2, 433)
+
+[node name="middleSombrero" type="Polygon2D" parent="Pictures/SombreroAlienPictures"]
+z_index = -6
+position = Vector2(194, -8)
+texture = ExtResource("16_iq5hb")
+texture_offset = Vector2(-5, -120)
+texture_scale = Vector2(1.4, 0.7)
+polygon = PackedVector2Array(4, 99, 123, 153, 122, 386, 4, 408)
+
+[node name="rightSombrero" type="Polygon2D" parent="Pictures/SombreroAlienPictures"]
+z_index = -6
+position = Vector2(339, -18)
+texture = ExtResource("17_haqhs")
+texture_offset = Vector2(-20, -200)
+texture_scale = Vector2(1.8, 1.1)
+polygon = PackedVector2Array(20, 189, 105, 227, 105, 379, 17, 388)
+
+[node name="WormAlienPictures" type="Control" parent="Pictures" groups=["Pictures"]]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_top = 176.0
+offset_bottom = 176.0
+
+[node name="leftWorm" type="Polygon2D" parent="Pictures/WormAlienPictures"]
+z_index = -6
+position = Vector2(1, -5)
+texture = ExtResource("18_c0g2r")
+texture_scale = Vector2(1.2, 0.45)
+polygon = PackedVector2Array(-5, -6, 134, 63, 135, 408, -2, 433)
+
+[node name="middleWorm" type="Polygon2D" parent="Pictures/WormAlienPictures"]
+z_index = -6
+position = Vector2(194, -8)
+texture = ExtResource("19_8pyby")
+texture_offset = Vector2(-5, -120)
+texture_scale = Vector2(1.4, 0.7)
+polygon = PackedVector2Array(4, 99, 123, 153, 122, 386, 4, 408)
+
+[node name="rightWorm" type="Polygon2D" parent="Pictures/WormAlienPictures"]
+z_index = -6
+position = Vector2(339, -18)
+texture = ExtResource("20_hae6m")
+texture_offset = Vector2(-20, -200)
+texture_scale = Vector2(1.8, 1.1)
 polygon = PackedVector2Array(20, 189, 105, 227, 105, 379, 17, 388)
