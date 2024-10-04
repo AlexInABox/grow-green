@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqv77dvuy6ly0"]
+[gd_scene load_steps=9 format=3 uid="uid://bqv77dvuy6ly0"]
 
 [ext_resource type="Texture2D" uid="uid://da3gby3k4mva" path="res://Textures/Backgrounds/HOUSE.png" id="1_bo6pn"]
 [ext_resource type="Script" path="res://Scripts/MainSzene.cs" id="1_rm010"]
 [ext_resource type="Script" path="res://MainBackground.cs" id="3_320u7"]
 [ext_resource type="Shader" path="res://Shaders/shiny.gdshader" id="4_nrcbp"]
+[ext_resource type="Texture2D" uid="uid://b3gbsq84wldjp" path="res://Textures/Aliens/Paintings/1_wall_left.JPEG" id="5_0xr5x"]
+[ext_resource type="Texture2D" uid="uid://ct3dxqhmwwjlq" path="res://Textures/Aliens/Paintings/1_wall_right_remade.jpg" id="6_mhbub"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1w0vq"]
 shader = ExtResource("4_nrcbp")
@@ -13,6 +15,9 @@ shader_parameter/highlight_strength = 0.5
 shader_parameter/color_mode_toggle = false
 shader_parameter/is_horizontal = false
 shader_parameter/pause_duration = 0.5
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_62mgs"]
+load_path = "res://.godot/imported/1_wall_middle.JPEG-afc89730384c8a52ff1789ee4efc3a7e.ctex"
 
 [node name="MainSzene" type="Node2D"]
 script = ExtResource("1_rm010")
@@ -49,3 +54,35 @@ offset_right = 66.9
 offset_bottom = 25.9
 scale = Vector2(0.2, 0.2)
 text = "Minigame"
+
+[node name="Pictures" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SnoopyAlienPictures" type="Control" parent="Pictures"]
+anchors_preset = 0
+offset_top = 176.0
+offset_bottom = 176.0
+
+[node name="leftSnoopy" type="Polygon2D" parent="Pictures/SnoopyAlienPictures"]
+z_index = -6
+position = Vector2(1, -5)
+texture = ExtResource("5_0xr5x")
+texture_scale = Vector2(9, 3)
+polygon = PackedVector2Array(-5, -6, 134, 63, 135, 408, -2, 433)
+
+[node name="middleSnoopy" type="Polygon2D" parent="Pictures/SnoopyAlienPictures"]
+z_index = -6
+position = Vector2(194, -8)
+texture = SubResource("CompressedTexture2D_62mgs")
+texture_scale = Vector2(9, 3)
+polygon = PackedVector2Array(4, 99, 123, 153, 122, 386, 4, 408)
+
+[node name="rightSnoopy" type="Polygon2D" parent="Pictures/SnoopyAlienPictures"]
+z_index = -6
+position = Vector2(339, -18)
+texture = ExtResource("6_mhbub")
+texture_scale = Vector2(2, 0.5)
+polygon = PackedVector2Array(20, 189, 105, 227, 105, 379, 17, 388)

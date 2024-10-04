@@ -13,7 +13,7 @@ public partial class StartGameButton : Button
 
 	private void ButtonPressed()
 	{
-		var newScenePath = "res://Scenes/loadPlayerObject.tscn";
+		var newScenePath = "res://Scenes/MainSzene.tscn";
 		GetTree().ChangeSceneToFile(newScenePath);
 		
 		Player player = new Player(characterNumber);
