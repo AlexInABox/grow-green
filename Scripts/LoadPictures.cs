@@ -1,14 +1,19 @@
 using Godot;
+using GodotPlugins.Game;
 using System;
 
 public partial class LoadPictures : Node
 {
 
 	Control[] pictures = new Control[5];
-	int character = 2;
+	SceneManager sceneManager;
+	int characterId;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		sceneManager = GetNode<SceneManager>("../SceneManager");
+		characterId = sceneManager.GetCharacterId();
+
 		var i = 0;
 		foreach (var node in GetTree().GetNodesInGroup("Pictures"))
 		{
@@ -21,7 +26,7 @@ public partial class LoadPictures : Node
 
 		for (int o = 0; o < 5; o++)
 		{
-			if (o == character - 1) pictures[o].Visible = true;
+			if (o == characterId - 1) pictures[o].Visible = true;
 			else pictures[o].Visible = false;
 			GD.Print("Ich bih HUH");
 		}
