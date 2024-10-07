@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvlh125b1115g"]
+
+[ext_resource type="Texture2D" uid="uid://caplkr8i4j4mp" path="res://Textures/Buttons/UI_Flat_Frame03a.png" id="1_lvl71"]
+[ext_resource type="FontFile" uid="uid://16884th6cwds" path="res://Fonts/Jersey25-Regular.ttf" id="2_jwb40"]
+[ext_resource type="Theme" uid="uid://cxgao5s1phj5n" path="res://Themes/mainMenuButtons.tres" id="3_mafkn"]
+
+[node name="CreateGameConfirmationPopup" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 510)
+scale = Vector2(5.75, 5.85938)
+texture = ExtResource("1_lvl71")
+region_rect = Rect2(3, 3, 90, 58)
+
+[node name="Label" type="Label" parent="Sprite2D"]
+offset_left = -43.0
+offset_top = -25.0
+offset_right = 673.0
+offset_bottom = 192.0
+scale = Vector2(0.12, 0.12)
+theme_override_fonts/font = ExtResource("2_jwb40")
+theme_override_font_sizes/font_size = 40
+text = "AAAAAA! Diese Aktion **überschreibt** deinen alten Speicherstand!
+
+Bist du dir gaaaanz sicher dass du das machen möchtest?"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="Sprite2D"]
+offset_left = -40.0
+offset_top = 16.0
+offset_right = -14.0
+offset_bottom = 24.0
+theme = ExtResource("3_mafkn")

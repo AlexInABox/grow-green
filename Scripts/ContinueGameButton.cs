@@ -7,7 +7,7 @@ public partial class ContinueGameButton : Button
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		titleScreenManager = GetNode<TitleSceneManager>("../../TitleScreen");
+		titleScreenManager = GetNode<TitleSceneManager>("../TitleSceneManager");
 		Pressed += ButtonPressedEvent;
 	}
 
@@ -17,7 +17,6 @@ public partial class ContinueGameButton : Button
 		GD.Print("TEST");
 		var newScenePath = "res://Scenes/MainSzene.tscn";
 		GetTree().ChangeSceneToFile(newScenePath);
-
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
