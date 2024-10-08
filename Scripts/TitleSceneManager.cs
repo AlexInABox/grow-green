@@ -42,6 +42,26 @@ public partial class TitleSceneManager : Node
 		playerObject = new Player(characterId);
 
 		SaveMyPlayerObjectAndCreateTheGame();
+
+		var newScenePath = "res://Scenes/MainSzene.tscn";
+		GetTree().ChangeSceneToFile(newScenePath);
+	}
+
+	public void SpawnUserConfirmationPopupRegardingSaveOverwriting(){
+		ColorRect blurLayer = GetNode<ColorRect>("../BlurLayer");
+		blurLayer.Hide();
+		
+		PackedScene confirmationPopup = GD.Load<PackedScene>("res://Prefabs/createGame_confirmation_popup.tscn");
+		var confirmationPopupInstance = confirmationPopup.Instantiate();
+		GetParent().AddChild(confirmationPopupInstance);
+	}
+
+	public void RemoveSaveOverwriteConfirmationPopup(){
+		Node2D confirmationPopup = GetNode<Node2D>("../CreateGameConfirmationPopup");
+		confirmationPopup.QueueFree(); //byeeee :waves:
+
+		ColorRect blurLayer = GetNode<ColorRect>("../BlurLayer");
+		blurLayer.Show();
 	}
 
 	public override void _Process(double delta)

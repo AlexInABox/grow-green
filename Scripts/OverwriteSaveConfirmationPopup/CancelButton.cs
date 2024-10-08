@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class CreateGameButton : Button
+public partial class CancelButton : Button
 {	
 
 	TitleSceneManager TitleSceneManager;
@@ -9,13 +9,13 @@ public partial class CreateGameButton : Button
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		TitleSceneManager = GetNode<TitleSceneManager>("../TitleSceneManager");
+		TitleSceneManager = GetNode<TitleSceneManager>("../../../TitleSceneManager");
 		Pressed += ButtonPressedEvent;
 	}
 
 	private void ButtonPressedEvent()
 	{
-		TitleSceneManager.SpawnUserConfirmationPopupRegardingSaveOverwriting();
+		TitleSceneManager.RemoveSaveOverwriteConfirmationPopup();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

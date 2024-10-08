@@ -11,9 +11,9 @@
 [ext_resource type="Script" path="res://Scripts/CreateGameButton.cs" id="6_h7u0b"]
 [ext_resource type="Texture2D" uid="uid://dg4m3mxd4m8kt" path="res://Textures/TitleBackgroundDemo.png" id="7_d8aej"]
 [ext_resource type="Texture2D" uid="uid://uq5amk2rjiey" path="res://Textures/Buttons/UI_Flat_Banner01a.png" id="7_e4g20"]
-[ext_resource type="Theme" uid="uid://b5nrss0achycm" path="res://Themes/Title Panel.tres" id="7_wmu50"]
+[ext_resource type="Theme" uid="uid://dado8c3hcwn42" path="res://Themes/Title Panel.tres" id="7_wmu50"]
 [ext_resource type="Script" path="res://Scripts/CharacterSelection.cs" id="8_ouchp"]
-[ext_resource type="Theme" uid="uid://p5d1ml2t70re" path="res://Themes/IconButtons.tres" id="11_fidcb"]
+[ext_resource type="Theme" uid="uid://cfkf1yvbfkdms" path="res://Themes/IconButtons.tres" id="11_fidcb"]
 [ext_resource type="Script" path="res://Scripts/AlienButton.cs" id="11_m1rrk"]
 [ext_resource type="Texture2D" uid="uid://bjx3snqfb17jy" path="res://Textures/Aliens/4_alien.png" id="14_vcq6k"]
 [ext_resource type="Texture2D" uid="uid://don867uga6wtk" path="res://Textures/Aliens/5_alien.png" id="15_cykk0"]
@@ -86,7 +86,7 @@ theme = ExtResource("1_0cr8b")
 text = "Credits"
 
 [node name="UiFlatBanner01a" type="Sprite2D" parent="."]
-position = Vector2(941, 167)
+position = Vector2(960, 157)
 scale = Vector2(12.71, 12.71)
 texture = ExtResource("7_e4g20")
 
