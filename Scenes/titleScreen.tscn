@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bp4pm6nyj77pp"]
+[gd_scene load_steps=23 format=3 uid="uid://bp4pm6nyj77pp"]
 
 [ext_resource type="Theme" uid="uid://cxgao5s1phj5n" path="res://Themes/mainMenuButtons.tres" id="1_0cr8b"]
 [ext_resource type="Script" path="res://Scripts/TitleSceneManager.cs" id="1_eympr"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://Scripts/CreateGameButton.cs" id="6_h7u0b"]
 [ext_resource type="Texture2D" uid="uid://dg4m3mxd4m8kt" path="res://Textures/TitleBackgroundDemo.png" id="7_d8aej"]
 [ext_resource type="Texture2D" uid="uid://uq5amk2rjiey" path="res://Textures/Buttons/UI_Flat_Banner01a.png" id="7_e4g20"]
+[ext_resource type="Script" path="res://Scripts/CreditsButton.cs" id="7_pf44q"]
 [ext_resource type="Theme" uid="uid://dado8c3hcwn42" path="res://Themes/Title Panel.tres" id="7_wmu50"]
 [ext_resource type="Script" path="res://Scripts/CharacterSelection.cs" id="8_ouchp"]
 [ext_resource type="Theme" uid="uid://cfkf1yvbfkdms" path="res://Themes/IconButtons.tres" id="11_fidcb"]
@@ -84,6 +85,7 @@ offset_bottom = 941.0
 scale = Vector2(1.4, 1.4)
 theme = ExtResource("1_0cr8b")
 text = "Credits"
+script = ExtResource("7_pf44q")
 
 [node name="UiFlatBanner01a" type="Sprite2D" parent="."]
 position = Vector2(960, 157)
