@@ -21,6 +21,7 @@ public partial class Player : Node
     public Player(int characterId){ //New User Created
         this.username = "";
         this.listOfOwnedPlants = new List<Plant>();
+        this.listOfOwnedPlants.Add(new Plant());
         this.coins = 100;
         this.characterId = characterId;
     }

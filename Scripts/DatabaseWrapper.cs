@@ -295,4 +295,9 @@ public partial class DatabaseWrapper
             connection.Close();
         }
     }
+
+    public void CreateNewSave(){
+        GD.Print("Calm down now we are here.");
+        RebuildDatabase(pathToSaveDB, pathToSaveDBInitializer);
+    }
 }

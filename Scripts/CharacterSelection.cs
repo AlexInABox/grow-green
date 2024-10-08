@@ -10,7 +10,7 @@ public partial class CharacterSelection : ScrollContainer
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		titleScreenManager = GetNode<TitleSceneManager>("../../../TitleScreen");
+		titleScreenManager = GetNode<TitleSceneManager>("../../TitleSceneManager");
 
 
 		var i = 0;

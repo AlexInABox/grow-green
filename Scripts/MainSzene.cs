@@ -6,10 +6,12 @@ using System.Collections.Generic;
 	// Called when the node enters the scene tree for the first time.
 	DatabaseWrapper db = new DatabaseWrapper();
 	PackedScene plantPrefab = GD.Load<PackedScene>("res://Prefabs/plant_wrapper.tscn");
+	SceneManager sceneManager;
 
 	public override void _Ready()
 	{
-		List<Plant> plantList = db.GetListOfAllPlants();
+		sceneManager = GetNode<SceneManager>("../SceneManager");
+		List<Plant> plantList = sceneManager.GetListOfOwnedPlants(); 
 		PlaceAllPlants(plantList);
 	}
 
@@ -17,6 +19,9 @@ using System.Collections.Generic;
 		int counter = 0;
 		for (int x = 1; x <= 2; x++) {
 			for (int y = 1; y <= 13; y++) {
+				if (plantList.Count == counter){
+					return;
+				}
 				var plantPrefabInstance = plantPrefab.Instantiate();
 				AddChild(plantPrefabInstance);
 

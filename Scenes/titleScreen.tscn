@@ -29,6 +29,8 @@ shader_parameter/color_over = null
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vw1ss"]
 
 [node name="TitleScreen" type="Node2D"]
+
+[node name="TitleSceneManager" type="Node" parent="."]
 script = ExtResource("1_eympr")
 
 [node name="Backround" type="Sprite2D" parent="."]
@@ -84,7 +86,7 @@ theme = ExtResource("1_0cr8b")
 text = "Credits"
 
 [node name="UiFlatBanner01a" type="Sprite2D" parent="."]
-position = Vector2(941, 167)
+position = Vector2(960, 157)
 scale = Vector2(12.71, 12.71)
 texture = ExtResource("7_e4g20")
 
