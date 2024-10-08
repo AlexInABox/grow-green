@@ -1,48 +1,43 @@
 using Godot;
-using System;
 using System.Collections.Generic;
-using System.Data.Common;
 
 public partial class SceneManager : Node
 {
 	DatabaseWrapper db = new DatabaseWrapper();
-	PackedScene plantPrefab = GD.Load<PackedScene>("res://Prefabs/plant_wrapper.tscn");
+	Player playerObject;
 
-	// Called when the node enters the scene tree for the first time.
+	public bool IAMREADY = false;
+	
 	public override void _Ready()
 	{
-		List<Plant> listOfOwnedPlants = db.GetListOfOwnedPlants();
-		foreach (var item in listOfOwnedPlants)
-		{
-			GD.Print(item.className);
-		}
-
-		PlaceAllPlants(listOfOwnedPlants);
+		GD.Print("IM ALIVE!!");
+		playerObject = db.GetPlayerObject();
+		IAMREADY = true;
+	}
+	
+	public int GetCoinCount(){
+		return playerObject.coins;
 	}
 
-	private void PlaceAllPlants(List<Plant> plantList) {
-		int counter = 0;
-		for (int x = 1; x <= 4; x++) {
-			for (int y = 1; y <= 11; y++) {
-				if (plantList.Count == counter){
-					return;
-				}
-
-				var plantPrefabInstance = plantPrefab.Instantiate();
-				AddChild(plantPrefabInstance);
-
-				var plantWrapper = plantPrefabInstance.GetNode<Node2D>("../plant_wrapper");
-				plantWrapper.Set("position", new Vector2(150*y, 200*x));
-				plantWrapper.Set("name", "freaky" + counter);
-
-				plantWrapper.AddChild(plantList[counter]);
-				counter++;
-			}
-		}
+	public void SetCoinCount(int coinCount){
+		playerObject.coins = coinCount;
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public int GetCharacterId(){
+		GD.Print("I HELP!!");
+		return playerObject.characterId;
+	}
+	//I decide not to provide a function that changes the characterId. I see no applicable use case.
+	
+	public List<Plant> GetListOfOwnedPlants() {
+		return playerObject.listOfOwnedPlants;
+	}
+	//The list will be changed even after it has been given away. Remote changes to this list will also reflect in the playerObjects version. They are interlinked!
+
+
 	public override void _Process(double delta)
 	{
+		//IT IS MY GOD-GIVEN RIGHT TO USE A DATABASE ACCORDING TO MY WILL! IF A HUMAN BEING, LIKE ME, WANTS TO WRITE TO A DATABASE AT EVERY FRAME, THEY MUST NOT BE HINDERED BY A LESSER BEING, LIKE MY COMPUTER!!!!!!!!!
+		db.UpdateSave(playerObject);
 	}
 }

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://f57aqowuk20c"]
 
-[ext_resource type="Texture2D" uid="uid://m7pbbugmb62d" path="res://Textures/Plants/pot.png" id="1_tugmu"]
-[ext_resource type="Texture2D" uid="uid://bttoba0d2q6lj" path="res://Textures/Plants/agave2.png" id="2_wrp6y"]
+[ext_resource type="Texture2D" uid="uid://buqy5h6r8xf4y" path="res://Textures/Plants/pot.png" id="1_tugmu"]
+[ext_resource type="Texture2D" uid="uid://dhjxjrt06dph4" path="res://Textures/Plants/agave2.png" id="2_wrp6y"]
 [ext_resource type="Theme" uid="uid://bik6akg25n2fr" path="res://Themes/plant_location_button.tres" id="4_42ljx"]
 [ext_resource type="Script" path="res://Scripts/PlantButton.cs" id="5_o0u11"]
 

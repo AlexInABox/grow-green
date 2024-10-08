@@ -1,8 +1,8 @@
 [gd_scene load_steps=22 format=3 uid="uid://bqv77dvuy6ly0"]
 
+[ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_06be7"]
 [ext_resource type="Texture2D" uid="uid://da3gby3k4mva" path="res://Textures/Backgrounds/HOUSE.png" id="1_bo6pn"]
 [ext_resource type="Script" path="res://Scripts/MainSzene.cs" id="1_rm010"]
-[ext_resource type="Script" path="res://MainBackground.cs" id="3_320u7"]
 [ext_resource type="Shader" path="res://Shaders/shiny.gdshader" id="4_nrcbp"]
 [ext_resource type="Script" path="res://Scripts/LoadPictures.cs" id="5_ggw0u"]
 [ext_resource type="Texture2D" uid="uid://bu6crxd3gecma" path="res://Textures/Aliens/Paintings/1_left.jpg" id="6_khafo"]
@@ -31,13 +31,17 @@ shader_parameter/is_horizontal = false
 shader_parameter/pause_duration = 0.5
 
 [node name="MainSzene" type="Node2D"]
+
+[node name="SceneManager" type="Node" parent="."]
+script = ExtResource("1_06be7")
+
+[node name="MainSceneScript" type="Node" parent="."]
 script = ExtResource("1_rm010")
 
 [node name="Background" type="Sprite2D" parent="."]
 scale = Vector2(8, 8)
 texture = ExtResource("1_bo6pn")
 centered = false
-script = ExtResource("3_320u7")
 
 [node name="ShopButton" type="Button" parent="."]
 material = SubResource("ShaderMaterial_1w0vq")

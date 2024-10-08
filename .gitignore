@@ -34,3 +34,7 @@ GrowGreen.console.exe
 # Music Samples
 .mp3
 .mp3.import
+
+# DotSettings for userstuff
+*.sln.DotSettings.user
+GrowGreen.sln.DotSettings.user
