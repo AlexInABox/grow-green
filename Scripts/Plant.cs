@@ -23,6 +23,10 @@ public partial class Plant : Sprite2D
     
     private string[] growthTextures;
 
+    //status bubble stuff
+    ColorRect growProgressBar;
+    ColorRect waterLevelBar;
+
 
     public Plant() {
         this.className = "Agave";
@@ -79,6 +83,12 @@ public partial class Plant : Sprite2D
             $"res://Textures/Plants/{normalizedClassName}2.png",       // Stage 2: Sprout
             $"res://Textures/Plants/{normalizedClassName}3.png",  // Stage 3: Young Plant
         };
+
+        //GD.Print(GetParent().GetTreeStringPretty());
+
+        growProgressBar = GetNode<ColorRect>("../statusBubble/growProgressWrapper/ColorRect");
+        waterLevelBar = GetNode<ColorRect>("../statusBubble/waterLevelWrapper/ColorRect");
+
         RefreshMetadata();
         
     }
@@ -87,6 +97,7 @@ public partial class Plant : Sprite2D
         RecalculateWaterLevel();
         RecalculateGrowProgress();
         RefreshTexture();
+        RefreshStatusBubble();
     }
 
     public void WaterPlant() {
@@ -138,6 +149,11 @@ public partial class Plant : Sprite2D
         if (growProgress > 80) {
             Texture = (Texture2D)GD.Load(growthTextures[4]);
         }
+    }
+
+    private void RefreshStatusBubble(){
+        growProgressBar.SetSize(new Vector2((float)(66 * growProgress), 9.45f));
+        waterLevelBar.SetSize(new Vector2((float)(46 * (waterLevel/100)), 7.085f));
     }
 
 
