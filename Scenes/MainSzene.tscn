@@ -1,10 +1,12 @@
-[gd_scene load_steps=22 format=3 uid="uid://bqv77dvuy6ly0"]
+[gd_scene load_steps=25 format=3 uid="uid://bqv77dvuy6ly0"]
 
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_06be7"]
 [ext_resource type="Texture2D" uid="uid://da3gby3k4mva" path="res://Textures/Backgrounds/HOUSE.png" id="1_bo6pn"]
 [ext_resource type="Script" path="res://Scripts/MainSzene.cs" id="1_rm010"]
 [ext_resource type="Shader" path="res://Shaders/shiny.gdshader" id="4_nrcbp"]
+[ext_resource type="Script" path="res://Scripts/ShopButton.cs" id="5_fepxd"]
 [ext_resource type="Script" path="res://Scripts/LoadPictures.cs" id="5_ggw0u"]
+[ext_resource type="Texture2D" uid="uid://dohi1fhdvqj6g" path="res://Textures/Icons/Icons/ShopIcon.png" id="5_j8hir"]
 [ext_resource type="Texture2D" uid="uid://bu6crxd3gecma" path="res://Textures/Aliens/Paintings/1_left.jpg" id="6_khafo"]
 [ext_resource type="Texture2D" uid="uid://86ken7uumcwe" path="res://Textures/Aliens/Paintings/1_middle.jpg" id="7_dhhgn"]
 [ext_resource type="Texture2D" uid="uid://bs1bmfr8vulgx" path="res://Textures/Aliens/Paintings/1_right.jpg" id="8_kithj"]
@@ -30,6 +32,9 @@ shader_parameter/color_mode_toggle = false
 shader_parameter/is_horizontal = false
 shader_parameter/pause_duration = 0.5
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bt10e"]
+texture = ExtResource("5_j8hir")
+
 [node name="MainSzene" type="Node2D"]
 
 [node name="SceneManager" type="Node" parent="."]
@@ -45,12 +50,13 @@ centered = false
 
 [node name="ShopButton" type="Button" parent="."]
 material = SubResource("ShaderMaterial_1w0vq")
-offset_left = 611.0
-offset_top = 427.0
-offset_right = 650.0
-offset_bottom = 452.0
+offset_left = 618.0
+offset_top = 425.0
+offset_right = 657.0
+offset_bottom = 450.0
 scale = Vector2(5, 5)
-text = "Shop"
+theme_override_styles/normal = SubResource("StyleBoxTexture_bt10e")
+script = ExtResource("5_fepxd")
 
 [node name="Minigames" type="Control" parent="."]
 layout_mode = 3
