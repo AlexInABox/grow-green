@@ -1,0 +1,109 @@
+[gd_scene load_steps=8 format=3 uid="uid://ea1g0ffnyjnb"]
+
+[ext_resource type="Texture2D" uid="uid://pklblu1n2kih" path="res://Textures/Backgrounds/ShopBackground.png" id="1_8vc7e"]
+[ext_resource type="Texture2D" uid="uid://dsc8agvtuqlwm" path="res://Textures/Icons/Icons/Exit.png" id="2_5ene3"]
+[ext_resource type="Script" path="res://Scripts/Shop/LeaveButton.cs" id="3_sufmd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_imf6g"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2bwrq"]
+texture = ExtResource("2_5ene3")
+modulate_color = Color(0.470076, 0.470076, 0.470076, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ybfuq"]
+texture = ExtResource("2_5ene3")
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s6qrh"]
+texture = ExtResource("2_5ene3")
+
+[node name="ShopSzene" type="Node2D"]
+
+[node name="ShopBackground" type="Sprite2D" parent="."]
+z_index = -13
+scale = Vector2(12, 12)
+texture = ExtResource("1_8vc7e")
+centered = false
+
+[node name="ShopLabel" type="Label" parent="."]
+z_index = 4
+custom_minimum_size = Vector2(960, 50)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 480.0
+offset_right = 1440.0
+offset_bottom = 168.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.2, 0.721569, 0.392157, 1)
+theme_override_font_sizes/font_size = 150
+text = "Shop"
+horizontal_alignment = 1
+
+[node name="Seeds" type="Panel" parent="."]
+offset_left = 36.0
+offset_top = 156.0
+offset_right = 1884.0
+offset_bottom = 444.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Seeds"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 24.0
+offset_right = 1812.0
+offset_bottom = 264.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Seeds/ScrollContainer"]
+custom_minimum_size = Vector2(1920, 240)
+layout_mode = 2
+
+[node name="SeedIcon" type="Sprite2D" parent="Seeds"]
+
+[node name="Pots" type="Panel" parent="."]
+offset_left = 36.0
+offset_top = 456.0
+offset_right = 1884.0
+offset_bottom = 744.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Pots"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 24.0
+offset_right = 1812.0
+offset_bottom = 264.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Pots/ScrollContainer"]
+custom_minimum_size = Vector2(1920, 240)
+layout_mode = 2
+
+[node name="PotIcon" type="Sprite2D" parent="Pots"]
+
+[node name="SeedPacks" type="Panel" parent="."]
+offset_left = 36.0
+offset_top = 756.0
+offset_right = 1884.0
+offset_bottom = 1044.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="SeedPacks"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 24.0
+offset_right = 1812.0
+offset_bottom = 264.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SeedPacks/ScrollContainer"]
+custom_minimum_size = Vector2(1920, 240)
+layout_mode = 2
+
+[node name="SeedPackIcon" type="Sprite2D" parent="SeedPacks"]
+
+[node name="Leave Button" type="Button" parent="."]
+offset_left = 40.0
+offset_top = 5.0
+offset_right = 190.0
+offset_bottom = 155.0
+theme_override_styles/focus = SubResource("StyleBoxTexture_imf6g")
+theme_override_styles/hover = SubResource("StyleBoxTexture_2bwrq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ybfuq")
+theme_override_styles/normal = SubResource("StyleBoxTexture_s6qrh")
+script = ExtResource("3_sufmd")
