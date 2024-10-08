@@ -89,20 +89,17 @@ scale = Vector2(12.71, 12.71)
 texture = ExtResource("7_e4g20")
 
 [node name="Label" type="Label" parent="UiFlatBanner01a"]
-anchors_preset = -1
-anchor_left = 0.172
-anchor_top = 0.35
-anchor_right = 0.844
-anchor_bottom = 0.83
-offset_left = -28.7893
-offset_top = -9.12431
-offset_right = 2343.2
-offset_bottom = 673.276
+z_index = 2
+offset_left = -17.3092
+offset_top = -1.8096
+offset_right = 1699.69
+offset_bottom = 399.19
 scale = Vector2(0.02, 0.02)
 theme = ExtResource("1_0cr8b")
 theme_override_colors/font_color = Color(0.288725, 0.183645, 0.0444823, 1)
 theme_override_font_sizes/font_size = 400
 text = "GrowGreen"
+horizontal_alignment = 1
 
 [node name="Panel" type="Panel" parent="."]
 offset_left = 873.0
