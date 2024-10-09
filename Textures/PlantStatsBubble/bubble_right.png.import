@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqdct01bc8y7g"
-path="res://.godot/imported/animal_zebra.png-dd1acf2b6e3c80d3bf426f5bab9b08c8.ctex"
+uid="uid://cqumd7xh77km2"
+path="res://.godot/imported/bubble_right.png-062148cb1fafbad57bf86a1fe061a83b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Pots/animal_zebra.png"
-dest_files=["res://.godot/imported/animal_zebra.png-dd1acf2b6e3c80d3bf426f5bab9b08c8.ctex"]
+source_file="res://Textures/PlantStatsBubble/bubble_right.png"
+dest_files=["res://.godot/imported/bubble_right.png-062148cb1fafbad57bf86a1fe061a83b.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buqy5h6r8xf4y"
-path="res://.godot/imported/pot.png-c6bcbe3428e545f7d2a2ec66b2f073de.ctex"
+uid="uid://ccsfu0hghjlhp"
+path="res://.godot/imported/bubble_left.png-c9fd954620e4e04821153e327f0cf2ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Plants/pot.png"
-dest_files=["res://.godot/imported/pot.png-c6bcbe3428e545f7d2a2ec66b2f073de.ctex"]
+source_file="res://Textures/PlantStatsBubble/bubble_left.png"
+dest_files=["res://.godot/imported/bubble_left.png-c9fd954620e4e04821153e327f0cf2ec.ctex"]
 
 [params]
 

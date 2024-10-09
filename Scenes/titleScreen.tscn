@@ -93,7 +93,6 @@ scale = Vector2(12.71, 12.71)
 texture = ExtResource("7_e4g20")
 
 [node name="Label" type="Label" parent="UiFlatBanner01a"]
-z_index = 2
 offset_left = -17.3092
 offset_top = -1.8096
 offset_right = 1699.69

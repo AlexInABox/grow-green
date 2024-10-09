@@ -23,7 +23,7 @@ using System.Collections.Generic;
 					return;
 				}
 				var plantPrefabInstance = plantPrefab.Instantiate();
-				AddChild(plantPrefabInstance);
+				GetNode("../AllPlantsGoHere").AddChild(plantPrefabInstance);
 
 				var plantWrapper = plantPrefabInstance.GetNode<Node2D>("../plant_wrapper");
 				plantWrapper.Set("position", new Vector2(64+(128*y), 712+(128*x)));
