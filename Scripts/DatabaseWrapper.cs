@@ -33,18 +33,21 @@ public partial class DatabaseWrapper
 
         string playerStatsTableName = "playerStats";
         string listOfOwnedPlantsTableName = "listOfOwnedPlants";
+        string listOfOwnedPotsTableName = "listOfOwnedPots";
 
         bool databaseFileExists = FileAccess.FileExists(pathToSaveDB);
         bool playerStatsTableExists = false;
         bool listOfOwnedPlantsTableExists = false;
+        bool listOfOwnedPotsTableExists = false;
         bool listOfOwnedPlantsTableIsComplete = false;
         if (databaseFileExists) {
             playerStatsTableExists = TableAlreadyExists(pathToSaveDB, playerStatsTableName);
             listOfOwnedPlantsTableExists = TableAlreadyExists(pathToSaveDB, listOfOwnedPlantsTableName);
+            listOfOwnedPotsTableExists = TableAlreadyExists(pathToSaveDB, listOfOwnedPotsTableName);
             listOfOwnedPlantsTableIsComplete = TestListOfOwnedPlants();
         }
 
-        return !(databaseFileExists && playerStatsTableExists && listOfOwnedPlantsTableExists && listOfOwnedPlantsTableIsComplete);
+        return !(databaseFileExists && playerStatsTableExists && listOfOwnedPlantsTableExists && listOfOwnedPlantsTableIsComplete && listOfOwnedPotsTableExists);
     }
 
     private static bool TableAlreadyExists(string pathToDB, string tableName)
@@ -195,8 +198,9 @@ public partial class DatabaseWrapper
                 connection.Close();
 
                 List<Plant> listOfOwnedPlants = GetListOfOwnedPlants();
+                List<Pot> listOfOwnedPots = GetListOfOwnedPots();
 
-                Player player = new Player(username, listOfOwnedPlants, coins, characterId);
+                Player player = new Player(username, listOfOwnedPlants, listOfOwnedPots, coins, characterId);
 
                 return player;
             }
@@ -276,6 +280,11 @@ public partial class DatabaseWrapper
         foreach (Plant plant in player.listOfOwnedPlants) {
             InsertPlantIntoListOfOwnedPlantsTable(plant);
         }
+
+        ClearTableInDB("listOfOwnedPots", pathToSaveDB);
+        foreach (Pot pot in player.listOfOwnedPots) {
+            InsertPotIntoListOfOwnedPotsTable(pot);
+        }
     }
 
     private void ClearTableInDB(string table, string pathToDB) {
@@ -342,6 +351,26 @@ public partial class DatabaseWrapper
         }
     }
 
+    private void InsertPotIntoListOfOwnedPotsTable(Pot pot){
+        //Create a local database and load the .sql file into it
+		string connectionString = "Data Source=" + pathToSaveDB;
+        // Open the connection
+        using (var connection = new SqliteConnection(connectionString))
+        {
+            connection.Open();
+            //Praise the LORD
+            string potName = pot.potName;
+
+            string sqlQuery = $"INSERT INTO listOfOwnedPots (potName) VALUES ('{potName}');";
+            using (var command = new SqliteCommand(sqlQuery, connection))
+            {
+                command.ExecuteReader();
+            }
+            connection.Close();
+        }
+    }
+
+
     public List<Pot> GetListOfAllPots(){
 
 		//Create a local database and load the .sql file into it
@@ -378,6 +407,58 @@ public partial class DatabaseWrapper
             if (pot.potName == potName) return pot;
         }
         return new Pot();
+    }
+
+    public List<Pot> GetListOfOwnedPots(){
+        //Create a local database and load the .sql file into it
+		string connectionString = "Data Source=" + pathToSaveDB;
+        List<Pot> fillMeUp = new List<Pot>();
+        // Open the connection
+        using (var connection = new SqliteConnection(connectionString))
+        {
+            connection.Open();
+            //Praise the LORD
+            string sqlQuery = "SELECT * FROM listOfOwnedPots";
+            using (var command = new SqliteCommand(sqlQuery, connection))
+            {
+                var reader = command.ExecuteReader();
+
+                while(reader.Read()) {
+
+                    string potName = (string)reader["potName"];
+
+                    Pot potOnThisRow = ConstructPotFromSave(potName);
+                    fillMeUp.Add(potOnThisRow);
+                }
+            }
+            connection.Close();
+        }
+        return fillMeUp;
+    }
+
+    private Pot ConstructPotFromSave(string potName){
+        //Create a local database and load the .sql file into it
+		string connectionString = "Data Source=" + pathToPotsDB;
+        Pot requestedPot;
+        // Open the connection
+        using (var connection = new SqliteConnection(connectionString))
+        {
+            connection.Open();
+            //Praise the LORD
+            string sqlQuery = "SELECT * FROM pots WHERE pots.potName == '" + potName + "';";
+            GD.Print(sqlQuery);
+            using (var command = new SqliteCommand(sqlQuery, connection))
+            {
+                var reader = command.ExecuteReader();
+                reader.Read();
+
+                int cost = Convert.ToInt32(reader["cost"]);
+
+                requestedPot = new Pot(potName, cost);
+            }
+            connection.Close();
+        }
+        return requestedPot;
     }
 
     public void CreateNewSave(){

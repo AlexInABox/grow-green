@@ -33,4 +33,5 @@ VALUES ("animal_giraffe", 8),
 	("skin_chess", 6),
 	("skin_germany", 5),
 	("skin_gold", 10),
-	("skin_rainbow", 3);
+	("skin_rainbow", 3),
+	("default", 0);

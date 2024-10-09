@@ -17,3 +17,8 @@ CREATE TABLE "listOfOwnedPlants" (
 	"rotten" BOOLEAN,
 	"potName" TEXT
 );
+
+DROP TABLE IF EXISTS "listOfOwnedPots";
+CREATE TABLE "listOfOwnedPots" (
+	"potName"	TEXT
+);

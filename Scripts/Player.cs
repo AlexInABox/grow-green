@@ -6,6 +6,7 @@ public partial class Player : Node
 {
     public string username;
     public List<Plant> listOfOwnedPlants;
+    public List<Pot> listOfOwnedPots;
     public int coins;
     public int characterId;
 
@@ -17,6 +18,12 @@ public partial class Player : Node
         this.listOfOwnedPlants.Add(new Plant());
         this.listOfOwnedPlants.Add(new Plant());
         this.listOfOwnedPlants.Add(new Plant());
+        this.listOfOwnedPots = new List<Pot>();
+        this.listOfOwnedPots.Add(new Pot());
+        this.listOfOwnedPots.Add(new Pot("minecraft_chicken", 10));
+        this.listOfOwnedPots.Add(new Pot("skin_rainbow", 3));
+        this.listOfOwnedPots.Add(new Pot("skin_germany", 5));
+        this.listOfOwnedPots.Add(new Pot("skin_gold", 10));
         this.coins = 100;
         this.characterId = 1;
     }
@@ -28,13 +35,20 @@ public partial class Player : Node
         this.listOfOwnedPlants.Add(new Plant());
         this.listOfOwnedPlants.Add(new Plant());
         this.listOfOwnedPlants.Add(new Plant());
+        this.listOfOwnedPots = new List<Pot>();
+        this.listOfOwnedPots.Add(new Pot());
+        this.listOfOwnedPots.Add(new Pot("minecraft_chicken", 10));
+        this.listOfOwnedPots.Add(new Pot("skin_rainbow", 3));
+        this.listOfOwnedPots.Add(new Pot("skin_germany", 5));
+        this.listOfOwnedPots.Add(new Pot("skin_gold", 10));
         this.coins = 100;
         this.characterId = characterId;
     }
 
-    public Player(string username, List<Plant> listOfOwnedPlants, int coins, int characterId){ //Load Player
+    public Player(string username, List<Plant> listOfOwnedPlants, List<Pot> listOfOwnedPots, int coins, int characterId){ //Load Player
         this.username = username;
         this.listOfOwnedPlants = listOfOwnedPlants;
+        this.listOfOwnedPots = listOfOwnedPots;
         this.coins = coins;
         this.characterId = characterId;
     }
