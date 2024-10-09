@@ -20,8 +20,10 @@ public partial class Plant : Sprite2D
     public long waterLevelTimestamp = 0; // epoch
     public bool withered = false; // True if the plant is dead
     public bool rotten = false; // True if the plant is dead
+    public string pot;
     
     private string[] growthTextures;
+
 
     //status bubble stuff
     ColorRect growProgressBar;
@@ -36,6 +38,7 @@ public partial class Plant : Sprite2D
         this.sellValue = 3;
         this.yield = 1;
         this.growRatePerDay = 10;
+        this.pot = "minecraft_chicken";
 
         this.growProgress = 0.8;
         this.waterLevel = 50;
@@ -50,9 +53,9 @@ public partial class Plant : Sprite2D
 
         growProgress = 1;
         waterLevel = 50;
+        pot = "default";
     }
-
-    public Plant(string className, string name, int waterEveryXDays, int cost, int sellValue, int yield, double growProgress, long growProgressTimestamp, double waterLevel, long waterLevelTimestamp, bool withered, bool rotten) {
+    public Plant(string className, string name, int waterEveryXDays, int cost, int sellValue, int yield, double growProgress, long growProgressTimestamp, double waterLevel, long waterLevelTimestamp, bool withered, bool rotten, string pot) {
         this.className = className;
         this.plantName = name;
         this.decayRatePerDay = 100 / waterEveryXDays;
@@ -66,11 +69,14 @@ public partial class Plant : Sprite2D
         this.waterLevelTimestamp = waterLevelTimestamp;
         this.withered = withered;
         this.rotten = rotten;
+
+        this.pot = pot;
     }
 
     public override void _Ready()
     {
         Name = "Plant";
+        ZIndex = 2;
 
         if (waterLevelTimestamp == 0) waterLevelTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds();
         if (growProgressTimestamp == 0) growProgressTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds();
@@ -90,7 +96,6 @@ public partial class Plant : Sprite2D
         waterLevelBar = GetNode<ColorRect>("../statusBubble/waterLevelWrapper/ColorRect");
 
         RefreshMetadata();
-        
     }
 
     public void RefreshMetadata() {

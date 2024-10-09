@@ -1,11 +1,11 @@
 DROP TABLE IF EXISTS pots;
 CREATE TABLE "pots" (
-	"name"	TEXT,
+	"potName"	TEXT,
 	"cost"	INTEGER,
-	PRIMARY KEY("name")
+	PRIMARY KEY("potName")
 );
 
-INSERT INTO pots (name, cost)
+INSERT INTO pots (potName, cost)
 VALUES ("animal_giraffe", 8),
 	("animal_tiger", 8),
 	("animal_zebra", 8),
@@ -16,7 +16,6 @@ VALUES ("animal_giraffe", 8),
 	("minecraft_pig", 10),
 	("minecraft_sheep", 10),
 	("minecraft_zombie", 10),
-	("minecraft_chicken", 10),
 	("plain_black", 1),
 	("plain_blue_dark", 1),
 	("plain_blue_light", 1),

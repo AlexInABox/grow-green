@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://f57aqowuk20c"]
+[gd_scene load_steps=10 format=3 uid="uid://f57aqowuk20c"]
 
+[ext_resource type="Script" path="res://Scripts/PlantWrapper.cs" id="1_8i3x8"]
 [ext_resource type="Texture2D" uid="uid://bolbgwu7dq3r4" path="res://Textures/Icons/pixel-speech-bubble.png" id="1_a8rmt"]
-[ext_resource type="Texture2D" uid="uid://buqy5h6r8xf4y" path="res://Textures/Plants/pot.png" id="1_tugmu"]
+[ext_resource type="Texture2D" uid="uid://buqy5h6r8xf4y" path="res://Textures/Pots/default.png" id="1_tugmu"]
 [ext_resource type="Texture2D" uid="uid://da633vcabsr6c" path="res://Textures/Buttons/UI_Flat_Bar13a.png" id="2_i72dl"]
 [ext_resource type="Theme" uid="uid://dysu6ugv7ou7b" path="res://Themes/statusBubbleFont.tres" id="2_kxr6s"]
 [ext_resource type="Texture2D" uid="uid://dhjxjrt06dph4" path="res://Textures/Plants/agave2.png" id="2_wrp6y"]
@@ -11,6 +12,7 @@
 
 [node name="plant_wrapper" type="Node2D"]
 scale = Vector2(8, 8)
+script = ExtResource("1_8i3x8")
 
 [node name="statusBubble" type="Sprite2D" parent="."]
 visible = false
@@ -64,7 +66,8 @@ color = Color(0.289024, 0.721667, 0, 1)
 scale = Vector2(1.76923, 1.76923)
 texture = ExtResource("7_oyynb")
 
-[node name="Pot" type="Sprite2D" parent="."]
+[node name="PotDONT" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("1_tugmu")
 metadata/_edit_lock_ = true
 
