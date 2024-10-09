@@ -1,26 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://bxbykdhvettx"]
+[gd_scene load_steps=6 format=3 uid="uid://bxbykdhvettx"]
 
 [ext_resource type="Texture2D" uid="uid://caplkr8i4j4mp" path="res://Textures/Buttons/UI_Flat_Frame03a.png" id="1_esfjh"]
 [ext_resource type="FontFile" uid="uid://16884th6cwds" path="res://Fonts/Jersey25-Regular.ttf" id="2_3iuey"]
 [ext_resource type="Theme" uid="uid://cxgao5s1phj5n" path="res://Themes/mainMenuButtons.tres" id="3_lr351"]
-[ext_resource type="Shader" path="res://Shaders/frostedGlass.gdshader" id="4_vj45w"]
 [ext_resource type="Script" path="res://Scripts/OverwriteSaveConfirmationPopup/ConfirmButton.cs" id="5_jhhmk"]
 [ext_resource type="Script" path="res://Scripts/OverwriteSaveConfirmationPopup/CancelButton.cs" id="6_bjxuk"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ee4ee"]
-shader = ExtResource("4_vj45w")
-shader_parameter/intensity = 0.01
-shader_parameter/tint_color = Color(0, 0, 0, 1)
-shader_parameter/tint_amount = 0.4
-
 [node name="CreateGameConfirmationPopup" type="Node2D"]
 
-[node name="BlurStuffBehindMe" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_ee4ee")
-offset_left = -0.00012207
-offset_top = -6.10352e-05
-offset_right = 1922.0
-offset_bottom = 1081.0
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1912.0
+offset_bottom = 1078.0
+color = Color(0, 0, 0, 0.470588)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(960, 510)
