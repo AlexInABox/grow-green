@@ -14,7 +14,6 @@ public partial class DatabaseWrapper
     public DatabaseWrapper(){
         System.Globalization.CultureInfo customCulture = (System.Globalization.CultureInfo)System.Threading.Thread.CurrentThread.CurrentCulture.Clone();
         customCulture.NumberFormat.NumberDecimalSeparator = ".";
-
         System.Threading.Thread.CurrentThread.CurrentCulture = customCulture;
 
         RebuildDatabase(pathToPlantsDB, pathToPlantsDBInitializer);
@@ -293,7 +292,6 @@ public partial class DatabaseWrapper
             bool rotten = plant.rotten;
 
             string sqlQuery = $"INSERT INTO listOfOwnedPlants (className, growProgress, growProgressTimestamp, waterLevel, waterLevelTimestamp, withered, rotten) VALUES ('{className}', {growProgress}, {growProgressTimestamp}, {waterLevel}, {waterLevelTimestamp}, {withered}, {rotten})";
-            GD.Print(sqlQuery);
             using (var command = new SqliteCommand(sqlQuery, connection))
             {
                 command.ExecuteReader();
@@ -303,7 +301,6 @@ public partial class DatabaseWrapper
     }
 
     public void CreateNewSave(){
-        GD.Print("Calm down now we are here.");
         RebuildDatabase(pathToSaveDB, pathToSaveDBInitializer);
     }
 }

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dk3gtq83ujo1s"
-path="res://.godot/imported/slin_germany.png-7aca5c9af1369c66575f5eab2fe6e21e.ctex"
+uid="uid://doh15aewuakuc"
+path="res://.godot/imported/skin_germany.png-1589dc524aaa3d6a0165bd2598770751.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Pots/slin_germany.png"
-dest_files=["res://.godot/imported/slin_germany.png-7aca5c9af1369c66575f5eab2fe6e21e.ctex"]
+source_file="res://Textures/Pots/skin_germany.png"
+dest_files=["res://.godot/imported/skin_germany.png-1589dc524aaa3d6a0165bd2598770751.ctex"]
 
 [params]
 
