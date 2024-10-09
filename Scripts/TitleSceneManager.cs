@@ -48,8 +48,8 @@ public partial class TitleSceneManager : Node
 	}
 
 	public void SpawnUserConfirmationPopupRegardingSaveOverwriting(){
-		ColorRect blurLayer = GetNode<ColorRect>("../BlurLayer");
-		blurLayer.Hide();
+		//ColorRect blurLayer = GetNode<ColorRect>("../BlurLayer");
+		//blurLayer.Hide();
 		
 		PackedScene confirmationPopup = GD.Load<PackedScene>("res://Prefabs/createGame_confirmation_popup.tscn");
 		var confirmationPopupInstance = confirmationPopup.Instantiate();
@@ -60,8 +60,8 @@ public partial class TitleSceneManager : Node
 		Node2D confirmationPopup = GetNode<Node2D>("../CreateGameConfirmationPopup");
 		confirmationPopup.QueueFree(); //byeeee :waves:
 
-		ColorRect blurLayer = GetNode<ColorRect>("../BlurLayer");
-		blurLayer.Show();
+		//ColorRect blurLayer = GetNode<ColorRect>("../BlurLayer");
+		//blurLayer.Show();
 	}
 
 	public override void _Process(double delta)
