@@ -1,9 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://bqv77dvuy6ly0"]
+[gd_scene load_steps=31 format=3 uid="uid://bqv77dvuy6ly0"]
 
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_06be7"]
 [ext_resource type="Texture2D" uid="uid://da3gby3k4mva" path="res://Textures/Backgrounds/HOUSE.png" id="1_bo6pn"]
 [ext_resource type="Script" path="res://Scripts/MainSzene.cs" id="1_rm010"]
-[ext_resource type="Shader" path="res://Shaders/shiny.gdshader" id="4_nrcbp"]
+[ext_resource type="Texture2D" uid="uid://k1nlupvlorva" path="res://Textures/Icons/Icons/MinigamesIcon.png" id="4_wnhev"]
 [ext_resource type="Script" path="res://Scripts/ShopButton.cs" id="5_fepxd"]
 [ext_resource type="Script" path="res://Scripts/LoadPictures.cs" id="5_ggw0u"]
 [ext_resource type="Texture2D" uid="uid://dohi1fhdvqj6g" path="res://Textures/Icons/Icons/ShopIcon.png" id="5_j8hir"]
@@ -23,16 +23,30 @@
 [ext_resource type="Texture2D" uid="uid://btjoo2qxpotom" path="res://Textures/Aliens/Paintings/5_middle.jpg" id="19_8pyby"]
 [ext_resource type="Texture2D" uid="uid://lhsbbpvrph4e" path="res://Textures/Aliens/Paintings/5_right.jpg" id="20_hae6m"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1w0vq"]
-shader = ExtResource("4_nrcbp")
-shader_parameter/size_effect = 0.1
-shader_parameter/speed = 1.0
-shader_parameter/highlight_strength = 0.5
-shader_parameter/color_mode_toggle = false
-shader_parameter/is_horizontal = false
-shader_parameter/pause_duration = 0.5
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ftaqd"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bt10e"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dauv7"]
+texture = ExtResource("4_wnhev")
+modulate_color = Color(0.470588, 0.470588, 0.470588, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5bmyf"]
+texture = ExtResource("4_wnhev")
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fbew7"]
+texture = ExtResource("4_wnhev")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_akrn5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ibsny"]
+texture = ExtResource("5_j8hir")
+modulate_color = Color(0.470588, 0.470588, 0.470588, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_44gc2"]
+texture = ExtResource("5_j8hir")
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bbshy"]
 texture = ExtResource("5_j8hir")
 
 [node name="MainSzene" type="Node2D"]
@@ -48,33 +62,48 @@ scale = Vector2(8, 8)
 texture = ExtResource("1_bo6pn")
 centered = false
 
+[node name="MinigameButton" type="Button" parent="."]
+offset_left = 1120.0
+offset_top = 420.0
+offset_right = 1142.0
+offset_bottom = 436.0
+scale = Vector2(7, 7)
+theme_override_styles/focus = SubResource("StyleBoxTexture_ftaqd")
+theme_override_styles/hover = SubResource("StyleBoxTexture_dauv7")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_5bmyf")
+theme_override_styles/normal = SubResource("StyleBoxTexture_fbew7")
+
+[node name="Label" type="Label" parent="MinigameButton"]
+layout_mode = 0
+offset_left = -1.14286
+offset_top = 12.2857
+offset_right = 38.8571
+offset_bottom = 49.2857
+scale = Vector2(0.7, 0.7)
+theme_override_colors/font_color = Color(0.2, 0.721569, 0.392157, 1)
+text = "Mini-
+games"
+
 [node name="ShopButton" type="Button" parent="."]
-material = SubResource("ShaderMaterial_1w0vq")
-offset_left = 618.0
-offset_top = 425.0
-offset_right = 657.0
+offset_left = 640.0
+offset_top = 420.0
+offset_right = 673.0
 offset_bottom = 450.0
 scale = Vector2(5, 5)
-theme_override_styles/normal = SubResource("StyleBoxTexture_bt10e")
+theme_override_styles/focus = SubResource("StyleBoxTexture_akrn5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ibsny")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_44gc2")
+theme_override_styles/normal = SubResource("StyleBoxTexture_bbshy")
 script = ExtResource("5_fepxd")
 
-[node name="Minigames" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 1080.0
-offset_top = 358.0
-offset_right = 1104.0
-offset_bottom = 382.0
-scale = Vector2(10, 10)
-
-[node name="Minispiel" type="Button" parent="Minigames"]
+[node name="ShopLabel" type="Label" parent="ShopButton"]
 layout_mode = 0
-offset_left = 0.900001
-offset_top = 0.899999
-offset_right = 66.9
-offset_bottom = 25.9
-scale = Vector2(0.2, 0.2)
-text = "Minigame"
+offset_top = 28.0
+offset_right = 33.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0.2, 0.721569, 0.392157, 1)
+text = "Shop"
+horizontal_alignment = 1
 
 [node name="Pictures" type="Control" parent="."]
 layout_mode = 3
