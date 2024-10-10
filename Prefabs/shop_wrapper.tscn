@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://jqwmq4hns48c"]
+
+[ext_resource type="Texture2D" uid="uid://ccsfu0hghjlhp" path="res://Textures/PlantStatsBubble/bubble_left.png" id="1_3fixe"]
+[ext_resource type="Theme" path="res://Themes/statusBubbleFont.tres" id="2_h375j"]
+[ext_resource type="Texture2D" uid="uid://xem0swsly60r" path="res://Textures/Icons/Icons/Coin.png" id="3_puvi1"]
+[ext_resource type="Theme" uid="uid://ds3phtivtqrph" path="res://Themes/ShopButton.tres" id="4_fexn2"]
+
+[node name="ShopWrapper" type="Node2D"]
+metadata/_edit_lock_ = true
+
+[node name="statusBubble" type="Sprite2D" parent="."]
+position = Vector2(23.25, -18.875)
+scale = Vector2(1.525, 1.525)
+texture = ExtResource("1_3fixe")
+
+[node name="NameLabel" type="Label" parent="statusBubble"]
+offset_left = -15.9836
+offset_top = -5.98361
+offset_right = 154.016
+offset_bottom = 36.0164
+scale = Vector2(0.09, 0.09)
+theme = ExtResource("2_h375j")
+text = "Name"
+
+[node name="DifficultyLabel" type="Label" parent="statusBubble"]
+offset_top = -5.984
+offset_right = 170.0
+offset_bottom = 36.016
+scale = Vector2(0.09, 0.09)
+theme = ExtResource("2_h375j")
+text = "Schwer
+"
+horizontal_alignment = 2
+
+[node name="PreisLabel" type="Label" parent="statusBubble"]
+offset_left = -15.8197
+offset_top = -1.09707
+offset_right = 198.18
+offset_bottom = 40.9029
+scale = Vector2(0.09, 0.09)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Preis:"
+
+[node name="Price" type="Label" parent="statusBubble"]
+offset_left = 3.0
+offset_top = -1.0
+offset_right = 98.0
+offset_bottom = 41.0
+scale = Vector2(0.09, 0.09)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "10"
+horizontal_alignment = 2
+
+[node name="CoinIcon" type="Sprite2D" parent="statusBubble"]
+position = Vector2(12.951, 1)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_puvi1")
+
+[node name="PlantButton" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+theme = ExtResource("4_fexn2")

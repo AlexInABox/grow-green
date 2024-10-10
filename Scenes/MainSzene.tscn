@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bqv77dvuy6ly0"]
+[gd_scene load_steps=39 format=3 uid="uid://bqv77dvuy6ly0"]
 
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_06be7"]
 [ext_resource type="Texture2D" uid="uid://da3gby3k4mva" path="res://Textures/Backgrounds/HOUSE.png" id="1_bo6pn"]
@@ -22,6 +22,9 @@
 [ext_resource type="Texture2D" uid="uid://jst8cgim30st" path="res://Textures/Aliens/Paintings/5_left.jpg" id="18_c0g2r"]
 [ext_resource type="Texture2D" uid="uid://btjoo2qxpotom" path="res://Textures/Aliens/Paintings/5_middle.jpg" id="19_8pyby"]
 [ext_resource type="Texture2D" uid="uid://lhsbbpvrph4e" path="res://Textures/Aliens/Paintings/5_right.jpg" id="20_hae6m"]
+[ext_resource type="Texture2D" uid="uid://drijk174aakbu" path="res://Textures/Icons/Icons/DoorIcon.png" id="24_amdw1"]
+[ext_resource type="Script" path="res://Scripts/GreenhouseButton.cs" id="24_hti8h"]
+[ext_resource type="Texture2D" uid="uid://cp7lp5by0blgn" path="res://Textures/Icons/Icons/LockIcon.png" id="25_d2n01"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ftaqd"]
 
@@ -49,6 +52,29 @@ modulate_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bbshy"]
 texture = ExtResource("5_j8hir")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0pi3q"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m3mg2"]
+texture = ExtResource("24_amdw1")
+modulate_color = Color(0.31802, 0.31802, 0.31802, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wabck"]
+texture = ExtResource("24_amdw1")
+texture_margin_left = 1.0
+texture_margin_bottom = 2.0
+modulate_color = Color(0.470588, 0.470588, 0.470588, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x1uac"]
+texture = ExtResource("24_amdw1")
+texture_margin_left = 1.0
+texture_margin_bottom = 2.0
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mqror"]
+texture = ExtResource("24_amdw1")
+texture_margin_left = 1.0
+texture_margin_bottom = 2.0
+
 [node name="MainSzene" type="Node2D"]
 
 [node name="SceneManager" type="Node" parent="."]
@@ -63,13 +89,13 @@ script = ExtResource("1_rm010")
 scale = Vector2(8, 8)
 texture = ExtResource("1_bo6pn")
 centered = false
+metadata/_edit_lock_ = true
 
 [node name="MinigameButton" type="Button" parent="."]
-offset_left = 1120.0
-offset_top = 420.0
-offset_right = 1142.0
-offset_bottom = 436.0
-scale = Vector2(7, 7)
+offset_left = 1115.0
+offset_top = 428.0
+offset_right = 1291.0
+offset_bottom = 556.0
 theme_override_styles/focus = SubResource("StyleBoxTexture_ftaqd")
 theme_override_styles/hover = SubResource("StyleBoxTexture_dauv7")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_5bmyf")
@@ -77,21 +103,33 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_fbew7")
 
 [node name="Label" type="Label" parent="MinigameButton"]
 layout_mode = 0
-offset_left = -1.14286
-offset_top = 12.2857
-offset_right = 38.8571
-offset_bottom = 49.2857
-scale = Vector2(0.7, 0.7)
-theme_override_colors/font_color = Color(0.2, 0.721569, 0.392157, 1)
-text = "Mini-
-games"
+offset_left = -3.0
+offset_top = -45.0
+offset_right = 173.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0.352941, 0.705882, 0.635294, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "MINI"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MinigameButton"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 134.0
+offset_right = 177.0
+offset_bottom = 227.0
+theme_override_colors/font_color = Color(0.352941, 0.705882, 0.635294, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "GAMES"
+horizontal_alignment = 1
 
 [node name="ShopButton" type="Button" parent="."]
 offset_left = 640.0
-offset_top = 420.0
-offset_right = 673.0
-offset_bottom = 450.0
-scale = Vector2(5, 5)
+offset_top = 394.0
+offset_right = 805.0
+offset_bottom = 544.0
 theme_override_styles/focus = SubResource("StyleBoxTexture_akrn5")
 theme_override_styles/hover = SubResource("StyleBoxTexture_ibsny")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_44gc2")
@@ -100,11 +138,13 @@ script = ExtResource("5_fepxd")
 
 [node name="ShopLabel" type="Label" parent="ShopButton"]
 layout_mode = 0
-offset_top = 28.0
-offset_right = 33.0
-offset_bottom = 48.0
-theme_override_colors/font_color = Color(0.2, 0.721569, 0.392157, 1)
-text = "Shop"
+offset_top = 150.0
+offset_right = 165.0
+offset_bottom = 199.0
+theme_override_colors/font_color = Color(0.352941, 0.705882, 0.635294, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "SHOP"
 horizontal_alignment = 1
 
 [node name="Pictures" type="Control" parent="."]
@@ -269,3 +309,15 @@ offset_left = 873.0
 offset_top = 392.0
 offset_right = 1049.0
 offset_bottom = 659.0
+theme_override_styles/focus = SubResource("StyleBoxTexture_0pi3q")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_m3mg2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_wabck")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_x1uac")
+theme_override_styles/normal = SubResource("StyleBoxTexture_mqror")
+script = ExtResource("24_hti8h")
+
+[node name="Sprite2D" type="Sprite2D" parent="GreenhouseButton"]
+visible = false
+position = Vector2(85, 127)
+scale = Vector2(4, 4)
+texture = ExtResource("25_d2n01")
