@@ -6,8 +6,10 @@ public partial class PlantWrapper : Node2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		SceneManager sceneManager = GetNode<SceneManager>("../../SceneManager");
-		Plant plant = GetNode<Plant>("./Plant");
+		GD.Print(GetTreeStringPretty());
+
+        SceneManager sceneManager = GetNode<SceneManager>("../../../SceneManager");
+		Plant plant = GetNode<Plant>("Plant");
 		string potName = plant.pot;
 		Sprite2D potObject = sceneManager.GetPotByName(potName);
 		AddChild(potObject);

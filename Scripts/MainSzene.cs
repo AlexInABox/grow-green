@@ -16,6 +16,7 @@ using System.Collections.Generic;
 	}
 
 	private void PlaceAllPlants(List<Plant> plantList) {
+		/*
 		int counter = 0;
 		for (int x = 1; x <= 2; x++) {
 			for (int y = 1; y <= 13; y++) {
@@ -32,6 +33,20 @@ using System.Collections.Generic;
 				plantWrapper.AddChild(plantList[counter]);
 				counter++;
 			}
+		}
+		*/
+
+		foreach(Plant plant in plantList){
+			int spawnPointNumber = plant.spawnPoint;
+
+			Node spawnPointWrapper = GetNode("../SpawnPointWrapper");
+			Node2D spawnPoint = spawnPointWrapper.GetNode<Node2D>($"SpawnPoint{spawnPointNumber}");
+			var plantPrefabInstance = plantPrefab.Instantiate();
+
+			spawnPoint.AddChild(plantPrefabInstance);
+
+			var plantWrapper = spawnPoint.GetNode<Node2D>("plant_wrapper");
+			plantWrapper.AddChild(plant);
 		}
 	}
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

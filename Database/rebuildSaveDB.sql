@@ -15,7 +15,8 @@ CREATE TABLE "listOfOwnedPlants" (
 	"waterLevelTimestamp" INTEGER,
 	"withered" BOOLEAN,
 	"rotten" BOOLEAN,
-	"potName" TEXT
+	"potName" TEXT,
+	"spawnPoint" INTEGER
 );
 
 DROP TABLE IF EXISTS "listOfOwnedPots";
