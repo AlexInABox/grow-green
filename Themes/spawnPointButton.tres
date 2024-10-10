@@ -1,0 +1,37 @@
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://cfugb2jgj3yj0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oqw58"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ha48s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xxb8n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oif51"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hm4ux"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dwx86"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6secf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sevun"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1gt27"]
+
+[resource]
+Button/colors/font_color = Color(0.87451, 0.87451, 0.87451, 0)
+Button/colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 0)
+Button/colors/font_focus_color = Color(0.94902, 0.94902, 0.94902, 0)
+Button/colors/font_hover_color = Color(0.94902, 0.94902, 0.94902, 0)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 0)
+Button/colors/font_outline_color = Color(0, 0, 0, 0)
+Button/colors/font_pressed_color = Color(1, 1, 1, 0)
+Button/styles/disabled = SubResource("StyleBoxEmpty_oqw58")
+Button/styles/disabled_mirrored = SubResource("StyleBoxEmpty_ha48s")
+Button/styles/focus = SubResource("StyleBoxEmpty_xxb8n")
+Button/styles/hover_mirrored = SubResource("StyleBoxEmpty_oif51")
+Button/styles/hover_pressed = SubResource("StyleBoxEmpty_hm4ux")
+Button/styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_dwx86")
+Button/styles/normal = SubResource("StyleBoxEmpty_6secf")
+Button/styles/normal_mirrored = SubResource("StyleBoxEmpty_sevun")
+Button/styles/pressed = SubResource("StyleBoxEmpty_1gt27")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://bqv77dvuy6ly0"]
+[gd_scene load_steps=26 format=3 uid="uid://bqv77dvuy6ly0"]
 
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_06be7"]
 [ext_resource type="Texture2D" uid="uid://da3gby3k4mva" path="res://Textures/Backgrounds/HOUSE.png" id="1_bo6pn"]
 [ext_resource type="Script" path="res://Scripts/MainSzene.cs" id="1_rm010"]
+[ext_resource type="Theme" uid="uid://cfugb2jgj3yj0" path="res://Themes/spawnPointButton.tres" id="3_fd3ii"]
 [ext_resource type="Shader" path="res://Shaders/shiny.gdshader" id="4_nrcbp"]
 [ext_resource type="Script" path="res://Scripts/ShopButton.cs" id="5_fepxd"]
 [ext_resource type="Script" path="res://Scripts/LoadPictures.cs" id="5_ggw0u"]
@@ -43,7 +44,344 @@ script = ExtResource("1_06be7")
 [node name="MainSceneScript" type="Node" parent="."]
 script = ExtResource("1_rm010")
 
-[node name="AllPlantsGoHere" type="Node" parent="."]
+[node name="SpawnPointWrapper" type="Node" parent="."]
+
+[node name="SpawnPoint1" type="Node2D" parent="SpawnPointWrapper"]
+position = Vector2(192, 840)
+
+[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint1"]
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("3_fd3ii")
+
+[node name="SpawnPoint2" type="Node2D" parent="SpawnPointWrapper"]
+position = Vector2(320, 840)
+scale = Vector2(8, 8)
+
+[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint2"]
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("3_fd3ii")
+
+[node name="SpawnPoint3" type="Node2D" parent="SpawnPointWrapper"]
+position = Vector2(448, 840)
+scale = Vector2(8, 8)
+
+[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint3"]
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("3_fd3ii")
+
+[node name="SpawnPoint4" type="Node2D" parent="SpawnPointWrapper"]
+position = Vector2(576, 840)
+scale = Vector2(8, 8)
+
+[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint4"]
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("3_fd3ii")
+
+[node name="SpawnPoint5" type="Node2D" parent="SpawnPointWrapper"]
+position = Vector2(704, 840)
+scale = Vector2(8, 8)
+
+[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint5"]
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("3_fd3ii")
+
+[node name="SpawnPoint6" type="Node2D" parent="SpawnPointWrapper"]
+position = Vector2(832, 840)
+scale = Vector2(8, 8)
+
+[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint6"]
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("3_fd3ii")
+
+[node name="SpawnPoint7" type="Node2D" parent="SpawnPointWrapper"]
+position = Vector2(960, 840)
+scale = Vector2(8, 8)
+
+[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint7"]
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("3_fd3ii")
+
+[node name="SpawnPoint8" type="Node2D" parent="SpawnPointWrapper"]
+position = Vector2(1088, 840)
+scale = Vector2(8, 8)
+
+[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint8"]
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("3_fd3ii")
+
+[node name="SpawnPoint9" type="Node2D" parent="SpawnPointWrapper"]
+position = Vector2(1216, 840)
+scale = Vector2(8, 8)
+
+[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint9"]
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("3_fd3ii")
+
+[node name="SpawnPoint10" type="Node2D" parent="SpawnPointWrapper"]
+position = Vector2(1344, 840)
+scale = Vector2(8, 8)
+
+[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint10"]
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("3_fd3ii")
+
+[node name="SpawnPoint11" type="Node2D" parent="SpawnPointWrapper"]
+position = Vector2(1472, 840)
+scale = Vector2(8, 8)
+
+[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint11"]
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("3_fd3ii")
+
+[node name="SpawnPoint12" type="Node2D" parent="SpawnPointWrapper"]
+position = Vector2(1600, 840)
+scale = Vector2(8, 8)
+
+[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint12"]
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("3_fd3ii")
+
+[node name="SpawnPoint13" type="Node2D" parent="SpawnPointWrapper"]
+position = Vector2(1728, 840)
+scale = Vector2(8, 8)
+
+[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint13"]
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("3_fd3ii")
+
+[node name="SpawnPoint14" type="Node2D" parent="SpawnPointWrapper"]
+position = Vector2(192, 968)
+scale = Vector2(8, 8)
+
+[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint14"]
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("3_fd3ii")
+
+[node name="SpawnPoint15" type="Node2D" parent="SpawnPointWrapper"]
+position = Vector2(320, 968)
+scale = Vector2(8, 8)
+
+[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint15"]
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("3_fd3ii")
+
+[node name="SpawnPoint16" type="Node2D" parent="SpawnPointWrapper"]
+position = Vector2(448, 968)
+scale = Vector2(8, 8)
+
+[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint16"]
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("3_fd3ii")
+
+[node name="SpawnPoint17" type="Node2D" parent="SpawnPointWrapper"]
+position = Vector2(576, 968)
+scale = Vector2(8, 8)
+
+[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint17"]
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("3_fd3ii")
+
+[node name="SpawnPoint18" type="Node2D" parent="SpawnPointWrapper"]
+position = Vector2(704, 968)
+scale = Vector2(8, 8)
+
+[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint18"]
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("3_fd3ii")
+
+[node name="SpawnPoint19" type="Node2D" parent="SpawnPointWrapper"]
+position = Vector2(832, 968)
+scale = Vector2(8, 8)
+
+[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint19"]
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("3_fd3ii")
+
+[node name="SpawnPoint20" type="Node2D" parent="SpawnPointWrapper"]
+position = Vector2(960, 968)
+scale = Vector2(8, 8)
+
+[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint20"]
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("3_fd3ii")
+
+[node name="SpawnPoint21" type="Node2D" parent="SpawnPointWrapper"]
+position = Vector2(1088, 968)
+scale = Vector2(8, 8)
+
+[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint21"]
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("3_fd3ii")
+
+[node name="SpawnPoint22" type="Node2D" parent="SpawnPointWrapper"]
+position = Vector2(1216, 968)
+scale = Vector2(8, 8)
+
+[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint22"]
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("3_fd3ii")
+
+[node name="SpawnPoint23" type="Node2D" parent="SpawnPointWrapper"]
+position = Vector2(1344, 968)
+scale = Vector2(8, 8)
+
+[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint23"]
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("3_fd3ii")
+
+[node name="SpawnPoint24" type="Node2D" parent="SpawnPointWrapper"]
+position = Vector2(1472, 968)
+scale = Vector2(8, 8)
+
+[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint24"]
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("3_fd3ii")
+
+[node name="SpawnPoint25" type="Node2D" parent="SpawnPointWrapper"]
+position = Vector2(1600, 968)
+scale = Vector2(8, 8)
+
+[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint25"]
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("3_fd3ii")
+
+[node name="SpawnPoint26" type="Node2D" parent="SpawnPointWrapper"]
+position = Vector2(1728, 968)
+scale = Vector2(8, 8)
+
+[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint26"]
+offset_left = -4.0
+offset_top = -3.0
+offset_right = 4.0
+offset_bottom = 5.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(4, 4)
+theme = ExtResource("3_fd3ii")
 
 [node name="Background" type="Sprite2D" parent="."]
 scale = Vector2(8, 8)

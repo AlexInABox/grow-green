@@ -78,7 +78,7 @@ public partial class DatabaseWrapper
             {
                 connection.Open();
 
-                var sqlQuery = "INSERT INTO listOfOwnedPlants (className, growProgress, growProgressTimestamp, waterLevel, waterLevelTimestamp, withered, rotten, potName) VALUES ('Agave', 0.55, 0, 0.55, 0, FALSE, FALSE, 'default');";
+                var sqlQuery = "INSERT INTO listOfOwnedPlants (className, growProgress, growProgressTimestamp, waterLevel, waterLevelTimestamp, withered, rotten, potName, spawnPoint) VALUES ('Agave', 0.55, 0, 0.55, 0, FALSE, FALSE, 'default', 1);";
 
                 using (var command = new SqliteCommand(sqlQuery, connection))
                 {
@@ -164,12 +164,13 @@ public partial class DatabaseWrapper
 
                     string className = (string)reader["className"];
                     string name = (string)reader["name"];
+                    string difficulty = (string)reader["difficulty"];
                     int waterEveryXDays = Convert.ToInt32(reader["waterEveryXDays"]);
                     int cost = Convert.ToInt32(reader["cost"]);
                     int sellValue = Convert.ToInt32(reader["sellValue"]);
                     int yield = Convert.ToInt32(reader["yield"]);
 
-                    Plant plantOnThisRow = new Plant(className, name, waterEveryXDays, cost, sellValue, yield);
+                    Plant plantOnThisRow = new Plant(className, name, difficulty, waterEveryXDays, cost, sellValue, yield);
                     fillMeUp.Add(plantOnThisRow);
                 }
             }
@@ -234,8 +235,9 @@ public partial class DatabaseWrapper
                     bool withered = Convert.ToInt32(reader["withered"]) != 0;
                     bool rotten = Convert.ToInt32(reader["rotten"]) != 0;
                     string potName = (string)reader["potName"];
+                    int spawnPoint = Convert.ToInt32(reader["spawnPoint"]);
 
-                    Plant plantOnThisRow = ConstructPlantFromSave(className, growProgress, growProgressTimestamp, waterLevel, waterLevelTimestamp, withered, rotten, potName);
+                    Plant plantOnThisRow = ConstructPlantFromSave(className, growProgress, growProgressTimestamp, waterLevel, waterLevelTimestamp, withered, rotten, potName, spawnPoint);
                     fillMeUp.Add(plantOnThisRow);
                 }
             }
@@ -244,7 +246,7 @@ public partial class DatabaseWrapper
         return fillMeUp;
     }
 
-    private Plant ConstructPlantFromSave(string className, double growProgress, long growProgressTimestamp, double waterLevel, long waterLevelTimestamp, bool withered, bool rotten, string pot){
+    private Plant ConstructPlantFromSave(string className, double growProgress, long growProgressTimestamp, double waterLevel, long waterLevelTimestamp, bool withered, bool rotten, string pot, int spawnPoint){
         //Create a local database and load the .sql file into it
 		string connectionString = "Data Source=" + pathToPlantsDB;
         Plant requestedPlant;
@@ -260,12 +262,13 @@ public partial class DatabaseWrapper
                 reader.Read();
 
                 string name = (string)reader["name"];
+                string difficulty = (string)reader["difficulty"];
                 int waterEveryXDays = Convert.ToInt32(reader["waterEveryXDays"]);
                 int cost = Convert.ToInt32(reader["cost"]);
                 int sellValue = Convert.ToInt32(reader["sellValue"]);
                 int yield = Convert.ToInt32(reader["yield"]);
 
-                requestedPlant = new Plant(className, name, waterEveryXDays, cost, sellValue, yield, growProgress, growProgressTimestamp, waterLevel, waterLevelTimestamp, withered, rotten, pot);
+                requestedPlant = new Plant(className, name, difficulty, waterEveryXDays, cost, sellValue, yield, growProgress, growProgressTimestamp, waterLevel, waterLevelTimestamp, withered, rotten, pot, spawnPoint);
             }
             connection.Close();
         }
@@ -341,8 +344,9 @@ public partial class DatabaseWrapper
             bool withered = plant.withered;
             bool rotten = plant.rotten;
             string potName = plant.pot;
+            int spawnPoint = plant.spawnPoint;
 
-            string sqlQuery = $"INSERT INTO listOfOwnedPlants (className, growProgress, growProgressTimestamp, waterLevel, waterLevelTimestamp, withered, rotten, potName) VALUES ('{className}', {growProgress}, {growProgressTimestamp}, {waterLevel}, {waterLevelTimestamp}, {withered}, {rotten}, '{potName}')";
+            string sqlQuery = $"INSERT INTO listOfOwnedPlants (className, growProgress, growProgressTimestamp, waterLevel, waterLevelTimestamp, withered, rotten, potName, spawnPoint) VALUES ('{className}', {growProgress}, {growProgressTimestamp}, {waterLevel}, {waterLevelTimestamp}, {withered}, {rotten}, '{potName}', {spawnPoint})";
             using (var command = new SqliteCommand(sqlQuery, connection))
             {
                 command.ExecuteReader();

@@ -12,6 +12,7 @@ public partial class Plant : Sprite2D
     public int cost; // Cost to purchase
     public int sellValue; // Value when fully grown
     public int yield; // Money Production per Day when fully grown
+    public string difficulty;
     //end-of constants
 
     public double growProgress; // Current Progress (0-100) TEST
@@ -21,7 +22,7 @@ public partial class Plant : Sprite2D
     public bool withered = false; // True if the plant is dead
     public bool rotten = false; // True if the plant is dead
     public string pot;
-    
+    public int spawnPoint;    
     private string[] growthTextures;
 
 
@@ -33,19 +34,22 @@ public partial class Plant : Sprite2D
     public Plant() {
         this.className = "Agave";
         this.plantName = "TestName";
+        this.difficulty = "easy";
         this.decayRatePerDay = 100 / 0.001;
         this.cost = 5;
         this.sellValue = 3;
         this.yield = 1;
         this.growRatePerDay = 10;
         this.pot = "minecraft_chicken";
+        this.spawnPoint = 1;
 
         this.growProgress = 0.8;
         this.waterLevel = 50;
     }
-    public Plant(string className, string name, int waterEveryXDays, int cost, int sellValue, int yield) {
+    public Plant(string className, string name, string difficulty, int waterEveryXDays, int cost, int sellValue, int yield) {
         this.className = className;
         this.plantName = name;
+        this.difficulty = difficulty;
         this.decayRatePerDay = 100 / waterEveryXDays;
         this.cost = cost;
         this.sellValue = sellValue;
@@ -54,10 +58,12 @@ public partial class Plant : Sprite2D
         growProgress = 1;
         waterLevel = 50;
         pot = "default";
+        this.spawnPoint = 1;
     }
-    public Plant(string className, string name, int waterEveryXDays, int cost, int sellValue, int yield, double growProgress, long growProgressTimestamp, double waterLevel, long waterLevelTimestamp, bool withered, bool rotten, string pot) {
+    public Plant(string className, string name, string difficulty, int waterEveryXDays, int cost, int sellValue, int yield, double growProgress, long growProgressTimestamp, double waterLevel, long waterLevelTimestamp, bool withered, bool rotten, string pot, int spawnPoint) {
         this.className = className;
         this.plantName = name;
+        this.difficulty = difficulty;
         this.decayRatePerDay = 100 / waterEveryXDays;
         this.cost = cost;
         this.sellValue = sellValue;
@@ -71,6 +77,7 @@ public partial class Plant : Sprite2D
         this.rotten = rotten;
 
         this.pot = pot;
+        this.spawnPoint = spawnPoint;
     }
 
     public override void _Ready()
@@ -165,5 +172,6 @@ public partial class Plant : Sprite2D
     public override void _Process(double delta)
     {
         RefreshMetadata();
+        //should we use a thread here? meh its fine ig.
     }
 }

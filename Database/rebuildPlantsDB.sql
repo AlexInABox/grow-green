@@ -4,14 +4,14 @@ CREATE TABLE "plants" (
 	"name"	TEXT,
 	"waterEveryXDays"	INTEGER,
 	"place"	TEXT,
-	"level"	TEXT,
+	"difficulty"	TEXT,
 	"cost" INTEGER,
 	"sellValue" INTEGER,
 	"yield" INTEGER,
 	PRIMARY KEY("className")
 );
 
-INSERT INTO plants (className, name, waterEveryXDays, place, level, cost, sellValue, yield)
+INSERT INTO plants (className, name, waterEveryXDays, place, difficulty, cost, sellValue, yield)
 VALUES ('Agave', 'Jahrhundertpflanze', 10, 'sunny', 'easy', 5, 3, 1),
 	('Aglaonema', 'Kolbenpfaden', 7, 'cloudy', 'easy', 5, 3, 1),
 	('Alocasia', 'Elefantenohr', 3, 'sunny', 'hard', 8, 6, 3),
