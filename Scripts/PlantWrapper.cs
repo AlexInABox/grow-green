@@ -11,8 +11,8 @@ public partial class PlantWrapper : Node2D
         SceneManager sceneManager = GetNode<SceneManager>("../../../SceneManager");
 		Plant plant = GetNode<Plant>("Plant");
 		string potName = plant.pot;
-        Sprite2D potObject = sceneManager.GetPotByName(potName);
-        AddChild(potObject);
+		Sprite2D potObject = sceneManager.GetPotByName(potName);
+		AddChild(potObject);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -43,6 +43,10 @@ public partial class SceneManager : Node
 		return db.GetPotByName(potName);
 	}
 
+	public List<Plant> GetListOfAllPlants() {
+		return db.GetListOfAllPlants();
+	}
+
 	public override void _Process(double delta)
 	{
 		if (Engine.GetFramesDrawn() % 60 == 0) {

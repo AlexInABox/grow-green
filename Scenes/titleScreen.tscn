@@ -47,6 +47,7 @@ offset_left = -6.10352e-05
 offset_top = -1.52588e-05
 offset_right = 1922.0
 offset_bottom = 1081.0
+metadata/_edit_lock_ = true
 
 [node name="Load Game" type="Button" parent="."]
 offset_left = 100.0
@@ -100,6 +101,7 @@ offset_bottom = 399.19
 scale = Vector2(0.02, 0.02)
 theme = ExtResource("1_0cr8b")
 theme_override_colors/font_color = Color(0.288725, 0.183645, 0.0444823, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 400
 text = "GrowGreen"
 horizontal_alignment = 1
