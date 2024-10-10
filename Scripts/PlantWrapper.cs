@@ -8,7 +8,7 @@ public partial class PlantWrapper : Node2D
 	{
 		GD.Print(GetTreeStringPretty());
 
-        SceneManager sceneManager = GetNode<SceneManager>("../../../SceneManager");
+		SceneManager sceneManager = GetNode<SceneManager>("../../../SceneManager");
 		Plant plant = GetNode<Plant>("Plant");
 		string potName = plant.pot;
 		Sprite2D potObject = sceneManager.GetPotByName(potName);

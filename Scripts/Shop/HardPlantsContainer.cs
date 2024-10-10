@@ -1,7 +1,7 @@
 using Godot;
 using System.Collections.Generic;
 
-	public partial class EasyPlantsContainercs : HBoxContainer
+	public partial class HardPlantsContainer : HBoxContainer
 {
 	// Called when the node enters the scene tree for the first time.
 	DatabaseWrapper db = new DatabaseWrapper();
@@ -18,7 +18,7 @@ using System.Collections.Generic;
 	private void PlaceAllPlants(List<Plant> plantList) {
 		int counter = 0;
 		foreach (Plant plant in plantList) {
-			if (plant.difficulty == "easy"){
+			if (plant.difficulty == "hard"){
 			var PlantName = plant.className.ToLower().Replace(" ", "");
 			string PlantTexture = $"res://Textures/Plants/{PlantName}3.png";
 			string SeedTexture = $"res://Textures/Plants/SeedIcon.png";
