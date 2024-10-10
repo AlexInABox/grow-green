@@ -1,24 +1,18 @@
-[gd_scene load_steps=16 format=3 uid="uid://ea1g0ffnyjnb"]
+[gd_scene load_steps=15 format=3 uid="uid://ea1g0ffnyjnb"]
 
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_01qya"]
 [ext_resource type="Texture2D" uid="uid://pklblu1n2kih" path="res://Textures/Backgrounds/ShopBackground.png" id="1_8vc7e"]
 [ext_resource type="Texture2D" uid="uid://dsc8agvtuqlwm" path="res://Textures/Icons/Icons/Exit.png" id="2_5ene3"]
-[ext_resource type="Texture2D" uid="uid://cudwtmo7xvxrk" path="res://Textures/Plants/SeedIcon.png" id="2_j6qeb"]
 [ext_resource type="Script" path="res://Scripts/Shop/LeaveButton.cs" id="3_sufmd"]
 [ext_resource type="Script" path="res://Scripts/Shop/EasyPlantsContainercs.cs" id="3_ykhpk"]
-[ext_resource type="Texture2D" uid="uid://bg57hfx11ytfp" path="res://Textures/Plants/alocasia3.png" id="6_wsojq"]
+[ext_resource type="Script" path="res://Scripts/Shop/MediumPlantsContainer.cs" id="4_v6w1e"]
+[ext_resource type="Script" path="res://Scripts/Shop/HardPlantsContainer.cs" id="5_pl2fe"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5xh12"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ypfra"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fios6"]
-texture = ExtResource("2_j6qeb")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jlq6n"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lc8gy"]
-texture = ExtResource("2_j6qeb")
-modulate_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vov25"]
-texture = ExtResource("6_wsojq")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q2255"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_imf6g"]
 
@@ -66,6 +60,7 @@ offset_left = 36.0
 offset_top = 156.0
 offset_right = 1884.0
 offset_bottom = 444.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ypfra")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="EasyPlants"]
 layout_mode = 0
@@ -86,53 +81,38 @@ offset_left = 36.0
 offset_top = 456.0
 offset_right = 1884.0
 offset_bottom = 744.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_jlq6n")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MediumPlants"]
 layout_mode = 0
 offset_left = 36.0
-offset_top = 24.0
+offset_top = -63.0
 offset_right = 1812.0
 offset_bottom = 264.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MediumPlants/ScrollContainer"]
 custom_minimum_size = Vector2(1920, 240)
 layout_mode = 2
+script = ExtResource("4_v6w1e")
 
 [node name="HardPlants" type="Panel" parent="."]
 offset_left = 36.0
 offset_top = 756.0
 offset_right = 1884.0
 offset_bottom = 1044.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_q2255")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="HardPlants"]
 layout_mode = 0
 offset_left = 36.0
-offset_top = 24.0
+offset_top = -63.0
 offset_right = 1812.0
 offset_bottom = 264.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HardPlants/ScrollContainer"]
 custom_minimum_size = Vector2(1920, 240)
 layout_mode = 2
-
-[node name="Plant" type="Button" parent="HardPlants/ScrollContainer/HBoxContainer"]
-custom_minimum_size = Vector2(240, 100)
-layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxTexture_5xh12")
-theme_override_styles/hover = SubResource("StyleBoxTexture_fios6")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_lc8gy")
-theme_override_styles/normal = SubResource("StyleBoxTexture_vov25")
-
-[node name="PlantLabel" type="Label" parent="HardPlants/ScrollContainer/HBoxContainer/Plant"]
-layout_mode = 0
-offset_top = 170.0
-offset_right = 240.0
-offset_bottom = 187.0
-theme_override_colors/font_color = Color(0.537255, 0.223529, 0.2, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 46
-text = "Alocasia"
-horizontal_alignment = 1
+script = ExtResource("5_pl2fe")
 
 [node name="SeedPackIcon" type="Sprite2D" parent="HardPlants"]
 
