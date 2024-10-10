@@ -232,3 +232,9 @@ texture = ExtResource("20_hae6m")
 texture_offset = Vector2(-20, -200)
 texture_scale = Vector2(1.8, 1.1)
 polygon = PackedVector2Array(20, 189, 105, 227, 105, 379, 17, 388)
+
+[node name="GreenhouseButton" type="Button" parent="."]
+offset_left = 873.0
+offset_top = 392.0
+offset_right = 1049.0
+offset_bottom = 659.0
