@@ -20,8 +20,14 @@ public partial class Plant : Sprite2D
     public long waterLevelTimestamp = 0; // epoch
     public bool withered = false; // True if the plant is dead
     public bool rotten = false; // True if the plant is dead
+    public string pot;
     
     private string[] growthTextures;
+
+
+    //status bubble stuff
+    ColorRect growProgressBar;
+    ColorRect waterLevelBar;
 
 
     public Plant() {
@@ -32,6 +38,7 @@ public partial class Plant : Sprite2D
         this.sellValue = 3;
         this.yield = 1;
         this.growRatePerDay = 10;
+        this.pot = "minecraft_chicken";
 
         this.growProgress = 0.8;
         this.waterLevel = 50;
@@ -46,9 +53,9 @@ public partial class Plant : Sprite2D
 
         growProgress = 1;
         waterLevel = 50;
+        pot = "default";
     }
-
-    public Plant(string className, string name, int waterEveryXDays, int cost, int sellValue, int yield, double growProgress, long growProgressTimestamp, double waterLevel, long waterLevelTimestamp, bool withered, bool rotten) {
+    public Plant(string className, string name, int waterEveryXDays, int cost, int sellValue, int yield, double growProgress, long growProgressTimestamp, double waterLevel, long waterLevelTimestamp, bool withered, bool rotten, string pot) {
         this.className = className;
         this.plantName = name;
         this.decayRatePerDay = 100 / waterEveryXDays;
@@ -62,11 +69,14 @@ public partial class Plant : Sprite2D
         this.waterLevelTimestamp = waterLevelTimestamp;
         this.withered = withered;
         this.rotten = rotten;
+
+        this.pot = pot;
     }
 
     public override void _Ready()
     {
         Name = "Plant";
+        ZIndex = 2;
 
         if (waterLevelTimestamp == 0) waterLevelTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds();
         if (growProgressTimestamp == 0) growProgressTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds();
@@ -79,14 +89,20 @@ public partial class Plant : Sprite2D
             $"res://Textures/Plants/{normalizedClassName}2.png",       // Stage 2: Sprout
             $"res://Textures/Plants/{normalizedClassName}3.png",  // Stage 3: Young Plant
         };
+
+        //GD.Print(GetParent().GetTreeStringPretty());
+
+        growProgressBar = GetNode<ColorRect>("../statusBubble/growProgressWrapper/ColorRect");
+        waterLevelBar = GetNode<ColorRect>("../statusBubble/waterLevelWrapper/ColorRect");
+
         RefreshMetadata();
-        
     }
 
     public void RefreshMetadata() {
         RecalculateWaterLevel();
         RecalculateGrowProgress();
         RefreshTexture();
+        RefreshStatusBubble();
     }
 
     public void WaterPlant() {
@@ -138,6 +154,11 @@ public partial class Plant : Sprite2D
         if (growProgress > 80) {
             Texture = (Texture2D)GD.Load(growthTextures[4]);
         }
+    }
+
+    private void RefreshStatusBubble(){
+        growProgressBar.SetSize(new Vector2((float)(66 * growProgress), 9.45f));
+        waterLevelBar.SetSize(new Vector2((float)(46 * (waterLevel/100)), 7.085f));
     }
 
 

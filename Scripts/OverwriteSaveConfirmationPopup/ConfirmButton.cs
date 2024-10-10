@@ -1,22 +1,21 @@
 using Godot;
 using System;
 
-public partial class ContinueGameButton : Button
+public partial class ConfirmButton : Button
 {	
-	TitleSceneManager titleScreenManager;
+
+	TitleSceneManager TitleSceneManager;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		titleScreenManager = GetNode<TitleSceneManager>("../TitleSceneManager");
+		TitleSceneManager = GetNode<TitleSceneManager>("../../../TitleSceneManager");
 		Pressed += ButtonPressedEvent;
 	}
 
 	private void ButtonPressedEvent()
 	{
-		titleScreenManager.SaveMyPlayerObjectAndCreateTheGame();
-		GD.Print("TEST");
-		var newScenePath = "res://Scenes/MainSzene.tscn";
-		GetTree().ChangeSceneToFile(newScenePath);
+		TitleSceneManager.CreateNewGame();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -26,13 +26,13 @@ public partial class AlienButton : Button
 		Shader shiny = GD.Load<Shader>("res://Shaders/shiny.gdshader");
 		if (shiny == null)
 		{
-			GD.Print("Looser");
+			GD.PushError("Looser");
 		}
 		ShaderMaterial shinyMaterial = new ShaderMaterial();
 		shinyMaterial.Shader = shiny;
 		if (myAlien == null)
 		{
-			GD.Print("Überlooser");
+			GD.PushError("Überlooser");
 		}
 		myAlien.Material = shinyMaterial;
 	}

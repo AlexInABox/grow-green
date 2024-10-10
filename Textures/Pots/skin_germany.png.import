@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqdct01bc8y7g"
-path="res://.godot/imported/animal_zebra.png-dd1acf2b6e3c80d3bf426f5bab9b08c8.ctex"
+uid="uid://doh15aewuakuc"
+path="res://.godot/imported/skin_germany.png-1589dc524aaa3d6a0165bd2598770751.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Pots/animal_zebra.png"
-dest_files=["res://.godot/imported/animal_zebra.png-dd1acf2b6e3c80d3bf426f5bab9b08c8.ctex"]
+source_file="res://Textures/Pots/skin_germany.png"
+dest_files=["res://.godot/imported/skin_germany.png-1589dc524aaa3d6a0165bd2598770751.ctex"]
 
 [params]
 
