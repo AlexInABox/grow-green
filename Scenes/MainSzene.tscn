@@ -1,7 +1,5 @@
 [gd_scene load_steps=26 format=3 uid="uid://bqv77dvuy6ly0"]
 
-[gd_scene load_steps=40 format=3 uid="uid://bqv77dvuy6ly0"]
-
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_06be7"]
 [ext_resource type="Texture2D" uid="uid://da3gby3k4mva" path="res://Textures/Backgrounds/HOUSE.png" id="1_bo6pn"]
 [ext_resource type="Script" path="res://Scripts/MainSzene.cs" id="1_rm010"]
