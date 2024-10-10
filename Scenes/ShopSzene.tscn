@@ -70,7 +70,7 @@ offset_bottom = 444.0
 [node name="ScrollContainer" type="ScrollContainer" parent="EasyPlants"]
 layout_mode = 0
 offset_left = 36.0
-offset_top = 24.0
+offset_top = -63.0
 offset_right = 1812.0
 offset_bottom = 264.0
 

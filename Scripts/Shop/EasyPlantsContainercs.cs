@@ -28,7 +28,7 @@ using System.Collections.Generic;
 			AddChild(shopPrefabInstance);
 			GD.Print(GetTreeStringPretty());
 			var easyShopWrapper = shopPrefabInstance.GetNode<Node2D>("../ShopWrapper");
-			easyShopWrapper.Set("position", new Vector2(240*counter, 30));
+			easyShopWrapper.Set("position", new Vector2(240*counter, 110));
 			easyShopWrapper.Set("name", "freaky" + counter);
 
 			Button shopButton = easyShopWrapper.GetNode<Button>("PlantButton");
