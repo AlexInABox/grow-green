@@ -1,21 +1,18 @@
 using Godot;
 using System;
 
-public partial class CreateGameButton : Button
-{	
-
-	TitleSceneManager TitleSceneManager;
-
+public partial class CreditsButton : Button
+{
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		TitleSceneManager = GetNode<TitleSceneManager>("../TitleSceneManager");
 		Pressed += ButtonPressedEvent;
 	}
-
+	
 	private void ButtonPressedEvent()
 	{
-		TitleSceneManager.SpawnUserConfirmationPopupRegardingSaveOverwriting();
+		var creditsScene = "res://Scenes/credits.tscn";
+		GetTree().ChangeSceneToFile(creditsScene);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

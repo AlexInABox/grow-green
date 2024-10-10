@@ -6,19 +6,18 @@ public partial class TitleSceneManager : Node
 	Player playerObject;
 
 	BaseButton loadGameButton;
-	BaseButton continueGameButton;
+	BaseButton createGameButton;
 	
 	public override void _Ready()
 	{	
-		loadGameButton = GetNode<BaseButton>("./Load Game");
-		continueGameButton = GetNode<BaseButton>("./New Game");
+		loadGameButton = GetNode<BaseButton>("../Load Game");
+		createGameButton = GetNode<BaseButton>("../New Game");
 
 		if (db.IsThisTheFirstRun()){
 			GD.Print("This is their first run omg!!");
 			loadGameButton.Disabled = true;
 			playerObject = new Player();
 		} else {
-			continueGameButton.Disabled = true;
 			playerObject = db.GetPlayerObject();
 		}
 
@@ -34,6 +33,35 @@ public partial class TitleSceneManager : Node
 
 	public void SaveMyPlayerObjectAndCreateTheGame(){ //Call this to actually save the character incase this is the first time the player starts the game.
 		db.UpdateSave(playerObject);
+	}
+
+	public void CreateNewGame(){
+		db.CreateNewSave();
+
+	    int characterId = playerObject.characterId;
+		playerObject = new Player(characterId);
+
+		SaveMyPlayerObjectAndCreateTheGame();
+
+		var newScenePath = "res://Scenes/MainSzene.tscn";
+		GetTree().ChangeSceneToFile(newScenePath);
+	}
+
+	public void SpawnUserConfirmationPopupRegardingSaveOverwriting(){
+		//ColorRect blurLayer = GetNode<ColorRect>("../BlurLayer");
+		//blurLayer.Hide();
+		
+		PackedScene confirmationPopup = GD.Load<PackedScene>("res://Prefabs/createGame_confirmation_popup.tscn");
+		var confirmationPopupInstance = confirmationPopup.Instantiate();
+		GetParent().AddChild(confirmationPopupInstance);
+	}
+
+	public void RemoveSaveOverwriteConfirmationPopup(){
+		Node2D confirmationPopup = GetNode<Node2D>("../CreateGameConfirmationPopup");
+		confirmationPopup.QueueFree(); //byeeee :waves:
+
+		//ColorRect blurLayer = GetNode<ColorRect>("../BlurLayer");
+		//blurLayer.Show();
 	}
 
 	public override void _Process(double delta)

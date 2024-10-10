@@ -57,6 +57,8 @@ script = ExtResource("1_06be7")
 [node name="MainSceneScript" type="Node" parent="."]
 script = ExtResource("1_rm010")
 
+[node name="AllPlantsGoHere" type="Node" parent="."]
+
 [node name="Background" type="Sprite2D" parent="."]
 scale = Vector2(8, 8)
 texture = ExtResource("1_bo6pn")

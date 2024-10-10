@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxbykdhvettx"]
+
+[ext_resource type="Texture2D" uid="uid://caplkr8i4j4mp" path="res://Textures/Buttons/UI_Flat_Frame03a.png" id="1_esfjh"]
+[ext_resource type="FontFile" uid="uid://16884th6cwds" path="res://Fonts/Jersey25-Regular.ttf" id="2_3iuey"]
+[ext_resource type="Theme" uid="uid://cxgao5s1phj5n" path="res://Themes/mainMenuButtons.tres" id="3_lr351"]
+[ext_resource type="Script" path="res://Scripts/OverwriteSaveConfirmationPopup/ConfirmButton.cs" id="5_jhhmk"]
+[ext_resource type="Script" path="res://Scripts/OverwriteSaveConfirmationPopup/CancelButton.cs" id="6_bjxuk"]
+
+[node name="CreateGameConfirmationPopup" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1912.0
+offset_bottom = 1078.0
+color = Color(0, 0, 0, 0.470588)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 510)
+scale = Vector2(7, 7)
+texture = ExtResource("1_esfjh")
+region_rect = Rect2(3, 3, 90, 58)
+
+[node name="Warning" type="Label" parent="Sprite2D"]
+offset_left = -43.0
+offset_top = -25.0
+offset_right = 673.0
+offset_bottom = 192.0
+scale = Vector2(0.12, 0.12)
+theme_override_fonts/font = ExtResource("2_3iuey")
+theme_override_font_sizes/font_size = 40
+text = "AAAAAA! Diese Aktion **überschreibt** deinen alten Speicherstand!
+
+Bist du dir gaaaanz sicher dass du das machen möchtest?"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Confirm" type="Button" parent="Sprite2D"]
+offset_left = -42.0
+offset_top = 11.0
+offset_right = 78.0
+offset_bottom = 61.0
+scale = Vector2(0.285, 0.285)
+theme = ExtResource("3_lr351")
+theme_override_colors/font_focus_color = Color(0.761386, 0.273843, 0.27925, 1)
+theme_override_colors/font_color = Color(0.823529, 0, 0, 1)
+theme_override_font_sizes/font_size = 41
+text = "Ja! :3"
+script = ExtResource("5_jhhmk")
+
+[node name="Cancel" type="Button" parent="Sprite2D"]
+offset_left = -5.91304
+offset_top = 10.9227
+offset_right = 166.087
+offset_bottom = 60.9227
+scale = Vector2(0.285, 0.285)
+theme = ExtResource("3_lr351")
+theme_override_font_sizes/font_size = 41
+text = "OMG NEIN!"
+script = ExtResource("6_bjxuk")
