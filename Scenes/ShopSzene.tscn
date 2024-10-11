@@ -28,6 +28,7 @@ modulate_color = Color(0, 0, 0, 1)
 texture = ExtResource("2_5ene3")
 
 [node name="ShopSzene" type="Node2D"]
+z_index = -10
 
 [node name="SceneManager" type="Node" parent="."]
 script = ExtResource("1_01qya")
@@ -40,7 +41,7 @@ centered = false
 metadata/_edit_lock_ = true
 
 [node name="ShopLabel" type="Label" parent="."]
-z_index = 4
+z_index = -5
 custom_minimum_size = Vector2(960, 50)
 anchors_preset = 5
 anchor_left = 0.5
