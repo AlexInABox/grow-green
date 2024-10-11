@@ -32,6 +32,10 @@ using System.Collections.Generic;
 			easyShopWrapper.Set("name", "freaky" + counter);
 
 			Button shopButton = easyShopWrapper.GetNode<Button>("PlantButton");
+			Sprite2D Bubble = easyShopWrapper.GetNode<Sprite2D>("statusBubble");
+			Label NameLabel = easyShopWrapper.GetNode<Label>("statusBubble/NameLabel");
+			Label DifficultyLabel = easyShopWrapper.GetNode<Label>("statusBubble/DifficultyLabel");
+			Label PreisLabel = easyShopWrapper.GetNode<Label>("statusBubble/Price");
 			
 			var styleBoxTextureNormal = new StyleBoxTexture();
 			styleBoxTextureNormal.Texture = (Texture2D)GD.Load(PlantTexture);
@@ -50,11 +54,21 @@ using System.Collections.Generic;
 			shopButton.Theme = theme;
 			shopButton.CustomMinimumSize = new Vector2(240, 240);
 
+			Bubble.Visible = false;
+			Bubble.Position = new Vector2(220, -50);
+			Bubble.Scale = new Vector2(7, 7);
+
+			NameLabel.Text = plant.className;
+			DifficultyLabel.Text = "schwer";
+			DifficultyLabel.AddThemeColorOverride("font_color", new Color(0.5372549019607843f, 0.2235294117647059f, 0.2f));
+			string costAsString = plant.cost.ToString();
+			PreisLabel.Text = costAsString;
+
 			counter++;
 			easyShopWrapper.AddChild(myNewSprite);
 			}
 		}
-		CustomMinimumSize = new Vector2(240*counter, 240);
+		CustomMinimumSize = new Vector2(110+(240*counter), 240);
 	}
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
