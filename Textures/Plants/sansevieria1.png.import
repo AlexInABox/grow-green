@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://bqtg1nf45anew"
+=======
+uid="uid://bxiofkgx5j3je"
+>>>>>>> 816e7af2baf699981decb78cc7d81e74b09660cf
 path="res://.godot/imported/sansevieria1.png-6f5068c743794eae8d1224281465970d.ctex"
 metadata={
 "vram_texture": false

@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://dy77delsevdr0"
+=======
+uid="uid://bkggrc6qymve5"
+>>>>>>> 816e7af2baf699981decb78cc7d81e74b09660cf
 path="res://.godot/imported/rhipsalis3.png-31a909c74fd23a550f2bf14f8dfa5f0b.ctex"
 metadata={
 "vram_texture": false

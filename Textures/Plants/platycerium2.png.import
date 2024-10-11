@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://c31nj4owtegyg"
+=======
+uid="uid://7hldin7eo81s"
+>>>>>>> 816e7af2baf699981decb78cc7d81e74b09660cf
 path="res://.godot/imported/platycerium2.png-9a41770e603fea971388015acb71a107.ctex"
 metadata={
 "vram_texture": false

@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://pxqdp3r6nkih"
+=======
+uid="uid://bfboujnw562bp"
+>>>>>>> 816e7af2baf699981decb78cc7d81e74b09660cf
 path="res://.godot/imported/yucca3.png-d5dd275f6e642a831577e04f8df309d5.ctex"
 metadata={
 "vram_texture": false

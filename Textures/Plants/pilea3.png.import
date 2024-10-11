@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://q1b2fl63dnwg"
+=======
+uid="uid://bkyf8xxf3g4rf"
+>>>>>>> 816e7af2baf699981decb78cc7d81e74b09660cf
 path="res://.godot/imported/pilea3.png-70710dcb993dd35cea8f143aadb4f07f.ctex"
 metadata={
 "vram_texture": false

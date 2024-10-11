@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://cdreyuqcsimaw"
+=======
+uid="uid://dharkxvbsoelo"
+>>>>>>> 816e7af2baf699981decb78cc7d81e74b09660cf
 path="res://.godot/imported/rhapis1.png-f432031884f81fb947022e3c0863fb56.ctex"
 metadata={
 "vram_texture": false
