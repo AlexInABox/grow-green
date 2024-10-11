@@ -3,89 +3,6 @@ using System;
 
 public partial class Plant : Sprite2D
 {
-<<<<<<< HEAD
-    //constants
-    public string className; // Class name
-    public string plantName; // Name
-    public double decayRatePerDay; // Decay per Time (from 100)
-    public double growRatePerDay = 10; // Rate of growth per day
-    public int wateringImpact = 10; // Amount of water added per click
-    public int cost; // Cost to purchase
-    public int sellValue; // Value when fully grown
-    public int yield; // Money Production per Day when fully grown
-    public string difficulty;
-    //end-of constants
-
-    public double growProgress; // Current Progress (0-100) TEST
-    public long growProgressTimestamp = 0; // epoch
-    public double waterLevel; // Current water level (0-100)
-    public long waterLevelTimestamp = 0; // epoch
-    public bool withered = false; // True if the plant is dead
-    public bool rotten = false; // True if the plant is dead
-    public string pot;
-    public int spawnPoint;    
-    private string[] growthTextures;
-
-
-    //status bubble stuff
-    ColorRect growProgressBar;
-    ColorRect waterLevelBar;
-
-
-    public Plant() {
-        this.className = "Agave";
-        this.plantName = "TestName";
-        this.difficulty = "easy";
-        this.decayRatePerDay = 100 / 0.001;
-        this.cost = 5;
-        this.sellValue = 3;
-        this.yield = 1;
-        this.growRatePerDay = 10;
-        this.pot = "minecraft_chicken";
-        this.spawnPoint = 1;
-
-        this.growProgress = 0.8;
-        this.waterLevel = 50;
-    }
-    public Plant(string className, string name, string difficulty, int waterEveryXDays, int cost, int sellValue, int yield) {
-        this.className = className;
-        this.plantName = name;
-        this.difficulty = difficulty;
-        this.decayRatePerDay = 100 / waterEveryXDays;
-        this.cost = cost;
-        this.sellValue = sellValue;
-        this.yield = yield;
-
-        growProgress = 1;
-        waterLevel = 50;
-        pot = "default";
-        this.spawnPoint = 1;
-    }
-    public Plant(string className, string name, string difficulty, int waterEveryXDays, int cost, int sellValue, int yield, double growProgress, long growProgressTimestamp, double waterLevel, long waterLevelTimestamp, bool withered, bool rotten, string pot, int spawnPoint) {
-        this.className = className;
-        this.plantName = name;
-        this.difficulty = difficulty;
-        this.decayRatePerDay = 100 / waterEveryXDays;
-        this.cost = cost;
-        this.sellValue = sellValue;
-        this.yield = yield;
-
-        this.growProgress = growProgress;
-        this.growProgressTimestamp = growProgressTimestamp;
-        this.waterLevel = waterLevel;
-        this.waterLevelTimestamp = waterLevelTimestamp;
-        this.withered = withered;
-        this.rotten = rotten;
-
-        this.pot = pot;
-        this.spawnPoint = spawnPoint;
-    }
-
-    public override void _Ready()
-    {
-        Name = "Plant";
-        ZIndex = 2;
-=======
 	//constants
 	public string className; // Class name
 	public string plantName; // Name
@@ -95,6 +12,7 @@ public partial class Plant : Sprite2D
 	public int cost; // Cost to purchase
 	public int sellValue; // Value when fully grown
 	public int yield; // Money Production per Day when fully grown
+	public string difficulty;
 	//end-of constants
 
 	public double growProgress; // Current Progress (0-100) TEST
@@ -103,25 +21,35 @@ public partial class Plant : Sprite2D
 	public long waterLevelTimestamp = 0; // epoch
 	public bool withered = false; // True if the plant is dead
 	public bool rotten = false; // True if the plant is dead
-	
+	public string pot;
+	public int spawnPoint;    
 	private string[] growthTextures;
+
+
+	//status bubble stuff
+	ColorRect growProgressBar;
+	ColorRect waterLevelBar;
 
 
 	public Plant() {
 		this.className = "Agave";
 		this.plantName = "TestName";
+		this.difficulty = "easy";
 		this.decayRatePerDay = 100 / 0.001;
 		this.cost = 5;
 		this.sellValue = 3;
 		this.yield = 1;
 		this.growRatePerDay = 10;
+		this.pot = "minecraft_chicken";
+		this.spawnPoint = 1;
 
-		this.growProgress = 1;
+		this.growProgress = 0.8;
 		this.waterLevel = 50;
 	}
-	public Plant(string className, string name, int waterEveryXDays, int cost, int sellValue, int yield) {
+	public Plant(string className, string name, string difficulty, int waterEveryXDays, int cost, int sellValue, int yield) {
 		this.className = className;
 		this.plantName = name;
+		this.difficulty = difficulty;
 		this.decayRatePerDay = 100 / waterEveryXDays;
 		this.cost = cost;
 		this.sellValue = sellValue;
@@ -129,11 +57,13 @@ public partial class Plant : Sprite2D
 
 		growProgress = 1;
 		waterLevel = 50;
+		pot = "default";
+		this.spawnPoint = 1;
 	}
-
-	public Plant(string className, string name, int waterEveryXDays, int cost, int sellValue, int yield, double growProgress, long growProgressTimestamp, double waterLevel, long waterLevelTimestamp, bool withered, bool rotten) {
+	public Plant(string className, string name, string difficulty, int waterEveryXDays, int cost, int sellValue, int yield, double growProgress, long growProgressTimestamp, double waterLevel, long waterLevelTimestamp, bool withered, bool rotten, string pot, int spawnPoint) {
 		this.className = className;
 		this.plantName = name;
+		this.difficulty = difficulty;
 		this.decayRatePerDay = 100 / waterEveryXDays;
 		this.cost = cost;
 		this.sellValue = sellValue;
@@ -145,41 +75,19 @@ public partial class Plant : Sprite2D
 		this.waterLevelTimestamp = waterLevelTimestamp;
 		this.withered = withered;
 		this.rotten = rotten;
+
+		this.pot = pot;
+		this.spawnPoint = spawnPoint;
 	}
 
 	public override void _Ready()
 	{
 		Name = "Plant";
->>>>>>> 816e7af2baf699981decb78cc7d81e74b09660cf
+		ZIndex = 2;
 
 		if (waterLevelTimestamp == 0) waterLevelTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds();
 		if (growProgressTimestamp == 0) growProgressTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds();
 
-<<<<<<< HEAD
-        string normalizedClassName = className.ToLower().Replace(" ", "");
-        growthTextures = new string[5]{
-            "res://Textures/Plants/withered.png", //Dried up
-            "res://Textures/Plants/rotten.png", //Had too much to dink
-            $"res://Textures/Plants/{normalizedClassName}1.png",         // Stage 1: Seed
-            $"res://Textures/Plants/{normalizedClassName}2.png",       // Stage 2: Sprout
-            $"res://Textures/Plants/{normalizedClassName}3.png",  // Stage 3: Young Plant
-        };
-
-        //GD.Print(GetParent().GetTreeStringPretty());
-
-        growProgressBar = GetNode<ColorRect>("../statusBubble/growProgressWrapper/ColorRect");
-        waterLevelBar = GetNode<ColorRect>("../statusBubble/waterLevelWrapper/ColorRect");
-
-        RefreshMetadata();
-    }
-
-    public void RefreshMetadata() {
-        RecalculateWaterLevel();
-        RecalculateGrowProgress();
-        RefreshTexture();
-        RefreshStatusBubble();
-    }
-=======
 		string normalizedClassName = className.ToLower().Replace(" ", "");
 		growthTextures = new string[5]{
 			"res://Textures/Plants/withered.png", //Dried up
@@ -188,16 +96,21 @@ public partial class Plant : Sprite2D
 			$"res://Textures/Plants/{normalizedClassName}2.png",       // Stage 2: Sprout
 			$"res://Textures/Plants/{normalizedClassName}3.png",  // Stage 3: Young Plant
 		};
+
+		//GD.Print(GetParent().GetTreeStringPretty());
+
+		growProgressBar = GetNode<ColorRect>("../statusBubble/growProgressWrapper/ColorRect");
+		waterLevelBar = GetNode<ColorRect>("../statusBubble/waterLevelWrapper/ColorRect");
+
 		RefreshMetadata();
-		
 	}
 
 	public void RefreshMetadata() {
 		RecalculateWaterLevel();
 		RecalculateGrowProgress();
 		RefreshTexture();
+		RefreshStatusBubble();
 	}
->>>>>>> 816e7af2baf699981decb78cc7d81e74b09660cf
 
 	public void WaterPlant() {
 		waterLevel += wateringImpact;
@@ -250,22 +163,15 @@ public partial class Plant : Sprite2D
 		}
 	}
 
-    private void RefreshStatusBubble(){
-        growProgressBar.SetSize(new Vector2((float)(66 * growProgress), 9.45f));
-        waterLevelBar.SetSize(new Vector2((float)(46 * (waterLevel/100)), 7.085f));
-    }
+	private void RefreshStatusBubble(){
+		growProgressBar.SetSize(new Vector2((float)(66 * growProgress), 9.45f));
+		waterLevelBar.SetSize(new Vector2((float)(46 * (waterLevel/100)), 7.085f));
+	}
 
 
-<<<<<<< HEAD
-    public override void _Process(double delta)
-    {
-        RefreshMetadata();
-        //should we use a thread here? meh its fine ig.
-    }
-=======
 	public override void _Process(double delta)
 	{
 		RefreshMetadata();
+		//should we use a thread here? meh its fine ig.
 	}
->>>>>>> 816e7af2baf699981decb78cc7d81e74b09660cf
 }
