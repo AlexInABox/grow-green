@@ -27,7 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://drijk174aakbu" path="res://Textures/Icons/Icons/DoorIcon.png" id="24_amdw1"]
 [ext_resource type="Script" path="res://Scripts/GreenhouseButton.cs" id="24_hti8h"]
 [ext_resource type="Texture2D" uid="uid://cp7lp5by0blgn" path="res://Textures/Icons/Icons/LockIcon.png" id="25_d2n01"]
-[ext_resource type="Texture2D" uid="uid://dsc8agvtuqlwm" path="res://Textures/Icons/Icons/Exit.png" id="27_enp1o"]
+[ext_resource type="Texture2D" uid="uid://bmpnx8afa8exa" path="res://Textures/Icons/exit.png" id="28_mtxqj"]
 [ext_resource type="Script" path="res://Scripts/MainScene/LeaveButton.cs" id="28_wy10c"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ftaqd"]
@@ -82,15 +82,15 @@ texture_margin_bottom = 2.0
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vryx4"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6gh1e"]
-texture = ExtResource("27_enp1o")
+texture = ExtResource("28_mtxqj")
 modulate_color = Color(0.470076, 0.470076, 0.470076, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qls5d"]
-texture = ExtResource("27_enp1o")
+texture = ExtResource("28_mtxqj")
 modulate_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o6bub"]
-texture = ExtResource("27_enp1o")
+texture = ExtResource("28_mtxqj")
 
 [node name="MainSzene" type="Node2D"]
 
