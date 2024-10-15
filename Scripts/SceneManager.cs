@@ -54,6 +54,10 @@ public partial class SceneManager : Node
 		return db.GetListOfAllPlants();
 	}
 
+	public void UpdateSaveBlocking(){
+		db.UpdateSave(playerObject);
+	}
+
 	public override void _Process(double delta)
 	{
 		if (Engine.GetFramesDrawn() % 300 == 0) {
