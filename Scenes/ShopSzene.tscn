@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ea1g0ffnyjnb"]
+[gd_scene load_steps=16 format=3 uid="uid://ea1g0ffnyjnb"]
 
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_01qya"]
 [ext_resource type="Texture2D" uid="uid://pklblu1n2kih" path="res://Textures/Backgrounds/ShopBackground.png" id="1_8vc7e"]
@@ -6,7 +6,8 @@
 [ext_resource type="Script" path="res://Scripts/Shop/EasyPlantsContainercs.cs" id="3_ykhpk"]
 [ext_resource type="Script" path="res://Scripts/Shop/MediumPlantsContainer.cs" id="4_v6w1e"]
 [ext_resource type="Script" path="res://Scripts/Shop/HardPlantsContainer.cs" id="5_pl2fe"]
-[ext_resource type="Texture2D" uid="uid://bmpnx8afa8exa" path="res://Textures/Icons/exit.png" id="6_sq60p"]
+
+[ext_resource type="PackedScene" uid="uid://cbk1n8uwugufx" path="res://Prefabs/coinDisplay_wrapper.tscn" id="8_fuq8i"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ypfra"]
 
@@ -127,3 +128,6 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_2bwrq")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ybfuq")
 theme_override_styles/normal = SubResource("StyleBoxTexture_s6qrh")
 script = ExtResource("3_sufmd")
+
+[node name="coinDisplay_wrapper" parent="." instance=ExtResource("8_fuq8i")]
+position = Vector2(1641, 72)

@@ -12,6 +12,8 @@ public partial class DatabaseWrapper
     private readonly string pathToPotsDB = ProjectSettings.GlobalizePath("user://pots.db"); 
     private readonly string pathToPotsDBInitializer = "res://Database/rebuildPotsDB.sql";
 
+    public bool savingLock = false;
+
 
 
     public DatabaseWrapper(){
@@ -83,6 +85,7 @@ public partial class DatabaseWrapper
                 using (var command = new SqliteCommand(sqlQuery, connection))
                 {
                     var reader = command.ExecuteReader();
+                    reader.Close();
                 }
             }
         } catch{
@@ -99,6 +102,7 @@ public partial class DatabaseWrapper
             using (var command = new SqliteCommand(sqlQuery, connection))
             {
                 var reader = command.ExecuteReader();
+                reader.Close();
             }
         }
         return true;
@@ -173,13 +177,55 @@ public partial class DatabaseWrapper
                     Plant plantOnThisRow = new Plant(className, name, difficulty, waterEveryXDays, cost, sellValue, yield);
                     fillMeUp.Add(plantOnThisRow);
                 }
+                reader.Close();
             }
             connection.Close();
         }
         return fillMeUp;
     }
 
+    public Plant GetPlantByClassName(string className){
+
+		//Create a local database and load the .sql file into it
+		string connectionString = "Data Source=" + pathToPlantsDB;
+        // Open the connection
+        using (var connection = new SqliteConnection(connectionString))
+        {
+            connection.Open();
+            //Praise the LORD
+            string sqlQuery = "SELECT * FROM plants WHERE plants.className == '" + className + "';";
+            using (var command = new SqliteCommand(sqlQuery, connection))
+            {
+                var reader = command.ExecuteReader();
+
+                while(reader.Read()) {
+
+                    string name = (string)reader["name"];
+                    string difficulty = (string)reader["difficulty"];
+                    int waterEveryXDays = Convert.ToInt32(reader["waterEveryXDays"]);
+                    int cost = Convert.ToInt32(reader["cost"]);
+                    int sellValue = Convert.ToInt32(reader["sellValue"]);
+                    int yield = Convert.ToInt32(reader["yield"]);
+
+                    Plant plantOnThisRow = new Plant(className, name, difficulty, waterEveryXDays, cost, sellValue, yield);
+                    connection.Close();
+                    return plantOnThisRow;
+                }
+                reader.Close();
+            }
+            
+        }
+        return new Plant(0);
+    }
+
     public Player GetPlayerObject(){
+        while (IsSaveDatabaseLocked())
+        {
+            GD.Print("Still locked");
+            // Wait for 1 second (1000 milliseconds)
+            System.Threading.Thread.Sleep(1000);
+        }
+        
         string connectionString = "Data Source=" + pathToSaveDB;
         using (var connection = new SqliteConnection(connectionString))
         {
@@ -196,7 +242,9 @@ public partial class DatabaseWrapper
                 int coins = Convert.ToInt32(reader["coins"]);
                 int characterId = Convert.ToInt32(reader["characterId"]);
 
+                reader.Close();
                 connection.Close();
+                
 
                 List<Plant> listOfOwnedPlants = GetListOfOwnedPlants();
                 List<Pot> listOfOwnedPots = GetListOfOwnedPots();
@@ -206,11 +254,18 @@ public partial class DatabaseWrapper
                 return player;
             }
             
-        }
-        
+        }        
     }
 
     private List<Plant> GetListOfOwnedPlants(){
+        while (IsSaveDatabaseLocked())
+        {
+            GD.Print("Still locked");
+            // Wait for 1 second (1000 milliseconds)
+            System.Threading.Thread.Sleep(1000);
+        }
+
+        
 
 		//Create a local database and load the .sql file into it
 		string connectionString = "Data Source=" + pathToSaveDB;
@@ -240,9 +295,11 @@ public partial class DatabaseWrapper
                     Plant plantOnThisRow = ConstructPlantFromSave(className, growProgress, growProgressTimestamp, waterLevel, waterLevelTimestamp, withered, rotten, potName, spawnPoint);
                     fillMeUp.Add(plantOnThisRow);
                 }
+                reader.Close();
             }
             connection.Close();
         }
+        
         return fillMeUp;
     }
 
@@ -268,7 +325,10 @@ public partial class DatabaseWrapper
                 int sellValue = Convert.ToInt32(reader["sellValue"]);
                 int yield = Convert.ToInt32(reader["yield"]);
 
+                reader.Close();
+
                 requestedPlant = new Plant(className, name, difficulty, waterEveryXDays, cost, sellValue, yield, growProgress, growProgressTimestamp, waterLevel, waterLevelTimestamp, withered, rotten, pot, spawnPoint);
+
             }
             connection.Close();
         }
@@ -276,7 +336,11 @@ public partial class DatabaseWrapper
     }
 
     public void UpdateSave(Player player) {
+        savingLock = true;
+
+        
         ClearTableInDB("playerStats", pathToSaveDB);
+        
         InsertPlayerStatsIntoTable(player);
 
         ClearTableInDB("listOfOwnedPlants", pathToSaveDB);
@@ -288,6 +352,9 @@ public partial class DatabaseWrapper
         foreach (Pot pot in player.listOfOwnedPots) {
             InsertPotIntoListOfOwnedPotsTable(pot);
         }
+
+        savingLock = false;
+        GD.Print("Done saving!");
     }
 
     private void ClearTableInDB(string table, string pathToDB) {
@@ -308,6 +375,14 @@ public partial class DatabaseWrapper
     }
 
     private void InsertPlayerStatsIntoTable(Player player){
+        while (IsSaveDatabaseLocked())
+        {
+            GD.Print("Still locked");
+            // Wait for 1 second (1000 milliseconds)
+            System.Threading.Thread.Sleep(1000);
+        }
+
+        
         //Create a local database and load the .sql file into it
 		string connectionString = "Data Source=" + pathToSaveDB;
         // Open the connection
@@ -325,10 +400,19 @@ public partial class DatabaseWrapper
                 command.ExecuteReader();
             }
             connection.Close();
+            
         }
     }
 
     private void InsertPlantIntoListOfOwnedPlantsTable(Plant plant){
+        while (IsSaveDatabaseLocked())
+        {
+            GD.Print("Still locked");
+            // Wait for 1 second (1000 milliseconds)
+            System.Threading.Thread.Sleep(1000);
+        }
+
+        
         //Create a local database and load the .sql file into it
 		string connectionString = "Data Source=" + pathToSaveDB;
         // Open the connection
@@ -352,10 +436,19 @@ public partial class DatabaseWrapper
                 command.ExecuteReader();
             }
             connection.Close();
+            
         }
     }
 
     private void InsertPotIntoListOfOwnedPotsTable(Pot pot){
+        while (IsSaveDatabaseLocked())
+        {
+            GD.Print("Still locked");
+            // Wait for 1 second (1000 milliseconds)
+            System.Threading.Thread.Sleep(1000);
+        }
+
+        
         //Create a local database and load the .sql file into it
 		string connectionString = "Data Source=" + pathToSaveDB;
         // Open the connection
@@ -371,6 +464,7 @@ public partial class DatabaseWrapper
                 command.ExecuteReader();
             }
             connection.Close();
+            
         }
     }
 
@@ -398,6 +492,7 @@ public partial class DatabaseWrapper
                     Pot potOnThisRow = new Pot(potName, cost);
                     fillMeUp.Add(potOnThisRow);
                 }
+                reader.Close();
             }
             connection.Close();
         }
@@ -414,6 +509,14 @@ public partial class DatabaseWrapper
     }
 
     public List<Pot> GetListOfOwnedPots(){
+        while (IsSaveDatabaseLocked())
+        {
+            GD.Print("Still locked");
+            // Wait for 1 second (1000 milliseconds)
+            System.Threading.Thread.Sleep(1000);
+        }
+
+        
         //Create a local database and load the .sql file into it
 		string connectionString = "Data Source=" + pathToSaveDB;
         List<Pot> fillMeUp = new List<Pot>();
@@ -434,13 +537,16 @@ public partial class DatabaseWrapper
                     Pot potOnThisRow = ConstructPotFromSave(potName);
                     fillMeUp.Add(potOnThisRow);
                 }
+                reader.Close();
             }
             connection.Close();
         }
+        
         return fillMeUp;
     }
 
     private Pot ConstructPotFromSave(string potName){
+        
         //Create a local database and load the .sql file into it
 		string connectionString = "Data Source=" + pathToPotsDB;
         Pot requestedPot;
@@ -458,14 +564,58 @@ public partial class DatabaseWrapper
 
                 int cost = Convert.ToInt32(reader["cost"]);
 
+                reader.Close();
                 requestedPot = new Pot(potName, cost);
+
             }
+            
             connection.Close();
         }
         return requestedPot;
     }
 
     public void CreateNewSave(){
+        while (IsSaveDatabaseLocked())
+        {
+            GD.Print("Still locked");
+            // Wait for 1 second (1000 milliseconds)
+            System.Threading.Thread.Sleep(1000);
+        }
+
+        
         RebuildDatabase(pathToSaveDB, pathToSaveDBInitializer);
+        
+    }
+
+    private bool IsSaveDatabaseLocked()
+    {
+        bool locked = true;
+        SqliteConnection connection = new SqliteConnection($"Data Source={pathToSaveDB}");
+        connection.Open();
+        
+        try
+        {
+            SqliteCommand beginCommand = connection.CreateCommand();
+            beginCommand.CommandText = "BEGIN EXCLUSIVE"; // tries to acquire the lock
+            // CommandTimeout is set to 0 to get error immediately if DB is locked 
+            // otherwise it will wait for 30 sec by default
+            beginCommand.CommandTimeout = 0; 
+            beginCommand.ExecuteNonQuery();
+
+            SqliteCommand commitCommand = connection.CreateCommand();
+            commitCommand.CommandText = "COMMIT"; // releases the lock immediately
+            commitCommand.ExecuteNonQuery();
+            locked = false;
+        }
+        catch(SqliteException)
+        {
+            // database is locked error
+        }
+        finally
+        {
+            connection.Close();
+        }
+
+        return locked;
     }
 }
