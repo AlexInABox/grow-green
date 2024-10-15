@@ -1,0 +1,217 @@
+[gd_scene load_steps=23 format=3 uid="uid://dsaewohprj4cb"]
+
+[ext_resource type="Texture2D" uid="uid://bjqyte70oshda" path="res://Textures/Backgrounds/minigames_3.png" id="1_oqn6f"]
+[ext_resource type="Texture2D" uid="uid://nwx0qpsthetn" path="res://Textures/Minigames/pack_plant.png" id="2_kv6bd"]
+[ext_resource type="Texture2D" uid="uid://bmpnx8afa8exa" path="res://Textures/Icons/exit.png" id="2_rs3lo"]
+[ext_resource type="Script" path="res://Scripts/Shop/LeaveButton.cs" id="3_0h4e2"]
+[ext_resource type="Texture2D" uid="uid://dwo8i83ib3xpw" path="res://Textures/Minigames/pack_pot_overpowered.png" id="3_dufge"]
+[ext_resource type="Texture2D" uid="uid://b8lg04hcutagf" path="res://Textures/Minigames/memory.png" id="4_b10us"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r2k7n"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hlbnx"]
+texture = ExtResource("2_rs3lo")
+modulate_color = Color(0.470076, 0.470076, 0.470076, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7fam1"]
+texture = ExtResource("2_rs3lo")
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ld3x0"]
+texture = ExtResource("2_rs3lo")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mple7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_46kwo"]
+texture = ExtResource("2_kv6bd")
+modulate_color = Color(0.470588, 0.470588, 0.470588, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rob2d"]
+texture = ExtResource("2_kv6bd")
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kbwg2"]
+texture = ExtResource("2_kv6bd")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qocfs"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0dm85"]
+texture = ExtResource("3_dufge")
+modulate_color = Color(0.470588, 0.470588, 0.470588, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s4bp0"]
+texture = ExtResource("3_dufge")
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lj1qr"]
+texture = ExtResource("3_dufge")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_trylj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cqvuy"]
+texture = ExtResource("4_b10us")
+modulate_color = Color(0.470588, 0.470588, 0.470588, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1xrbe"]
+texture = ExtResource("4_b10us")
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_spe71"]
+texture = ExtResource("4_b10us")
+
+[node name="MinigameSzene" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -13
+scale = Vector2(12, 12)
+texture = ExtResource("1_oqn6f")
+centered = false
+
+[node name="MinigameLabel" type="Label" parent="."]
+z_index = 5
+custom_minimum_size = Vector2(100, 50)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 710.0
+offset_top = -1.0
+offset_right = 1215.0
+offset_bottom = 150.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.305882, 0.65098, 0.529412, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 150
+text = "MINIGAMES"
+horizontal_alignment = 1
+
+[node name="Leave Button" type="Button" parent="MinigameLabel"]
+offset_left = -621.0
+offset_top = 3.0
+offset_right = -471.0
+offset_bottom = 150.0
+theme_override_styles/focus = SubResource("StyleBoxTexture_r2k7n")
+theme_override_styles/hover = SubResource("StyleBoxTexture_hlbnx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_7fam1")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ld3x0")
+script = ExtResource("3_0h4e2")
+
+[node name="PlantPackButton" type="Button" parent="."]
+offset_left = 83.0
+offset_top = 207.0
+offset_right = 580.0
+offset_bottom = 985.0
+theme_override_styles/focus = SubResource("StyleBoxTexture_mple7")
+theme_override_styles/hover = SubResource("StyleBoxTexture_46kwo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_rob2d")
+theme_override_styles/normal = SubResource("StyleBoxTexture_kbwg2")
+
+[node name="PlantLabel" type="Label" parent="PlantPackButton"]
+z_index = 5
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -170.5
+offset_top = 416.0
+offset_right = 191.5
+offset_bottom = 518.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.164706, 0.364706, 0.470588, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "PLANT"
+horizontal_alignment = 1
+
+[node name="PlantPackLabel" type="Label" parent="PlantPackButton"]
+z_index = 5
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -179.5
+offset_top = 501.0
+offset_right = 182.5
+offset_bottom = 603.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.164706, 0.364706, 0.470588, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "PACK"
+horizontal_alignment = 1
+
+[node name="PotPackButton" type="Button" parent="."]
+offset_left = 706.0
+offset_top = 201.0
+offset_right = 1219.0
+offset_bottom = 991.0
+theme_override_styles/focus = SubResource("StyleBoxTexture_qocfs")
+theme_override_styles/hover = SubResource("StyleBoxTexture_0dm85")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_s4bp0")
+theme_override_styles/normal = SubResource("StyleBoxTexture_lj1qr")
+
+[node name="PotLabel" type="Label" parent="PotPackButton"]
+z_index = 5
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -170.5
+offset_top = 416.0
+offset_right = 191.5
+offset_bottom = 518.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.67451, 0.929412, 0.643137, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "POT
+"
+horizontal_alignment = 1
+
+[node name="PotPackLabel" type="Label" parent="PotPackButton"]
+z_index = 5
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -177.5
+offset_top = 517.0
+offset_right = 184.5
+offset_bottom = 619.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.67451, 0.929412, 0.643137, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "PACK"
+horizontal_alignment = 1
+
+[node name="MemoryButton" type="Button" parent="."]
+offset_left = 1333.0
+offset_top = 210.0
+offset_right = 1830.0
+offset_bottom = 993.0
+theme_override_styles/focus = SubResource("StyleBoxTexture_trylj")
+theme_override_styles/hover = SubResource("StyleBoxTexture_cqvuy")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1xrbe")
+theme_override_styles/normal = SubResource("StyleBoxTexture_spe71")
+
+[node name="MemoryLabel" type="Label" parent="MemoryButton"]
+z_index = 5
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -174.5
+offset_top = 497.0
+offset_right = 187.5
+offset_bottom = 599.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.929412, 0.109804, 0.141176, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "MEMORY"
+horizontal_alignment = 1
