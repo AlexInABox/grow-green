@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bqv77dvuy6ly0"]
+[gd_scene load_steps=46 format=3 uid="uid://bqv77dvuy6ly0"]
 
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_06be7"]
 [ext_resource type="Texture2D" uid="uid://da3gby3k4mva" path="res://Textures/Backgrounds/HOUSE.png" id="1_bo6pn"]
@@ -26,6 +26,8 @@
 [ext_resource type="Texture2D" uid="uid://drijk174aakbu" path="res://Textures/Icons/Icons/DoorIcon.png" id="24_amdw1"]
 [ext_resource type="Script" path="res://Scripts/GreenhouseButton.cs" id="24_hti8h"]
 [ext_resource type="Texture2D" uid="uid://cp7lp5by0blgn" path="res://Textures/Icons/Icons/LockIcon.png" id="25_d2n01"]
+[ext_resource type="Texture2D" uid="uid://dsc8agvtuqlwm" path="res://Textures/Icons/Icons/Exit.png" id="27_enp1o"]
+[ext_resource type="Script" path="res://Scripts/MainScene/LeaveButton.cs" id="28_wy10c"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ftaqd"]
 
@@ -75,6 +77,19 @@ modulate_color = Color(0, 0, 0, 1)
 texture = ExtResource("24_amdw1")
 texture_margin_left = 1.0
 texture_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vryx4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6gh1e"]
+texture = ExtResource("27_enp1o")
+modulate_color = Color(0.470076, 0.470076, 0.470076, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qls5d"]
+texture = ExtResource("27_enp1o")
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o6bub"]
+texture = ExtResource("27_enp1o")
 
 [node name="MainSzene" type="Node2D"]
 
@@ -634,3 +649,14 @@ visible = false
 position = Vector2(85, 127)
 scale = Vector2(4, 4)
 texture = ExtResource("25_d2n01")
+
+[node name="Leave Button" type="Button" parent="."]
+offset_left = 40.0
+offset_top = 5.0
+offset_right = 190.0
+offset_bottom = 155.0
+theme_override_styles/focus = SubResource("StyleBoxTexture_vryx4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_6gh1e")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qls5d")
+theme_override_styles/normal = SubResource("StyleBoxTexture_o6bub")
+script = ExtResource("28_wy10c")
