@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bolbgwu7dq3r4" path="res://Textures/Icons/pixel-speech-bubble.png" id="1_a8rmt"]
 [ext_resource type="Texture2D" uid="uid://buqy5h6r8xf4y" path="res://Textures/Pots/default.png" id="1_tugmu"]
 [ext_resource type="Texture2D" uid="uid://da633vcabsr6c" path="res://Textures/Buttons/UI_Flat_Bar13a.png" id="2_i72dl"]
-[ext_resource type="Theme" path="res://Themes/statusBubbleFont.tres" id="2_kxr6s"]
+[ext_resource type="Theme" uid="uid://dysu6ugv7ou7b" path="res://Themes/statusBubbleFont.tres" id="2_kxr6s"]
 [ext_resource type="Texture2D" uid="uid://ccsfu0hghjlhp" path="res://Textures/PlantStatsBubble/bubble_left.png" id="2_pei0a"]
 [ext_resource type="Texture2D" uid="uid://dhjxjrt06dph4" path="res://Textures/Plants/agave2.png" id="2_wrp6y"]
 [ext_resource type="Theme" uid="uid://bik6akg25n2fr" path="res://Themes/plant_location_button.tres" id="4_42ljx"]

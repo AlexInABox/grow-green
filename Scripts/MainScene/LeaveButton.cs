@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-namespace ShopScene;
+namespace MainScene;
 public partial class LeaveButton : Button
 {
 	SceneManager sceneManager;
@@ -15,7 +15,7 @@ public partial class LeaveButton : Button
 	private void ButtonPressed()
 	{
 		sceneManager.UpdateSaveBlocking();
-		var mainScene = "res://Scenes/MainSzene.tscn";
+		var mainScene = "res://Scenes/titleScreen.tscn";
 		GetTree().ChangeSceneToFile(mainScene);
 	}
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
