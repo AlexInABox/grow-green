@@ -10,6 +10,8 @@ public partial class PlantButton : Button
     {
         Pressed += ButtonPressed;
         //myPlant = GetNode<Plant>("../Plant"); //will error when sprite hasnt loaded yet. but works anyways for some reason
+        MouseEntered += ButtonHovered;
+        MouseExited += ButtonNotHoveredAnymore;
     }
 
     private void ButtonPressed()
@@ -17,6 +19,18 @@ public partial class PlantButton : Button
         myPlant = GetNode<Plant>("../Plant");
         myPlant.WaterPlant();
     }
+
+    private void ButtonHovered() {
+        //funky wunky
+        Node2D statusBubble = GetNode<Node2D>("../statusBubble");
+        statusBubble.Show();
+    }
+    private void ButtonNotHoveredAnymore() {
+        //wittle weams
+        Node2D statusBubble = GetNode<Node2D>("../statusBubble");
+        statusBubble.Hide();
+    }
+
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)

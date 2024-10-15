@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dk7n5xl4kts45"]
 
-[ext_resource type="Script" path="res://Scripts/ClickablePlant.cs" id="1_gqkpi"]
-[ext_resource type="Texture2D" uid="uid://b6hmioiqca432" path="res://Textures/Plants/agave1.png" id="2_t5afu"]
+[ext_resource type="Script" path="res://Scripts/PlantButton.cs" id="1_gqkpi"]
+[ext_resource type="Texture2D" uid="uid://cnehgbhp7mfrf" path="res://Textures/Plants/agave1.png" id="2_t5afu"]
 
 [node name="Plant" type="Node2D"]
 texture_filter = 3

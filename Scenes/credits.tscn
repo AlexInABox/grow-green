@@ -1,0 +1,107 @@
+[gd_scene load_steps=10 format=3 uid="uid://wgxhohnyfdiy"]
+
+[ext_resource type="Texture2D" uid="uid://ibc4r6vtoalt" path="res://Textures/Backgrounds/creditsBackground.png" id="1_cyscu"]
+[ext_resource type="Theme" uid="uid://bbdcfkyq8ydu1" path="res://Themes/creditsLabels.tres" id="2_ikdca"]
+[ext_resource type="FontFile" uid="uid://16884th6cwds" path="res://Fonts/Jersey25-Regular.ttf" id="3_m7drt"]
+[ext_resource type="Texture2D" uid="uid://dsc8agvtuqlwm" path="res://Textures/Icons/Icons/Exit.png" id="4_yclu3"]
+[ext_resource type="Script" path="res://Scripts/BackToTitleMenuButton.cs" id="5_4vofa"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kmjcv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w4aif"]
+texture = ExtResource("4_yclu3")
+modulate_color = Color(0.423651, 0.423651, 0.423651, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8c5wc"]
+texture = ExtResource("4_yclu3")
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qqxb1"]
+texture = ExtResource("4_yclu3")
+
+[node name="Credits" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(962, 540)
+scale = Vector2(2, 2)
+texture = ExtResource("1_cyscu")
+metadata/_edit_lock_ = true
+
+[node name="Title" type="Label" parent="."]
+offset_left = 772.0
+offset_top = 32.0
+offset_right = 1185.0
+offset_bottom = 183.0
+theme = ExtResource("2_ikdca")
+theme_override_fonts/font = ExtResource("3_m7drt")
+theme_override_font_sizes/font_size = 150
+text = "Credits"
+
+[node name="Projektmanager" type="Label" parent="."]
+offset_left = 199.0
+offset_top = 218.0
+offset_right = 1861.0
+offset_bottom = 334.0
+theme = ExtResource("2_ikdca")
+theme_override_fonts/font = ExtResource("3_m7drt")
+theme_override_font_sizes/font_size = 80
+text = "Projektmanager:        Maja Günther"
+
+[node name="Softwareentwickler" type="Label" parent="."]
+offset_left = 196.0
+offset_top = 385.0
+offset_right = 1882.0
+offset_bottom = 798.0
+theme = ExtResource("2_ikdca")
+theme_override_fonts/font = ExtResource("3_m7drt")
+theme_override_font_sizes/font_size = 80
+text = "Softwareentwickler: Alexander Betke 
+                                 Domenik Wilhelm 
+                                 Josh Tischer 
+                                 Theo Leuthardt"
+
+[node name="Designer" type="Label" parent="."]
+offset_left = 197.0
+offset_top = 304.0
+offset_right = 1872.0
+offset_bottom = 420.0
+theme = ExtResource("2_ikdca")
+theme_override_fonts/font = ExtResource("3_m7drt")
+theme_override_font_sizes/font_size = 80
+text = "Designer:                   Maja Günther"
+
+[node name="Dev-Ops-Engineer" type="Label" parent="."]
+offset_left = 198.0
+offset_top = 718.0
+offset_right = 1865.0
+offset_bottom = 923.0
+theme = ExtResource("2_ikdca")
+theme_override_fonts/font = ExtResource("3_m7drt")
+theme_override_font_sizes/font_size = 80
+text = "Dev-Ops-Engineer:   Alexander Betke
+                                 Theo Leuthardt
+"
+
+[node name="Paperautor" type="Label" parent="."]
+offset_left = 196.0
+offset_top = 881.0
+offset_right = 1871.0
+offset_bottom = 1086.0
+theme = ExtResource("2_ikdca")
+theme_override_fonts/font = ExtResource("3_m7drt")
+theme_override_font_sizes/font_size = 80
+text = "Paperautor:               Maja Günther
+                                 Theo Leuthardt"
+
+[node name="BackToTitleMenu" type="Button" parent="."]
+offset_left = 1710.0
+offset_top = 13.0
+offset_right = 1734.0
+offset_bottom = 37.0
+scale = Vector2(8, 8)
+theme_override_styles/focus = SubResource("StyleBoxTexture_kmjcv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_w4aif")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8c5wc")
+theme_override_styles/normal = SubResource("StyleBoxTexture_qqxb1")
+script = ExtResource("5_4vofa")

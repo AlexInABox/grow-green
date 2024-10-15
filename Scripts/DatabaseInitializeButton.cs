@@ -13,8 +13,6 @@ public partial class DatabaseInitializeButton : Button
 
 	private void ButtonPressed()
 	{
-		GD.Print("KYS! im mining bittcoin now! :3");
-        db.InitializeDatabase();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

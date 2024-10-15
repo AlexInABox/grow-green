@@ -1,0 +1,129 @@
+[gd_scene load_steps=15 format=3 uid="uid://ea1g0ffnyjnb"]
+
+[ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_01qya"]
+[ext_resource type="Texture2D" uid="uid://pklblu1n2kih" path="res://Textures/Backgrounds/ShopBackground.png" id="1_8vc7e"]
+[ext_resource type="Texture2D" uid="uid://dsc8agvtuqlwm" path="res://Textures/Icons/Icons/Exit.png" id="2_5ene3"]
+[ext_resource type="Script" path="res://Scripts/Shop/LeaveButton.cs" id="3_sufmd"]
+[ext_resource type="Script" path="res://Scripts/Shop/EasyPlantsContainercs.cs" id="3_ykhpk"]
+[ext_resource type="Script" path="res://Scripts/Shop/MediumPlantsContainer.cs" id="4_v6w1e"]
+[ext_resource type="Script" path="res://Scripts/Shop/HardPlantsContainer.cs" id="5_pl2fe"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ypfra"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jlq6n"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q2255"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_imf6g"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2bwrq"]
+texture = ExtResource("2_5ene3")
+modulate_color = Color(0.470076, 0.470076, 0.470076, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ybfuq"]
+texture = ExtResource("2_5ene3")
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s6qrh"]
+texture = ExtResource("2_5ene3")
+
+[node name="ShopSzene" type="Node2D"]
+z_index = -10
+
+[node name="SceneManager" type="Node" parent="."]
+script = ExtResource("1_01qya")
+
+[node name="ShopBackground" type="Sprite2D" parent="."]
+z_index = -13
+scale = Vector2(12, 12)
+texture = ExtResource("1_8vc7e")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="ShopLabel" type="Label" parent="."]
+z_index = -5
+custom_minimum_size = Vector2(960, 50)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 480.0
+offset_right = 1440.0
+offset_bottom = 168.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.352941, 0.705882, 0.635294, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 150
+text = "Shop"
+horizontal_alignment = 1
+
+[node name="EasyPlants" type="Panel" parent="."]
+offset_left = 36.0
+offset_top = 156.0
+offset_right = 1884.0
+offset_bottom = 444.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ypfra")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="EasyPlants"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = -63.0
+offset_right = 1812.0
+offset_bottom = 264.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EasyPlants/ScrollContainer"]
+custom_minimum_size = Vector2(5000, 240)
+layout_mode = 2
+script = ExtResource("3_ykhpk")
+
+[node name="SeedIcon" type="Sprite2D" parent="EasyPlants"]
+
+[node name="MediumPlants" type="Panel" parent="."]
+offset_left = 36.0
+offset_top = 456.0
+offset_right = 1884.0
+offset_bottom = 744.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_jlq6n")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MediumPlants"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = -63.0
+offset_right = 1812.0
+offset_bottom = 264.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MediumPlants/ScrollContainer"]
+custom_minimum_size = Vector2(1920, 240)
+layout_mode = 2
+script = ExtResource("4_v6w1e")
+
+[node name="HardPlants" type="Panel" parent="."]
+offset_left = 36.0
+offset_top = 756.0
+offset_right = 1884.0
+offset_bottom = 1044.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_q2255")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HardPlants"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = -63.0
+offset_right = 1812.0
+offset_bottom = 264.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HardPlants/ScrollContainer"]
+custom_minimum_size = Vector2(1920, 240)
+layout_mode = 2
+script = ExtResource("5_pl2fe")
+
+[node name="SeedPackIcon" type="Sprite2D" parent="HardPlants"]
+
+[node name="Leave Button" type="Button" parent="."]
+offset_left = 40.0
+offset_top = 5.0
+offset_right = 190.0
+offset_bottom = 155.0
+theme_override_styles/focus = SubResource("StyleBoxTexture_imf6g")
+theme_override_styles/hover = SubResource("StyleBoxTexture_2bwrq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ybfuq")
+theme_override_styles/normal = SubResource("StyleBoxTexture_s6qrh")
+script = ExtResource("3_sufmd")
