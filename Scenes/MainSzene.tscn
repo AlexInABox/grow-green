@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://bqv77dvuy6ly0"]
+[gd_scene load_steps=47 format=3 uid="uid://bqv77dvuy6ly0"]
 
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_06be7"]
 [ext_resource type="Texture2D" uid="uid://da3gby3k4mva" path="res://Textures/Backgrounds/HOUSE.png" id="1_bo6pn"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/ShopButton.cs" id="5_fepxd"]
 [ext_resource type="Script" path="res://Scripts/LoadPictures.cs" id="5_ggw0u"]
 [ext_resource type="Texture2D" uid="uid://dohi1fhdvqj6g" path="res://Textures/Icons/Icons/ShopIcon.png" id="5_j8hir"]
+[ext_resource type="Script" path="res://Scripts/MainScene/MinigameButton.cs" id="6_5bj8a"]
 [ext_resource type="Texture2D" uid="uid://bu6crxd3gecma" path="res://Textures/Aliens/Paintings/1_left.jpg" id="6_khafo"]
 [ext_resource type="Texture2D" uid="uid://86ken7uumcwe" path="res://Textures/Aliens/Paintings/1_middle.jpg" id="7_dhhgn"]
 [ext_resource type="Texture2D" uid="uid://bs1bmfr8vulgx" path="res://Textures/Aliens/Paintings/1_right.jpg" id="8_kithj"]
@@ -428,6 +429,7 @@ theme_override_styles/focus = SubResource("StyleBoxTexture_ftaqd")
 theme_override_styles/hover = SubResource("StyleBoxTexture_dauv7")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_5bmyf")
 theme_override_styles/normal = SubResource("StyleBoxTexture_fbew7")
+script = ExtResource("6_5bj8a")
 
 [node name="Label" type="Label" parent="MinigameButton"]
 layout_mode = 0
