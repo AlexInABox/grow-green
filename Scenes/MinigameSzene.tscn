@@ -1,5 +1,6 @@
-[gd_scene load_steps=23 format=3 uid="uid://dsaewohprj4cb"]
+[gd_scene load_steps=24 format=3 uid="uid://dsaewohprj4cb"]
 
+[ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_7qpdi"]
 [ext_resource type="Texture2D" uid="uid://bjqyte70oshda" path="res://Textures/Backgrounds/minigames_3.png" id="1_oqn6f"]
 [ext_resource type="Texture2D" uid="uid://nwx0qpsthetn" path="res://Textures/Minigames/pack_plant.png" id="2_kv6bd"]
 [ext_resource type="Texture2D" uid="uid://bmpnx8afa8exa" path="res://Textures/Icons/exit.png" id="2_rs3lo"]
@@ -60,6 +61,9 @@ modulate_color = Color(0, 0, 0, 1)
 texture = ExtResource("2_rs3lo")
 
 [node name="MinigameSzene" type="Node2D"]
+
+[node name="SceneManager" type="Node" parent="."]
+script = ExtResource("1_7qpdi")
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -13

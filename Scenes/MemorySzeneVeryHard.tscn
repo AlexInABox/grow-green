@@ -1,5 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://bw3kut5wbjfo4"]
+[gd_scene load_steps=22 format=3 uid="uid://bw3kut5wbjfo4"]
 
+[ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_g6xy0"]
 [ext_resource type="Texture2D" uid="uid://b0xn5p6hrrc72" path="res://Textures/Minigames/Memory/memory_hard.png" id="1_yv3h6"]
 [ext_resource type="Texture2D" uid="uid://bmpnx8afa8exa" path="res://Textures/Icons/exit.png" id="2_gpmhj"]
 [ext_resource type="Script" path="res://Scripts/MinigameScene/LeaveButton.cs" id="3_dk0nl"]
@@ -31,6 +32,9 @@ modulate_color = Color(0, 0, 0, 1)
 texture = ExtResource("2_gpmhj")
 
 [node name="MemorySzeneVeryHard" type="Node2D"]
+
+[node name="SceneManager" type="Node" parent="."]
+script = ExtResource("1_g6xy0")
 
 [node name="Background" type="Sprite2D" parent="."]
 scale = Vector2(12, 12)

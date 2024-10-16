@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://6cj4bo1ula4y"]
+[gd_scene load_steps=17 format=3 uid="uid://6cj4bo1ula4y"]
 
 [ext_resource type="Texture2D" uid="uid://dlepnqcap2stl" path="res://Textures/Minigames/Memory/memory_easy_richtig.png" id="1_28cp1"]
+[ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_faq1t"]
 [ext_resource type="Texture2D" uid="uid://bmpnx8afa8exa" path="res://Textures/Icons/exit.png" id="2_s3x1h"]
 [ext_resource type="Script" path="res://Scripts/MinigameScene/LeaveButton.cs" id="3_um1ve"]
 [ext_resource type="Texture2D" uid="uid://cwmcku57erkoe" path="res://Textures/Minigames/Memory/memory_stack_02.png" id="4_ou4wd"]
@@ -26,6 +27,9 @@ modulate_color = Color(0, 0, 0, 1)
 texture = ExtResource("2_s3x1h")
 
 [node name="MemorySzeneEasy" type="Node2D"]
+
+[node name="SceneManager" type="Node" parent="."]
+script = ExtResource("1_faq1t")
 
 [node name="Background" type="Sprite2D" parent="."]
 scale = Vector2(12, 12)
