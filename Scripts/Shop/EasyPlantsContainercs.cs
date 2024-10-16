@@ -64,6 +64,9 @@ using System.Collections.Generic;
 			string costAsString = plant.cost.ToString();
 			PreisLabel.Text = costAsString;
 
+			ShopPlantButton shopButtonScript = easyShopWrapper.GetNode<ShopPlantButton>("PlantButton");
+			shopButtonScript.className = plant.className;
+			shopButtonScript.cost = plant.cost;
 
 			counter++;
 			easyShopWrapper.AddChild(myNewSprite);

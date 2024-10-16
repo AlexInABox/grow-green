@@ -1,12 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://ea1g0ffnyjnb"]
+[gd_scene load_steps=16 format=3 uid="uid://ea1g0ffnyjnb"]
 
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_01qya"]
 [ext_resource type="Texture2D" uid="uid://pklblu1n2kih" path="res://Textures/Backgrounds/ShopBackground.png" id="1_8vc7e"]
-[ext_resource type="Texture2D" uid="uid://dsc8agvtuqlwm" path="res://Textures/Icons/Icons/Exit.png" id="2_5ene3"]
 [ext_resource type="Script" path="res://Scripts/Shop/LeaveButton.cs" id="3_sufmd"]
 [ext_resource type="Script" path="res://Scripts/Shop/EasyPlantsContainercs.cs" id="3_ykhpk"]
 [ext_resource type="Script" path="res://Scripts/Shop/MediumPlantsContainer.cs" id="4_v6w1e"]
 [ext_resource type="Script" path="res://Scripts/Shop/HardPlantsContainer.cs" id="5_pl2fe"]
+[ext_resource type="Texture2D" uid="uid://bmpnx8afa8exa" path="res://Textures/Icons/exit.png" id="6_iq0d4"]
+[ext_resource type="PackedScene" uid="uid://cbk1n8uwugufx" path="res://Prefabs/coinDisplay_wrapper.tscn" id="8_fuq8i"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ypfra"]
 
@@ -17,15 +18,15 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_imf6g"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2bwrq"]
-texture = ExtResource("2_5ene3")
+texture = ExtResource("6_iq0d4")
 modulate_color = Color(0.470076, 0.470076, 0.470076, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ybfuq"]
-texture = ExtResource("2_5ene3")
+texture = ExtResource("6_iq0d4")
 modulate_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s6qrh"]
-texture = ExtResource("2_5ene3")
+texture = ExtResource("6_iq0d4")
 
 [node name="ShopSzene" type="Node2D"]
 z_index = -10
@@ -118,12 +119,15 @@ script = ExtResource("5_pl2fe")
 [node name="SeedPackIcon" type="Sprite2D" parent="HardPlants"]
 
 [node name="Leave Button" type="Button" parent="."]
-offset_left = 40.0
-offset_top = 5.0
-offset_right = 190.0
-offset_bottom = 155.0
+offset_left = 29.0
+offset_top = 3.0
+offset_right = 179.0
+offset_bottom = 153.0
 theme_override_styles/focus = SubResource("StyleBoxTexture_imf6g")
 theme_override_styles/hover = SubResource("StyleBoxTexture_2bwrq")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ybfuq")
 theme_override_styles/normal = SubResource("StyleBoxTexture_s6qrh")
 script = ExtResource("3_sufmd")
+
+[node name="coinDisplay_wrapper" parent="." instance=ExtResource("8_fuq8i")]
+position = Vector2(1641, 72)
