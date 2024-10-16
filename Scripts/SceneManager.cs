@@ -69,4 +69,13 @@ public partial class SceneManager : Node
 
 		//this is cool! save the everything every 60 frames and even then do it in a different thread! so cool!
 	}
+
+	public void SpawnGreenhouseUnlockPopup (){
+		//ColorRect blurLayer = GetNode<ColorRect>("../BlurLayer");
+		//blurLayer.Hide();
+		
+		PackedScene unlockPopup = GD.Load<PackedScene>("res://Prefabs/greenhouseUnlock_popup.tscn");
+		var unlockPopupInstance = unlockPopup.Instantiate();
+		GetParent().AddChild(unlockPopupInstance);
+	}
 }

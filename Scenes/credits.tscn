@@ -1,7 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://cimy04c77lqrg"]
+[gd_scene load_steps=10 format=3 uid="uid://wgxhohnyfdiy"]
 
 [ext_resource type="Texture2D" uid="uid://ibc4r6vtoalt" path="res://Textures/Backgrounds/creditsBackground.png" id="1_cyscu"]
-[ext_resource type="Theme" uid="uid://bpeipfjl440oy" path="res://Themes/creditsLabels.tres" id="2_ikdca"]
+[ext_resource type="Theme" uid="uid://bbdcfkyq8ydu1" path="res://Themes/creditsLabels.tres" id="2_ikdca"]
 [ext_resource type="FontFile" uid="uid://16884th6cwds" path="res://Fonts/Jersey25-Regular.ttf" id="3_m7drt"]
 [ext_resource type="Texture2D" uid="uid://bmpnx8afa8exa" path="res://Textures/Icons/exit.png" id="4_vmane"]
 [ext_resource type="Script" path="res://Scripts/BackToTitleMenuButton.cs" id="5_4vofa"]
