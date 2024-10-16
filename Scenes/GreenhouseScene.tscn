@@ -1,67 +1,11 @@
-[gd_scene load_steps=31 format=3 uid="uid://ugsc2f4iavka"]
+[gd_scene load_steps=11 format=3 uid="uid://ugsc2f4iavka"]
 
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_e7yyb"]
 [ext_resource type="Script" path="res://Scripts/GreenhouseScene.cs" id="2_k45pb"]
 [ext_resource type="Theme" uid="uid://cfugb2jgj3yj0" path="res://Themes/spawnPointButton.tres" id="3_m11i8"]
 [ext_resource type="Texture2D" uid="uid://cmxfcly5l04y" path="res://Textures/Backgrounds/greenhouse.png" id="4_yh1it"]
-[ext_resource type="Texture2D" uid="uid://k1nlupvlorva" path="res://Textures/Icons/Icons/MinigamesIcon.png" id="5_rsnlf"]
-[ext_resource type="Script" path="res://Scripts/MainScene/MinigameButton.cs" id="6_884y4"]
-[ext_resource type="Texture2D" uid="uid://dohi1fhdvqj6g" path="res://Textures/Icons/Icons/ShopIcon.png" id="7_2vsqe"]
-[ext_resource type="Script" path="res://Scripts/ShopButton.cs" id="8_vic0g"]
-[ext_resource type="Script" path="res://Scripts/HouseButton.cs" id="10_lccfd"]
-[ext_resource type="Texture2D" uid="uid://drijk174aakbu" path="res://Textures/Icons/Icons/DoorIcon.png" id="25_5gycd"]
-[ext_resource type="Texture2D" uid="uid://cp7lp5by0blgn" path="res://Textures/Icons/Icons/LockIcon.png" id="27_v14st"]
+[ext_resource type="Script" path="res://Scripts/LeaveGreenhouseButton.cs" id="10_0w0d6"]
 [ext_resource type="Texture2D" uid="uid://bmpnx8afa8exa" path="res://Textures/Icons/exit.png" id="28_3cq27"]
-[ext_resource type="Script" path="res://Scripts/MainScene/LeaveButton.cs" id="29_wlyor"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ftaqd"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dauv7"]
-texture = ExtResource("5_rsnlf")
-modulate_color = Color(0.470588, 0.470588, 0.470588, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5bmyf"]
-texture = ExtResource("5_rsnlf")
-modulate_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fbew7"]
-texture = ExtResource("5_rsnlf")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_akrn5"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ibsny"]
-texture = ExtResource("7_2vsqe")
-modulate_color = Color(0.470588, 0.470588, 0.470588, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_44gc2"]
-texture = ExtResource("7_2vsqe")
-modulate_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bbshy"]
-texture = ExtResource("7_2vsqe")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0pi3q"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m3mg2"]
-texture = ExtResource("25_5gycd")
-modulate_color = Color(0.31802, 0.31802, 0.31802, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wabck"]
-texture = ExtResource("25_5gycd")
-texture_margin_left = 1.0
-texture_margin_bottom = 2.0
-modulate_color = Color(0.470588, 0.470588, 0.470588, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x1uac"]
-texture = ExtResource("25_5gycd")
-texture_margin_left = 1.0
-texture_margin_bottom = 2.0
-modulate_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mqror"]
-texture = ExtResource("25_5gycd")
-texture_margin_left = 1.0
-texture_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vryx4"]
 
@@ -404,81 +348,6 @@ texture = ExtResource("4_yh1it")
 centered = false
 metadata/_edit_lock_ = true
 
-[node name="MinigameButton" type="Button" parent="."]
-offset_left = 1115.0
-offset_top = 428.0
-offset_right = 1291.0
-offset_bottom = 556.0
-theme_override_styles/focus = SubResource("StyleBoxTexture_ftaqd")
-theme_override_styles/hover = SubResource("StyleBoxTexture_dauv7")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_5bmyf")
-theme_override_styles/normal = SubResource("StyleBoxTexture_fbew7")
-script = ExtResource("6_884y4")
-
-[node name="Label" type="Label" parent="MinigameButton"]
-layout_mode = 0
-offset_left = -3.0
-offset_top = -45.0
-offset_right = 173.0
-offset_bottom = 48.0
-theme_override_colors/font_color = Color(0.352941, 0.705882, 0.635294, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 48
-text = "MINI"
-horizontal_alignment = 1
-
-[node name="Label2" type="Label" parent="MinigameButton"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 134.0
-offset_right = 177.0
-offset_bottom = 227.0
-theme_override_colors/font_color = Color(0.352941, 0.705882, 0.635294, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 48
-text = "GAMES"
-horizontal_alignment = 1
-
-[node name="ShopButton" type="Button" parent="."]
-offset_left = 640.0
-offset_top = 394.0
-offset_right = 805.0
-offset_bottom = 544.0
-theme_override_styles/focus = SubResource("StyleBoxTexture_akrn5")
-theme_override_styles/hover = SubResource("StyleBoxTexture_ibsny")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_44gc2")
-theme_override_styles/normal = SubResource("StyleBoxTexture_bbshy")
-script = ExtResource("8_vic0g")
-
-[node name="ShopLabel" type="Label" parent="ShopButton"]
-layout_mode = 0
-offset_top = 150.0
-offset_right = 165.0
-offset_bottom = 199.0
-theme_override_colors/font_color = Color(0.352941, 0.705882, 0.635294, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 48
-text = "SHOP"
-horizontal_alignment = 1
-
-[node name="HouseButton" type="Button" parent="."]
-offset_left = 873.0
-offset_top = 392.0
-offset_right = 1049.0
-offset_bottom = 659.0
-theme_override_styles/focus = SubResource("StyleBoxTexture_0pi3q")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_m3mg2")
-theme_override_styles/hover = SubResource("StyleBoxTexture_wabck")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_x1uac")
-theme_override_styles/normal = SubResource("StyleBoxTexture_mqror")
-script = ExtResource("10_lccfd")
-
-[node name="Sprite2D" type="Sprite2D" parent="HouseButton"]
-visible = false
-position = Vector2(85, 127)
-scale = Vector2(4, 4)
-texture = ExtResource("27_v14st")
-
 [node name="Leave Button" type="Button" parent="."]
 offset_left = 5.0
 offset_top = 5.0
@@ -488,4 +357,4 @@ theme_override_styles/focus = SubResource("StyleBoxTexture_vryx4")
 theme_override_styles/hover = SubResource("StyleBoxTexture_6gh1e")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_qls5d")
 theme_override_styles/normal = SubResource("StyleBoxTexture_o6bub")
-script = ExtResource("29_wlyor")
+script = ExtResource("10_0w0d6")

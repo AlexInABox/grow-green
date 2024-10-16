@@ -7,12 +7,23 @@ using System.Collections.Generic;
 	DatabaseWrapper db = new DatabaseWrapper();
 	PackedScene plantPrefab = GD.Load<PackedScene>("res://Prefabs/plant_wrapper.tscn");
 	SceneManager sceneManager;
-
+	private Button Jimmy;
+	private Button UndercoverJimmy;
 	public override void _Ready()
 	{
 		sceneManager = GetNode<SceneManager>("../SceneManager");
 		List<Plant> plantList = sceneManager.GetListOfOwnedPlants(); 
 		PlaceAllPlants(plantList);
+
+		Jimmy = GetNode<Button>("../GreenhouseButton");
+		UndercoverJimmy = GetNode<Button>("../ScamerGreenhouseButton");
+		Jimmy.Disabled = true;
+		UndercoverJimmy.Visible = false;
+
+
+		if(Jimmy.Disabled = true){
+			UndercoverJimmy.Visible = true;
+		}
 	}
 
 	private void PlaceAllPlants(List<Plant> plantList) {

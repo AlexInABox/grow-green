@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://jqwmq4hns48c"]
 
 [ext_resource type="Texture2D" uid="uid://ccsfu0hghjlhp" path="res://Textures/PlantStatsBubble/bubble_left.png" id="1_3fixe"]
-[ext_resource type="Theme" uid="uid://01ekva1ut6b7" path="res://Themes/statusBubbleFont.tres" id="2_h375j"]
+[ext_resource type="Theme" uid="uid://bch6yw6lcxyeh" path="res://Themes/statusBubbleFont.tres" id="2_h375j"]
 [ext_resource type="Texture2D" uid="uid://xem0swsly60r" path="res://Textures/Icons/Icons/Coin.png" id="3_puvi1"]
 [ext_resource type="Theme" uid="uid://ds3phtivtqrph" path="res://Themes/ShopButton.tres" id="4_fexn2"]
 [ext_resource type="Script" path="res://Scripts/Shop/ShopPlantButton.cs" id="5_elf68"]

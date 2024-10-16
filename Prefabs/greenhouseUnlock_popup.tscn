@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://vwucv8au4xke"]
+
+[ext_resource type="Texture2D" uid="uid://caplkr8i4j4mp" path="res://Textures/Buttons/UI_Flat_Frame03a.png" id="1_d8hls"]
+[ext_resource type="FontFile" uid="uid://16884th6cwds" path="res://Fonts/Jersey25-Regular.ttf" id="2_p5jf0"]
+[ext_resource type="Theme" uid="uid://cxgao5s1phj5n" path="res://Themes/mainMenuButtons.tres" id="3_tlqqu"]
+[ext_resource type="Script" path="res://Scripts/MainScene/QuitGreenhousePopup.cs" id="4_7wc24"]
+[ext_resource type="Script" path="res://Scripts/MainScene/BuyGreenhouse.cs" id="4_uf64l"]
+
+[node name="CreateGameConfirmationPopup" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1912.0
+offset_bottom = 1078.0
+color = Color(0, 0, 0, 0.470588)
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 510)
+scale = Vector2(7, 7)
+texture = ExtResource("1_d8hls")
+region_rect = Rect2(3, 3, 90, 58)
+
+[node name="Warning" type="Label" parent="Sprite2D"]
+offset_left = -43.0
+offset_top = -25.0
+offset_right = 673.0
+offset_bottom = 192.0
+scale = Vector2(0.12, 0.12)
+theme_override_fonts/font = ExtResource("2_p5jf0")
+theme_override_font_sizes/font_size = 40
+text = "Du kannst erst in dieses Gebiet, wenn du 10 voll ausgewachsene Pflanzen hast!!!
+
+Alternativ kannst du auch 100 Münzen zahlen!!"
+horizontal_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Quit" type="Button" parent="Sprite2D"]
+offset_left = -42.0
+offset_top = 11.0
+offset_right = 78.0
+offset_bottom = 61.0
+scale = Vector2(0.285, 0.285)
+theme = ExtResource("3_tlqqu")
+theme_override_colors/font_focus_color = Color(0.761386, 0.273843, 0.27925, 1)
+theme_override_colors/font_color = Color(0.823529, 0, 0, 1)
+theme_override_font_sizes/font_size = 41
+text = "Quit"
+script = ExtResource("4_7wc24")
+
+[node name="Buy" type="Button" parent="Sprite2D"]
+offset_left = -5.91304
+offset_top = 10.9227
+offset_right = 166.087
+offset_bottom = 60.9227
+scale = Vector2(0.285, 0.285)
+theme = ExtResource("3_tlqqu")
+theme_override_font_sizes/font_size = 41
+text = "Zahlen"
+script = ExtResource("4_uf64l")
