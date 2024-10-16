@@ -22,39 +22,36 @@ public partial class PlantButton : Button
 
     private void ButtonHovered()
     {
-        // Get the button's Y position
+       
         float buttonXPosition = GlobalPosition.X;
         GD.Print(buttonXPosition);
 
         Node2D statusBubbleA = GetNode<Node2D>("../statusBubble");
         Node2D statusBubbleB = GetNode<Node2D>("../statusBubbleLeft");
-
-        // Hide both bubbles initially
+        
         statusBubbleA.Hide();
         statusBubbleB.Hide();
 
-        // Display the appropriate bubble based on the Y position
+        
         if (buttonXPosition < 960)
         {
-            statusBubbleA.Show(); // Show Bubble A
+            statusBubbleA.Show(); 
         }
         else
         {
-            statusBubbleB.Show(); // Show Bubble B
+            statusBubbleB.Show(); 
         }
     }
 
     private void ButtonNotHoveredAnymore()
     {
-        // Hide both bubbles when mouse exits
         Node2D statusBubbleA = GetNode<Node2D>("../statusBubble");
         Node2D statusBubbleB = GetNode<Node2D>("../statusBubbleLeft");
         statusBubbleA.Hide();
         statusBubbleB.Hide();
     }
 
-
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
+    
     public override void _Process(double delta)
     {
     }
