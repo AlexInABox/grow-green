@@ -13,6 +13,9 @@ public partial class PlantWrapper : Node2D
 		string potName = plant.pot;
 		Sprite2D potObject = sceneManager.GetPotByName(potName);
 		AddChild(potObject);
+		
+		Label plantName = GetNode<Label>("statusBubble/plantName");
+		plantName.Text = plant.className;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
