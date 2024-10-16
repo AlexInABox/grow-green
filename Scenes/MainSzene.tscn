@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://bpyrnacn0k78u"]
+[gd_scene load_steps=52 format=3 uid="uid://bqv77dvuy6ly0"]
 
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_06be7"]
 [ext_resource type="Texture2D" uid="uid://da3gby3k4mva" path="res://Textures/Backgrounds/HOUSE.png" id="1_bo6pn"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://cp7lp5by0blgn" path="res://Textures/Icons/Icons/LockIcon.png" id="25_d2n01"]
 [ext_resource type="Texture2D" uid="uid://bmpnx8afa8exa" path="res://Textures/Icons/exit.png" id="28_mtxqj"]
 [ext_resource type="Script" path="res://Scripts/MainScene/LeaveButton.cs" id="28_wy10c"]
+[ext_resource type="Script" path="res://Scripts/MainScene/ScamerGreenhouseButton.cs" id="29_p6mlw"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ftaqd"]
 
@@ -60,6 +61,8 @@ texture = ExtResource("5_j8hir")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m3mg2"]
 texture = ExtResource("24_amdw1")
+texture_margin_left = 1.0
+texture_margin_bottom = 2.0
 modulate_color = Color(0.31802, 0.31802, 0.31802, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wabck"]
@@ -78,6 +81,14 @@ modulate_color = Color(0, 0, 0, 1)
 texture = ExtResource("24_amdw1")
 texture_margin_left = 1.0
 texture_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c1f4n"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vwg0r"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w5ngo"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0l3yo"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vryx4"]
 
@@ -651,6 +662,18 @@ visible = false
 position = Vector2(85, 127)
 scale = Vector2(4, 4)
 texture = ExtResource("25_d2n01")
+
+[node name="ScamerGreenhouseButton" type="Button" parent="."]
+z_index = 3
+offset_left = 873.0
+offset_top = 392.0
+offset_right = 1049.0
+offset_bottom = 659.0
+theme_override_styles/focus = SubResource("StyleBoxTexture_c1f4n")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vwg0r")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_w5ngo")
+theme_override_styles/normal = SubResource("StyleBoxTexture_0l3yo")
+script = ExtResource("29_p6mlw")
 
 [node name="Leave Button" type="Button" parent="."]
 offset_left = 5.0
