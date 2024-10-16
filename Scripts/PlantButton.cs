@@ -24,7 +24,6 @@ public partial class PlantButton : Button
     {
        
         float buttonXPosition = GlobalPosition.X;
-        GD.Print(buttonXPosition);
 
         Node2D statusBubbleA = GetNode<Node2D>("../statusBubble");
         Node2D statusBubbleB = GetNode<Node2D>("../statusBubbleLeft");
