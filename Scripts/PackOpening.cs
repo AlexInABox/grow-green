@@ -6,9 +6,14 @@ public partial class PackOpening : Button
 {
     private AnimationPlayer animationPlayer;
     private Light2D light;
+    private SceneManager sceneManager;
 
     DatabaseWrapper db = new DatabaseWrapper();
     private List<Plant> plantList;
+    private Plant tempPlant;
+    private PackSpawner packSpawner;
+    private bool packIsOpen = false;
+
     
     public override void _Ready()
     {
@@ -18,11 +23,22 @@ public partial class PackOpening : Button
         animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer"); 
         light = GetNode<Light2D>("PointLight2D"); 
         light.Visible = false; 
+        
+        sceneManager = GetNode<SceneManager>("../../SceneManager");
+        packSpawner = GetNode<PackSpawner>("../../../PackOpeningMinigame");
     }
 
     private void ButtonPressed()
     {
-        OpenPack();
+        if (packIsOpen == false)
+        {
+            packIsOpen = true;
+            OpenPack();
+        }
+        else
+        {
+            resetScene();
+        }
     }
 
     private void OpenPack()
@@ -50,7 +66,7 @@ public partial class PackOpening : Button
         tempPlant = plant;
     }
     
-    private Plant tempPlant;
+    
 
     private void OnAnimationFinished(StringName animName)
     {
@@ -83,6 +99,7 @@ public partial class PackOpening : Button
         Label plantNameLabel = GetNode<Label>("PlantLabel");
         plantNameLabel.Text = plantName;
         plantNameLabel.Visible = true; 
+        placePlant();
     }
     
     private void RemovePlantSprite()
@@ -93,5 +110,18 @@ public partial class PackOpening : Button
         {
             plantSprite.QueueFree(); 
         }
+    }
+
+    public void placePlant()
+    {
+        List<Plant> ownedPlants =  sceneManager.GetListOfOwnedPlants();
+        tempPlant.spawnPoint = ownedPlants.Count + 1;
+        ownedPlants.Add(tempPlant);
+       
+    }
+
+    public void resetScene()
+    {
+        packSpawner.resetScene();
     }
 }

@@ -1,23 +1,56 @@
 using Godot;
 using System;
+using System.Collections.Generic;
+
 
 public partial class PackSpawner : Node
 {
     PackedScene packPrefab = GD.Load<PackedScene>("res://Prefabs/pack_wrapper.tscn");
+    private Button button;
+    private Sprite2D sprite;
+    private bool packPaid = false;
+    private AnimationPlayer animationPlayer;
+    private int cost = 6;
+    private SceneManager sceneManager;
+    private PackedScene packedScene;
+    
 
     public override void _Ready()
     {
-        SpawnPacks(); 
+        sceneManager = GetNode<SceneManager>("SceneManager");
+        
+            GD.Print("AAAAAH");
+            button = GetNode<Button>("BuyPackButton");
+            button.Pressed += BuyPack;
+            animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer"); 
     }
 
+    public void BuyPack()
+    {
+        if (sceneManager.GetCoinCount() >= cost)
+        {
+            button.Disabled = true;
+            animationPlayer.Play("spawn_packAnimation");
+            animationPlayer.Connect("animation_finished", new Callable(this, nameof(OnAnimationFinished)), flags: (uint)ConnectFlags.OneShot);
+            sceneManager.SetCoinCount(sceneManager.GetCoinCount() - cost);
+        }
+        else
+        {
+            GD.Print("AAAAAH");
+        }
+    }
+    private void OnAnimationFinished(StringName animName)
+    {
+        if (animName == "spawn_packAnimation")
+        {
+           SpawnPacks();
+           sprite = GetNode<Sprite2D>("Sprite2D");
+           sprite.Visible = false;
+        }
+    }
     private void SpawnPacks()
     {
-       
-        for (int i = 1; i <= 3; i++)
-        {
-            string spawnerName = $"PackSpawner{i}";
-            SpawnPack(spawnerName); 
-        }
+        SpawnPack("PackSpawner"); 
     }
 
     private void SpawnPack(string spawnerName)
@@ -32,9 +65,17 @@ public partial class PackSpawner : Node
         {
            
             packWrapper.GlobalPosition = prePlacedNode.GlobalPosition; 
-            packWrapper.Scale = new Vector2(4, 4); 
+            packWrapper.Scale = new Vector2(8f, 8f); 
+            packWrapper.Name = "SpawnedPack";
 
             packWrapper.Rotation = prePlacedNode.Rotation; 
         }
+    }
+
+    public void resetScene()
+    {
+        var packWrapper = GetNode<Node2D>("SpawnedPack");
+        packWrapper.QueueFree();
+        button.Disabled = false;
     }
 }

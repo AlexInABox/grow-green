@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://dngxj2nmneraf"]
+[gd_scene load_steps=10 format=3 uid="uid://b18ydjx3thpux"]
 
 [ext_resource type="Script" path="res://Scripts/PackOpening.cs" id="1_lxgxv"]
 [ext_resource type="Texture2D" uid="uid://dhun4gb3o56m" path="res://Textures/Packs/pack_plant.png" id="2_0dkdr"]
 [ext_resource type="Texture2D" uid="uid://dchis331cpnnw" path="res://Textures/Plants/agave3.png" id="3_xj221"]
 [ext_resource type="Texture2D" uid="uid://buqy5h6r8xf4y" path="res://Textures/Pots/default.png" id="4_641pv"]
 [ext_resource type="Texture2D" uid="uid://17jsurkaucrc" path="res://Textures/Packs/light_texture.png" id="5_d0404"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hv1eh"]
 
 [sub_resource type="Animation" id="Animation_hqd08"]
 resource_name = "OpenPackAnimation"
@@ -49,6 +51,7 @@ offset_left = -21.0
 offset_top = -33.0
 offset_right = 21.0
 offset_bottom = 33.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hv1eh")
 flat = true
 script = ExtResource("1_lxgxv")
 
@@ -83,8 +86,8 @@ libraries = {
 [node name="PlantLabel" type="Label" parent="Button"]
 layout_mode = 0
 offset_left = -100.0
-offset_top = -18.0
+offset_top = -7.0
 offset_right = 142.0
-offset_bottom = -1.0
+offset_bottom = 16.0
 horizontal_alignment = 1
 vertical_alignment = 2
