@@ -1,5 +1,6 @@
-[gd_scene load_steps=25 format=3 uid="uid://c3ka4p1d1y4t5"]
+[gd_scene load_steps=27 format=3 uid="uid://c3ka4p1d1y4t5"]
 
+[ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_7qpdi"]
 [ext_resource type="Texture2D" uid="uid://bjqyte70oshda" path="res://Textures/Backgrounds/minigames_3.png" id="1_oqn6f"]
 [ext_resource type="Texture2D" uid="uid://nwx0qpsthetn" path="res://Textures/Minigames/pack_plant.png" id="2_kv6bd"]
 [ext_resource type="Texture2D" uid="uid://bmpnx8afa8exa" path="res://Textures/Icons/exit.png" id="2_rs3lo"]
@@ -8,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b8lg04hcutagf" path="res://Textures/Minigames/memory.png" id="4_b10us"]
 [ext_resource type="Script" path="res://Scripts/MinigameScene/PotPackButton.cs" id="5_k6e4j"]
 [ext_resource type="Script" path="res://Scripts/MinigameScene/LeaveButton.cs" id="6_lpels"]
+[ext_resource type="Script" path="res://Scripts/MinigameScene/MemoryButton.cs" id="8_i3mos"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mple7"]
 
@@ -62,6 +64,9 @@ modulate_color = Color(0, 0, 0, 1)
 texture = ExtResource("2_rs3lo")
 
 [node name="MinigameSzene" type="Node2D"]
+
+[node name="SceneManager" type="Node" parent="."]
+script = ExtResource("1_7qpdi")
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -13
@@ -190,6 +195,7 @@ theme_override_styles/focus = SubResource("StyleBoxTexture_trylj")
 theme_override_styles/hover = SubResource("StyleBoxTexture_cqvuy")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_1xrbe")
 theme_override_styles/normal = SubResource("StyleBoxTexture_spe71")
+script = ExtResource("8_i3mos")
 
 [node name="MemoryLabel" type="Label" parent="MemoryButton"]
 z_index = 5
@@ -210,10 +216,10 @@ text = "MEMORY"
 horizontal_alignment = 1
 
 [node name="Leave Button" type="Button" parent="."]
-offset_left = 12.0
-offset_top = 2.0
-offset_right = 162.0
-offset_bottom = 149.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 155.0
+offset_bottom = 152.0
 theme_override_styles/focus = SubResource("StyleBoxTexture_r2k7n")
 theme_override_styles/hover = SubResource("StyleBoxTexture_hlbnx")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_7fam1")
