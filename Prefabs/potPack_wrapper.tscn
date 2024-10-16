@@ -1,0 +1,86 @@
+[gd_scene load_steps=9 format=3 uid="uid://bko6lyl6yif7h"]
+
+[ext_resource type="Script" path="res://Scripts/PlantPack/PotPackOpening.cs" id="1_tmvr2"]
+[ext_resource type="Texture2D" uid="uid://pcf5h0l5c27c" path="res://Textures/Packs/pack_pot_overpowered.png" id="2_6blbi"]
+[ext_resource type="Texture2D" uid="uid://buqy5h6r8xf4y" path="res://Textures/Pots/default.png" id="4_v2ma1"]
+[ext_resource type="Texture2D" uid="uid://17jsurkaucrc" path="res://Textures/Packs/light_texture.png" id="5_uf58l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hv1eh"]
+
+[sub_resource type="Animation" id="Animation_hqd08"]
+resource_name = "OpenPackAnimation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 16.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_t3xrx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a0acs"]
+_data = {
+"OpenPackAnimation": SubResource("Animation_hqd08"),
+"RESET": SubResource("Animation_t3xrx")
+}
+
+[node name="PotPackOpening" type="Node2D"]
+
+[node name="Button" type="Button" parent="."]
+offset_left = -21.0
+offset_top = -33.0
+offset_right = 21.0
+offset_bottom = 33.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hv1eh")
+flat = true
+script = ExtResource("1_tmvr2")
+
+[node name="PackSprite" type="Sprite2D" parent="Button"]
+z_index = 3
+position = Vector2(21, 33)
+texture = ExtResource("2_6blbi")
+
+[node name="PotSprite" type="Sprite2D" parent="Button"]
+z_index = 1
+position = Vector2(21, 33)
+scale = Vector2(2, 2)
+texture = ExtResource("4_v2ma1")
+
+[node name="PointLight2D" type="PointLight2D" parent="Button"]
+position = Vector2(21, 35)
+scale = Vector2(0.2, 0.2)
+energy = 0.0
+texture = ExtResource("5_uf58l")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Button"]
+libraries = {
+"": SubResource("AnimationLibrary_a0acs")
+}
+
+[node name="PotLabel" type="Label" parent="Button"]
+layout_mode = 0
+offset_left = -100.0
+offset_top = -7.0
+offset_right = 142.0
+offset_bottom = 16.0
+horizontal_alignment = 1
+vertical_alignment = 2
