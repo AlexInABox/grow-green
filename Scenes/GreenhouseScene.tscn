@@ -1,8 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://ugsc2f4iavka"]
+[gd_scene load_steps=11 format=3 uid="uid://teexgk7q8m1u"]
 
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_e7yyb"]
 [ext_resource type="Script" path="res://Scripts/GreenhouseScene.cs" id="2_k45pb"]
-[ext_resource type="Theme" uid="uid://cfugb2jgj3yj0" path="res://Themes/spawnPointButton.tres" id="3_m11i8"]
+[ext_resource type="Theme" path="res://Themes/spawnPointButton.tres" id="3_m11i8"]
 [ext_resource type="Texture2D" uid="uid://cmxfcly5l04y" path="res://Textures/Backgrounds/greenhouse.png" id="4_yh1it"]
 [ext_resource type="Script" path="res://Scripts/LeaveGreenhouseButton.cs" id="10_0w0d6"]
 [ext_resource type="Texture2D" uid="uid://bmpnx8afa8exa" path="res://Textures/Icons/exit.png" id="28_3cq27"]
@@ -20,7 +20,7 @@ modulate_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o6bub"]
 texture = ExtResource("28_3cq27")
 
-[node name="MainSzene" type="Node2D"]
+[node name="Greenhouse" type="Node2D"]
 
 [node name="SceneManager" type="Node" parent="."]
 script = ExtResource("1_e7yyb")
