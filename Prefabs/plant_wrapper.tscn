@@ -1,14 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://f57aqowuk20c"]
+[gd_scene load_steps=12 format=3 uid="uid://f57aqowuk20c"]
 
 [ext_resource type="Script" path="res://Scripts/PlantWrapper.cs" id="1_8i3x8"]
 [ext_resource type="Texture2D" uid="uid://bolbgwu7dq3r4" path="res://Textures/Icons/pixel-speech-bubble.png" id="1_a8rmt"]
 [ext_resource type="Texture2D" uid="uid://buqy5h6r8xf4y" path="res://Textures/Pots/default.png" id="1_tugmu"]
 [ext_resource type="Texture2D" uid="uid://da633vcabsr6c" path="res://Textures/Buttons/UI_Flat_Bar13a.png" id="2_i72dl"]
-[ext_resource type="Theme" uid="uid://dysu6ugv7ou7b" path="res://Themes/statusBubbleFont.tres" id="2_kxr6s"]
+[ext_resource type="Theme" uid="uid://01ekva1ut6b7" path="res://Themes/statusBubbleFont.tres" id="2_kxr6s"]
 [ext_resource type="Texture2D" uid="uid://ccsfu0hghjlhp" path="res://Textures/PlantStatsBubble/bubble_left.png" id="2_pei0a"]
 [ext_resource type="Texture2D" uid="uid://dhjxjrt06dph4" path="res://Textures/Plants/agave2.png" id="2_wrp6y"]
 [ext_resource type="Theme" uid="uid://bik6akg25n2fr" path="res://Themes/plant_location_button.tres" id="4_42ljx"]
 [ext_resource type="Script" path="res://Scripts/PlantButton.cs" id="5_o0u11"]
+[ext_resource type="Texture2D" uid="uid://co7qexqwpgpd" path="res://Textures/Icons/bubble_right.png" id="6_nxnn5"]
 [ext_resource type="Texture2D" uid="uid://diyxfvakykl1u" path="res://Textures/Buttons/UI_Flat_Bar08a.png" id="7_oyynb"]
 
 [node name="plant_wrapper" type="Node2D"]
@@ -17,6 +18,8 @@ script = ExtResource("1_8i3x8")
 
 [node name="statusBubble" type="Sprite2D" parent="."]
 visible = false
+z_index = 100
+z_as_relative = false
 position = Vector2(23.25, -18.875)
 scale = Vector2(1.525, 1.525)
 texture = ExtResource("2_pei0a")
@@ -31,13 +34,16 @@ theme = ExtResource("2_kxr6s")
 text = "Wachstum:"
 
 [node name="waterLevelLabel" type="Label" parent="statusBubble"]
+z_index = 20
 offset_left = -15.8197
-offset_top = -1.09707
+offset_top = -1.39344
 offset_right = 198.18
-offset_bottom = 40.9029
+offset_bottom = 40.6066
 scale = Vector2(0.09, 0.09)
 theme = ExtResource("2_kxr6s")
 text = "Wasserstand:"
+justification_flags = 131
+clip_text = true
 
 [node name="growProgressWrapper" type="Node2D" parent="statusBubble"]
 position = Vector2(9.302, -4.26229)
@@ -69,8 +75,68 @@ color = Color(0.289024, 0.721667, 0, 1)
 scale = Vector2(1.76923, 1.76923)
 texture = ExtResource("7_oyynb")
 
+[node name="statusBubbleLeft" type="Sprite2D" parent="."]
+visible = false
+z_index = 100
+z_as_relative = false
+position = Vector2(-22, -19)
+scale = Vector2(1.525, 1.525)
+texture = ExtResource("6_nxnn5")
+
+[node name="growProgressLabel" type="Label" parent="statusBubbleLeft"]
+offset_left = -15.9836
+offset_top = -5.98361
+offset_right = 154.016
+offset_bottom = 36.0164
+scale = Vector2(0.09, 0.09)
+theme = ExtResource("2_kxr6s")
+text = "Wachstum:"
+
+[node name="waterLevelLabel" type="Label" parent="statusBubbleLeft"]
+z_index = 20
+offset_left = -15.8197
+offset_top = -1.39344
+offset_right = 198.18
+offset_bottom = 40.6066
+scale = Vector2(0.09, 0.09)
+theme = ExtResource("2_kxr6s")
+text = "Wasserstand:"
+justification_flags = 131
+clip_text = true
+
+[node name="growProgressWrapper" type="Node2D" parent="statusBubbleLeft"]
+position = Vector2(9.302, -4.26229)
+scale = Vector2(0.16, 0.16)
+
+[node name="ColorRect" type="ColorRect" parent="statusBubbleLeft/growProgressWrapper"]
+offset_left = -33.0
+offset_top = -5.9
+offset_right = 33.0
+offset_bottom = 3.55
+color = Color(0.289024, 0.721667, 0, 1)
+
+[node name="UiFlatBar13a" type="Sprite2D" parent="statusBubbleLeft/growProgressWrapper"]
+scale = Vector2(2.35897, 2.35897)
+texture = ExtResource("2_i72dl")
+
+[node name="waterLevelWrapper" type="Node2D" parent="statusBubbleLeft"]
+position = Vector2(10.807, 0.574)
+scale = Vector2(0.16, 0.16)
+
+[node name="ColorRect" type="ColorRect" parent="statusBubbleLeft/waterLevelWrapper"]
+offset_left = -23.0
+offset_top = -3.55
+offset_right = 23.0
+offset_bottom = 3.535
+color = Color(0.289024, 0.721667, 0, 1)
+
+[node name="UiFlatBar08a" type="Sprite2D" parent="statusBubbleLeft/waterLevelWrapper"]
+scale = Vector2(1.76923, 1.76923)
+texture = ExtResource("7_oyynb")
+
 [node name="oldStatusBubble" type="Sprite2D" parent="."]
 visible = false
+z_index = 100
 position = Vector2(82.25, -17.625)
 scale = Vector2(0.195, 0.195)
 texture = ExtResource("1_a8rmt")

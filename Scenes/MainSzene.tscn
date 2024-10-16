@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_06be7"]
 [ext_resource type="Texture2D" uid="uid://da3gby3k4mva" path="res://Textures/Backgrounds/HOUSE.png" id="1_bo6pn"]
 [ext_resource type="Script" path="res://Scripts/MainSzene.cs" id="1_rm010"]
-[ext_resource type="Theme" path="res://Themes/spawnPointButton.tres" id="3_fd3ii"]
+[ext_resource type="Theme" uid="uid://cfugb2jgj3yj0" path="res://Themes/spawnPointButton.tres" id="3_fd3ii"]
 [ext_resource type="Texture2D" uid="uid://k1nlupvlorva" path="res://Textures/Icons/Icons/MinigamesIcon.png" id="4_wnhev"]
 [ext_resource type="Script" path="res://Scripts/ShopButton.cs" id="5_fepxd"]
 [ext_resource type="Script" path="res://Scripts/LoadPictures.cs" id="5_ggw0u"]
@@ -653,9 +653,9 @@ scale = Vector2(4, 4)
 texture = ExtResource("25_d2n01")
 
 [node name="Leave Button" type="Button" parent="."]
-offset_left = 40.0
+offset_left = 5.0
 offset_top = 5.0
-offset_right = 190.0
+offset_right = 155.0
 offset_bottom = 155.0
 theme_override_styles/focus = SubResource("StyleBoxTexture_vryx4")
 theme_override_styles/hover = SubResource("StyleBoxTexture_6gh1e")

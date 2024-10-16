@@ -1,11 +1,13 @@
-[gd_scene load_steps=24 format=3 uid="uid://dsaewohprj4cb"]
+[gd_scene load_steps=25 format=3 uid="uid://c3ka4p1d1y4t5"]
 
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_7qpdi"]
 [ext_resource type="Texture2D" uid="uid://bjqyte70oshda" path="res://Textures/Backgrounds/minigames_3.png" id="1_oqn6f"]
 [ext_resource type="Texture2D" uid="uid://nwx0qpsthetn" path="res://Textures/Minigames/pack_plant.png" id="2_kv6bd"]
 [ext_resource type="Texture2D" uid="uid://bmpnx8afa8exa" path="res://Textures/Icons/exit.png" id="2_rs3lo"]
 [ext_resource type="Texture2D" uid="uid://dwo8i83ib3xpw" path="res://Textures/Minigames/pack_pot_overpowered.png" id="3_dufge"]
+[ext_resource type="Script" path="res://Scripts/MinigameScene/PlantPackButton.cs" id="3_xv58d"]
 [ext_resource type="Texture2D" uid="uid://b8lg04hcutagf" path="res://Textures/Minigames/memory.png" id="4_b10us"]
+[ext_resource type="Script" path="res://Scripts/MinigameScene/PotPackButton.cs" id="5_k6e4j"]
 [ext_resource type="Script" path="res://Scripts/MinigameScene/LeaveButton.cs" id="6_lpels"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mple7"]
@@ -97,6 +99,7 @@ theme_override_styles/focus = SubResource("StyleBoxTexture_mple7")
 theme_override_styles/hover = SubResource("StyleBoxTexture_46kwo")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_rob2d")
 theme_override_styles/normal = SubResource("StyleBoxTexture_kbwg2")
+script = ExtResource("3_xv58d")
 
 [node name="PlantLabel" type="Label" parent="PlantPackButton"]
 z_index = 5
@@ -143,6 +146,7 @@ theme_override_styles/focus = SubResource("StyleBoxTexture_qocfs")
 theme_override_styles/hover = SubResource("StyleBoxTexture_0dm85")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_s4bp0")
 theme_override_styles/normal = SubResource("StyleBoxTexture_lj1qr")
+script = ExtResource("5_k6e4j")
 
 [node name="PotLabel" type="Label" parent="PotPackButton"]
 z_index = 5
