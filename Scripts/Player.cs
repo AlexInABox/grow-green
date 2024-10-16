@@ -13,16 +13,7 @@ public partial class Player : Node
     public Player(){ //Development
         this.username = "Söder";
         this.listOfOwnedPlants = new List<Plant>();
-        this.listOfOwnedPlants.Add(new Plant(1));
-        this.listOfOwnedPlants.Add(new Plant(2));
-        this.listOfOwnedPlants.Add(new Plant(3));
-        this.listOfOwnedPlants.Add(new Plant(4));
         this.listOfOwnedPots = new List<Pot>();
-        this.listOfOwnedPots.Add(new Pot());
-        this.listOfOwnedPots.Add(new Pot("minecraft_chicken", 10));
-        this.listOfOwnedPots.Add(new Pot("skin_rainbow", 3));
-        this.listOfOwnedPots.Add(new Pot("skin_germany", 5));
-        this.listOfOwnedPots.Add(new Pot("skin_gold", 10));
         this.coins = 1000;
         this.characterId = 1;
     }
@@ -30,16 +21,7 @@ public partial class Player : Node
     public Player(int characterId){ //New User Created
         this.username = "";
         this.listOfOwnedPlants = new List<Plant>();
-        this.listOfOwnedPlants.Add(new Plant(1));
-        this.listOfOwnedPlants.Add(new Plant(2));
-        this.listOfOwnedPlants.Add(new Plant(3));
-        this.listOfOwnedPlants.Add(new Plant(4));
         this.listOfOwnedPots = new List<Pot>();
-        this.listOfOwnedPots.Add(new Pot());
-        this.listOfOwnedPots.Add(new Pot("minecraft_chicken", 10));
-        this.listOfOwnedPots.Add(new Pot("skin_rainbow", 3));
-        this.listOfOwnedPots.Add(new Pot("skin_germany", 5));
-        this.listOfOwnedPots.Add(new Pot("skin_gold", 10));
         this.coins = 1000;
         this.characterId = characterId;
     }
