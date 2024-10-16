@@ -1,0 +1,479 @@
+[gd_scene load_steps=21 format=3 uid="uid://bw3kut5wbjfo4"]
+
+[ext_resource type="Texture2D" uid="uid://b0xn5p6hrrc72" path="res://Textures/Minigames/Memory/memory_hard.png" id="1_yv3h6"]
+[ext_resource type="Texture2D" uid="uid://bmpnx8afa8exa" path="res://Textures/Icons/exit.png" id="2_gpmhj"]
+[ext_resource type="Script" path="res://Scripts/MinigameScene/LeaveButton.cs" id="3_dk0nl"]
+[ext_resource type="Texture2D" uid="uid://cwmcku57erkoe" path="res://Textures/Minigames/Memory/memory_stack_02.png" id="4_kfvcd"]
+[ext_resource type="Texture2D" uid="uid://by61x6blxdcqg" path="res://Textures/Minigames/Memory/memory_back.png" id="5_e6wo4"]
+[ext_resource type="Texture2D" uid="uid://hvstyjr2v4ge" path="res://Textures/Minigames/Memory/memory_stack_04.png" id="5_ws82l"]
+[ext_resource type="Texture2D" uid="uid://btw0uso7m7bk2" path="res://Textures/Minigames/Memory/memory_stack_06.png" id="6_msxyo"]
+[ext_resource type="Texture2D" uid="uid://c4lbcdc4d44wu" path="res://Textures/Minigames/Memory/memory_stack_08.png" id="7_ui0l7"]
+[ext_resource type="Texture2D" uid="uid://bq1jne5po6fyd" path="res://Textures/Minigames/Memory/memory_stack_10.png" id="8_pbi84"]
+[ext_resource type="Texture2D" uid="uid://o62ss01e6u7k" path="res://Textures/Minigames/Memory/memory_stack_12.png" id="9_202dj"]
+[ext_resource type="Texture2D" uid="uid://oa8wf4yb58y5" path="res://Textures/Minigames/Memory/memory_stack_14.png" id="10_q212m"]
+[ext_resource type="Texture2D" uid="uid://cmjwu87w4bt4o" path="res://Textures/Minigames/Memory/memory_stack_16.png" id="11_ipfty"]
+[ext_resource type="Texture2D" uid="uid://bh4162umwig6h" path="res://Textures/Minigames/Memory/memory_stack_18.png" id="12_quf6v"]
+[ext_resource type="Texture2D" uid="uid://dkvqkqu0rfq5" path="res://Textures/Minigames/Memory/memory_stack_22.png" id="13_gx5n3"]
+[ext_resource type="Texture2D" uid="uid://2hkqlf5p44ls" path="res://Textures/Minigames/Memory/memory_stack_24.png" id="14_4146l"]
+[ext_resource type="Theme" uid="uid://cxgao5s1phj5n" path="res://Themes/mainMenuButtons.tres" id="15_ccxal"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wn6tn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_plkbw"]
+texture = ExtResource("2_gpmhj")
+modulate_color = Color(0.470076, 0.470076, 0.470076, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_73sbx"]
+texture = ExtResource("2_gpmhj")
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h818j"]
+texture = ExtResource("2_gpmhj")
+
+[node name="MemorySzeneVeryHard" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(12, 12)
+texture = ExtResource("1_yv3h6")
+centered = false
+
+[node name="MemoryLabel" type="Label" parent="."]
+z_index = 5
+custom_minimum_size = Vector2(100, 50)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 710.0
+offset_top = -1.0
+offset_right = 1215.0
+offset_bottom = 150.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.305882, 0.65098, 0.529412, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 150
+text = "MEMORY"
+horizontal_alignment = 1
+
+[node name="Leave Button" type="Button" parent="."]
+offset_left = 12.0
+offset_top = 2.0
+offset_right = 162.0
+offset_bottom = 149.0
+theme_override_styles/focus = SubResource("StyleBoxTexture_wn6tn")
+theme_override_styles/hover = SubResource("StyleBoxTexture_plkbw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_73sbx")
+theme_override_styles/normal = SubResource("StyleBoxTexture_h818j")
+script = ExtResource("3_dk0nl")
+
+[node name="EasyButton" type="Button" parent="."]
+offset_left = 1656.0
+offset_top = 221.0
+offset_right = 1852.0
+offset_bottom = 309.0
+theme = ExtResource("15_ccxal")
+text = "EASY"
+
+[node name="MediumButton" type="Button" parent="."]
+offset_left = 1651.0
+offset_top = 329.0
+offset_right = 1859.0
+offset_bottom = 417.0
+theme = ExtResource("15_ccxal")
+text = "MEDIUM"
+
+[node name="HardButton" type="Button" parent="."]
+offset_left = 1656.0
+offset_top = 436.0
+offset_right = 1852.0
+offset_bottom = 524.0
+theme = ExtResource("15_ccxal")
+disabled = true
+text = "HARD"
+
+[node name="CardWrapper" type="Node" parent="."]
+
+[node name="A1" type="Node2D" parent="CardWrapper"]
+position = Vector2(522, 294)
+
+[node name="Button" type="Button" parent="CardWrapper/A1"]
+offset_left = -90.0
+offset_top = -90.0
+offset_right = 90.0
+offset_bottom = 90.0
+
+[node name="MemoryBack" type="Sprite2D" parent="CardWrapper/A1"]
+scale = Vector2(15, 15)
+texture = ExtResource("5_e6wo4")
+
+[node name="A2" type="Node2D" parent="CardWrapper"]
+position = Vector2(522, 498)
+
+[node name="Button" type="Button" parent="CardWrapper/A2"]
+offset_left = -90.0
+offset_top = -90.0
+offset_right = 90.0
+offset_bottom = 90.0
+
+[node name="MemoryBack" type="Sprite2D" parent="CardWrapper/A2"]
+scale = Vector2(15, 15)
+texture = ExtResource("5_e6wo4")
+
+[node name="A3" type="Node2D" parent="CardWrapper"]
+position = Vector2(522, 702)
+
+[node name="Button" type="Button" parent="CardWrapper/A3"]
+offset_left = -90.0
+offset_top = -90.0
+offset_right = 90.0
+offset_bottom = 90.0
+
+[node name="MemoryBack" type="Sprite2D" parent="CardWrapper/A3"]
+scale = Vector2(15, 15)
+texture = ExtResource("5_e6wo4")
+
+[node name="A4" type="Node2D" parent="CardWrapper"]
+position = Vector2(522, 906)
+
+[node name="Button" type="Button" parent="CardWrapper/A4"]
+offset_left = -90.0
+offset_top = -90.0
+offset_right = 90.0
+offset_bottom = 90.0
+
+[node name="MemoryBack" type="Sprite2D" parent="CardWrapper/A4"]
+scale = Vector2(15, 15)
+texture = ExtResource("5_e6wo4")
+
+[node name="B1" type="Node2D" parent="CardWrapper"]
+position = Vector2(726, 294)
+
+[node name="Button" type="Button" parent="CardWrapper/B1"]
+offset_left = -90.0
+offset_top = -90.0
+offset_right = 90.0
+offset_bottom = 90.0
+
+[node name="MemoryBack" type="Sprite2D" parent="CardWrapper/B1"]
+scale = Vector2(15, 15)
+texture = ExtResource("5_e6wo4")
+
+[node name="B2" type="Node2D" parent="CardWrapper"]
+position = Vector2(726, 498)
+
+[node name="Button" type="Button" parent="CardWrapper/B2"]
+offset_left = -90.0
+offset_top = -90.0
+offset_right = 90.0
+offset_bottom = 90.0
+
+[node name="MemoryBack" type="Sprite2D" parent="CardWrapper/B2"]
+scale = Vector2(15, 15)
+texture = ExtResource("5_e6wo4")
+
+[node name="B3" type="Node2D" parent="CardWrapper"]
+position = Vector2(726, 702)
+
+[node name="Button" type="Button" parent="CardWrapper/B3"]
+offset_left = -90.0
+offset_top = -90.0
+offset_right = 90.0
+offset_bottom = 90.0
+
+[node name="MemoryBack" type="Sprite2D" parent="CardWrapper/B3"]
+scale = Vector2(15, 15)
+texture = ExtResource("5_e6wo4")
+
+[node name="B4" type="Node2D" parent="CardWrapper"]
+position = Vector2(726, 906)
+
+[node name="Button" type="Button" parent="CardWrapper/B4"]
+offset_left = -90.0
+offset_top = -90.0
+offset_right = 90.0
+offset_bottom = 90.0
+
+[node name="MemoryBack" type="Sprite2D" parent="CardWrapper/B4"]
+scale = Vector2(15, 15)
+texture = ExtResource("5_e6wo4")
+
+[node name="C1" type="Node2D" parent="CardWrapper"]
+position = Vector2(930, 294)
+
+[node name="Button" type="Button" parent="CardWrapper/C1"]
+offset_left = -90.0
+offset_top = -90.0
+offset_right = 90.0
+offset_bottom = 90.0
+
+[node name="MemoryBack" type="Sprite2D" parent="CardWrapper/C1"]
+scale = Vector2(15, 15)
+texture = ExtResource("5_e6wo4")
+
+[node name="C2" type="Node2D" parent="CardWrapper"]
+position = Vector2(930, 498)
+
+[node name="Button" type="Button" parent="CardWrapper/C2"]
+offset_left = -90.0
+offset_top = -90.0
+offset_right = 90.0
+offset_bottom = 90.0
+
+[node name="MemoryBack" type="Sprite2D" parent="CardWrapper/C2"]
+scale = Vector2(15, 15)
+texture = ExtResource("5_e6wo4")
+
+[node name="C3" type="Node2D" parent="CardWrapper"]
+position = Vector2(930, 702)
+
+[node name="Button" type="Button" parent="CardWrapper/C3"]
+offset_left = -90.0
+offset_top = -90.0
+offset_right = 90.0
+offset_bottom = 90.0
+
+[node name="MemoryBack" type="Sprite2D" parent="CardWrapper/C3"]
+scale = Vector2(15, 15)
+texture = ExtResource("5_e6wo4")
+
+[node name="C4" type="Node2D" parent="CardWrapper"]
+position = Vector2(930, 906)
+
+[node name="Button" type="Button" parent="CardWrapper/C4"]
+offset_left = -90.0
+offset_top = -90.0
+offset_right = 90.0
+offset_bottom = 90.0
+
+[node name="MemoryBack" type="Sprite2D" parent="CardWrapper/C4"]
+scale = Vector2(15, 15)
+texture = ExtResource("5_e6wo4")
+
+[node name="D1" type="Node2D" parent="CardWrapper"]
+position = Vector2(1134, 294)
+
+[node name="Button" type="Button" parent="CardWrapper/D1"]
+offset_left = -90.0
+offset_top = -90.0
+offset_right = 90.0
+offset_bottom = 90.0
+
+[node name="MemoryBack" type="Sprite2D" parent="CardWrapper/D1"]
+scale = Vector2(15, 15)
+texture = ExtResource("5_e6wo4")
+
+[node name="D2" type="Node2D" parent="CardWrapper"]
+position = Vector2(1134, 498)
+
+[node name="Button" type="Button" parent="CardWrapper/D2"]
+offset_left = -90.0
+offset_top = -90.0
+offset_right = 90.0
+offset_bottom = 90.0
+
+[node name="MemoryBack" type="Sprite2D" parent="CardWrapper/D2"]
+scale = Vector2(15, 15)
+texture = ExtResource("5_e6wo4")
+
+[node name="D3" type="Node2D" parent="CardWrapper"]
+position = Vector2(1134, 702)
+
+[node name="Button" type="Button" parent="CardWrapper/D3"]
+offset_left = -90.0
+offset_top = -90.0
+offset_right = 90.0
+offset_bottom = 90.0
+
+[node name="MemoryBack" type="Sprite2D" parent="CardWrapper/D3"]
+scale = Vector2(15, 15)
+texture = ExtResource("5_e6wo4")
+
+[node name="D4" type="Node2D" parent="CardWrapper"]
+position = Vector2(1134, 906)
+
+[node name="Button" type="Button" parent="CardWrapper/D4"]
+offset_left = -90.0
+offset_top = -90.0
+offset_right = 90.0
+offset_bottom = 90.0
+
+[node name="MemoryBack" type="Sprite2D" parent="CardWrapper/D4"]
+scale = Vector2(15, 15)
+texture = ExtResource("5_e6wo4")
+
+[node name="E1" type="Node2D" parent="CardWrapper"]
+position = Vector2(1338, 294)
+
+[node name="Button" type="Button" parent="CardWrapper/E1"]
+offset_left = -90.0
+offset_top = -90.0
+offset_right = 90.0
+offset_bottom = 90.0
+
+[node name="MemoryBack" type="Sprite2D" parent="CardWrapper/E1"]
+scale = Vector2(15, 15)
+texture = ExtResource("5_e6wo4")
+
+[node name="E2" type="Node2D" parent="CardWrapper"]
+position = Vector2(1338, 498)
+
+[node name="Button" type="Button" parent="CardWrapper/E2"]
+offset_left = -90.0
+offset_top = -90.0
+offset_right = 90.0
+offset_bottom = 90.0
+
+[node name="MemoryBack" type="Sprite2D" parent="CardWrapper/E2"]
+scale = Vector2(15, 15)
+texture = ExtResource("5_e6wo4")
+
+[node name="E3" type="Node2D" parent="CardWrapper"]
+position = Vector2(1338, 702)
+
+[node name="Button" type="Button" parent="CardWrapper/E3"]
+offset_left = -90.0
+offset_top = -90.0
+offset_right = 90.0
+offset_bottom = 90.0
+
+[node name="MemoryBack" type="Sprite2D" parent="CardWrapper/E3"]
+scale = Vector2(15, 15)
+texture = ExtResource("5_e6wo4")
+
+[node name="E4" type="Node2D" parent="CardWrapper"]
+position = Vector2(1338, 906)
+
+[node name="Button" type="Button" parent="CardWrapper/E4"]
+offset_left = -90.0
+offset_top = -90.0
+offset_right = 90.0
+offset_bottom = 90.0
+
+[node name="MemoryBack" type="Sprite2D" parent="CardWrapper/E4"]
+scale = Vector2(15, 15)
+texture = ExtResource("5_e6wo4")
+
+[node name="F1" type="Node2D" parent="CardWrapper"]
+position = Vector2(1542, 294)
+
+[node name="Button" type="Button" parent="CardWrapper/F1"]
+offset_left = -90.0
+offset_top = -90.0
+offset_right = 90.0
+offset_bottom = 90.0
+
+[node name="MemoryBack" type="Sprite2D" parent="CardWrapper/F1"]
+scale = Vector2(15, 15)
+texture = ExtResource("5_e6wo4")
+
+[node name="F2" type="Node2D" parent="CardWrapper"]
+position = Vector2(1542, 498)
+
+[node name="Button" type="Button" parent="CardWrapper/F2"]
+offset_left = -90.0
+offset_top = -90.0
+offset_right = 90.0
+offset_bottom = 90.0
+
+[node name="MemoryBack" type="Sprite2D" parent="CardWrapper/F2"]
+scale = Vector2(15, 15)
+texture = ExtResource("5_e6wo4")
+
+[node name="F3" type="Node2D" parent="CardWrapper"]
+position = Vector2(1542, 702)
+
+[node name="Button" type="Button" parent="CardWrapper/F3"]
+offset_left = -90.0
+offset_top = -90.0
+offset_right = 90.0
+offset_bottom = 90.0
+
+[node name="MemoryBack" type="Sprite2D" parent="CardWrapper/F3"]
+scale = Vector2(15, 15)
+texture = ExtResource("5_e6wo4")
+
+[node name="F4" type="Node2D" parent="CardWrapper"]
+position = Vector2(1542, 906)
+
+[node name="Button" type="Button" parent="CardWrapper/F4"]
+offset_left = -90.0
+offset_top = -90.0
+offset_right = 90.0
+offset_bottom = 90.0
+
+[node name="MemoryBack" type="Sprite2D" parent="CardWrapper/F4"]
+scale = Vector2(15, 15)
+texture = ExtResource("5_e6wo4")
+
+[node name="WinWrapper" type="Node" parent="."]
+
+[node name="MemoryStack02" type="Sprite2D" parent="WinWrapper"]
+position = Vector2(12, 0)
+scale = Vector2(12, 12)
+texture = ExtResource("4_kfvcd")
+centered = false
+
+[node name="MemoryStack04" type="Sprite2D" parent="WinWrapper"]
+position = Vector2(12, 0)
+scale = Vector2(12, 12)
+texture = ExtResource("5_ws82l")
+centered = false
+
+[node name="MemoryStack06" type="Sprite2D" parent="WinWrapper"]
+position = Vector2(12, 0)
+scale = Vector2(12, 12)
+texture = ExtResource("6_msxyo")
+centered = false
+
+[node name="MemoryStack08" type="Sprite2D" parent="WinWrapper"]
+position = Vector2(12, 0)
+scale = Vector2(12, 12)
+texture = ExtResource("7_ui0l7")
+centered = false
+
+[node name="MemoryStack10" type="Sprite2D" parent="WinWrapper"]
+position = Vector2(12, 0)
+scale = Vector2(12, 12)
+texture = ExtResource("8_pbi84")
+centered = false
+
+[node name="MemoryStack12" type="Sprite2D" parent="WinWrapper"]
+position = Vector2(12, 0)
+scale = Vector2(12, 12)
+texture = ExtResource("9_202dj")
+centered = false
+
+[node name="MemoryStack14" type="Sprite2D" parent="WinWrapper"]
+position = Vector2(12, 0)
+scale = Vector2(12, 12)
+texture = ExtResource("10_q212m")
+centered = false
+
+[node name="MemoryStack16" type="Sprite2D" parent="WinWrapper"]
+position = Vector2(12, 0)
+scale = Vector2(12, 12)
+texture = ExtResource("11_ipfty")
+centered = false
+
+[node name="MemoryStack18" type="Sprite2D" parent="WinWrapper"]
+position = Vector2(12, 0)
+scale = Vector2(12, 12)
+texture = ExtResource("12_quf6v")
+centered = false
+
+[node name="MemoryStack20" type="Sprite2D" parent="WinWrapper"]
+position = Vector2(12, 0)
+scale = Vector2(12, 12)
+texture = ExtResource("13_gx5n3")
+centered = false
+
+[node name="MemoryStack22" type="Sprite2D" parent="WinWrapper"]
+position = Vector2(12, 0)
+scale = Vector2(12, 12)
+texture = ExtResource("10_q212m")
+centered = false
+
+[node name="MemoryStack24" type="Sprite2D" parent="WinWrapper"]
+position = Vector2(12, 0)
+scale = Vector2(12, 12)
+texture = ExtResource("14_4146l")
+centered = false
