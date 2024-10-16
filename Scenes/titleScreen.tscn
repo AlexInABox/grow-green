@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bp4pm6nyj77pp"]
+[gd_scene load_steps=24 format=3 uid="uid://bp4pm6nyj77pp"]
 
 [ext_resource type="Theme" uid="uid://cxgao5s1phj5n" path="res://Themes/mainMenuButtons.tres" id="1_0cr8b"]
 [ext_resource type="Script" path="res://Scripts/TitleSceneManager.cs" id="1_eympr"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://Scripts/CreditsButton.cs" id="7_pf44q"]
 [ext_resource type="Theme" uid="uid://dado8c3hcwn42" path="res://Themes/Title Panel.tres" id="7_wmu50"]
 [ext_resource type="Script" path="res://Scripts/CharacterSelection.cs" id="8_ouchp"]
+[ext_resource type="Theme" uid="uid://dmjhuaiflncfp" path="res://Themes/titleLabel.tres" id="9_83qmt"]
 [ext_resource type="Theme" uid="uid://cfkf1yvbfkdms" path="res://Themes/IconButtons.tres" id="11_fidcb"]
 [ext_resource type="Script" path="res://Scripts/AlienButton.cs" id="11_m1rrk"]
 [ext_resource type="Texture2D" uid="uid://bjx3snqfb17jy" path="res://Textures/Aliens/4_alien.png" id="14_vcq6k"]
@@ -93,18 +94,16 @@ position = Vector2(960, 157)
 scale = Vector2(12.71, 12.71)
 texture = ExtResource("7_e4g20")
 
-[node name="Label" type="Label" parent="UiFlatBanner01a"]
-offset_left = -17.3092
-offset_top = -1.8096
-offset_right = 1699.69
-offset_bottom = 399.19
-scale = Vector2(0.02, 0.02)
-theme = ExtResource("1_0cr8b")
-theme_override_colors/font_color = Color(0.288725, 0.183645, 0.0444823, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 400
+[node name="Title" type="Label" parent="."]
+z_index = 4096
+offset_left = 705.0
+offset_top = 127.0
+offset_right = 2422.0
+offset_bottom = 528.0
+rotation = -0.000544881
+scale = Vector2(0.3, 0.3)
+theme = ExtResource("9_83qmt")
 text = "GrowGreen"
-horizontal_alignment = 1
 
 [node name="Panel" type="Panel" parent="."]
 offset_left = 873.0
