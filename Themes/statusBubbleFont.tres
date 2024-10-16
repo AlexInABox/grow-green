@@ -1,9 +1,11 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dysu6ugv7ou7b"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://01ekva1ut6b7"]
 
 [ext_resource type="FontFile" uid="uid://16884th6cwds" path="res://Fonts/Jersey25-Regular.ttf" id="1_r3ho2"]
 
 [resource]
+default_base_scale = 1.0
 default_font = ExtResource("1_r3ho2")
+default_font_size = 41
 Label/colors/font_color = Color(0, 0, 0, 1)
 Label/font_sizes/font_size = 41
 Label/fonts/font = ExtResource("1_r3ho2")
