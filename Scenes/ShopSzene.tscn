@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/Shop/MediumPlantsContainer.cs" id="4_v6w1e"]
 [ext_resource type="Script" path="res://Scripts/Shop/HardPlantsContainer.cs" id="5_pl2fe"]
 [ext_resource type="Texture2D" uid="uid://bmpnx8afa8exa" path="res://Textures/Icons/exit.png" id="6_iq0d4"]
-[ext_resource type="PackedScene" uid="uid://d07rokqxx2fl3" path="res://Prefabs/coinDisplay_wrapper.tscn" id="8_fuq8i"]
+[ext_resource type="PackedScene" path="res://Prefabs/coinDisplay_wrapper.tscn" id="8_fuq8i"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ypfra"]
 

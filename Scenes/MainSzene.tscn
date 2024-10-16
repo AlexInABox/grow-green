@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://bpyrnacn0k78u"]
+[gd_scene load_steps=47 format=3 uid="uid://bqv77dvuy6ly0"]
 
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_06be7"]
 [ext_resource type="Texture2D" uid="uid://da3gby3k4mva" path="res://Textures/Backgrounds/HOUSE.png" id="1_bo6pn"]
