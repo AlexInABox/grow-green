@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://d07rokqxx2fl3"]
+
+[ext_resource type="Script" path="res://Scripts/Shop/CoinDisplayWrapper.cs" id="1_46l67"]
+[ext_resource type="Texture2D" uid="uid://ckt2lbmbvplv7" path="res://Textures/Coin2.png" id="2_s0ei6"]
+
+[node name="coinDisplay_wrapper" type="Node2D"]
+scale = Vector2(8, 8)
+script = ExtResource("1_46l67")
+
+[node name="CoinIcon" type="Sprite2D" parent="."]
+texture = ExtResource("2_s0ei6")
+
+[node name="CoinAmountLabel" type="Label" parent="."]
+offset_left = 6.0
+offset_top = -6.0
+offset_right = 52.0
+offset_bottom = 31.0
+scale = Vector2(0.335, 0.335)
+theme_override_font_sizes/font_size = 36
+text = "939"

@@ -31,7 +31,7 @@ public partial class Plant : Sprite2D
     ColorRect waterLevelBar;
 
 
-    public Plant() {
+    public Plant(int spawnPoint) {
         this.className = "Agave";
         this.plantName = "TestName";
         this.difficulty = "easy";
@@ -41,7 +41,7 @@ public partial class Plant : Sprite2D
         this.yield = 1;
         this.growRatePerDay = 10;
         this.pot = "minecraft_chicken";
-        this.spawnPoint = 1;
+        this.spawnPoint = spawnPoint;
 
         this.growProgress = 0.8;
         this.waterLevel = 50;

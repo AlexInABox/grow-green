@@ -20,15 +20,37 @@ public partial class PlantButton : Button
         myPlant.WaterPlant();
     }
 
-    private void ButtonHovered() {
-        //funky wunky
-        Node2D statusBubble = GetNode<Node2D>("../statusBubble");
-        statusBubble.Show();
+    private void ButtonHovered()
+    {
+        // Get the button's Y position
+        float buttonXPosition = GlobalPosition.X;
+        GD.Print(buttonXPosition);
+
+        Node2D statusBubbleA = GetNode<Node2D>("../statusBubble");
+        Node2D statusBubbleB = GetNode<Node2D>("../statusBubbleLeft");
+
+        // Hide both bubbles initially
+        statusBubbleA.Hide();
+        statusBubbleB.Hide();
+
+        // Display the appropriate bubble based on the Y position
+        if (buttonXPosition < 960)
+        {
+            statusBubbleA.Show(); // Show Bubble A
+        }
+        else
+        {
+            statusBubbleB.Show(); // Show Bubble B
+        }
     }
-    private void ButtonNotHoveredAnymore() {
-        //wittle weams
-        Node2D statusBubble = GetNode<Node2D>("../statusBubble");
-        statusBubble.Hide();
+
+    private void ButtonNotHoveredAnymore()
+    {
+        // Hide both bubbles when mouse exits
+        Node2D statusBubbleA = GetNode<Node2D>("../statusBubble");
+        Node2D statusBubbleB = GetNode<Node2D>("../statusBubbleLeft");
+        statusBubbleA.Hide();
+        statusBubbleB.Hide();
     }
 
 
