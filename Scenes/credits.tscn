@@ -3,21 +3,21 @@
 [ext_resource type="Texture2D" uid="uid://ibc4r6vtoalt" path="res://Textures/Backgrounds/creditsBackground.png" id="1_cyscu"]
 [ext_resource type="Theme" uid="uid://bpeipfjl440oy" path="res://Themes/creditsLabels.tres" id="2_ikdca"]
 [ext_resource type="FontFile" uid="uid://16884th6cwds" path="res://Fonts/Jersey25-Regular.ttf" id="3_m7drt"]
-[ext_resource type="Texture2D" uid="uid://dsc8agvtuqlwm" path="res://Textures/Icons/Icons/Exit.png" id="4_yclu3"]
+[ext_resource type="Texture2D" uid="uid://bmpnx8afa8exa" path="res://Textures/Icons/exit.png" id="4_vmane"]
 [ext_resource type="Script" path="res://Scripts/BackToTitleMenuButton.cs" id="5_4vofa"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kmjcv"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w4aif"]
-texture = ExtResource("4_yclu3")
+texture = ExtResource("4_vmane")
 modulate_color = Color(0.423651, 0.423651, 0.423651, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8c5wc"]
-texture = ExtResource("4_yclu3")
+texture = ExtResource("4_vmane")
 modulate_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qqxb1"]
-texture = ExtResource("4_yclu3")
+texture = ExtResource("4_vmane")
 
 [node name="Credits" type="Node2D"]
 
@@ -95,10 +95,10 @@ text = "Paperautor:               Maja Günther
                                  Theo Leuthardt"
 
 [node name="BackToTitleMenu" type="Button" parent="."]
-offset_left = 1710.0
-offset_top = 13.0
-offset_right = 1734.0
-offset_bottom = 37.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 29.0
+offset_bottom = 29.0
 scale = Vector2(8, 8)
 theme_override_styles/focus = SubResource("StyleBoxTexture_kmjcv")
 theme_override_styles/hover = SubResource("StyleBoxTexture_w4aif")
