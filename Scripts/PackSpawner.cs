@@ -23,6 +23,7 @@ public partial class PackSpawner : Node
             button = GetNode<Button>("BuyPackButton");
             button.Pressed += BuyPack;
             animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer"); 
+            
     }
 
     public void BuyPack()
@@ -30,22 +31,38 @@ public partial class PackSpawner : Node
         if (sceneManager.GetCoinCount() >= cost)
         {
             button.Disabled = true;
+
+            // Reset and Play the animation from the start.
+            animationPlayer.Stop();  // Ensure the animation is stopped before playing
             animationPlayer.Play("spawn_packAnimation");
-            animationPlayer.Connect("animation_finished", new Callable(this, nameof(OnAnimationFinished)), flags: (uint)ConnectFlags.OneShot);
+
+            // Connect signal if not already connected
+            if (!animationPlayer.IsConnected("animation_finished", new Callable(this, nameof(OnAnimationFinished))))
+            {
+                animationPlayer.Connect("animation_finished", new Callable(this, nameof(OnAnimationFinished)));
+            }
+
+            // Reduce coin count
             sceneManager.SetCoinCount(sceneManager.GetCoinCount() - cost);
         }
         else
         {
-            GD.Print("AAAAAH");
+            GD.Print("Not enough coins");
         }
     }
+
+
+
     private void OnAnimationFinished(StringName animName)
     {
         if (animName == "spawn_packAnimation")
         {
-           SpawnPacks();
-           sprite = GetNode<Sprite2D>("Sprite2D");
-           sprite.Visible = false;
+            SpawnPacks();
+
+            sprite = GetNode<Sprite2D>("Sprite2D");
+            sprite.Visible = false;
+
+            // Reset or clean up any other state if necessary
         }
     }
     private void SpawnPacks()

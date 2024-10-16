@@ -28,7 +28,9 @@ public partial class Plant : Sprite2D
 
     //status bubble stuff
     ColorRect growProgressBar;
+    ColorRect growProgressBarL;
     ColorRect waterLevelBar;
+    ColorRect waterLevelBarL;
 
 
     public Plant(int spawnPoint) {
@@ -100,7 +102,9 @@ public partial class Plant : Sprite2D
         //GD.Print(GetParent().GetTreeStringPretty());
 
         growProgressBar = GetNode<ColorRect>("../statusBubble/growProgressWrapper/ColorRect");
+        growProgressBarL = GetNode<ColorRect>("../statusBubbleLeft/growProgressWrapper/ColorRect");
         waterLevelBar = GetNode<ColorRect>("../statusBubble/waterLevelWrapper/ColorRect");
+        waterLevelBarL = GetNode<ColorRect>("../statusBubbleLeft/waterLevelWrapper/ColorRect");
 
         RefreshMetadata();
     }
@@ -165,7 +169,9 @@ public partial class Plant : Sprite2D
 
     private void RefreshStatusBubble(){
         growProgressBar.SetSize(new Vector2((float)(66 * growProgress), 9.45f));
+        growProgressBarL.SetSize(new Vector2((float)(66 * growProgress), 9.45f));
         waterLevelBar.SetSize(new Vector2((float)(46 * (waterLevel/100)), 7.085f));
+        waterLevelBarL.SetSize(new Vector2((float)(46 * (waterLevel/100)), 7.085f));
     }
 
 

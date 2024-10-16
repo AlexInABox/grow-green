@@ -33,6 +33,7 @@ public partial class PackOpening : Button
         if (packIsOpen == false)
         {
             packIsOpen = true;
+            this.Disabled = true;
             OpenPack();
         }
         else
@@ -74,7 +75,7 @@ public partial class PackOpening : Button
         {
             light.Visible = false;
             
-            ShowPlantName(tempPlant.plantName);
+            ShowPlantName(tempPlant.className);
         }
     }
 
@@ -82,7 +83,7 @@ public partial class PackOpening : Button
     {
         GD.Print("PFALANZE: " + plant.plantName);
         
-        string plantTexturePath = $"res://Textures/Plants/{plant.className.ToLower()}3.png";
+        string plantTexturePath = $"res://Textures/Plants/{plant.className.ToLower().Replace(" ", "")}3.png";
         Texture2D plantTexture = (Texture2D)GD.Load(plantTexturePath);
 
         Sprite2D plantSprite = GetNode<Sprite2D>("PlantSprite");
@@ -100,6 +101,7 @@ public partial class PackOpening : Button
         plantNameLabel.Text = plantName;
         plantNameLabel.Visible = true; 
         placePlant();
+        this.Disabled = false;
     }
     
     private void RemovePlantSprite()
