@@ -38,6 +38,10 @@ script = ExtResource("1_32ycv")
 [node name="SceneManager" type="Node" parent="."]
 script = ExtResource("1_m6oyo")
 
+[node name="coinDisplay_wrapper" parent="." instance=ExtResource("18_11gfe")]
+z_index = 1
+position = Vector2(1641, 72)
+
 [node name="Background" type="Sprite2D" parent="."]
 scale = Vector2(12, 12)
 texture = ExtResource("2_eehrp")
@@ -204,6 +208,3 @@ position = Vector2(1266, 702)
 
 [node name="D4" type="Node2D" parent="."]
 position = Vector2(1266, 906)
-
-[node name="coinDisplay_wrapper" parent="." instance=ExtResource("18_11gfe")]
-position = Vector2(1641, 72)
