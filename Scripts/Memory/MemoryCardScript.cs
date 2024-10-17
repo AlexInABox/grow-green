@@ -7,6 +7,7 @@ public partial class MemoryCardScript : Button
 	private Sprite2D spriteFront;
 	private MemoryGame memoryGame;
 	private Timer timer;
+	private Node2D cardNode;
 
 	
 	// Called when the node enters the scene tree for the first time.
@@ -19,6 +20,7 @@ public partial class MemoryCardScript : Button
 		timer.OneShot = true;
 		timer.WaitTime = 3f;  
 		timer.Timeout += OnTimeout;
+		cardNode = (Node2D)GetNode("../../MemoryCard");
 	}
 
 	public String GetId()
@@ -27,6 +29,7 @@ public partial class MemoryCardScript : Button
 	}
 	private void OnTimeout()
 	{
+		Disabled = false;
 		spriteFront.Visible = false;
 	}
 	private void ButtonPressed()
@@ -39,6 +42,7 @@ public partial class MemoryCardScript : Button
 	{
 		spriteFront.Visible = true;
 		memoryGame.CardIsTurned(this);
+		Disabled = true;
 	}
 
 	public void HideCard()
@@ -48,9 +52,16 @@ public partial class MemoryCardScript : Button
 
 	public void ForceHideCard()
 	{
+		
 		spriteFront.Visible = false;
+		Disabled = false;
 	}
-	
+
+	public void RemoveCard()
+	{
+		
+		cardNode.QueueFree();
+	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)

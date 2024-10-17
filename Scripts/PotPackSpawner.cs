@@ -12,11 +12,12 @@ public partial class PotPackSpawner : Node
     private int cost = 6;
     private SceneManager sceneManager;
     private PackedScene packedScene;
-    
+    private Button leaveButton;
 
     public override void _Ready()
     {
-        sceneManager = GetNode<SceneManager>("SceneManager");
+            sceneManager = GetNode<SceneManager>("SceneManager");
+            leaveButton = GetNode<Button>("LeaveButton");
         
             GD.Print("AAAAAH");
             button = GetNode<Button>("BuyPackButton");
@@ -28,6 +29,7 @@ public partial class PotPackSpawner : Node
         if (sceneManager.GetCoinCount() >= cost)
         {
             button.Disabled = true;
+            leaveButton.Disabled = true;
             sceneManager.SetCoinCount(sceneManager.GetCoinCount() - cost);
             SpawnPacks();
         }
@@ -65,5 +67,6 @@ public partial class PotPackSpawner : Node
         var packWrapper = GetNode<Node2D>("SpawnedPack");
         packWrapper.QueueFree();
         button.Disabled = false;
+        leaveButton.Disabled = false;
     }
 }

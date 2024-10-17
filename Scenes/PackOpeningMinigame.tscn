@@ -60,7 +60,7 @@ icon = ExtResource("6_e7wl4")
 icon_alignment = 2
 expand_icon = true
 
-[node name="Leave Button" type="Button" parent="."]
+[node name="LeaveButton" type="Button" parent="."]
 offset_left = 5.0
 offset_top = 5.0
 offset_right = 155.0

@@ -12,9 +12,12 @@ public partial class MemoryGame : Node
 	private bool cardIsFirst = true;
 	private MemoryCardScript lastCard;
 	private MemoryCardScript oldCard;
+	private int cardCount;
+	private SceneManager sceneManager;
 	
 	public override void _Ready()
 	{
+		sceneManager = GetNode<SceneManager>("SceneManager");
 		prefab = (PackedScene)ResourceLoader.Load("res://Prefabs/MemoryCard.tscn");
 		
 		InitializeMemoryTextures();
@@ -31,14 +34,13 @@ public partial class MemoryGame : Node
 			string textureName = $"memory_{i:D2}"; 
 			memoryTextures.Add(textureName);
 			memoryTextures.Add(textureName);
+			cardCount++;
+			cardCount++;
 		}
-
-		// Shuffle the list randomly
 	}
 
 	public void CardIsTurned(MemoryCardScript card)
 	{
-	
 		if (cardIsFirst)
 		{
 			if (lastCard != null && oldCard != null)
@@ -53,23 +55,49 @@ public partial class MemoryGame : Node
 		{
 			if (card.GetId() == lastCard.GetId())
 			{
-				pairFound(card, lastCard);
+				PairFound(card, lastCard);
+				lastCard = null;
+
 			}
 			else
 			{
 				card.HideCard();
 				lastCard.HideCard();
 				oldCard = card;
-				cardIsFirst = true;
 			}
-			
+			cardIsFirst = true;
 		}
 	}
 
-	public void pairFound(MemoryCardScript card1, MemoryCardScript card2)
+	public void PairFound(MemoryCardScript card1, MemoryCardScript card2)
 	{
-		card1.QueueFree();
-		card2.QueueFree();
+		card1.RemoveCard();
+		card2.RemoveCard();
+		cardCount--;
+		cardCount--;
+		
+		string spriteName = $"WinWrapper/MemoryStack{16-cardCount:D2}";  
+		
+		Sprite2D memoryStackSprite = GetNode<Sprite2D>(spriteName);
+		
+		if (memoryStackSprite != null)
+		{
+			memoryStackSprite.Visible = true;
+		}
+		if (cardCount == 0)
+		{
+			EndGame();
+		}
+	}
+
+	private void EndGame()
+	{
+		GD.Print(sceneManager.GetCoinCount());
+		var coins = sceneManager.GetCoinCount() + 10 ;
+		sceneManager.SetCoinCount(coins);
+		GD.Print(sceneManager.GetCoinCount());
+		
+		GetTree().ChangeSceneToFile("res://Scenes/TestMemory.tscn");
 	}
 	private void SpawnPrefabsOnNodes()
 	{

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dsvnhq11ejwjo"]
+[gd_scene load_steps=23 format=3 uid="uid://dsvnhq11ejwjo"]
 
 [ext_resource type="Script" path="res://Scripts/Memory/MemoryGame.cs" id="1_32ycv"]
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_m6oyo"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://o62ss01e6u7k" path="res://Textures/Minigames/Memory/memory_stack_12.png" id="14_1hk3j"]
 [ext_resource type="Texture2D" uid="uid://oa8wf4yb58y5" path="res://Textures/Minigames/Memory/memory_stack_14.png" id="15_h2boi"]
 [ext_resource type="Texture2D" uid="uid://cmjwu87w4bt4o" path="res://Textures/Minigames/Memory/memory_stack_16.png" id="16_16tx0"]
+[ext_resource type="PackedScene" uid="uid://d07rokqxx2fl3" path="res://Prefabs/coinDisplay_wrapper.tscn" id="18_11gfe"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wn6tn"]
 
@@ -101,48 +102,56 @@ script = ExtResource("8_1mg1u")
 [node name="WinWrapper" type="Node" parent="."]
 
 [node name="MemoryStack02" type="Sprite2D" parent="WinWrapper"]
+visible = false
 position = Vector2(12, 0)
 scale = Vector2(12, 12)
 texture = ExtResource("9_ibgmc")
 centered = false
 
 [node name="MemoryStack04" type="Sprite2D" parent="WinWrapper"]
+visible = false
 position = Vector2(12, 0)
 scale = Vector2(12, 12)
 texture = ExtResource("10_o6ccx")
 centered = false
 
 [node name="MemoryStack06" type="Sprite2D" parent="WinWrapper"]
+visible = false
 position = Vector2(12, 0)
 scale = Vector2(12, 12)
 texture = ExtResource("11_xqvyr")
 centered = false
 
 [node name="MemoryStack08" type="Sprite2D" parent="WinWrapper"]
+visible = false
 position = Vector2(12, 0)
 scale = Vector2(12, 12)
 texture = ExtResource("12_dl81i")
 centered = false
 
 [node name="MemoryStack10" type="Sprite2D" parent="WinWrapper"]
+visible = false
 position = Vector2(12, 0)
 scale = Vector2(12, 12)
 texture = ExtResource("13_p044d")
 centered = false
 
 [node name="MemoryStack12" type="Sprite2D" parent="WinWrapper"]
+visible = false
 position = Vector2(12, 0)
 scale = Vector2(12, 12)
 texture = ExtResource("14_1hk3j")
 centered = false
 
 [node name="MemoryStack14" type="Sprite2D" parent="WinWrapper"]
+visible = false
 position = Vector2(12, 0)
 scale = Vector2(12, 12)
 texture = ExtResource("15_h2boi")
 centered = false
 
 [node name="MemoryStack16" type="Sprite2D" parent="WinWrapper"]
+visible = false
 position = Vector2(12, 0)
 scale = Vector2(12, 12)
 texture = ExtResource("16_16tx0")
@@ -195,3 +204,6 @@ position = Vector2(1266, 702)
 
 [node name="D4" type="Node2D" parent="."]
 position = Vector2(1266, 906)
+
+[node name="coinDisplay_wrapper" parent="." instance=ExtResource("18_11gfe")]
+position = Vector2(1641, 72)
