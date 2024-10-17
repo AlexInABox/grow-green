@@ -9,7 +9,6 @@ public partial class PotPackSpawner : Node
     private Button button;
     private Sprite2D sprite;
     private bool packPaid = false;
-    private AnimationPlayer animationPlayer;
     private int cost = 6;
     private SceneManager sceneManager;
     private PackedScene packedScene;
@@ -21,8 +20,7 @@ public partial class PotPackSpawner : Node
         
             GD.Print("AAAAAH");
             button = GetNode<Button>("BuyPackButton");
-            button.Pressed += BuyPack;
-            animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer"); 
+            button.Pressed += BuyPack;  
     }
 
     public void BuyPack()
@@ -31,19 +29,11 @@ public partial class PotPackSpawner : Node
         {
             button.Disabled = true;
             sceneManager.SetCoinCount(sceneManager.GetCoinCount() - cost);
+            SpawnPacks();
         }
         else
         {
             GD.Print("AAAAAH");
-        }
-    }
-    private void OnAnimationFinished(StringName animName)
-    {
-        if (animName == "spawn_packAnimation")
-        {
-           SpawnPacks();
-           sprite = GetNode<Sprite2D>("Sprite2D");
-           sprite.Visible = false;
         }
     }
     private void SpawnPacks()
