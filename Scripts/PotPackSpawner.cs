@@ -30,8 +30,6 @@ public partial class PotPackSpawner : Node
         if (sceneManager.GetCoinCount() >= cost)
         {
             button.Disabled = true;
-            animationPlayer.Play("spawn_packAnimation");
-            animationPlayer.Connect("animation_finished", new Callable(this, nameof(OnAnimationFinished)), flags: (uint)ConnectFlags.OneShot);
             sceneManager.SetCoinCount(sceneManager.GetCoinCount() - cost);
         }
         else

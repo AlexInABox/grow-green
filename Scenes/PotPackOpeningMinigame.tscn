@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bguxo788a0516"]
+[gd_scene load_steps=13 format=3 uid="uid://bguxo788a0516"]
 
 [ext_resource type="Script" path="res://Scripts/PotPackSpawner.cs" id="1_6pbmw"]
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="2_evs51"]
@@ -6,69 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://d07rokqxx2fl3" path="res://Prefabs/coinDisplay_wrapper.tscn" id="4_qkic8"]
 [ext_resource type="Theme" uid="uid://cxgao5s1phj5n" path="res://Themes/mainMenuButtons.tres" id="5_l0as5"]
 [ext_resource type="Texture2D" uid="uid://ckt2lbmbvplv7" path="res://Textures/Coin2.png" id="6_aknfm"]
-[ext_resource type="Texture2D" uid="uid://pcf5h0l5c27c" path="res://Textures/Packs/pack_pot_overpowered.png" id="7_gtbmx"]
 [ext_resource type="Texture2D" uid="uid://bmpnx8afa8exa" path="res://Textures/Icons/exit.png" id="8_db748"]
 [ext_resource type="Script" path="res://Scripts/PlantPack/LeaveButton.cs" id="9_5fjvm"]
-
-[sub_resource type="Animation" id="Animation_58dmr"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_3ciw6"]
-resource_name = "spawn_packAnimation"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_fh0xq"]
-_data = {
-"RESET": SubResource("Animation_58dmr"),
-"spawn_packAnimation": SubResource("Animation_3ciw6")
-}
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eradl"]
 
@@ -120,17 +59,6 @@ text = "Kaufen 6"
 icon = ExtResource("6_aknfm")
 icon_alignment = 2
 expand_icon = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_fh0xq")
-}
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(1, 1, 1, 0)
-position = Vector2(960, 500)
-scale = Vector2(8, 8)
-texture = ExtResource("7_gtbmx")
 
 [node name="Leave Button" type="Button" parent="."]
 offset_left = 5.0
