@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://6cj4bo1ula4y"]
+[gd_scene load_steps=20 format=3 uid="uid://kartvdkfl46s"]
 
 [ext_resource type="Texture2D" uid="uid://dlepnqcap2stl" path="res://Textures/Minigames/Memory/memory_easy_richtig.png" id="1_28cp1"]
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_faq1t"]
@@ -139,10 +139,10 @@ centered = false
 position = Vector2(575.5, 335.5)
 
 [node name="Button" type="Button" parent="CardWrapper/A1"]
-offset_left = -90.0
-offset_top = -90.0
-offset_right = 90.0
-offset_bottom = 90.0
+offset_left = -120.0
+offset_top = -120.0
+offset_right = 120.0
+offset_bottom = 120.0
 
 [node name="MemoryBack" type="Sprite2D" parent="CardWrapper/A1"]
 scale = Vector2(20, 20)

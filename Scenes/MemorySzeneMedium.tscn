@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://diu74xn532h6s"]
+[gd_scene load_steps=22 format=3 uid="uid://errmcic0qxx6"]
 
 [ext_resource type="Texture2D" uid="uid://d0wths31vyi5s" path="res://Textures/Minigames/Memory/memory_medium.png" id="1_ia00b"]
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_m752m"]
@@ -124,24 +124,28 @@ texture = ExtResource("7_8xqth")
 centered = false
 
 [node name="MemoryStack10" type="Sprite2D" parent="WinWrapper"]
+visible = false
 position = Vector2(12, 0)
 scale = Vector2(12, 12)
 texture = ExtResource("8_fiy7o")
 centered = false
 
 [node name="MemoryStack12" type="Sprite2D" parent="WinWrapper"]
+visible = false
 position = Vector2(12, 0)
 scale = Vector2(12, 12)
 texture = ExtResource("9_pjxkc")
 centered = false
 
 [node name="MemoryStack14" type="Sprite2D" parent="WinWrapper"]
+visible = false
 position = Vector2(12, 0)
 scale = Vector2(12, 12)
 texture = ExtResource("10_iqllv")
 centered = false
 
 [node name="MemoryStack16" type="Sprite2D" parent="WinWrapper"]
+visible = false
 position = Vector2(12, 0)
 scale = Vector2(12, 12)
 texture = ExtResource("11_y43e0")

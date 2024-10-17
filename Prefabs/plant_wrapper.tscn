@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://f57aqowuk20c"]
+[gd_scene load_steps=11 format=3 uid="uid://f57aqowuk20c"]
 
 [ext_resource type="Script" path="res://Scripts/PlantWrapper.cs" id="1_8i3x8"]
-[ext_resource type="Texture2D" uid="uid://bolbgwu7dq3r4" path="res://Textures/Icons/pixel-speech-bubble.png" id="1_a8rmt"]
 [ext_resource type="Texture2D" uid="uid://buqy5h6r8xf4y" path="res://Textures/Pots/default.png" id="1_tugmu"]
 [ext_resource type="Texture2D" uid="uid://da633vcabsr6c" path="res://Textures/Buttons/UI_Flat_Bar13a.png" id="2_i72dl"]
 [ext_resource type="Texture2D" uid="uid://0psxnxttgvu4" path="res://Textures/PlantStatsBubble/bubble_bigger_left.png" id="2_jtrm7"]
@@ -173,59 +172,6 @@ scale = Vector2(0.07, 0.07)
 theme = ExtResource("2_kxr6s")
 theme_override_font_sizes/font_size = 40
 text = "LALALALALALAALAL"
-
-[node name="oldStatusBubble" type="Sprite2D" parent="."]
-visible = false
-z_index = 100
-position = Vector2(82.25, -17.625)
-scale = Vector2(0.195, 0.195)
-texture = ExtResource("1_a8rmt")
-
-[node name="growProgressLabel" type="Label" parent="oldStatusBubble"]
-offset_left = -75.0
-offset_top = -53.0
-offset_right = 95.0
-offset_bottom = -11.0
-scale = Vector2(0.4, 0.4)
-theme = ExtResource("2_kxr6s")
-text = "Wachstum:"
-
-[node name="waterLevelLabel" type="Label" parent="oldStatusBubble"]
-offset_left = -75.0
-offset_top = -27.5
-offset_right = 139.0
-offset_bottom = 14.5
-scale = Vector2(0.4, 0.4)
-theme = ExtResource("2_kxr6s")
-text = "Wasserstand:"
-
-[node name="growProgressWrapper" type="Node2D" parent="oldStatusBubble"]
-position = Vector2(41.6667, -44.2308)
-
-[node name="ColorRect" type="ColorRect" parent="oldStatusBubble/growProgressWrapper"]
-offset_left = -33.0
-offset_top = -5.9
-offset_right = 33.0
-offset_bottom = 3.55
-color = Color(0.289024, 0.721667, 0, 1)
-
-[node name="UiFlatBar13a" type="Sprite2D" parent="oldStatusBubble/growProgressWrapper"]
-scale = Vector2(2.35897, 2.35897)
-texture = ExtResource("2_i72dl")
-
-[node name="waterLevelWrapper" type="Node2D" parent="oldStatusBubble"]
-position = Vector2(51.282, -19)
-
-[node name="ColorRect" type="ColorRect" parent="oldStatusBubble/waterLevelWrapper"]
-offset_left = -23.0
-offset_top = -3.55
-offset_right = 23.0
-offset_bottom = 3.535
-color = Color(0.289024, 0.721667, 0, 1)
-
-[node name="UiFlatBar08a" type="Sprite2D" parent="oldStatusBubble/waterLevelWrapper"]
-scale = Vector2(1.76923, 1.76923)
-texture = ExtResource("7_oyynb")
 
 [node name="PotDONT" type="Sprite2D" parent="."]
 visible = false
