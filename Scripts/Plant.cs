@@ -57,7 +57,7 @@ public partial class Plant : Sprite2D
         this.sellValue = sellValue;
         this.yield = yield;
 
-        growProgress = 1;
+        growProgress = 0.01;
         waterLevel = 50;
         pot = "default";
         this.spawnPoint = 1;
@@ -117,13 +117,16 @@ public partial class Plant : Sprite2D
     }
 
     public void WaterPlant() {
-        waterLevel += wateringImpact;
-        RefreshMetadata();
+        if (waterLevel < 100)
+        {
+            waterLevel += wateringImpact;
+            RefreshMetadata();
+        }
     }
 
     private void RecalculateWaterLevel() {
         long timeSinceLastTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds() - waterLevelTimestamp;
-        waterLevel -= (decayRatePerDay / 24 / 60 / 60) * timeSinceLastTimestamp;
+        waterLevel -= (decayRatePerDay / 24 / 60 / 60) * timeSinceLastTimestamp * 10000;
         //GD.Print("WaterLevel: " + waterLevel);
         waterLevelTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds();
 
@@ -141,10 +144,13 @@ public partial class Plant : Sprite2D
             return;
         }
 
-        long timeSinceLastTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds() - growProgressTimestamp;
-        growProgress += (growRatePerDay / 24 / 60 / 60) * timeSinceLastTimestamp;
-        //GD.Print("GrowProgress: " + growProgress);
-        growProgressTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds();
+        if (growProgress <= 1)
+        {
+            long timeSinceLastTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds() - growProgressTimestamp;
+            growProgress += (growRatePerDay / 24 / 60 / 60) * timeSinceLastTimestamp * 500;
+            //GD.Print("GrowProgress: " + growProgress);
+            growProgressTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds();
+        }
     }
 
     private void RefreshTexture() {
@@ -159,10 +165,10 @@ public partial class Plant : Sprite2D
         if (growProgress > 0) {
             Texture = (Texture2D)GD.Load(growthTextures[2]);
         }
-        if (growProgress > 40) {
+        if (growProgress > 0.4) {
             Texture = (Texture2D)GD.Load(growthTextures[3]);
         }
-        if (growProgress > 80) {
+        if (growProgress >0.8) {
             Texture = (Texture2D)GD.Load(growthTextures[4]);
         }
     }
