@@ -97,6 +97,7 @@ public partial class MemoryGame : Node
 		sceneManager.SetCoinCount(coins);
 		GD.Print(sceneManager.GetCoinCount());
 		
+		sceneManager.UpdateSaveBlocking();
 		GetTree().ChangeSceneToFile("res://Scenes/TestMemory.tscn");
 	}
 	private void SpawnPrefabsOnNodes()
