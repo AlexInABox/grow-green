@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dsvnhq11ejwjo"]
+[gd_scene load_steps=23 format=3 uid="uid://c1u7yjtif3cfe"]
 
 [ext_resource type="Script" path="res://Scripts/Memory/MemoryGame.cs" id="1_32ycv"]
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_m6oyo"]
