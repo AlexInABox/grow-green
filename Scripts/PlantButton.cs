@@ -5,6 +5,13 @@ public partial class PlantButton : Button
 {
 
     Plant myPlant;
+    Node2D plantWrapper;
+
+    bool wasMouseDown = false;
+    bool isMouseDown = false;
+    bool wasHovering = false;
+    bool isHovering = false;
+    bool dragActivated = false;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -13,6 +20,7 @@ public partial class PlantButton : Button
         //myPlant = GetNode<Plant>("../Plant"); //will error when sprite hasnt loaded yet. but works anyways for some reason
         MouseEntered += ButtonHovered;
         MouseExited += ButtonNotHoveredAnymore;
+        plantWrapper = GetParent<Node2D>();
     }
 
     private void ButtonPressed()
@@ -23,6 +31,7 @@ public partial class PlantButton : Button
 
     private void ButtonHovered()
     {
+        isHovering = true;
        
         float buttonXPosition = GlobalPosition.X;
 
@@ -45,6 +54,8 @@ public partial class PlantButton : Button
 
     private void ButtonNotHoveredAnymore()
     {
+        isHovering = false;
+
         Node2D statusBubbleA = GetNode<Node2D>("../statusBubble");
         Node2D statusBubbleB = GetNode<Node2D>("../statusBubbleLeft");
         statusBubbleA.Hide();
@@ -54,5 +65,16 @@ public partial class PlantButton : Button
     
     public override void _Process(double delta)
     {
+        isMouseDown = Input.IsMouseButtonPressed(MouseButton.Left);
+
+        if (!isMouseDown) dragActivated = false;
+
+        if (isHovering && isMouseDown && !wasMouseDown){
+            dragActivated = true;
+        }
+
+        if (dragActivated) plantWrapper.GlobalPosition = GetGlobalMousePosition();
+
+        wasMouseDown = isMouseDown;
     }
 }
