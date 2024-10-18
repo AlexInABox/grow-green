@@ -17,6 +17,7 @@ public partial class MemoryGame : Node
 	private int size;
 	private int reward;
 	private String scenePath;
+	private string[] nodeNames;
 	
 	public override void _Ready()
 	{
@@ -32,18 +33,21 @@ public partial class MemoryGame : Node
 			{
 				size = 12;
 				reward = 12;
+				nodeNames = new[] { "A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3", "D1", "D2", "D3" };
 				break;
 			}
 			case "MemorySzeneMedium":
 			{
 				size = 16;
 				reward = 16;
+				nodeNames = new[] { "A1", "A2", "A3", "A4", "B1", "B2", "B3", "B4", "C1", "C2", "C3", "C4", "D1", "D2", "D3", "D4" };
 				break;
 			}
 			case "MemorySzeneVeryHard":
 			{
 				size = 24;
 				reward = 24;
+				nodeNames = new[] { "A1", "A2", "A3", "A4", "B1", "B2", "B3", "B4", "C1", "C2", "C3", "C4", "D1", "D2", "D3", "D4", "E1", "E2", "E3", "E4", "F1", "F2", "F3", "F4"};
 				break;
 			}
 			default: 
@@ -132,16 +136,6 @@ public partial class MemoryGame : Node
 	}
 	private void SpawnPrefabsOnNodes()
 	{
-		
-		string[] nodeNames = {
-			"A1", "A2", "A3", "A4", 
-			"B1", "B2", "B3", "B4", 
-			"C1", "C2", "C3", "C4", 
-			"D1", "D2", "D3", "D4",
-			"E1", "E2", "E3", "E4",
-			"F1", "F2", "F3", "F4"
-		};
-		
 		foreach (string nodeName in nodeNames)
 		{
 			
