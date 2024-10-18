@@ -1,6 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://kartvdkfl46s"]
+[gd_scene load_steps=21 format=3 uid="uid://kartvdkfl46s"]
 
 [ext_resource type="Texture2D" uid="uid://dlepnqcap2stl" path="res://Textures/Minigames/Memory/memory_easy_richtig.png" id="1_28cp1"]
+[ext_resource type="Script" path="res://Scripts/Memory/MemoryGame.cs" id="1_bjtd1"]
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_faq1t"]
 [ext_resource type="Texture2D" uid="uid://bmpnx8afa8exa" path="res://Textures/Icons/exit.png" id="2_s3x1h"]
 [ext_resource type="Script" path="res://Scripts/Memory/LeaveButton.cs" id="4_gp6le"]
@@ -14,7 +15,7 @@
 [ext_resource type="Script" path="res://Scripts/Memory/HardButton.cs" id="8_p7l57"]
 [ext_resource type="Texture2D" uid="uid://o62ss01e6u7k" path="res://Textures/Minigames/Memory/memory_stack_12.png" id="9_d8t3w"]
 [ext_resource type="Theme" uid="uid://cxgao5s1phj5n" path="res://Themes/mainMenuButtons.tres" id="10_gcsel"]
-[ext_resource type="Texture2D" uid="uid://by61x6blxdcqg" path="res://Textures/Minigames/Memory/memory_back.png" id="11_uecnf"]
+[ext_resource type="PackedScene" uid="uid://d07rokqxx2fl3" path="res://Prefabs/coinDisplay_wrapper.tscn" id="16_omw6y"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wn6tn"]
 
@@ -29,7 +30,8 @@ modulate_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h818j"]
 texture = ExtResource("2_s3x1h")
 
-[node name="MemorySzeneEasy" type="Node2D"]
+[node name="MemoryGame" type="Node2D"]
+script = ExtResource("1_bjtd1")
 
 [node name="SceneManager" type="Node" parent="."]
 script = ExtResource("1_faq1t")
@@ -95,198 +97,85 @@ theme = ExtResource("10_gcsel")
 text = "HARD"
 script = ExtResource("8_p7l57")
 
+[node name="A1" type="Node2D" parent="."]
+position = Vector2(575.5, 335.5)
+
+[node name="A2" type="Node2D" parent="."]
+position = Vector2(575.5, 600.5)
+
+[node name="A3" type="Node2D" parent="."]
+position = Vector2(575.5, 865.5)
+
+[node name="B1" type="Node2D" parent="."]
+position = Vector2(840.5, 335.5)
+
+[node name="B2" type="Node2D" parent="."]
+position = Vector2(840.5, 600.5)
+
+[node name="B3" type="Node2D" parent="."]
+position = Vector2(840.5, 865.5)
+
+[node name="C1" type="Node2D" parent="."]
+position = Vector2(1105.5, 335.5)
+
+[node name="C2" type="Node2D" parent="."]
+position = Vector2(1105.5, 600.5)
+
+[node name="C3" type="Node2D" parent="."]
+position = Vector2(1105.5, 865.5)
+
+[node name="D1" type="Node2D" parent="."]
+position = Vector2(1370.5, 335.5)
+
+[node name="D2" type="Node2D" parent="."]
+position = Vector2(1370.5, 600.5)
+
+[node name="D3" type="Node2D" parent="."]
+position = Vector2(1370.5, 865.5)
+
 [node name="WinWrapper" type="Node" parent="."]
 
 [node name="MemoryStack02" type="Sprite2D" parent="WinWrapper"]
+visible = false
 position = Vector2(12, 0)
 scale = Vector2(12, 12)
 texture = ExtResource("4_ou4wd")
 centered = false
 
 [node name="MemoryStack04" type="Sprite2D" parent="WinWrapper"]
+visible = false
 position = Vector2(12, 0)
 scale = Vector2(12, 12)
 texture = ExtResource("5_hyp0n")
 centered = false
 
 [node name="MemoryStack06" type="Sprite2D" parent="WinWrapper"]
+visible = false
 position = Vector2(12, 0)
 scale = Vector2(12, 12)
 texture = ExtResource("6_oqyjr")
 centered = false
 
 [node name="MemoryStack08" type="Sprite2D" parent="WinWrapper"]
+visible = false
 position = Vector2(12, 0)
 scale = Vector2(12, 12)
 texture = ExtResource("7_ptkc0")
 centered = false
 
 [node name="MemoryStack10" type="Sprite2D" parent="WinWrapper"]
+visible = false
 position = Vector2(12, 0)
 scale = Vector2(12, 12)
 texture = ExtResource("8_g5ars")
 centered = false
 
 [node name="MemoryStack12" type="Sprite2D" parent="WinWrapper"]
+visible = false
 position = Vector2(12, 0)
 scale = Vector2(12, 12)
 texture = ExtResource("9_d8t3w")
 centered = false
 
-[node name="CardWrapper" type="Node" parent="."]
-
-[node name="A1" type="Node2D" parent="CardWrapper"]
-position = Vector2(575.5, 335.5)
-
-[node name="Button" type="Button" parent="CardWrapper/A1"]
-offset_left = -120.0
-offset_top = -120.0
-offset_right = 120.0
-offset_bottom = 120.0
-
-[node name="MemoryBack" type="Sprite2D" parent="CardWrapper/A1"]
-scale = Vector2(20, 20)
-texture = ExtResource("11_uecnf")
-
-[node name="A2" type="Node2D" parent="CardWrapper"]
-position = Vector2(575.5, 600.5)
-
-[node name="Button" type="Button" parent="CardWrapper/A2"]
-offset_left = -90.0
-offset_top = -90.0
-offset_right = 90.0
-offset_bottom = 90.0
-
-[node name="MemoryBack" type="Sprite2D" parent="CardWrapper/A2"]
-scale = Vector2(20, 20)
-texture = ExtResource("11_uecnf")
-
-[node name="A3" type="Node2D" parent="CardWrapper"]
-position = Vector2(575.5, 865.5)
-
-[node name="Button" type="Button" parent="CardWrapper/A3"]
-offset_left = -90.0
-offset_top = -90.0
-offset_right = 90.0
-offset_bottom = 90.0
-
-[node name="MemoryBack" type="Sprite2D" parent="CardWrapper/A3"]
-scale = Vector2(20, 20)
-texture = ExtResource("11_uecnf")
-
-[node name="B1" type="Node2D" parent="CardWrapper"]
-position = Vector2(840.5, 335.5)
-
-[node name="Button" type="Button" parent="CardWrapper/B1"]
-offset_left = -90.0
-offset_top = -90.0
-offset_right = 90.0
-offset_bottom = 90.0
-
-[node name="MemoryBack" type="Sprite2D" parent="CardWrapper/B1"]
-scale = Vector2(20, 20)
-texture = ExtResource("11_uecnf")
-
-[node name="B2" type="Node2D" parent="CardWrapper"]
-position = Vector2(840.5, 600.5)
-
-[node name="Button" type="Button" parent="CardWrapper/B2"]
-offset_left = -90.0
-offset_top = -90.0
-offset_right = 90.0
-offset_bottom = 90.0
-
-[node name="MemoryBack" type="Sprite2D" parent="CardWrapper/B2"]
-scale = Vector2(20, 20)
-texture = ExtResource("11_uecnf")
-
-[node name="B3" type="Node2D" parent="CardWrapper"]
-position = Vector2(840.5, 865.5)
-
-[node name="Button" type="Button" parent="CardWrapper/B3"]
-offset_left = -90.0
-offset_top = -90.0
-offset_right = 90.0
-offset_bottom = 90.0
-
-[node name="MemoryBack" type="Sprite2D" parent="CardWrapper/B3"]
-scale = Vector2(20, 20)
-texture = ExtResource("11_uecnf")
-
-[node name="C1" type="Node2D" parent="CardWrapper"]
-position = Vector2(1105.5, 335.5)
-
-[node name="Button" type="Button" parent="CardWrapper/C1"]
-offset_left = -90.0
-offset_top = -90.0
-offset_right = 90.0
-offset_bottom = 90.0
-
-[node name="MemoryBack" type="Sprite2D" parent="CardWrapper/C1"]
-scale = Vector2(20, 20)
-texture = ExtResource("11_uecnf")
-
-[node name="C2" type="Node2D" parent="CardWrapper"]
-position = Vector2(1105.5, 600.5)
-
-[node name="Button" type="Button" parent="CardWrapper/C2"]
-offset_left = -90.0
-offset_top = -90.0
-offset_right = 90.0
-offset_bottom = 90.0
-
-[node name="MemoryBack" type="Sprite2D" parent="CardWrapper/C2"]
-scale = Vector2(20, 20)
-texture = ExtResource("11_uecnf")
-
-[node name="C3" type="Node2D" parent="CardWrapper"]
-position = Vector2(1105.5, 865.5)
-
-[node name="Button" type="Button" parent="CardWrapper/C3"]
-offset_left = -90.0
-offset_top = -90.0
-offset_right = 90.0
-offset_bottom = 90.0
-
-[node name="MemoryBack" type="Sprite2D" parent="CardWrapper/C3"]
-scale = Vector2(20, 20)
-texture = ExtResource("11_uecnf")
-
-[node name="D1" type="Node2D" parent="CardWrapper"]
-position = Vector2(1370.5, 335.5)
-
-[node name="Button" type="Button" parent="CardWrapper/D1"]
-offset_left = -90.0
-offset_top = -90.0
-offset_right = 90.0
-offset_bottom = 90.0
-
-[node name="MemoryBack" type="Sprite2D" parent="CardWrapper/D1"]
-scale = Vector2(20, 20)
-texture = ExtResource("11_uecnf")
-
-[node name="D2" type="Node2D" parent="CardWrapper"]
-position = Vector2(1370.5, 600.5)
-
-[node name="Button" type="Button" parent="CardWrapper/D2"]
-offset_left = -90.0
-offset_top = -90.0
-offset_right = 90.0
-offset_bottom = 90.0
-
-[node name="MemoryBack" type="Sprite2D" parent="CardWrapper/D2"]
-scale = Vector2(20, 20)
-texture = ExtResource("11_uecnf")
-
-[node name="D3" type="Node2D" parent="CardWrapper"]
-position = Vector2(1370.5, 865.5)
-
-[node name="Button" type="Button" parent="CardWrapper/D3"]
-offset_left = -90.0
-offset_top = -90.0
-offset_right = 90.0
-offset_bottom = 90.0
-
-[node name="MemoryBack" type="Sprite2D" parent="CardWrapper/D3"]
-scale = Vector2(20, 20)
-texture = ExtResource("11_uecnf")
+[node name="coinDisplay_wrapper" parent="." instance=ExtResource("16_omw6y")]
+position = Vector2(1641, 72)

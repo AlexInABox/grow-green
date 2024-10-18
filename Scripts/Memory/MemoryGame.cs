@@ -14,11 +14,41 @@ public partial class MemoryGame : Node
 	private MemoryCardScript oldCard;
 	private int cardCount;
 	private SceneManager sceneManager;
+	private int size;
+	private int reward;
+	private String scenePath;
 	
 	public override void _Ready()
 	{
 		sceneManager = GetNode<SceneManager>("SceneManager");
 		prefab = (PackedScene)ResourceLoader.Load("res://Prefabs/MemoryCard.tscn");
+		scenePath = GetTree().CurrentScene.SceneFilePath;
+		string sceneName = System.IO.Path.GetFileNameWithoutExtension(scenePath);
+		GD.Print("Loading " + sceneName);
+		
+		switch (sceneName)
+		{
+			case "MemorySzeneEasy":
+			{
+				size = 12;
+				reward = 12;
+				break;
+			}
+			case "MemorySzeneMedium":
+			{
+				size = 16;
+				reward = 16;
+				break;
+			}
+			case "MemorySzeneVeryHard":
+			{
+				size = 24;
+				reward = 24;
+				break;
+			}
+			default: 
+				break;
+		}
 		
 		InitializeMemoryTextures();
 		
@@ -29,7 +59,7 @@ public partial class MemoryGame : Node
 	{
 		memoryTextures = new List<string>();
 		
-		for (int i = 1; i <= 8; i++)
+		for (int i = 1; i <= size/2; i++)
 		{
 			string textureName = $"memory_{i:D2}"; 
 			memoryTextures.Add(textureName);
@@ -53,7 +83,7 @@ public partial class MemoryGame : Node
 		}
 		else
 		{
-			if (card.GetId() == lastCard.GetId())
+			if (card.GetId() == lastCard.GetId() && card != lastCard)
 			{
 				PairFound(card, lastCard);
 				lastCard = null;
@@ -76,7 +106,7 @@ public partial class MemoryGame : Node
 		cardCount--;
 		cardCount--;
 		
-		string spriteName = $"WinWrapper/MemoryStack{16-cardCount:D2}";  
+		string spriteName = $"WinWrapper/MemoryStack{size-cardCount:D2}";  
 		
 		Sprite2D memoryStackSprite = GetNode<Sprite2D>(spriteName);
 		
@@ -93,21 +123,23 @@ public partial class MemoryGame : Node
 	private void EndGame()
 	{
 		GD.Print(sceneManager.GetCoinCount());
-		var coins = sceneManager.GetCoinCount() + 10 ;
+		var coins = sceneManager.GetCoinCount() + reward ;
 		sceneManager.SetCoinCount(coins);
 		GD.Print(sceneManager.GetCoinCount());
 		
 		sceneManager.UpdateSaveBlocking();
-		GetTree().ChangeSceneToFile("res://Scenes/TestMemory.tscn");
+		GetTree().ChangeSceneToFile(scenePath);
 	}
 	private void SpawnPrefabsOnNodes()
 	{
 		
 		string[] nodeNames = {
-			"A1", "A2", "A3", "A4",
-			"B1", "B2", "B3", "B4",
-			"C1", "C2", "C3", "C4",
-			"D1", "D2", "D3", "D4"
+			"A1", "A2", "A3", "A4", 
+			"B1", "B2", "B3", "B4", 
+			"C1", "C2", "C3", "C4", 
+			"D1", "D2", "D3", "D4",
+			"E1", "E2", "E3", "E4",
+			"F1", "F2", "F3", "F4"
 		};
 		
 		foreach (string nodeName in nodeNames)

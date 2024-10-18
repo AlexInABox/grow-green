@@ -12,7 +12,7 @@ public partial class MediumButton : Button
 
 	private void ButtonPressed()
 	{
-		var nextScene = "res://Scenes/TestMemory.tscn";
+		var nextScene = "res://Scenes/MemorySzeneMedium.tscn";
 		GetTree().ChangeSceneToFile(nextScene);
 	}
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
