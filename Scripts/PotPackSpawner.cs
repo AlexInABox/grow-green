@@ -9,20 +9,19 @@ public partial class PotPackSpawner : Node
     private Button button;
     private Sprite2D sprite;
     private bool packPaid = false;
-    private AnimationPlayer animationPlayer;
     private int cost = 6;
     private SceneManager sceneManager;
     private PackedScene packedScene;
-    
+    private Button leaveButton;
 
     public override void _Ready()
     {
-        sceneManager = GetNode<SceneManager>("SceneManager");
+            sceneManager = GetNode<SceneManager>("SceneManager");
+            leaveButton = GetNode<Button>("LeaveButton");
         
             GD.Print("AAAAAH");
             button = GetNode<Button>("BuyPackButton");
-            button.Pressed += BuyPack;
-            animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer"); 
+            button.Pressed += BuyPack;  
     }
 
     public void BuyPack()
@@ -30,22 +29,13 @@ public partial class PotPackSpawner : Node
         if (sceneManager.GetCoinCount() >= cost)
         {
             button.Disabled = true;
-            animationPlayer.Play("spawn_packAnimation");
-            animationPlayer.Connect("animation_finished", new Callable(this, nameof(OnAnimationFinished)), flags: (uint)ConnectFlags.OneShot);
+            leaveButton.Disabled = true;
             sceneManager.SetCoinCount(sceneManager.GetCoinCount() - cost);
+            SpawnPacks();
         }
         else
         {
             GD.Print("AAAAAH");
-        }
-    }
-    private void OnAnimationFinished(StringName animName)
-    {
-        if (animName == "spawn_packAnimation")
-        {
-           SpawnPacks();
-           sprite = GetNode<Sprite2D>("Sprite2D");
-           sprite.Visible = false;
         }
     }
     private void SpawnPacks()
@@ -77,5 +67,6 @@ public partial class PotPackSpawner : Node
         var packWrapper = GetNode<Node2D>("SpawnedPack");
         packWrapper.QueueFree();
         button.Disabled = false;
+        leaveButton.Disabled = false;
     }
 }
