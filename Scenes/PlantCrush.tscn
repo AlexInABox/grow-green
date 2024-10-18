@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3 uid="uid://b172l6i6w5scc"]
+
+[ext_resource type="Texture2D" uid="uid://du47d27nnh6s7" path="res://Textures/Packs/minigame_single.png" id="1_i2k3u"]
+[ext_resource type="Script" path="res://Scripts/PlantCrush/PlantCrushGame.cs" id="1_kck3k"]
+
+[node name="PlantCrush" type="Node2D"]
+script = ExtResource("1_kck3k")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(12, 12)
+texture = ExtResource("1_i2k3u")
+
+[node name="A1" type="Node2D" parent="."]
+position = Vector2(640, 448)
+
+[node name="A2" type="Node2D" parent="."]
+position = Vector2(768, 448)
+
+[node name="A3" type="Node2D" parent="."]
+position = Vector2(896, 448)
+
+[node name="A4" type="Node2D" parent="."]
+position = Vector2(1024, 448)
+
+[node name="A5" type="Node2D" parent="."]
+position = Vector2(1152, 448)
+
+[node name="A6" type="Node2D" parent="."]
+position = Vector2(1280, 448)
+
+[node name="B1" type="Node2D" parent="."]
+position = Vector2(640, 576)
+
+[node name="B2" type="Node2D" parent="."]
+position = Vector2(768, 576)
+
+[node name="B3" type="Node2D" parent="."]
+position = Vector2(896, 576)
+
+[node name="B4" type="Node2D" parent="."]
+position = Vector2(1024, 576)
+
+[node name="B5" type="Node2D" parent="."]
+position = Vector2(1152, 576)
+
+[node name="B6" type="Node2D" parent="."]
+position = Vector2(1280, 576)
+
+[node name="C1" type="Node2D" parent="."]
+position = Vector2(640, 704)
+
+[node name="C2" type="Node2D" parent="."]
+position = Vector2(768, 704)
+
+[node name="C3" type="Node2D" parent="."]
+position = Vector2(896, 704)
+
+[node name="C4" type="Node2D" parent="."]
+position = Vector2(1024, 704)
+
+[node name="C5" type="Node2D" parent="."]
+position = Vector2(1152, 704)
+
+[node name="C6" type="Node2D" parent="."]
+position = Vector2(1280, 704)

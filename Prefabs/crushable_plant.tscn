@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://hkxjgmggvwyd"]
+
+[ext_resource type="Texture2D" uid="uid://djtdwjbgah1nl" path="res://Textures/Minigames/Memory/memory_01.png" id="1_boagc"]
+[ext_resource type="Script" path="res://Scripts/PlantCrush/CrushablePlant.cs" id="2_rmou2"]
+
+[node name="CrushablePlant" type="Node2D"]
+
+[node name="CrushablePlant" type="Node2D" parent="."]
+scale = Vector2(5, 5)
+
+[node name="Sprite2D" type="Sprite2D" parent="CrushablePlant"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(9.53674e-07, 9.53674e-07)
+texture = ExtResource("1_boagc")
+
+[node name="Button" type="Button" parent="CrushablePlant"]
+offset_left = -11.2
+offset_top = -11.2
+offset_right = 10.8
+offset_bottom = 10.8
+script = ExtResource("2_rmou2")
