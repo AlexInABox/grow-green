@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bp1qmlg1s0co7"]
+
+[ext_resource type="Texture2D" uid="uid://by61x6blxdcqg" path="res://Textures/Minigames/Memory/memory_back.png" id="1_adlvu"]
+[ext_resource type="Script" path="res://Scripts/Memory/MemoryCardScript.cs" id="1_t1naj"]
+[ext_resource type="Texture2D" uid="uid://djtdwjbgah1nl" path="res://Textures/Minigames/Memory/memory_01.png" id="2_nd3jm"]
+
+[node name="MemoryCard" type="Node2D"]
+
+[node name="MemoryCard" type="Node2D" parent="."]
+
+[node name="Button" type="Button" parent="MemoryCard"]
+offset_left = -90.0
+offset_top = -90.0
+offset_right = 90.0
+offset_bottom = 90.0
+script = ExtResource("1_t1naj")
+
+[node name="MemoryBack" type="Sprite2D" parent="MemoryCard"]
+scale = Vector2(15, 15)
+texture = ExtResource("1_adlvu")
+
+[node name="MemoryFront" type="Sprite2D" parent="MemoryCard"]
+visible = false
+z_index = 1
+scale = Vector2(7.5, 7.5)
+texture = ExtResource("2_nd3jm")
+
+[node name="Timer" type="Timer" parent="MemoryCard"]

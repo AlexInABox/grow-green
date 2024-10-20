@@ -1,6 +1,7 @@
-using Godot;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using Godot;
 
 public partial class PotPackOpening : Button
 {
@@ -45,12 +46,40 @@ public partial class PotPackOpening : Button
     {
         RemovePlantSprite();
 
-        Random random = new Random();
-        int randomIndex = random.Next(potList.Count);
-
-        Pot randomPot = potList[randomIndex];
+        Pot randomPot = GetWeightedRandomPot();
         
         PlayAnimationAndRevealPot(randomPot);
+    }
+
+    private Pot GetWeightedRandomPot()
+    {
+        Random random = new Random();
+        
+       
+        List<(Pot pot, double weight)> weightedPots = potList
+            .Where(pot => pot.cost > 0) // Sonst immer default
+            .Select(pot => (pot, weight: 1.0 / pot.cost))
+            .ToList();
+
+       
+        double totalWeight = weightedPots.Sum(p => p.weight);
+
+       
+        double randomWeight = random.NextDouble() * totalWeight;
+
+        
+        double cumulativeWeight = 0.0;
+        foreach (var (pot, weight) in weightedPots)
+        {
+            cumulativeWeight += weight;
+            if (randomWeight <= cumulativeWeight)
+            {
+                return pot;
+            }
+        }
+        //Notfalllösung
+        GD.Print("If this is ever printed bye bye");
+        return potList[0];
     }
 
     private void PlayAnimationAndRevealPot(Pot pot)
@@ -65,8 +94,6 @@ public partial class PotPackOpening : Button
         
         tempPot = pot;
     }
-    
-    
 
     private void OnAnimationFinished(StringName animName)
     {
