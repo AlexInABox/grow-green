@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 
 public partial class PlantButton : Button
 {
-
     Plant myPlant;
     Node2D plantWrapper;
     SceneManager sceneManager;

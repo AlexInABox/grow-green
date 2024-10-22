@@ -1,4 +1,5 @@
-[gd_scene load_steps=53 format=3 uid="uid://bqv77dvuy6ly0"]
+[gd_scene load_steps=71 format=3 uid="uid://bqv77dvuy6ly0"]
+
 
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_06be7"]
 [ext_resource type="Texture2D" uid="uid://da3gby3k4mva" path="res://Textures/Backgrounds/HOUSE.png" id="1_bo6pn"]
@@ -31,6 +32,12 @@
 [ext_resource type="Texture2D" uid="uid://bmpnx8afa8exa" path="res://Textures/Icons/exit.png" id="28_mtxqj"]
 [ext_resource type="Script" path="res://Scripts/MainScene/LeaveButton.cs" id="28_wy10c"]
 [ext_resource type="Script" path="res://Scripts/MainScene/ScamerGreenhouseButton.cs" id="29_p6mlw"]
+[ext_resource type="Texture2D" uid="uid://lnhjmhpb5n0p" path="res://Textures/Icons/backpack.png" id="31_lgrid"]
+[ext_resource type="Script" path="res://Scripts/MainScene/PotChanger.cs" id="31_pha1o"]
+[ext_resource type="Script" path="res://Scripts/MainScene/PotSkins.cs" id="32_wjedw"]
+[ext_resource type="Texture2D" uid="uid://d1iundnhibpig" path="res://Textures/Icons/pot_selection_overlay.png" id="33_m7vrf"]
+[ext_resource type="Texture2D" uid="uid://cytn4u5ejjnbe" path="res://Textures/Pots/plain_brown.png" id="34_efjfr"]
+[ext_resource type="Script" path="res://Scripts/MainScene/PanelLeaver.cs" id="35_3xfey"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ftaqd"]
 
@@ -103,6 +110,38 @@ modulate_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o6bub"]
 texture = ExtResource("28_mtxqj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_we068"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ymgp7"]
+texture = ExtResource("31_lgrid")
+modulate_color = Color(0.347817, 0.347817, 0.347817, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b6c5m"]
+texture = ExtResource("31_lgrid")
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i86l7"]
+texture = ExtResource("31_lgrid")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_56ari"]
+texture = ExtResource("33_m7vrf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uykgh"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d8hfn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6iclx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m12rn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q74jh"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7yn17"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dcefc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_002u2"]
 
 [node name="MainSzene" type="Node2D"]
 
@@ -458,3 +497,74 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_6gh1e")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_qls5d")
 theme_override_styles/normal = SubResource("StyleBoxTexture_o6bub")
 script = ExtResource("28_wy10c")
+metadata/_edit_lock_ = true
+
+[node name="PotChanger" type="Node" parent="."]
+script = ExtResource("31_pha1o")
+
+[node name="PotSkins" type="Button" parent="."]
+z_index = 1
+offset_left = 165.0
+offset_top = 19.0
+offset_right = 308.0
+offset_bottom = 154.0
+theme_override_styles/focus = SubResource("StyleBoxTexture_we068")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ymgp7")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_b6c5m")
+theme_override_styles/normal = SubResource("StyleBoxTexture_i86l7")
+script = ExtResource("32_wjedw")
+metadata/_edit_lock_ = true
+
+[node name="Panel" type="Panel" parent="PotSkins"]
+visible = false
+z_index = 3
+layout_mode = 0
+offset_left = -165.0
+offset_top = -25.0
+offset_right = 409.0
+offset_bottom = 1055.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_56ari")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="PotSkins/Panel"]
+layout_mode = 0
+offset_left = -5.0
+offset_top = 1.0
+offset_right = 575.0
+offset_bottom = 150.0
+theme_override_colors/font_color = Color(0.352941, 0.705882, 0.635294, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 130
+text = "Töpfe"
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="plain_brown" type="Button" parent="PotSkins/Panel"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 159.0
+offset_right = 194.0
+offset_bottom = 287.0
+theme_override_styles/focus = SubResource("StyleBoxTexture_uykgh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_d8hfn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6iclx")
+theme_override_styles/normal = SubResource("StyleBoxTexture_m12rn")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PotSkins/Panel/plain_brown"]
+position = Vector2(80, 17)
+scale = Vector2(11, 11)
+texture = ExtResource("34_efjfr")
+
+[node name="PanelLeaver" type="Button" parent="PotSkins"]
+visible = false
+layout_mode = 0
+offset_left = 408.0
+offset_top = -21.0
+offset_right = 1754.0
+offset_bottom = 1062.0
+theme_override_styles/focus = SubResource("StyleBoxTexture_q74jh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_7yn17")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_dcefc")
+theme_override_styles/normal = SubResource("StyleBoxTexture_002u2")
+script = ExtResource("35_3xfey")
