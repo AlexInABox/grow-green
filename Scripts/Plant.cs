@@ -59,7 +59,7 @@ public partial class Plant : Sprite2D
 
         growProgress = 0.01;
         waterLevel = 50;
-        pot = "default";
+        pot = "plain_brown";
         this.spawnPoint = 1;
     }
     public Plant(string className, string name, string difficulty, int waterEveryXDays, int cost, int sellValue, int yield, double growProgress, long growProgressTimestamp, double waterLevel, long waterLevelTimestamp, bool withered, bool rotten, string pot, int spawnPoint) {
