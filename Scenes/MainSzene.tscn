@@ -1,10 +1,12 @@
 [gd_scene load_steps=71 format=3 uid="uid://bqv77dvuy6ly0"]
 
+
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_06be7"]
 [ext_resource type="Texture2D" uid="uid://da3gby3k4mva" path="res://Textures/Backgrounds/HOUSE.png" id="1_bo6pn"]
 [ext_resource type="Script" path="res://Scripts/MainSzene.cs" id="1_rm010"]
 [ext_resource type="PackedScene" uid="uid://bxj5nxe1yf7t0" path="res://Prefabs/spawnPoint.tscn" id="4_vckgm"]
 [ext_resource type="Texture2D" uid="uid://k1nlupvlorva" path="res://Textures/Icons/Icons/MinigamesIcon.png" id="4_wnhev"]
+[ext_resource type="Texture2D" uid="uid://bmlucsypqwwd5" path="res://Textures/Icons/trashcan.png" id="4_ws6uo"]
 [ext_resource type="Script" path="res://Scripts/ShopButton.cs" id="5_fepxd"]
 [ext_resource type="Script" path="res://Scripts/LoadPictures.cs" id="5_ggw0u"]
 [ext_resource type="Texture2D" uid="uid://dohi1fhdvqj6g" path="res://Textures/Icons/Icons/ShopIcon.png" id="5_j8hir"]
@@ -228,6 +230,12 @@ position = Vector2(1600, 968)
 
 [node name="SpawnPoint26" parent="SpawnPointWrapper" instance=ExtResource("4_vckgm")]
 position = Vector2(1728, 968)
+
+[node name="Trash" type="Sprite2D" parent="SpawnPointWrapper"]
+visible = false
+position = Vector2(1844, 85)
+scale = Vector2(8.8, 8.8)
+texture = ExtResource("4_ws6uo")
 
 [node name="Background" type="Sprite2D" parent="."]
 scale = Vector2(8, 8)
