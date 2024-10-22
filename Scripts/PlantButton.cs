@@ -9,6 +9,7 @@ public partial class PlantButton : Button
 
     Plant myPlant;
     Node2D plantWrapper;
+    SceneManager sceneManager;
 
     bool wasMouseDown = false;
     bool isMouseDown = false;
@@ -19,6 +20,7 @@ public partial class PlantButton : Button
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+        sceneManager = GetNode<SceneManager>("/root/MainSzene/SceneManager");
         Pressed += ButtonPressed;
         //myPlant = GetNode<Plant>("../Plant"); //will error when sprite hasnt loaded yet. but works anyways for some reason
         MouseEntered += ButtonHovered;
@@ -76,6 +78,7 @@ public partial class PlantButton : Button
         if (!isMouseDown){
             dragActivated = false;
             queueDrag = false;
+            GetParent().GetParent().GetParent().GetNode<Node2D>("Trash").Hide();
         }
 
         if (isHovering && isMouseDown && !wasMouseDown){
@@ -88,7 +91,10 @@ public partial class PlantButton : Button
             dragActivated = true;
         }
 
-        if (dragActivated) plantWrapper.GlobalPosition = GetGlobalMousePosition();
+        if (dragActivated){
+            plantWrapper.GlobalPosition = GetGlobalMousePosition();
+            GetParent().GetParent().GetParent().GetNode<Node2D>("Trash").Show();
+        } 
 
         wasMouseDown = isMouseDown;
 
@@ -102,7 +108,10 @@ public partial class PlantButton : Button
         if (wasDraging && !dragActivated){
             Node2D nearestSpawnPoint = GetNearestSpawnPoint();
             GD.Print(nearestSpawnPoint.Name);
-
+            if (nearestSpawnPoint.Name == "Trash"){
+                DeleteThisPlant();
+                return;
+            }
             SetNewSpawnPoint(nearestSpawnPoint);
         }
 
@@ -159,7 +168,12 @@ public partial class PlantButton : Button
 
             PlantA.spawnPoint = spawnPoint.Name.ToString().Remove(0, 10).ToInt();
         }
+    }
 
+    private void DeleteThisPlant(){
+        List<Plant> listOfOwnedPlants = sceneManager.GetListOfOwnedPlants();
+        listOfOwnedPlants.Remove(GetNode<Plant>("../Plant"));
 
+        GetParent().QueueFree();
     }
 }
