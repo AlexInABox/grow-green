@@ -13,16 +13,19 @@ public partial class PackSpawner : Node
     private int cost = 6;
     private SceneManager sceneManager;
     private PackedScene packedScene;
+    private Button leaveButton;
     
 
     public override void _Ready()
     {
         sceneManager = GetNode<SceneManager>("SceneManager");
+        leaveButton = GetNode<Button>("LeaveButton");
         
             GD.Print("AAAAAH");
             button = GetNode<Button>("BuyPackButton");
             button.Pressed += BuyPack;
             animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer"); 
+            
     }
 
     public void BuyPack()
@@ -30,24 +33,16 @@ public partial class PackSpawner : Node
         if (sceneManager.GetCoinCount() >= cost)
         {
             button.Disabled = true;
-            animationPlayer.Play("spawn_packAnimation");
-            animationPlayer.Connect("animation_finished", new Callable(this, nameof(OnAnimationFinished)), flags: (uint)ConnectFlags.OneShot);
+            leaveButton.Disabled = true;
             sceneManager.SetCoinCount(sceneManager.GetCoinCount() - cost);
+            SpawnPacks();
         }
         else
         {
-            GD.Print("AAAAAH");
+            GD.Print("Not enough coins");
         }
     }
-    private void OnAnimationFinished(StringName animName)
-    {
-        if (animName == "spawn_packAnimation")
-        {
-           SpawnPacks();
-           sprite = GetNode<Sprite2D>("Sprite2D");
-           sprite.Visible = false;
-        }
-    }
+    
     private void SpawnPacks()
     {
         SpawnPack("PackSpawner"); 
@@ -77,5 +72,6 @@ public partial class PackSpawner : Node
         var packWrapper = GetNode<Node2D>("SpawnedPack");
         packWrapper.QueueFree();
         button.Disabled = false;
+        leaveButton.Disabled = false;
     }
 }

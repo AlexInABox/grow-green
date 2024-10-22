@@ -40,10 +40,8 @@ public partial class ShopPlantButton : Button
 			GD.Print("Natürlich kannst du " + className + " kaufen :)))");
 			sceneManager.SetCoinCount(sceneManager.GetCoinCount() - cost);
 
-			List<Plant> listOfOwnedPlants = sceneManager.GetListOfOwnedPlants();
 			Plant plant = sceneManager.GetPlantByClassName(className);
-			plant.spawnPoint = listOfOwnedPlants.Count + 1;
-			listOfOwnedPlants.Add(plant);
+			sceneManager.AddNewPlantToListOfOwnedPlants(plant);
 		}
 		GD.Print("Du hast noch " + sceneManager.GetCoinCount() + " coins!");
 	}

@@ -3,14 +3,16 @@ using System;
 
 public partial class ShopButton : Button
 {
-	// Called when the node enters the scene tree for the first time.
+	SceneManager sceneManager;
 	public override void _Ready()
 	{
+		sceneManager = GetNode<SceneManager>("../SceneManager");
 		Pressed += ButtonPressed;
 	}
 
 	private void ButtonPressed()
 	{
+		sceneManager.UpdateSaveBlocking();
 		var shopScene = "res://Scenes/ShopSzene.tscn";
 		GetTree().ChangeSceneToFile(shopScene);
 	}

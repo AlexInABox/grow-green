@@ -4,12 +4,10 @@ using System;
 public partial class ScamerGreenhouseButton : Button
 {
 	SceneManager SceneManager;
-	private Panel bubble;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		SceneManager = GetNode<SceneManager>("../SceneManager");
-		bubble = GetNode<Panel>("Bubble");
 		Pressed += BubbleActivator;
 	}
 
