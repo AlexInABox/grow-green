@@ -9,7 +9,6 @@ public partial class PackSpawner : Node
     private Button button;
     private Sprite2D sprite;
     private bool packPaid = false;
-    private AnimationPlayer animationPlayer;
     private int cost = 6;
     private SceneManager sceneManager;
     private PackedScene packedScene;
@@ -24,7 +23,6 @@ public partial class PackSpawner : Node
             GD.Print("AAAAAH");
             button = GetNode<Button>("BuyPackButton");
             button.Pressed += BuyPack;
-            animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer"); 
             
     }
 
