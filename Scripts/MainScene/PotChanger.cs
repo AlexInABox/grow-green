@@ -52,6 +52,7 @@ public partial class PotChanger : Node
 				Sprite2D buttonSprite = Puttons.GetNode<Sprite2D>("Sprite2D");
 				if (buttonSprite != null)
 				{
+					buttonSprite.Name = Puttons.Name;
 				 buttonSprites.Add(buttonSprite);
 				}
 				buttons.Add(Puttons);
@@ -104,6 +105,11 @@ public partial class PotChanger : Node
 
 			// Deaktiviere den Sprite-Auswahlmodus nach der Auswahl
 			isSelectingSprite = false;
+
+
+			//
+			Plant ourPlant = targetSprite.GetNode<Plant>("../Plant");
+			ourPlant.pot = buttonSprites[selectedTextureIndex].Name;
 		}
 	}
 
