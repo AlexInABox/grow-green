@@ -32,12 +32,12 @@ public partial class PotChanger : Node
 		SpawnPoint = GetNode<Node>("../SpawnPointWrapper");
 
 		foreach(Node2D spawns in SpawnPoint.GetChildren()){
-			Sprite2D potSprite = spawns.GetNode<Sprite2D>("plant_wrapper/Pot");
+			Sprite2D potSprite = spawns.GetNodeOrNull<Sprite2D>("plant_wrapper/Pot");
 			if (potSprite != null)  // Sicherstellen, dass der Node gefunden wird
 			{
 				sprites.Add(potSprite);
 			}
-			Button SpawnpointButton = spawns.GetNode<Button>("plant_wrapper/Button");
+			Button SpawnpointButton = spawns.GetNodeOrNull<Button>("plant_wrapper/Button");
 			if (SpawnpointButton != null)
 			{
 				SpawnpointButtons.Add(SpawnpointButton);
@@ -52,6 +52,7 @@ public partial class PotChanger : Node
 				Sprite2D buttonSprite = Puttons.GetNode<Sprite2D>("Sprite2D");
 				if (buttonSprite != null)
 				{
+					buttonSprite.Name = Puttons.Name;
 				 buttonSprites.Add(buttonSprite);
 				}
 				buttons.Add(Puttons);
@@ -104,6 +105,11 @@ public partial class PotChanger : Node
 
 			// Deaktiviere den Sprite-Auswahlmodus nach der Auswahl
 			isSelectingSprite = false;
+
+
+			//
+			Plant ourPlant = targetSprite.GetNode<Plant>("../Plant");
+			ourPlant.pot = buttonSprites[selectedTextureIndex].Name;
 		}
 	}
 

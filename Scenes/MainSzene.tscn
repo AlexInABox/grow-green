@@ -1,5 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://bqv77dvuy6ly0"]
-
+[gd_scene load_steps=74 format=3 uid="uid://bqv77dvuy6ly0"]
 
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_06be7"]
 [ext_resource type="Texture2D" uid="uid://da3gby3k4mva" path="res://Textures/Backgrounds/HOUSE.png" id="1_bo6pn"]
@@ -38,6 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://d1iundnhibpig" path="res://Textures/Icons/pot_selection_overlay.png" id="33_m7vrf"]
 [ext_resource type="Texture2D" uid="uid://cytn4u5ejjnbe" path="res://Textures/Pots/plain_brown.png" id="34_efjfr"]
 [ext_resource type="Script" path="res://Scripts/MainScene/PanelLeaver.cs" id="35_3xfey"]
+[ext_resource type="Script" path="res://Scripts/MainScene/CustomPotSpawner.cs" id="37_pyrr7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ftaqd"]
 
@@ -134,6 +134,8 @@ texture = ExtResource("33_m7vrf")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6iclx"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m12rn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lj4j8"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q74jh"]
 
@@ -555,6 +557,26 @@ metadata/_edit_lock_ = true
 position = Vector2(80, 17)
 scale = Vector2(11, 11)
 texture = ExtResource("34_efjfr")
+
+[node name="CustomPots" type="Panel" parent="PotSkins/Panel"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 874.0
+offset_right = 537.0
+offset_bottom = 1046.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_lj4j8")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PotSkins/Panel/CustomPots"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 15.0
+offset_right = 464.0
+offset_bottom = 156.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PotSkins/Panel/CustomPots/ScrollContainer"]
+custom_minimum_size = Vector2(5000, 129.35)
+layout_mode = 2
+script = ExtResource("37_pyrr7")
 
 [node name="PanelLeaver" type="Button" parent="PotSkins"]
 visible = false
