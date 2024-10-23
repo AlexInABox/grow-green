@@ -12,23 +12,18 @@ public partial class CustomPotSpawner : HBoxContainer
 	{
 		sceneManager = GetNode<SceneManager>("/root/MainSzene/SceneManager");
 
-
 		List<Pot> ownedPots = sceneManager.GetListOfOwnedPots();
 		var counter = 0;
 		foreach (Pot pot in ownedPots) {
 			var customPotPrefabInstance = customPotPrefab.Instantiate();
 			AddChild(customPotPrefabInstance);
 
-			customPotPrefabInstance.Name = pot.Name;
-			customPotPrefabInstance.AddChild(pot);
-
-			var buttonWrapper = customPotPrefabInstance;
-			buttonWrapper.Position = new Vector2(65*counter, 40);
+			var castedInstance = (Node2D)customPotPrefabInstance;
+			castedInstance.AddChild(pot);
+			castedInstance.Position = new Vector2(80 + (128*counter), 40);
 			
 			counter++;
 		}
-		GD.Print(ownedPots.Count);
-		GD.Print(GetParent().GetTreeStringPretty());
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
