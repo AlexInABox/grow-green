@@ -59,7 +59,7 @@ public partial class PotPackOpening : Button
         
        
         List<(Pot pot, double weight)> weightedPots = potList
-            .Where(pot => pot.cost > 0) // Sonst immer default
+            .Where(pot => pot.cost > 1) // Sonst immer default
             .Select(pot => (pot, weight: 1.0 / pot.cost))
             .ToList();
 
