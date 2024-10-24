@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://bqv77dvuy6ly0"]
+[gd_scene load_steps=88 format=3 uid="uid://bqv77dvuy6ly0"]
 
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_06be7"]
 [ext_resource type="Texture2D" uid="uid://da3gby3k4mva" path="res://Textures/Backgrounds/HOUSE.png" id="1_bo6pn"]
@@ -51,6 +51,7 @@
 [ext_resource type="Texture2D" uid="uid://brfyweksy8rga" path="res://Textures/Pots/plain_purple.png" id="47_kxu08"]
 [ext_resource type="Texture2D" uid="uid://coixjtit5q42q" path="res://Textures/Pots/plain_pink.png" id="48_cfrth"]
 [ext_resource type="Texture2D" uid="uid://braf77mvv2f3m" path="res://Textures/Pots/plain_pink_light.png" id="49_1elmb"]
+[ext_resource type="PackedScene" uid="uid://d07rokqxx2fl3" path="res://Prefabs/coinDisplay_wrapper.tscn" id="52_p40kd"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ftaqd"]
 
@@ -247,7 +248,7 @@ position = Vector2(1728, 968)
 
 [node name="Trash" type="Sprite2D" parent="SpawnPointWrapper"]
 visible = false
-position = Vector2(1784, 5)
+position = Vector2(336, 5)
 scale = Vector2(8, 8)
 texture = ExtResource("4_ws6uo")
 centered = false
@@ -819,3 +820,6 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_7yn17")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_dcefc")
 theme_override_styles/normal = SubResource("StyleBoxTexture_002u2")
 script = ExtResource("35_3xfey")
+
+[node name="coinDisplay_wrapper" parent="." instance=ExtResource("52_p40kd")]
+position = Vector2(1641, 72)
