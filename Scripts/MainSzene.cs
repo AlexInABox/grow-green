@@ -7,23 +7,21 @@ using System.Collections.Generic;
 	DatabaseWrapper db = new DatabaseWrapper();
 	PackedScene plantPrefab = GD.Load<PackedScene>("res://Prefabs/plant_wrapper.tscn");
 	SceneManager sceneManager;
-	private Button Jimmy;
-	private Button UndercoverJimmy;
+	private Button greenhouseButton;
+	private Button scammerGreenhouseButton;
 	public override void _Ready()
 	{
 		sceneManager = GetNode<SceneManager>("../SceneManager");
 		List<Plant> plantList = sceneManager.GetListOfOwnedPlants(); 
 		PlaceAllPlants(plantList);
 
-		Jimmy = GetNode<Button>("../GreenhouseButton");
-		UndercoverJimmy = GetNode<Button>("../ScamerGreenhouseButton");
-		Jimmy.Disabled = true;
-		UndercoverJimmy.Visible = false;
-
-
-		if(Jimmy.Disabled = true){
-			UndercoverJimmy.Visible = true;
-		}
+		greenhouseButton = GetNode<Button>("../GreenhouseButton");
+		scammerGreenhouseButton = GetNode<Button>("../ScamerGreenhouseButton");
+		GD.Print(sceneManager.GetHasUnlockedGreenhouse());
+		
+		CheckForGreenhouse();
+		
+		
 	}
 
 	private void PlaceAllPlants(List<Plant> plantList) {
@@ -60,8 +58,22 @@ using System.Collections.Generic;
 			plantWrapper.AddChild(plant);
 		}
 	}
+
+	public void CheckForGreenhouse()
+	{
+		if (sceneManager.GetHasUnlockedGreenhouse())
+		{
+			greenhouseButton.Disabled = false;
+			scammerGreenhouseButton.QueueFree();
+		} else
+		{
+			greenhouseButton.Disabled = true;
+			scammerGreenhouseButton.Visible = true;
+		}
+	}
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+	
 	}
 }
