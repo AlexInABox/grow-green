@@ -18,6 +18,7 @@ public partial class MemoryGame : Node
 	private int reward;
 	private String scenePath;
 	private string[] nodeNames;
+    private Vector2 sizeEdit;
 	
 	public override void _Ready()
 	{
@@ -32,22 +33,25 @@ public partial class MemoryGame : Node
 			case "MemorySzeneEasy":
 			{
 				size = 12;
-				reward = 12;
+				reward = 2;
 				nodeNames = new[] { "A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3", "D1", "D2", "D3" };
+				sizeEdit = new Vector2(1.35f, 1.35f);
 				break;
 			}
 			case "MemorySzeneMedium":
 			{
 				size = 16;
-				reward = 16;
+				reward = 5;
 				nodeNames = new[] { "A1", "A2", "A3", "A4", "B1", "B2", "B3", "B4", "C1", "C2", "C3", "C4", "D1", "D2", "D3", "D4" };
+				sizeEdit = new Vector2(1.0f, 1.0f);
 				break;
 			}
 			case "MemorySzeneVeryHard":
 			{
 				size = 24;
-				reward = 24;
+				reward = 10;
 				nodeNames = new[] { "A1", "A2", "A3", "A4", "B1", "B2", "B3", "B4", "C1", "C2", "C3", "C4", "D1", "D2", "D3", "D4", "E1", "E2", "E3", "E4", "F1", "F2", "F3", "F4"};
+				sizeEdit = new Vector2(1.0f, 1.0f);
 				break;
 			}
 			default: 
@@ -146,6 +150,7 @@ public partial class MemoryGame : Node
 				
 				Node2D instance = (Node2D)prefab.Instantiate();
 
+				instance.Scale = sizeEdit;
 			
 				targetNode.AddChild(instance);
 
