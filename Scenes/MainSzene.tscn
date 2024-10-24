@@ -248,9 +248,10 @@ position = Vector2(1728, 968)
 
 [node name="Trash" type="Sprite2D" parent="SpawnPointWrapper"]
 visible = false
-position = Vector2(1844, 85)
-scale = Vector2(8.8, 8.8)
+position = Vector2(1784, 5)
+scale = Vector2(8, 8)
 texture = ExtResource("4_ws6uo")
+centered = false
 
 [node name="Background" type="Sprite2D" parent="."]
 scale = Vector2(8, 8)
@@ -520,9 +521,10 @@ script = ExtResource("31_pha1o")
 [node name="PotSkins" type="Button" parent="."]
 z_index = 1
 offset_left = 165.0
-offset_top = 19.0
+offset_top = 5.0
 offset_right = 308.0
-offset_bottom = 154.0
+offset_bottom = 140.0
+scale = Vector2(1.1, 1.1)
 theme_override_styles/focus = SubResource("StyleBoxTexture_we068")
 theme_override_styles/hover = SubResource("StyleBoxTexture_ymgp7")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_b6c5m")
