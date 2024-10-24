@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://bqv77dvuy6ly0"]
+[gd_scene load_steps=87 format=3 uid="uid://bqv77dvuy6ly0"]
 
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_06be7"]
 [ext_resource type="Texture2D" uid="uid://da3gby3k4mva" path="res://Textures/Backgrounds/HOUSE.png" id="1_bo6pn"]
@@ -37,7 +37,20 @@
 [ext_resource type="Texture2D" uid="uid://d1iundnhibpig" path="res://Textures/Icons/pot_selection_overlay.png" id="33_m7vrf"]
 [ext_resource type="Texture2D" uid="uid://cytn4u5ejjnbe" path="res://Textures/Pots/plain_brown.png" id="34_efjfr"]
 [ext_resource type="Script" path="res://Scripts/MainScene/PanelLeaver.cs" id="35_3xfey"]
+[ext_resource type="Texture2D" uid="uid://dnou3d6cq1k7v" path="res://Textures/Pots/plain_black.png" id="37_gy6i2"]
 [ext_resource type="Script" path="res://Scripts/MainScene/CustomPotSpawner.cs" id="37_pyrr7"]
+[ext_resource type="Texture2D" uid="uid://c1lj47bb36f0g" path="res://Textures/Pots/plain_grey.png" id="38_vuwlt"]
+[ext_resource type="Texture2D" uid="uid://khueuf5d54d3" path="res://Textures/Pots/plain_blue_dark.png" id="39_udfdm"]
+[ext_resource type="Texture2D" uid="uid://cf0ksf52shp8b" path="res://Textures/Pots/plain_blue_light.png" id="40_u162t"]
+[ext_resource type="Texture2D" uid="uid://hlwwfsvgs1fx" path="res://Textures/Pots/plain_white.png" id="41_4gh6b"]
+[ext_resource type="Texture2D" uid="uid://cj0xfyoym87v4" path="res://Textures/Pots/plain_yellow.png" id="42_h1fd2"]
+[ext_resource type="Texture2D" uid="uid://c34n8kx6wfp3q" path="res://Textures/Pots/plain_green_dark.png" id="43_odhxc"]
+[ext_resource type="Texture2D" uid="uid://bua8bn6k53ias" path="res://Textures/Pots/plain_green_light.png" id="44_i4i30"]
+[ext_resource type="Texture2D" uid="uid://b7vrf64xr2ssc" path="res://Textures/Pots/plain_red.png" id="45_m6xlg"]
+[ext_resource type="Texture2D" uid="uid://c6xmsbix5nxjj" path="res://Textures/Pots/plain_orange.png" id="46_y3i3v"]
+[ext_resource type="Texture2D" uid="uid://brfyweksy8rga" path="res://Textures/Pots/plain_purple.png" id="47_kxu08"]
+[ext_resource type="Texture2D" uid="uid://coixjtit5q42q" path="res://Textures/Pots/plain_pink.png" id="48_cfrth"]
+[ext_resource type="Texture2D" uid="uid://braf77mvv2f3m" path="res://Textures/Pots/plain_pink_light.png" id="49_1elmb"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ftaqd"]
 
@@ -235,9 +248,10 @@ position = Vector2(1728, 968)
 
 [node name="Trash" type="Sprite2D" parent="SpawnPointWrapper"]
 visible = false
-position = Vector2(1844, 85)
-scale = Vector2(8.8, 8.8)
+position = Vector2(1784, 5)
+scale = Vector2(8, 8)
 texture = ExtResource("4_ws6uo")
+centered = false
 
 [node name="Background" type="Sprite2D" parent="."]
 scale = Vector2(8, 8)
@@ -507,9 +521,10 @@ script = ExtResource("31_pha1o")
 [node name="PotSkins" type="Button" parent="."]
 z_index = 1
 offset_left = 165.0
-offset_top = 19.0
+offset_top = 5.0
 offset_right = 308.0
-offset_bottom = 154.0
+offset_bottom = 140.0
+scale = Vector2(1.1, 1.1)
 theme_override_styles/focus = SubResource("StyleBoxTexture_we068")
 theme_override_styles/hover = SubResource("StyleBoxTexture_ymgp7")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_b6c5m")
@@ -557,6 +572,227 @@ metadata/_edit_lock_ = true
 position = Vector2(80, 17)
 scale = Vector2(11, 11)
 texture = ExtResource("34_efjfr")
+
+[node name="plain_black" type="Button" parent="PotSkins/Panel"]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 159.0
+offset_right = 366.0
+offset_bottom = 287.0
+theme_override_styles/focus = SubResource("StyleBoxTexture_uykgh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_d8hfn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6iclx")
+theme_override_styles/normal = SubResource("StyleBoxTexture_m12rn")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PotSkins/Panel/plain_black"]
+position = Vector2(80, 17)
+scale = Vector2(11, 11)
+texture = ExtResource("37_gy6i2")
+
+[node name="plain_grey" type="Button" parent="PotSkins/Panel"]
+layout_mode = 0
+offset_left = 378.0
+offset_top = 159.0
+offset_right = 536.0
+offset_bottom = 287.0
+theme_override_styles/focus = SubResource("StyleBoxTexture_uykgh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_d8hfn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6iclx")
+theme_override_styles/normal = SubResource("StyleBoxTexture_m12rn")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PotSkins/Panel/plain_grey"]
+position = Vector2(80, 17)
+scale = Vector2(11, 11)
+texture = ExtResource("38_vuwlt")
+
+[node name="plain_blue_dark" type="Button" parent="PotSkins/Panel"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 302.0
+offset_right = 194.0
+offset_bottom = 430.0
+theme_override_styles/focus = SubResource("StyleBoxTexture_uykgh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_d8hfn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6iclx")
+theme_override_styles/normal = SubResource("StyleBoxTexture_m12rn")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PotSkins/Panel/plain_blue_dark"]
+position = Vector2(80, 17)
+scale = Vector2(11, 11)
+texture = ExtResource("39_udfdm")
+
+[node name="plain_blue_light" type="Button" parent="PotSkins/Panel"]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 302.0
+offset_right = 366.0
+offset_bottom = 430.0
+theme_override_styles/focus = SubResource("StyleBoxTexture_uykgh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_d8hfn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6iclx")
+theme_override_styles/normal = SubResource("StyleBoxTexture_m12rn")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PotSkins/Panel/plain_blue_light"]
+position = Vector2(80, 17)
+scale = Vector2(11, 11)
+texture = ExtResource("40_u162t")
+
+[node name="plain_white" type="Button" parent="PotSkins/Panel"]
+layout_mode = 0
+offset_left = 378.0
+offset_top = 302.0
+offset_right = 536.0
+offset_bottom = 430.0
+theme_override_styles/focus = SubResource("StyleBoxTexture_uykgh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_d8hfn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6iclx")
+theme_override_styles/normal = SubResource("StyleBoxTexture_m12rn")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PotSkins/Panel/plain_white"]
+position = Vector2(80, 17)
+scale = Vector2(11, 11)
+texture = ExtResource("41_4gh6b")
+
+[node name="plain_yellow" type="Button" parent="PotSkins/Panel"]
+layout_mode = 0
+offset_left = 378.0
+offset_top = 446.0
+offset_right = 536.0
+offset_bottom = 574.0
+theme_override_styles/focus = SubResource("StyleBoxTexture_uykgh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_d8hfn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6iclx")
+theme_override_styles/normal = SubResource("StyleBoxTexture_m12rn")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PotSkins/Panel/plain_yellow"]
+position = Vector2(80, 17)
+scale = Vector2(11, 11)
+texture = ExtResource("42_h1fd2")
+
+[node name="plain_green_dark" type="Button" parent="PotSkins/Panel"]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 446.0
+offset_right = 366.0
+offset_bottom = 574.0
+theme_override_styles/focus = SubResource("StyleBoxTexture_uykgh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_d8hfn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6iclx")
+theme_override_styles/normal = SubResource("StyleBoxTexture_m12rn")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PotSkins/Panel/plain_green_dark"]
+position = Vector2(80, 17)
+scale = Vector2(11, 11)
+texture = ExtResource("43_odhxc")
+
+[node name="plain_green_light" type="Button" parent="PotSkins/Panel"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 446.0
+offset_right = 196.0
+offset_bottom = 574.0
+theme_override_styles/focus = SubResource("StyleBoxTexture_uykgh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_d8hfn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6iclx")
+theme_override_styles/normal = SubResource("StyleBoxTexture_m12rn")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PotSkins/Panel/plain_green_light"]
+position = Vector2(80, 17)
+scale = Vector2(11, 11)
+texture = ExtResource("44_i4i30")
+
+[node name="plain_red" type="Button" parent="PotSkins/Panel"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 590.0
+offset_right = 196.0
+offset_bottom = 718.0
+theme_override_styles/focus = SubResource("StyleBoxTexture_uykgh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_d8hfn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6iclx")
+theme_override_styles/normal = SubResource("StyleBoxTexture_m12rn")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PotSkins/Panel/plain_red"]
+position = Vector2(80, 17)
+scale = Vector2(11, 11)
+texture = ExtResource("45_m6xlg")
+
+[node name="plain_orange" type="Button" parent="PotSkins/Panel"]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 590.0
+offset_right = 366.0
+offset_bottom = 718.0
+theme_override_styles/focus = SubResource("StyleBoxTexture_uykgh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_d8hfn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6iclx")
+theme_override_styles/normal = SubResource("StyleBoxTexture_m12rn")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PotSkins/Panel/plain_orange"]
+position = Vector2(80, 17)
+scale = Vector2(11, 11)
+texture = ExtResource("46_y3i3v")
+
+[node name="plain_purple" type="Button" parent="PotSkins/Panel"]
+layout_mode = 0
+offset_left = 378.0
+offset_top = 590.0
+offset_right = 536.0
+offset_bottom = 718.0
+theme_override_styles/focus = SubResource("StyleBoxTexture_uykgh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_d8hfn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6iclx")
+theme_override_styles/normal = SubResource("StyleBoxTexture_m12rn")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PotSkins/Panel/plain_purple"]
+position = Vector2(80, 17)
+scale = Vector2(11, 11)
+texture = ExtResource("47_kxu08")
+
+[node name="plain_pink" type="Button" parent="PotSkins/Panel"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 734.0
+offset_right = 196.0
+offset_bottom = 862.0
+theme_override_styles/focus = SubResource("StyleBoxTexture_uykgh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_d8hfn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6iclx")
+theme_override_styles/normal = SubResource("StyleBoxTexture_m12rn")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PotSkins/Panel/plain_pink"]
+position = Vector2(80, 17)
+scale = Vector2(11, 11)
+texture = ExtResource("48_cfrth")
+
+[node name="plain_pink_light" type="Button" parent="PotSkins/Panel"]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 734.0
+offset_right = 366.0
+offset_bottom = 862.0
+theme_override_styles/focus = SubResource("StyleBoxTexture_uykgh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_d8hfn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6iclx")
+theme_override_styles/normal = SubResource("StyleBoxTexture_m12rn")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PotSkins/Panel/plain_pink_light"]
+position = Vector2(80, 17)
+scale = Vector2(11, 11)
+texture = ExtResource("49_1elmb")
 
 [node name="CustomPots" type="Panel" parent="PotSkins/Panel"]
 layout_mode = 0

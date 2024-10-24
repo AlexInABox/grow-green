@@ -24,6 +24,7 @@ public partial class CustomPotSpawner : HBoxContainer
 			
 			counter++;
 		}
+		CustomMinimumSize = new Vector2(128*counter, 130);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
