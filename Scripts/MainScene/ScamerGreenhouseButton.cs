@@ -3,16 +3,16 @@ using System;
 
 public partial class ScamerGreenhouseButton : Button
 {
-	SceneManager SceneManager;
+	SceneManager sceneManager;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		SceneManager = GetNode<SceneManager>("../SceneManager");
+		sceneManager = GetNode<SceneManager>("../SceneManager");
 		Pressed += BubbleActivator;
 	}
 
 	private void BubbleActivator(){
-		SceneManager.SpawnGreenhouseUnlockPopup();
+		sceneManager.SpawnGreenhouseUnlockPopup();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

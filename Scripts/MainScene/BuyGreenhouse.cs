@@ -4,16 +4,33 @@ using System;
 public partial class BuyGreenhouse : Button
 {
 	SceneManager sceneManager;
+
+	private int greenhouseCost = 100;
+	
+	private MainSzene mainSzene;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		sceneManager = GetNode<SceneManager>("../../../SceneManager");
-		Pressed += Gekauft;
+		sceneManager = GetNode<SceneManager>("/root/MainSzene/SceneManager");
+		mainSzene = GetNode<MainSzene>("/root/MainSzene/MainSceneScript");
+		Pressed += TryBuyGreenhouse;
+		
 	}
 
-	private void Gekauft(){
-		var shopScene = "res://Scenes/MainSzene.tscn";
-		GetTree().ChangeSceneToFile(shopScene);
+	public void TryBuyGreenhouse()
+	{
+		if (sceneManager.GetCoinCount() >= greenhouseCost)
+		{
+			sceneManager.SetCoinCount(sceneManager.GetCoinCount() - greenhouseCost);
+			BoughtGreenhouse();
+		}
+	}
+
+	public void BoughtGreenhouse(){
+		sceneManager.SetHasUnlockedGreenhouse(true);
+		mainSzene.CheckForGreenhouse();
+		GetParent().GetParent().QueueFree();
+		
 	}
 
 
