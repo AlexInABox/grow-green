@@ -1,5 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://f57aqowuk20c"]
-
+[gd_scene load_steps=15 format=3 uid="uid://f57aqowuk20c"]
 
 [ext_resource type="Script" path="res://Scripts/PlantWrapper.cs" id="1_8i3x8"]
 [ext_resource type="Texture2D" uid="uid://buqy5h6r8xf4y" path="res://Textures/Pots/default.png" id="1_tugmu"]

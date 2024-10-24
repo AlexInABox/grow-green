@@ -4,7 +4,6 @@ using System.Collections.Generic;
 	public partial class EasyPlantsContainercs : HBoxContainer
 {
 	// Called when the node enters the scene tree for the first time.
-	DatabaseWrapper db = new DatabaseWrapper();
 	PackedScene shopPrefab = GD.Load<PackedScene>("res://Prefabs/shop_wrapper.tscn");
 	SceneManager sceneManager;
 
