@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/PackOpening.cs" id="1_lxgxv"]
 [ext_resource type="Texture2D" uid="uid://dhun4gb3o56m" path="res://Textures/Packs/pack_plant.png" id="2_0dkdr"]
 [ext_resource type="Texture2D" uid="uid://dchis331cpnnw" path="res://Textures/Plants/agave3.png" id="3_xj221"]
-[ext_resource type="Texture2D" uid="uid://buqy5h6r8xf4y" path="res://Textures/Pots/default.png" id="4_641pv"]
+[ext_resource type="Texture2D" uid="uid://cytn4u5ejjnbe" path="res://Textures/Pots/plain_brown.png" id="4_junoh"]
 [ext_resource type="Texture2D" uid="uid://17jsurkaucrc" path="res://Textures/Packs/light_texture.png" id="5_d0404"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hv1eh"]
@@ -70,7 +70,7 @@ texture = ExtResource("3_xj221")
 z_index = 1
 position = Vector2(21, 33)
 scale = Vector2(2, 2)
-texture = ExtResource("4_641pv")
+texture = ExtResource("4_junoh")
 
 [node name="PointLight2D" type="PointLight2D" parent="Button"]
 position = Vector2(21, 35)
