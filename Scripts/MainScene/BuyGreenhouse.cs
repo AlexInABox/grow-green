@@ -7,7 +7,7 @@ public partial class BuyGreenhouse : Button
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		sceneManager = GetNode<SceneManager>("../SceneManager");
+		sceneManager = GetNode<SceneManager>("../../../SceneManager");
 		Pressed += Gekauft;
 	}
 

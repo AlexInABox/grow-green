@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bko6lyl6yif7h"]
+[gd_scene load_steps=9 format=3 uid="uid://bclcwmr1viwwx"]
 
 [ext_resource type="Script" path="res://Scripts/PlantPack/PotPackOpening.cs" id="1_tmvr2"]
 [ext_resource type="Texture2D" uid="uid://pcf5h0l5c27c" path="res://Textures/Packs/pack_pot_overpowered.png" id="2_6blbi"]

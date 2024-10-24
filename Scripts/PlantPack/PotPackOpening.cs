@@ -47,6 +47,8 @@ public partial class PotPackOpening : Button
         RemovePlantSprite();
 
         Pot randomPot = GetWeightedRandomPot();
+
+        sceneManager.GetListOfOwnedPots().Add(randomPot);
         
         PlayAnimationAndRevealPot(randomPot);
     }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c3ka4p1d1y4t5"]
+[gd_scene load_steps=27 format=3 uid="uid://dsaewohprj4cb"]
 
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_7qpdi"]
 [ext_resource type="Texture2D" uid="uid://bjqyte70oshda" path="res://Textures/Backgrounds/minigames_3.png" id="1_oqn6f"]

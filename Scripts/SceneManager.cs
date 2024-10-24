@@ -78,4 +78,29 @@ public partial class SceneManager : Node
 		var unlockPopupInstance = unlockPopup.Instantiate();
 		GetParent().AddChild(unlockPopupInstance);
 	}
+
+	public void AddNewPlantToListOfOwnedPlants(Plant plantToAdd) { //automtically generate the spawnPoint
+		List<Plant> listOfOwnedPlants = GetListOfOwnedPlants();
+
+		List<int> listOfOccupiedSpawnPoints = new List<int>();
+
+		foreach (Plant plant in listOfOwnedPlants){
+			listOfOccupiedSpawnPoints.Add(plant.spawnPoint);
+		}
+		listOfOccupiedSpawnPoints.Sort();
+
+		for (int i = 1;;i++){
+			if (listOfOccupiedSpawnPoints.Count < i) {
+				plantToAdd.spawnPoint = i;
+				break;
+			}
+			
+			if (listOfOccupiedSpawnPoints[i-1] == i) {
+				continue;
+			}
+			plantToAdd.spawnPoint = i;
+			break;
+		}
+		listOfOwnedPlants.Add(plantToAdd);
+	}
 }

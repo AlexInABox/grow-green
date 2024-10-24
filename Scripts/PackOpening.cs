@@ -116,10 +116,7 @@ public partial class PackOpening : Button
 
     public void placePlant()
     {
-        List<Plant> ownedPlants =  sceneManager.GetListOfOwnedPlants();
-        tempPlant.spawnPoint = ownedPlants.Count + 1;
-        ownedPlants.Add(tempPlant);
-       
+	    sceneManager.AddNewPlantToListOfOwnedPlants(tempPlant);
     }
 
     public void resetScene()
