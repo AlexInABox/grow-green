@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 
 public partial class PotPackSpawner : Node
@@ -9,10 +10,12 @@ public partial class PotPackSpawner : Node
     private Button button;
     private Sprite2D sprite;
     private bool packPaid = false;
-    private int cost = 6;
+    private int cost = 17;
     private SceneManager sceneManager;
     private PackedScene packedScene;
     private Button leaveButton;
+    DatabaseWrapper db = new DatabaseWrapper();
+    private List<Pot> ownablePots;
 
     public override void _Ready()
     {
@@ -21,9 +24,17 @@ public partial class PotPackSpawner : Node
         
             GD.Print("AAAAAH");
             button = GetNode<Button>("BuyPackButton");
-            button.Pressed += BuyPack;  
+            button.Pressed += BuyPack;
+            ownablePots = db.GetListOfAllPots()
+                .Where(pot => pot.cost > 1) // Sonst immer default
+                .ToList();
+            if (ownablePots.Count <= sceneManager.GetListOfOwnedPots().Count)
+            {
+               button.Disabled = true;
+            }
     }
 
+ 
     public void BuyPack()
     {
         if (sceneManager.GetCoinCount() >= cost)
@@ -62,11 +73,15 @@ public partial class PotPackSpawner : Node
         }
     }
 
-    public void resetScene()
+    public void ResetScene()
     {
         var packWrapper = GetNode<Node2D>("SpawnedPack");
         packWrapper.QueueFree();
-        button.Disabled = false;
+        if (ownablePots.Count > sceneManager.GetListOfOwnedPots().Count)
+        {
+            button.Disabled = false;
+        }
+        
         leaveButton.Disabled = false;
     }
 }

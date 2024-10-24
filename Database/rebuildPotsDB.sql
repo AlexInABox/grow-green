@@ -9,7 +9,6 @@ INSERT INTO pots (potName, cost)
 VALUES ("animal_giraffe", 8),
 	("animal_tiger", 8),
 	("animal_zebra", 8),
-	("animal_chicken", 8),
 	("minecraft_chicken", 10),
 	("minecraft_creeper", 10),
 	("minecraft_enderman", 10),
