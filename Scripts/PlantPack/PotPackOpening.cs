@@ -10,16 +10,15 @@ public partial class PotPackOpening : Button
     private SceneManager sceneManager;
 
     DatabaseWrapper db = new DatabaseWrapper();
-    private List<Pot> potList;
+ 
     private Pot tempPot;
     private PotPackSpawner packSpawner;
     private bool packIsOpen = false;
-
+    
     
     public override void _Ready()
     {
         Pressed += ButtonPressed;
-        potList = db.GetListOfAllPots();
         
         animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer"); 
         light = GetNode<Light2D>("PointLight2D"); 
@@ -27,8 +26,9 @@ public partial class PotPackOpening : Button
         
         sceneManager = GetNode<SceneManager>("../../SceneManager");
         packSpawner = GetNode<PotPackSpawner>("../../../PotPackOpeningMinigame");
+       
     }
-
+    
     private void ButtonPressed()
     {
         if (packIsOpen == false)
@@ -38,7 +38,7 @@ public partial class PotPackOpening : Button
         }
         else
         {
-            resetScene();
+            ResetScene();
         }
     }
 
@@ -50,6 +50,8 @@ public partial class PotPackOpening : Button
         
         sceneManager.GetListOfOwnedPots().Add(randomPot);
         
+        
+        
         PlayAnimationAndRevealPot(randomPot);
     }
 
@@ -58,10 +60,30 @@ public partial class PotPackOpening : Button
         Random random = new Random();
 
         List<Pot> alreadyOwned = sceneManager.GetListOfOwnedPots();
+        List<Pot> potList = db.GetListOfAllPots();
+        List<Pot> potsToRemove = new List<Pot>();
+        foreach (var potttttt in alreadyOwned)
+        {
+            GD.Print(potttttt.potName);
+        }
+       
         foreach (var pot in alreadyOwned)
+        {
+            foreach (var pott in potList)
+            {
+                if (pot.potName == pott.potName)
+                {
+                    potsToRemove.Add(pott);
+                }
+            }
+        }
+
+        foreach (var pot in potsToRemove)
         {
             potList.Remove(pot);
         }
+        
+        
         GD.Print(potList.Count);
         
         List<(Pot pot, double weight)> weightedPots = potList
@@ -91,6 +113,7 @@ public partial class PotPackOpening : Button
 
     private void PlayAnimationAndRevealPot(Pot pot)
     {
+        Disabled = true;
         DisplayPotInPackOpening(pot);
         
         light.Visible = true;
@@ -108,6 +131,8 @@ public partial class PotPackOpening : Button
         {
             light.Visible = false;
         }
+
+        Disabled = false;
     }
 
     private void DisplayPotInPackOpening(Pot pot)
@@ -133,8 +158,9 @@ public partial class PotPackOpening : Button
         }
     }
 
-    public void resetScene()
+    public void ResetScene()
     {
-        packSpawner.resetScene();
+        packSpawner.ResetScene();
+        
     }
 }
