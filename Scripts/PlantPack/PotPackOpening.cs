@@ -47,7 +47,7 @@ public partial class PotPackOpening : Button
         RemovePlantSprite();
 
         Pot randomPot = GetWeightedRandomPot();
-
+        
         sceneManager.GetListOfOwnedPots().Add(randomPot);
         
         PlayAnimationAndRevealPot(randomPot);
@@ -56,13 +56,18 @@ public partial class PotPackOpening : Button
     private Pot GetWeightedRandomPot()
     {
         Random random = new Random();
+
+        List<Pot> alreadyOwned = sceneManager.GetListOfOwnedPots();
+        foreach (var pot in alreadyOwned)
+        {
+            potList.Remove(pot);
+        }
+        GD.Print(potList.Count);
         
-       
         List<(Pot pot, double weight)> weightedPots = potList
             .Where(pot => pot.cost > 1) // Sonst immer default
             .Select(pot => (pot, weight: 1.0 / pot.cost))
             .ToList();
-
        
         double totalWeight = weightedPots.Sum(p => p.weight);
 

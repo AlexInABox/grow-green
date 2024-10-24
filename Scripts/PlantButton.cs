@@ -30,7 +30,11 @@ public partial class PlantButton : Button
     private void ButtonPressed()
     {
         myPlant = GetNode<Plant>("../Plant");
-        myPlant.WaterPlant();
+        if (wasDraging == false)
+        {
+            myPlant.WaterPlant();
+        }
+      
     }
 
     private void ButtonHovered()
@@ -86,7 +90,7 @@ public partial class PlantButton : Button
         }
 
         long timeSinceDragQueueStart = DateTimeOffset.Now.ToUnixTimeMilliseconds() - initialDragAttemptTimeStamp;
-        if (queueDrag && ((DateTimeOffset.Now.ToUnixTimeMilliseconds() - initialDragAttemptTimeStamp) > 2000)){
+        if (queueDrag && ((DateTimeOffset.Now.ToUnixTimeMilliseconds() - initialDragAttemptTimeStamp) > 500)){
             dragActivated = true;
         }
 
