@@ -9,6 +9,7 @@ public partial class Player : Node
 	public List<Pot> listOfOwnedPots;
 	public int coins;
 	public int characterId;
+	public bool greenhouseUnlocked;
     
     public Player(){ //Development
         this.username = "Söder";
@@ -16,6 +17,7 @@ public partial class Player : Node
         this.listOfOwnedPots = new List<Pot>();
         this.coins = 1000;
         this.characterId = 1;
+		this.greenhouseUnlocked = true;
     }
 
     public Player(int characterId){ //New User Created
@@ -24,14 +26,16 @@ public partial class Player : Node
         this.listOfOwnedPots = new List<Pot>();
         this.coins = 1000;
         this.characterId = characterId;
+		this.greenhouseUnlocked = false;
     }
 
-	public Player(string username, List<Plant> listOfOwnedPlants, List<Pot> listOfOwnedPots, int coins, int characterId){ //Load Player
+	public Player(string username, List<Plant> listOfOwnedPlants, List<Pot> listOfOwnedPots, int coins, int characterId, bool greenhouseUnlocked){ //Load Player
 		this.username = username;
 		this.listOfOwnedPlants = listOfOwnedPlants;
 		this.listOfOwnedPots = listOfOwnedPots;
 		this.coins = coins;
 		this.characterId = characterId;
+		this.greenhouseUnlocked = greenhouseUnlocked;
 	}
 
 	// Called when the node enters the scene tree for the first time.

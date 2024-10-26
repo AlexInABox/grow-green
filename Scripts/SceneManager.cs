@@ -12,12 +12,12 @@ public partial class SceneManager : Node
 
 	public void SetHasUnlockedGreenhouse(bool hasUnlockedGreenhouse)
 	{
-		this.hasUnlockedGreenhouse = hasUnlockedGreenhouse;
+		playerObject.greenhouseUnlocked = hasUnlockedGreenhouse;
 	}
 
 	public bool GetHasUnlockedGreenhouse()
 	{
-		return hasUnlockedGreenhouse;
+		return playerObject.greenhouseUnlocked;
 	}
 	public override void _Ready()
 	{
