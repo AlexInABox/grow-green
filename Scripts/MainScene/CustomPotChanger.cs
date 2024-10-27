@@ -9,13 +9,14 @@ public partial class CustomPotChanger : Button
 
 	public override void _Ready()
 	{
-		potSelectPanel = GetNode<Panel>("/root/MainSzene/PotSkins/Panel");
+		potSelectPanel = GetTree().Root.GetChildren()[0].GetNode<Panel>("PotSkins/Panel");
+		//potSelectPanel = GetNode<Panel>("/root/MainSzene/PotSkins/Panel");
 
 		Pressed += OnButtonPressed;
 	}
 
 	private void OnButtonPressed(){
-		foreach(Node2D spawnPoint in GetNode<Node>("/root/MainSzene/SpawnPointWrapper").GetChildren()) {
+		foreach(Node2D spawnPoint in GetTree().Root.GetChildren()[0].GetNode<Node>("SpawnPointWrapper").GetChildren()) {
 			if (spawnPoint.Name == "Trash"){
 				continue;
 			}
