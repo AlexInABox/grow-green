@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://teexgk7q8m1u"]
+[gd_scene load_steps=13 format=3 uid="uid://teexgk7q8m1u"]
 
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_e7yyb"]
 [ext_resource type="Script" path="res://Scripts/GreenhouseScene.cs" id="2_k45pb"]
-[ext_resource type="Theme" uid="uid://cfugb2jgj3yj0" path="res://Themes/spawnPointButton.tres" id="3_m11i8"]
+[ext_resource type="PackedScene" uid="uid://bxj5nxe1yf7t0" path="res://Prefabs/spawnPoint.tscn" id="3_px7ul"]
+[ext_resource type="Texture2D" uid="uid://bmlucsypqwwd5" path="res://Textures/Icons/trashcan.png" id="4_ikxi1"]
 [ext_resource type="Texture2D" uid="uid://cmxfcly5l04y" path="res://Textures/Backgrounds/greenhouse.png" id="4_yh1it"]
 [ext_resource type="PackedScene" uid="uid://d07rokqxx2fl3" path="res://Prefabs/coinDisplay_wrapper.tscn" id="7_fva8s"]
 [ext_resource type="Script" path="res://Scripts/LeaveGreenhouseButton.cs" id="10_0w0d6"]
@@ -31,317 +32,90 @@ script = ExtResource("2_k45pb")
 
 [node name="SpawnPointWrapper" type="Node" parent="."]
 
-[node name="SpawnPoint27" type="Node2D" parent="SpawnPointWrapper"]
+[node name="SpawnPoint27" parent="SpawnPointWrapper" instance=ExtResource("3_px7ul")]
 position = Vector2(192, 840)
 
-[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint27"]
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
-scale = Vector2(14, 14)
-pivot_offset = Vector2(4, 4)
-theme = ExtResource("3_m11i8")
-
-[node name="SpawnPoint28" type="Node2D" parent="SpawnPointWrapper"]
+[node name="SpawnPoint28" parent="SpawnPointWrapper" instance=ExtResource("3_px7ul")]
 position = Vector2(320, 840)
 
-[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint28"]
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
-scale = Vector2(14, 14)
-pivot_offset = Vector2(4, 4)
-theme = ExtResource("3_m11i8")
-
-[node name="SpawnPoint29" type="Node2D" parent="SpawnPointWrapper"]
+[node name="SpawnPoint29" parent="SpawnPointWrapper" instance=ExtResource("3_px7ul")]
 position = Vector2(448, 840)
 
-[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint29"]
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
-scale = Vector2(14, 14)
-pivot_offset = Vector2(4, 4)
-theme = ExtResource("3_m11i8")
-
-[node name="SpawnPoint30" type="Node2D" parent="SpawnPointWrapper"]
+[node name="SpawnPoint30" parent="SpawnPointWrapper" instance=ExtResource("3_px7ul")]
 position = Vector2(576, 840)
 
-[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint30"]
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
-scale = Vector2(14, 14)
-pivot_offset = Vector2(4, 4)
-theme = ExtResource("3_m11i8")
-
-[node name="SpawnPoint31" type="Node2D" parent="SpawnPointWrapper"]
+[node name="SpawnPoint31" parent="SpawnPointWrapper" instance=ExtResource("3_px7ul")]
 position = Vector2(704, 840)
 
-[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint31"]
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
-scale = Vector2(14, 14)
-pivot_offset = Vector2(4, 4)
-theme = ExtResource("3_m11i8")
-
-[node name="SpawnPoint32" type="Node2D" parent="SpawnPointWrapper"]
+[node name="SpawnPoint32" parent="SpawnPointWrapper" instance=ExtResource("3_px7ul")]
 position = Vector2(832, 840)
 
-[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint32"]
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
-scale = Vector2(14, 14)
-pivot_offset = Vector2(4, 4)
-theme = ExtResource("3_m11i8")
-
-[node name="SpawnPoint33" type="Node2D" parent="SpawnPointWrapper"]
+[node name="SpawnPoint33" parent="SpawnPointWrapper" instance=ExtResource("3_px7ul")]
 position = Vector2(960, 840)
 
-[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint33"]
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
-scale = Vector2(14, 14)
-pivot_offset = Vector2(4, 4)
-theme = ExtResource("3_m11i8")
-
-[node name="SpawnPoint34" type="Node2D" parent="SpawnPointWrapper"]
+[node name="SpawnPoint34" parent="SpawnPointWrapper" instance=ExtResource("3_px7ul")]
 position = Vector2(1088, 840)
 
-[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint34"]
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
-scale = Vector2(14, 14)
-pivot_offset = Vector2(4, 4)
-theme = ExtResource("3_m11i8")
-
-[node name="SpawnPoint35" type="Node2D" parent="SpawnPointWrapper"]
+[node name="SpawnPoint35" parent="SpawnPointWrapper" instance=ExtResource("3_px7ul")]
 position = Vector2(1216, 840)
 
-[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint35"]
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
-scale = Vector2(14, 14)
-pivot_offset = Vector2(4, 4)
-theme = ExtResource("3_m11i8")
-
-[node name="SpawnPoint36" type="Node2D" parent="SpawnPointWrapper"]
+[node name="SpawnPoint36" parent="SpawnPointWrapper" instance=ExtResource("3_px7ul")]
 position = Vector2(1344, 840)
 
-[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint36"]
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
-scale = Vector2(14, 14)
-pivot_offset = Vector2(4, 4)
-theme = ExtResource("3_m11i8")
-
-[node name="SpawnPoint37" type="Node2D" parent="SpawnPointWrapper"]
+[node name="SpawnPoint37" parent="SpawnPointWrapper" instance=ExtResource("3_px7ul")]
 position = Vector2(1472, 840)
 
-[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint37"]
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
-scale = Vector2(14, 14)
-pivot_offset = Vector2(4, 4)
-theme = ExtResource("3_m11i8")
-
-[node name="SpawnPoint38" type="Node2D" parent="SpawnPointWrapper"]
+[node name="SpawnPoint38" parent="SpawnPointWrapper" instance=ExtResource("3_px7ul")]
 position = Vector2(1600, 840)
 
-[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint38"]
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
-scale = Vector2(14, 14)
-pivot_offset = Vector2(4, 4)
-theme = ExtResource("3_m11i8")
-
-[node name="SpawnPoint39" type="Node2D" parent="SpawnPointWrapper"]
+[node name="SpawnPoint39" parent="SpawnPointWrapper" instance=ExtResource("3_px7ul")]
 position = Vector2(1728, 840)
 
-[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint39"]
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
-scale = Vector2(14, 14)
-pivot_offset = Vector2(4, 4)
-theme = ExtResource("3_m11i8")
-
-[node name="SpawnPoint40" type="Node2D" parent="SpawnPointWrapper"]
+[node name="SpawnPoint40" parent="SpawnPointWrapper" instance=ExtResource("3_px7ul")]
 position = Vector2(192, 968)
 
-[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint40"]
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
-scale = Vector2(14, 14)
-pivot_offset = Vector2(4, 4)
-theme = ExtResource("3_m11i8")
-
-[node name="SpawnPoint41" type="Node2D" parent="SpawnPointWrapper"]
+[node name="SpawnPoint41" parent="SpawnPointWrapper" instance=ExtResource("3_px7ul")]
 position = Vector2(320, 968)
 
-[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint41"]
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
-scale = Vector2(14, 14)
-pivot_offset = Vector2(4, 4)
-theme = ExtResource("3_m11i8")
-
-[node name="SpawnPoint42" type="Node2D" parent="SpawnPointWrapper"]
+[node name="SpawnPoint42" parent="SpawnPointWrapper" instance=ExtResource("3_px7ul")]
 position = Vector2(448, 968)
 
-[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint42"]
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
-scale = Vector2(14, 14)
-pivot_offset = Vector2(4, 4)
-theme = ExtResource("3_m11i8")
-
-[node name="SpawnPoint43" type="Node2D" parent="SpawnPointWrapper"]
+[node name="SpawnPoint43" parent="SpawnPointWrapper" instance=ExtResource("3_px7ul")]
 position = Vector2(576, 968)
 
-[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint43"]
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
-scale = Vector2(14, 14)
-pivot_offset = Vector2(4, 4)
-theme = ExtResource("3_m11i8")
-
-[node name="SpawnPoint44" type="Node2D" parent="SpawnPointWrapper"]
+[node name="SpawnPoint44" parent="SpawnPointWrapper" instance=ExtResource("3_px7ul")]
 position = Vector2(704, 968)
 
-[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint44"]
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
-scale = Vector2(14, 14)
-pivot_offset = Vector2(4, 4)
-theme = ExtResource("3_m11i8")
-
-[node name="SpawnPoint45" type="Node2D" parent="SpawnPointWrapper"]
+[node name="SpawnPoint45" parent="SpawnPointWrapper" instance=ExtResource("3_px7ul")]
 position = Vector2(832, 968)
 
-[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint45"]
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
-scale = Vector2(14, 14)
-pivot_offset = Vector2(4, 4)
-theme = ExtResource("3_m11i8")
-
-[node name="SpawnPoint46" type="Node2D" parent="SpawnPointWrapper"]
+[node name="SpawnPoint46" parent="SpawnPointWrapper" instance=ExtResource("3_px7ul")]
 position = Vector2(960, 968)
 
-[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint46"]
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
-scale = Vector2(14, 14)
-pivot_offset = Vector2(4, 4)
-theme = ExtResource("3_m11i8")
-
-[node name="SpawnPoint47" type="Node2D" parent="SpawnPointWrapper"]
+[node name="SpawnPoint47" parent="SpawnPointWrapper" instance=ExtResource("3_px7ul")]
 position = Vector2(1088, 968)
 
-[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint47"]
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
-scale = Vector2(14, 14)
-pivot_offset = Vector2(4, 4)
-theme = ExtResource("3_m11i8")
-
-[node name="SpawnPoint48" type="Node2D" parent="SpawnPointWrapper"]
+[node name="SpawnPoint48" parent="SpawnPointWrapper" instance=ExtResource("3_px7ul")]
 position = Vector2(1216, 968)
 
-[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint48"]
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
-scale = Vector2(14, 14)
-pivot_offset = Vector2(4, 4)
-theme = ExtResource("3_m11i8")
-
-[node name="SpawnPoint49" type="Node2D" parent="SpawnPointWrapper"]
+[node name="SpawnPoint49" parent="SpawnPointWrapper" instance=ExtResource("3_px7ul")]
 position = Vector2(1344, 968)
 
-[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint49"]
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
-scale = Vector2(14, 14)
-pivot_offset = Vector2(4, 4)
-theme = ExtResource("3_m11i8")
-
-[node name="SpawnPoint50" type="Node2D" parent="SpawnPointWrapper"]
+[node name="SpawnPoint50" parent="SpawnPointWrapper" instance=ExtResource("3_px7ul")]
 position = Vector2(1472, 968)
 
-[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint50"]
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
-scale = Vector2(14, 14)
-pivot_offset = Vector2(4, 4)
-theme = ExtResource("3_m11i8")
-
-[node name="SpawnPoint51" type="Node2D" parent="SpawnPointWrapper"]
+[node name="SpawnPoint51" parent="SpawnPointWrapper" instance=ExtResource("3_px7ul")]
 position = Vector2(1600, 968)
 
-[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint51"]
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
-scale = Vector2(14, 14)
-pivot_offset = Vector2(4, 4)
-theme = ExtResource("3_m11i8")
-
-[node name="SpawnPoint52" type="Node2D" parent="SpawnPointWrapper"]
+[node name="SpawnPoint52" parent="SpawnPointWrapper" instance=ExtResource("3_px7ul")]
 position = Vector2(1728, 968)
 
-[node name="SpawnPointButton" type="Button" parent="SpawnPointWrapper/SpawnPoint52"]
-offset_left = -4.0
-offset_top = -3.0
-offset_right = 4.0
-offset_bottom = 5.0
-scale = Vector2(14, 14)
-pivot_offset = Vector2(4, 4)
-theme = ExtResource("3_m11i8")
+[node name="Trash" type="Sprite2D" parent="SpawnPointWrapper"]
+visible = false
+position = Vector2(336, 5)
+scale = Vector2(8, 8)
+texture = ExtResource("4_ikxi1")
+centered = false
 
 [node name="Background" type="Sprite2D" parent="."]
 scale = Vector2(8, 8)
