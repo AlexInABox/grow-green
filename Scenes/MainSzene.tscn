@@ -1,9 +1,9 @@
-[gd_scene load_steps=87 format=3 uid="uid://bqv77dvuy6ly0"]
+[gd_scene load_steps=88 format=3 uid="uid://bqv77dvuy6ly0"]
 
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_06be7"]
 [ext_resource type="Texture2D" uid="uid://da3gby3k4mva" path="res://Textures/Backgrounds/HOUSE.png" id="1_bo6pn"]
 [ext_resource type="Script" path="res://Scripts/MainSzene.cs" id="1_rm010"]
-[ext_resource type="PackedScene" uid="uid://bxj5nxe1yf7t0" path="res://Prefabs/spawnPoint.tscn" id="4_vckgm"]
+[ext_resource type="PackedScene" path="res://Prefabs/spawnPoint.tscn" id="4_vckgm"]
 [ext_resource type="Texture2D" uid="uid://k1nlupvlorva" path="res://Textures/Icons/Icons/MinigamesIcon.png" id="4_wnhev"]
 [ext_resource type="Texture2D" uid="uid://bmlucsypqwwd5" path="res://Textures/Icons/trashcan.png" id="4_ws6uo"]
 [ext_resource type="Script" path="res://Scripts/ShopButton.cs" id="5_fepxd"]
@@ -27,7 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://lhsbbpvrph4e" path="res://Textures/Aliens/Paintings/5_right.jpg" id="20_hae6m"]
 [ext_resource type="Texture2D" uid="uid://drijk174aakbu" path="res://Textures/Icons/Icons/DoorIcon.png" id="24_amdw1"]
 [ext_resource type="Script" path="res://Scripts/GreenhouseButton.cs" id="24_hti8h"]
-[ext_resource type="Texture2D" uid="uid://cp7lp5by0blgn" path="res://Textures/Icons/Icons/LockIcon.png" id="25_d2n01"]
+[ext_resource type="Texture2D" uid="uid://bty24gjoo7nm6" path="res://Textures/Icons/Icons/new_open_door.png" id="27_2kl61"]
 [ext_resource type="Texture2D" uid="uid://bmpnx8afa8exa" path="res://Textures/Icons/exit.png" id="28_mtxqj"]
 [ext_resource type="Script" path="res://Scripts/MainScene/LeaveButton.cs" id="28_wy10c"]
 [ext_resource type="Script" path="res://Scripts/MainScene/ScamerGreenhouseButton.cs" id="29_p6mlw"]
@@ -51,6 +51,7 @@
 [ext_resource type="Texture2D" uid="uid://brfyweksy8rga" path="res://Textures/Pots/plain_purple.png" id="47_kxu08"]
 [ext_resource type="Texture2D" uid="uid://coixjtit5q42q" path="res://Textures/Pots/plain_pink.png" id="48_cfrth"]
 [ext_resource type="Texture2D" uid="uid://braf77mvv2f3m" path="res://Textures/Pots/plain_pink_light.png" id="49_1elmb"]
+[ext_resource type="PackedScene" uid="uid://d07rokqxx2fl3" path="res://Prefabs/coinDisplay_wrapper.tscn" id="52_p40kd"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ftaqd"]
 
@@ -84,22 +85,21 @@ texture = ExtResource("5_j8hir")
 texture = ExtResource("24_amdw1")
 texture_margin_left = 1.0
 texture_margin_bottom = 2.0
-modulate_color = Color(0.31802, 0.31802, 0.31802, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wabck"]
-texture = ExtResource("24_amdw1")
+texture = ExtResource("27_2kl61")
 texture_margin_left = 1.0
 texture_margin_bottom = 2.0
 modulate_color = Color(0.470588, 0.470588, 0.470588, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x1uac"]
-texture = ExtResource("24_amdw1")
+texture = ExtResource("27_2kl61")
 texture_margin_left = 1.0
 texture_margin_bottom = 2.0
 modulate_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mqror"]
-texture = ExtResource("24_amdw1")
+texture = ExtResource("27_2kl61")
 texture_margin_left = 1.0
 texture_margin_bottom = 2.0
 
@@ -248,7 +248,7 @@ position = Vector2(1728, 968)
 
 [node name="Trash" type="Sprite2D" parent="SpawnPointWrapper"]
 visible = false
-position = Vector2(1784, 5)
+position = Vector2(336, 5)
 scale = Vector2(8, 8)
 texture = ExtResource("4_ws6uo")
 centered = false
@@ -484,12 +484,6 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_wabck")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_x1uac")
 theme_override_styles/normal = SubResource("StyleBoxTexture_mqror")
 script = ExtResource("24_hti8h")
-
-[node name="Sprite2D" type="Sprite2D" parent="GreenhouseButton"]
-visible = false
-position = Vector2(85, 127)
-scale = Vector2(4, 4)
-texture = ExtResource("25_d2n01")
 
 [node name="ScamerGreenhouseButton" type="Button" parent="."]
 z_index = 3
@@ -826,3 +820,6 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_7yn17")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_dcefc")
 theme_override_styles/normal = SubResource("StyleBoxTexture_002u2")
 script = ExtResource("35_3xfey")
+
+[node name="coinDisplay_wrapper" parent="." instance=ExtResource("52_p40kd")]
+position = Vector2(1641, 72)

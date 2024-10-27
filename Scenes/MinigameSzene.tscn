@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dsaewohprj4cb"]
+[gd_scene load_steps=28 format=3 uid="uid://dsaewohprj4cb"]
 
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_7qpdi"]
 [ext_resource type="Texture2D" uid="uid://bjqyte70oshda" path="res://Textures/Backgrounds/minigames_3.png" id="1_oqn6f"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://Scripts/MinigameScene/PotPackButton.cs" id="5_k6e4j"]
 [ext_resource type="Script" path="res://Scripts/MinigameScene/LeaveButton.cs" id="6_lpels"]
 [ext_resource type="Script" path="res://Scripts/MinigameScene/MemoryButton.cs" id="8_i3mos"]
+[ext_resource type="PackedScene" uid="uid://d07rokqxx2fl3" path="res://Prefabs/coinDisplay_wrapper.tscn" id="11_5ns72"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mple7"]
 
@@ -225,3 +226,6 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_hlbnx")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_7fam1")
 theme_override_styles/normal = SubResource("StyleBoxTexture_ld3x0")
 script = ExtResource("6_lpels")
+
+[node name="coinDisplay_wrapper" parent="." instance=ExtResource("11_5ns72")]
+position = Vector2(1641, 72)

@@ -8,7 +8,17 @@ public partial class SceneManager : Node
 	Player playerObject;
 
 	public bool IAMREADY = false;
-	
+	private bool hasUnlockedGreenhouse = false;
+
+	public void SetHasUnlockedGreenhouse(bool hasUnlockedGreenhouse)
+	{
+		playerObject.greenhouseUnlocked = hasUnlockedGreenhouse;
+	}
+
+	public bool GetHasUnlockedGreenhouse()
+	{
+		return playerObject.greenhouseUnlocked;
+	}
 	public override void _Ready()
 	{
 		GD.Print("IM ALIVE!!");

@@ -42,14 +42,16 @@ public partial class DatabaseWrapper
         bool listOfOwnedPlantsTableExists = false;
         bool listOfOwnedPotsTableExists = false;
         bool listOfOwnedPlantsTableIsComplete = false;
+        bool playerStatsTableIsComplete = false;
         if (databaseFileExists) {
             playerStatsTableExists = TableAlreadyExists(pathToSaveDB, playerStatsTableName);
             listOfOwnedPlantsTableExists = TableAlreadyExists(pathToSaveDB, listOfOwnedPlantsTableName);
             listOfOwnedPotsTableExists = TableAlreadyExists(pathToSaveDB, listOfOwnedPotsTableName);
             listOfOwnedPlantsTableIsComplete = TestListOfOwnedPlants();
+            playerStatsTableIsComplete = TestPlayerStatsTable();
         }
 
-        return !(databaseFileExists && playerStatsTableExists && listOfOwnedPlantsTableExists && listOfOwnedPlantsTableIsComplete && listOfOwnedPotsTableExists);
+        return !(databaseFileExists && playerStatsTableExists && listOfOwnedPlantsTableExists && listOfOwnedPlantsTableIsComplete && listOfOwnedPotsTableExists && playerStatsTableIsComplete);
     }
 
     private static bool TableAlreadyExists(string pathToDB, string tableName)
@@ -98,6 +100,42 @@ public partial class DatabaseWrapper
         {
             connection.Open();
             var sqlQuery = "DELETE FROM listOfOwnedPlants WHERE ROWID = (SELECT Max(ROWID) FROM listOfOwnedPlants);";
+
+            using (var command = new SqliteCommand(sqlQuery, connection))
+            {
+                var reader = command.ExecuteReader();
+                reader.Close();
+            }
+        }
+        return true;
+    }
+
+    private bool TestPlayerStatsTable(){
+        string connectionString = "Data Source=" + pathToSaveDB;
+        try{
+            
+            using (var connection = new SqliteConnection(connectionString))
+            {
+                connection.Open();
+
+                var sqlQuery = "INSERT INTO playerStats (username, coins, characterId, greenhouseUnlocked) VALUES ('ThisUserDoesNotExist', 20, 2, FALSE);";
+
+                using (var command = new SqliteCommand(sqlQuery, connection))
+                {
+                    var reader = command.ExecuteReader();
+                    reader.Close();
+                }
+            }
+        } catch{
+            GD.Print("OMG I ERRORED");
+            return false;
+        }
+
+        GD.Print("The testing worked! Lets undo this...");
+        using (var connection = new SqliteConnection(connectionString))
+        {
+            connection.Open();
+            var sqlQuery = "DELETE FROM playerStats WHERE ROWID = (SELECT Max(ROWID) FROM playerStats);";
 
             using (var command = new SqliteCommand(sqlQuery, connection))
             {
@@ -241,6 +279,7 @@ public partial class DatabaseWrapper
                 string username = (string)reader["username"];
                 int coins = Convert.ToInt32(reader["coins"]);
                 int characterId = Convert.ToInt32(reader["characterId"]);
+                bool greenhouseUnlocked = Convert.ToInt32(reader["greenhouseUnlocked"]) != 0;
 
                 reader.Close();
                 connection.Close();
@@ -249,7 +288,7 @@ public partial class DatabaseWrapper
                 List<Plant> listOfOwnedPlants = GetListOfOwnedPlants();
                 List<Pot> listOfOwnedPots = GetListOfOwnedPots();
 
-                Player player = new Player(username, listOfOwnedPlants, listOfOwnedPots, coins, characterId);
+                Player player = new Player(username, listOfOwnedPlants, listOfOwnedPots, coins, characterId, greenhouseUnlocked);
 
                 return player;
             }
@@ -393,8 +432,9 @@ public partial class DatabaseWrapper
             string username = player.username;
             int coins = player.coins;
             int characterId = player.characterId;
+            bool greenhouseUnlocked = player.greenhouseUnlocked;
 
-            string sqlQuery = $"INSERT INTO playerStats (username, coins, characterId) VALUES ('{username}', {coins}, {characterId});";
+            string sqlQuery = $"INSERT INTO playerStats (username, coins, characterId, greenhouseUnlocked) VALUES ('{username}', {coins}, {characterId}, {greenhouseUnlocked});";
             using (var command = new SqliteCommand(sqlQuery, connection))
             {
                 command.ExecuteReader();

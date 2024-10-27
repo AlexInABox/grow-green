@@ -3,6 +3,7 @@ CREATE TABLE "playerStats" (
 	"username"	TEXT,
 	"coins"	INTEGER,
 	"characterId"	INTEGER,
+	"greenhouseUnlocked" BOOLEAN,
 	PRIMARY KEY("username")
 );
 

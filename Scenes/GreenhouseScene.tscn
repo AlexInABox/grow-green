@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://teexgk7q8m1u"]
+[gd_scene load_steps=12 format=3 uid="uid://teexgk7q8m1u"]
 
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_e7yyb"]
 [ext_resource type="Script" path="res://Scripts/GreenhouseScene.cs" id="2_k45pb"]
-[ext_resource type="Theme" path="res://Themes/spawnPointButton.tres" id="3_m11i8"]
+[ext_resource type="Theme" uid="uid://cfugb2jgj3yj0" path="res://Themes/spawnPointButton.tres" id="3_m11i8"]
 [ext_resource type="Texture2D" uid="uid://cmxfcly5l04y" path="res://Textures/Backgrounds/greenhouse.png" id="4_yh1it"]
+[ext_resource type="PackedScene" uid="uid://d07rokqxx2fl3" path="res://Prefabs/coinDisplay_wrapper.tscn" id="7_fva8s"]
 [ext_resource type="Script" path="res://Scripts/LeaveGreenhouseButton.cs" id="10_0w0d6"]
 [ext_resource type="Texture2D" uid="uid://bmpnx8afa8exa" path="res://Textures/Icons/exit.png" id="28_3cq27"]
 
@@ -358,3 +359,6 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_6gh1e")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_qls5d")
 theme_override_styles/normal = SubResource("StyleBoxTexture_o6bub")
 script = ExtResource("10_0w0d6")
+
+[node name="coinDisplay_wrapper" parent="." instance=ExtResource("7_fva8s")]
+position = Vector2(1641, 72)
