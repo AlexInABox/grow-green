@@ -4,7 +4,6 @@ using System.Collections.Generic;
 	public partial class MainSzene : Node
 {
 	// Called when the node enters the scene tree for the first time.
-	DatabaseWrapper db = new DatabaseWrapper();
 	PackedScene plantPrefab = GD.Load<PackedScene>("res://Prefabs/plant_wrapper.tscn");
 	SceneManager sceneManager;
 	private Button greenhouseButton;
@@ -17,7 +16,7 @@ using System.Collections.Generic;
 
 		greenhouseButton = GetNode<Button>("../GreenhouseButton");
 		scammerGreenhouseButton = GetNode<Button>("../ScamerGreenhouseButton");
-		GD.Print(sceneManager.GetHasUnlockedGreenhouse());
+		//GD.Print(sceneManager.GetHasUnlockedGreenhouse());
 		
 		CheckForGreenhouse();
 	}

@@ -2,7 +2,6 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
 
 public partial class PlantButton : Button
 {
@@ -18,8 +17,9 @@ public partial class PlantButton : Button
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
-    {
-        sceneManager = GetNode<SceneManager>("/root/MainSzene/SceneManager");
+    {   
+        //sceneManager = GetNode<SceneManager>("/root/MainSzene/SceneManager");
+        sceneManager = GetNode<SceneManager>("../../../../SceneManager");
         Pressed += ButtonPressed;
         //myPlant = GetNode<Plant>("../Plant"); //will error when sprite hasnt loaded yet. but works anyways for some reason
         MouseEntered += ButtonHovered;

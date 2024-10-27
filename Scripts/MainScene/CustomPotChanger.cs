@@ -9,7 +9,8 @@ public partial class CustomPotChanger : Button
 
 	public override void _Ready()
 	{
-		potSelectPanel = GetNode<Panel>("/root/MainSzene/PotSkins/Panel");
+		potSelectPanel = GetTree().Root.GetChildren()[0].GetNode<Panel>("PotSkins/Panel");
+		//potSelectPanel = GetNode<Panel>("/root/MainSzene/PotSkins/Panel");
 
 		Pressed += OnButtonPressed;
 	}

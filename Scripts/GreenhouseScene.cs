@@ -4,7 +4,6 @@ using System.Collections.Generic;
 public partial class GreenhouseScene : Node
 {
 	// Called when the node enters the scene tree for the first time.
-	DatabaseWrapper db = new DatabaseWrapper();
 	PackedScene plantPrefab = GD.Load<PackedScene>("res://Prefabs/plant_wrapper.tscn");
 	SceneManager sceneManager;
 
@@ -22,7 +21,10 @@ public partial class GreenhouseScene : Node
 			if(spawnPointNumber > 26){
 
 				Node spawnPointWrapper = GetNode("../SpawnPointWrapper");
-				Node2D spawnPoint = spawnPointWrapper.GetNode<Node2D>($"SpawnPoint{spawnPointNumber}");
+				Node2D spawnPoint = spawnPointWrapper.GetNodeOrNull<Node2D>($"SpawnPoint{spawnPointNumber}");
+				if (spawnPoint is null) {
+					break;
+				}
 				var plantPrefabInstance = plantPrefab.Instantiate();
 
 				spawnPoint.AddChild(plantPrefabInstance);

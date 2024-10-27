@@ -70,7 +70,7 @@ public partial class SceneManager : Node
 
 	public override void _Process(double delta)
 	{
-		if (Engine.GetFramesDrawn() % 300 == 0) {
+		if (Engine.GetFramesDrawn() % 1000 == 0) {
 			GD.Print("Saving...");
 			//IT IS MY GOD-GIVEN RIGHT TO USE A DATABASE ACCORDING TO MY WILL! IF A HUMAN BEING, LIKE ME, WANTS TO WRITE TO A DATABASE AT EVERY FRAME, THEY MUST NOT BE HINDERED BY A LESSER BEING, LIKE MY COMPUTER!!!!!!!!!
 			System.Threading.Thread thread = new System.Threading.Thread(() => db.UpdateSave(playerObject));
