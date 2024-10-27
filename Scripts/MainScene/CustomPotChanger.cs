@@ -16,7 +16,7 @@ public partial class CustomPotChanger : Button
 	}
 
 	private void OnButtonPressed(){
-		foreach(Node2D spawnPoint in GetNode<Node>("/root/MainSzene/SpawnPointWrapper").GetChildren()) {
+		foreach(Node2D spawnPoint in GetTree().Root.GetChildren()[0].GetNode<Node>("SpawnPointWrapper").GetChildren()) {
 			if (spawnPoint.Name == "Trash"){
 				continue;
 			}
