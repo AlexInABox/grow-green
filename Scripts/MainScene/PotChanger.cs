@@ -11,6 +11,8 @@ public partial class PotChanger : Node
 
 	private Node SpawnPoint;
 
+	private Button panelLeaver;
+
 	private int i = 1;
 
 	private List<Sprite2D> sprites = new List<Sprite2D>();
@@ -30,6 +32,8 @@ public partial class PotChanger : Node
 	public override void _Ready()
 	{
 		SpawnPoint = GetNode<Node>("../SpawnPointWrapper");
+		
+		panelLeaver = GetNode<Button>("../PotSkins/PanelLeaver");
 
 		foreach(Node2D spawns in SpawnPoint.GetChildren()){
 			Sprite2D potSprite = spawns.GetNodeOrNull<Sprite2D>("plant_wrapper/Pot");
@@ -78,6 +82,7 @@ public partial class PotChanger : Node
 			selectedTextureIndex = i;
 			GD.Print("Button " + i + " wurde gedrückt. Wähle nun einen Sprite.");
 			PotPanel.Visible = false;
+			panelLeaver.Visible = false;
 			// Schalte die Auswahl für die Sprites ein
 			for (int m = 0; m < sprites.Count; m++)
 			{

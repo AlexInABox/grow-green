@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_06be7"]
 [ext_resource type="Texture2D" uid="uid://da3gby3k4mva" path="res://Textures/Backgrounds/HOUSE.png" id="1_bo6pn"]
 [ext_resource type="Script" path="res://Scripts/MainSzene.cs" id="1_rm010"]
-[ext_resource type="PackedScene" uid="uid://bxj5nxe1yf7t0" path="res://Prefabs/spawnPoint.tscn" id="4_vckgm"]
+[ext_resource type="PackedScene" path="res://Prefabs/spawnPoint.tscn" id="4_vckgm"]
 [ext_resource type="Texture2D" uid="uid://k1nlupvlorva" path="res://Textures/Icons/Icons/MinigamesIcon.png" id="4_wnhev"]
 [ext_resource type="Texture2D" uid="uid://bmlucsypqwwd5" path="res://Textures/Icons/trashcan.png" id="4_ws6uo"]
 [ext_resource type="Script" path="res://Scripts/ShopButton.cs" id="5_fepxd"]
