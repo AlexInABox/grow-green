@@ -20,8 +20,6 @@ using System.Collections.Generic;
 		GD.Print(sceneManager.GetHasUnlockedGreenhouse());
 		
 		CheckForGreenhouse();
-		
-		
 	}
 
 	private void PlaceAllPlants(List<Plant> plantList) {
@@ -49,7 +47,11 @@ using System.Collections.Generic;
 			int spawnPointNumber = plant.spawnPoint;
 
 			Node spawnPointWrapper = GetNode("../SpawnPointWrapper");
-			Node2D spawnPoint = spawnPointWrapper.GetNode<Node2D>($"SpawnPoint{spawnPointNumber}");
+			Node2D spawnPoint = spawnPointWrapper.GetNodeOrNull<Node2D>($"SpawnPoint{spawnPointNumber}");
+
+			if (spawnPoint is null) {
+				break;
+			}
 			var plantPrefabInstance = plantPrefab.Instantiate();
 
 			spawnPoint.AddChild(plantPrefabInstance);
