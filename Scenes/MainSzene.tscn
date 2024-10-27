@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_06be7"]
 [ext_resource type="Texture2D" uid="uid://da3gby3k4mva" path="res://Textures/Backgrounds/HOUSE.png" id="1_bo6pn"]
 [ext_resource type="Script" path="res://Scripts/MainSzene.cs" id="1_rm010"]
-[ext_resource type="PackedScene" path="res://Prefabs/spawnPoint.tscn" id="4_vckgm"]
+[ext_resource type="PackedScene" uid="uid://bxj5nxe1yf7t0" path="res://Prefabs/spawnPoint.tscn" id="4_vckgm"]
 [ext_resource type="Texture2D" uid="uid://k1nlupvlorva" path="res://Textures/Icons/Icons/MinigamesIcon.png" id="4_wnhev"]
 [ext_resource type="Texture2D" uid="uid://bmlucsypqwwd5" path="res://Textures/Icons/trashcan.png" id="4_ws6uo"]
 [ext_resource type="Script" path="res://Scripts/ShopButton.cs" id="5_fepxd"]
@@ -530,10 +530,11 @@ metadata/_edit_lock_ = true
 visible = false
 z_index = 3
 layout_mode = 0
-offset_left = -165.0
-offset_top = -25.0
-offset_right = 409.0
-offset_bottom = 1055.0
+offset_left = -150.0
+offset_top = -5.0
+offset_right = 424.0
+offset_bottom = 1075.0
+scale = Vector2(0.9, 0.9)
 theme_override_styles/panel = SubResource("StyleBoxTexture_56ari")
 metadata/_edit_lock_ = true
 
