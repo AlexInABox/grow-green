@@ -81,7 +81,6 @@ public partial class PackOpening : Button
 
     private void DisplayPlantInPackOpening(Plant plant)
     {
-        GD.Print("PFALANZE: " + plant.plantName);
         
         string plantTexturePath = $"res://Textures/Plants/{plant.className.ToLower().Replace(" ", "")}3.png";
         Texture2D plantTexture = (Texture2D)GD.Load(plantTexturePath);

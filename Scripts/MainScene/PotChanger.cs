@@ -45,7 +45,6 @@ public partial class PotChanger : Node
 		}		
 
 		PotPanel = GetNode<Panel>("../PotSkins/Panel");
-		GD.Print(PotPanel);
 		
 		foreach (Node child in PotPanel.GetChildren()){
 			if(child is Button Puttons){
@@ -56,7 +55,6 @@ public partial class PotChanger : Node
 				 buttonSprites.Add(buttonSprite);
 				}
 				buttons.Add(Puttons);
-				GD.Print(Puttons);
 			}
 		}
 
@@ -76,7 +74,6 @@ public partial class PotChanger : Node
 			isSelectingSprite = true;
 			// Speichere, welche Textur ausgewählt wurde
 			selectedTextureIndex = i;
-			GD.Print("Button " + i + " wurde gedrückt. Wähle nun einen Sprite.");
 			PotPanel.Visible = false;
 			// Schalte die Auswahl für die Sprites ein
 			for (int m = 0; m < sprites.Count; m++)
@@ -94,13 +91,11 @@ public partial class PotChanger : Node
 		if (isSelectingSprite)
 		{
 			targetSprite = sprite;
-			GD.Print("Sprite " + targetSprite.Name + " wurde ausgewählt.");
 
 			// Ändere die Textur des ausgewählten Sprites
 			if (targetSprite != null && selectedTextureIndex >= 0)
 			{
 				targetSprite.Texture = buttonSprites[selectedTextureIndex].Texture;
-				GD.Print("Textur geändert für " + targetSprite.Name);
 			}
 
 			// Deaktiviere den Sprite-Auswahlmodus nach der Auswahl
