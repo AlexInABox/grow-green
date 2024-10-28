@@ -23,7 +23,7 @@ public partial class GreenhouseScene : Node
 				Node spawnPointWrapper = GetNode("../SpawnPointWrapper");
 				Node2D spawnPoint = spawnPointWrapper.GetNodeOrNull<Node2D>($"SpawnPoint{spawnPointNumber}");
 				if (spawnPoint is null) {
-					break;
+					continue;
 				}
 				var plantPrefabInstance = plantPrefab.Instantiate();
 
