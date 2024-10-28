@@ -23,7 +23,6 @@ public partial class SpawnPointButtonTest : Button
 	public override void _Process(double delta)
 	{
 		if (hovered) {
-			GD.Print(GetParent<Node2D>().Name + " is being hovered!");
 		}
 	}
 }

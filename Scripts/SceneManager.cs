@@ -21,7 +21,6 @@ public partial class SceneManager : Node
 	}
 	public override void _Ready()
 	{
-		GD.Print("IM ALIVE!!");
 		playerObject = db.GetPlayerObject();
 		IAMREADY = true;
 	}
@@ -35,7 +34,6 @@ public partial class SceneManager : Node
 	}
 
 	public int GetCharacterId(){
-		GD.Print("I HELP!!");
 		return playerObject.characterId;
 	}
 	//I decide not to provide a function that changes the characterId. I see no applicable use case.
@@ -98,7 +96,7 @@ public partial class SceneManager : Node
 			listOfOccupiedSpawnPoints.Add(plant.spawnPoint);
 		}
 		listOfOccupiedSpawnPoints.Sort();
-
+		foreach (int spawnPoint in listOfOccupiedSpawnPoints) GD.Print(spawnPoint);
 		for (int i = 1;;i++){
 			if (listOfOccupiedSpawnPoints.Count < i) {
 				plantToAdd.spawnPoint = i;

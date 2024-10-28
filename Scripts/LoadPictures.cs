@@ -28,7 +28,6 @@ public partial class LoadPictures : Node
 		{
 			if (o == characterId - 1) pictures[o].Visible = true;
 			else pictures[o].Visible = false;
-			GD.Print("Ich bih HUH");
 		}
 	}
 

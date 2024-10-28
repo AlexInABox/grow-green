@@ -64,7 +64,6 @@ public partial class PotPackOpening : Button
         List<Pot> potsToRemove = new List<Pot>();
         foreach (var potttttt in alreadyOwned)
         {
-            GD.Print(potttttt.potName);
         }
        
         foreach (var pot in alreadyOwned)
@@ -84,7 +83,6 @@ public partial class PotPackOpening : Button
         }
         
         
-        GD.Print(potList.Count);
         
         List<(Pot pot, double weight)> weightedPots = potList
             .Where(pot => pot.cost > 1) // Sonst immer default
@@ -107,7 +105,6 @@ public partial class PotPackOpening : Button
             }
         }
         //Notfalllösung
-        GD.Print("If this is ever printed bye bye");
         return potList[0];
     }
 
@@ -137,7 +134,6 @@ public partial class PotPackOpening : Button
 
     private void DisplayPotInPackOpening(Pot pot)
     {
-        GD.Print("POTTTTTTT: " + pot.potName);
         
         string potTexturePath = $"res://Textures/Pots/{pot.potName}.png";
         Texture2D potTexture = (Texture2D)GD.Load(potTexturePath);

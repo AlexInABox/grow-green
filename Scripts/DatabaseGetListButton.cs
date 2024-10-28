@@ -14,12 +14,10 @@ public partial class DatabaseGetListButton : Button
 
 	private void ButtonPressed()
 	{
-		GD.Print("Heres my list:");
 		List<Plant> plantList = db.GetListOfAllPlants();
 
 		foreach (var item in plantList)
 		{
-			GD.Print(item.className);
 		}
 	}
 

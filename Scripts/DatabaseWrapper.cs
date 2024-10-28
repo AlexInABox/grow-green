@@ -25,7 +25,7 @@ public partial class DatabaseWrapper
         RebuildDatabase(pathToPotsDB, pathToPotsDBInitializer);
 
         if (ShouldWeRebuildTheSave()){
-            GD.Print("I recreated the SAVE DB!!");
+            //GD.Print("I recreated the SAVE DB!!");
             RebuildDatabase(pathToSaveDB, pathToSaveDBInitializer);
         }
     }
@@ -91,11 +91,10 @@ public partial class DatabaseWrapper
                 }
             }
         } catch{
-            GD.Print("OMG I ERRORED");
+            //GD.Print("OMG I ERRORED");
             return false;
         }
 
-        GD.Print("The testing worked! Lets undo this...");
         using (var connection = new SqliteConnection(connectionString))
         {
             connection.Open();
@@ -127,11 +126,9 @@ public partial class DatabaseWrapper
                 }
             }
         } catch{
-            GD.Print("OMG I ERRORED");
             return false;
         }
 
-        GD.Print("The testing worked! Lets undo this...");
         using (var connection = new SqliteConnection(connectionString))
         {
             connection.Open();
@@ -173,7 +170,6 @@ public partial class DatabaseWrapper
         {
             connection.Open();
 
-            GD.Print(pathToDBInitializer);
             var sqlQueryFile = FileAccess.Open(pathToDBInitializer, FileAccess.ModeFlags.Read);
             string sqlQuery = sqlQueryFile.GetAsText();
             sqlQueryFile.Close();
@@ -181,7 +177,6 @@ public partial class DatabaseWrapper
             using (var command = new SqliteCommand(sqlQuery, connection))
             {
                 command.ExecuteNonQuery();  // Execute the SQL commands in the file
-				GD.Print("Rebuilt database!");
             }
             connection.Close();
         }
@@ -259,7 +254,6 @@ public partial class DatabaseWrapper
     public Player GetPlayerObject(){
         while (IsSaveDatabaseLocked())
         {
-            GD.Print("Still locked");
             // Wait for 1 second (1000 milliseconds)
             System.Threading.Thread.Sleep(1000);
         }
@@ -299,7 +293,6 @@ public partial class DatabaseWrapper
     private List<Plant> GetListOfOwnedPlants(){
         while (IsSaveDatabaseLocked())
         {
-            GD.Print("Still locked");
             // Wait for 1 second (1000 milliseconds)
             System.Threading.Thread.Sleep(1000);
         }
@@ -393,7 +386,6 @@ public partial class DatabaseWrapper
         }
 
         savingLock = false;
-        GD.Print("Done saving!");
     }
 
     private void ClearTableInDB(string table, string pathToDB) {
@@ -416,7 +408,6 @@ public partial class DatabaseWrapper
     private void InsertPlayerStatsIntoTable(Player player){
         while (IsSaveDatabaseLocked())
         {
-            GD.Print("Still locked");
             // Wait for 1 second (1000 milliseconds)
             System.Threading.Thread.Sleep(1000);
         }
@@ -447,7 +438,6 @@ public partial class DatabaseWrapper
     private void InsertPlantIntoListOfOwnedPlantsTable(Plant plant){
         while (IsSaveDatabaseLocked())
         {
-            GD.Print("Still locked");
             // Wait for 1 second (1000 milliseconds)
             System.Threading.Thread.Sleep(1000);
         }
@@ -483,7 +473,6 @@ public partial class DatabaseWrapper
     private void InsertPotIntoListOfOwnedPotsTable(Pot pot){
         while (IsSaveDatabaseLocked())
         {
-            GD.Print("Still locked");
             // Wait for 1 second (1000 milliseconds)
             System.Threading.Thread.Sleep(1000);
         }
@@ -551,7 +540,6 @@ public partial class DatabaseWrapper
     public List<Pot> GetListOfOwnedPots(){
         while (IsSaveDatabaseLocked())
         {
-            GD.Print("Still locked");
             // Wait for 1 second (1000 milliseconds)
             System.Threading.Thread.Sleep(1000);
         }
@@ -596,7 +584,6 @@ public partial class DatabaseWrapper
             connection.Open();
             //Praise the LORD
             string sqlQuery = "SELECT * FROM pots WHERE pots.potName == '" + potName + "';";
-            GD.Print(sqlQuery);
             using (var command = new SqliteCommand(sqlQuery, connection))
             {
                 var reader = command.ExecuteReader();
@@ -617,7 +604,6 @@ public partial class DatabaseWrapper
     public void CreateNewSave(){
         while (IsSaveDatabaseLocked())
         {
-            GD.Print("Still locked");
             // Wait for 1 second (1000 milliseconds)
             System.Threading.Thread.Sleep(1000);
         }

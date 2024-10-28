@@ -26,7 +26,6 @@ public partial class MemoryGame : Node
 		prefab = (PackedScene)ResourceLoader.Load("res://Prefabs/MemoryCard.tscn");
 		scenePath = GetTree().CurrentScene.SceneFilePath;
 		string sceneName = System.IO.Path.GetFileNameWithoutExtension(scenePath);
-		GD.Print("Loading " + sceneName);
 		
 		switch (sceneName)
 		{
@@ -130,10 +129,8 @@ public partial class MemoryGame : Node
 
 	private void EndGame()
 	{
-		GD.Print(sceneManager.GetCoinCount());
 		var coins = sceneManager.GetCoinCount() + reward ;
 		sceneManager.SetCoinCount(coins);
-		GD.Print(sceneManager.GetCoinCount());
 		
 		sceneManager.UpdateSaveBlocking();
 		GetTree().ChangeSceneToFile(scenePath);
@@ -159,7 +156,6 @@ public partial class MemoryGame : Node
 			}
 			else
 			{
-				GD.Print($"Node {nodeName} or prefab not found.");
 			}
 		}
 	}
@@ -182,7 +178,6 @@ public partial class MemoryGame : Node
 		}
 		else
 		{
-			GD.Print($"Error assigning texture {textureName} to prefab.");
 		}
 	}
 	

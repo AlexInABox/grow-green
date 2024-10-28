@@ -22,12 +22,10 @@ public partial class CustomPotChanger : Button
 			}
 
 			PlantButton plantButton = spawnPoint.GetNodeOrNull<PlantButton>("plant_wrapper/Button");
-			GD.Print(spawnPoint.GetTreeStringPretty());
 			if (plantButton is not null) {
 				listOfActivePlantButtons.Add(plantButton);
 			}
 		}
-		GD.Print("So many activePlants!" + listOfActivePlantButtons.Count);
 
 		potSelectPanel.Hide();
 		isSelected = true;

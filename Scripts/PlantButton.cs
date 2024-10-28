@@ -110,7 +110,6 @@ public partial class PlantButton : Button
 
         if (wasDraging && !dragActivated){
             Node2D nearestSpawnPoint = GetNearestSpawnPoint();
-            GD.Print(nearestSpawnPoint.Name);
             if (nearestSpawnPoint.Name == "Trash"){
                 DeleteThisPlant();
                 return;

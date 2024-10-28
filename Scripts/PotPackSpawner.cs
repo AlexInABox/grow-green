@@ -22,7 +22,6 @@ public partial class PotPackSpawner : Node
             sceneManager = GetNode<SceneManager>("SceneManager");
             leaveButton = GetNode<Button>("LeaveButton");
         
-            GD.Print("AAAAAH");
             button = GetNode<Button>("BuyPackButton");
             button.Pressed += BuyPack;
             ownablePots = db.GetListOfAllPots()
@@ -46,7 +45,6 @@ public partial class PotPackSpawner : Node
         }
         else
         {
-            GD.Print("AAAAAH");
         }
     }
     private void SpawnPacks()
