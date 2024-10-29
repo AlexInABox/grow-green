@@ -15,7 +15,7 @@ public partial class Player : Node
         this.username = "Söder";
         this.listOfOwnedPlants = new List<Plant>();
         this.listOfOwnedPots = new List<Pot>();
-        this.coins = 1000;
+        this.coins = 25;
         this.characterId = 1;
 		this.greenhouseUnlocked = true;
     }
@@ -24,7 +24,7 @@ public partial class Player : Node
         this.username = "";
         this.listOfOwnedPlants = new List<Plant>();
         this.listOfOwnedPots = new List<Pot>();
-        this.coins = 1000;
+        this.coins = 25;
         this.characterId = characterId;
 		this.greenhouseUnlocked = false;
     }

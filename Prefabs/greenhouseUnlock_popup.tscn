@@ -29,10 +29,10 @@ offset_right = 673.0
 offset_bottom = 192.0
 scale = Vector2(0.12, 0.12)
 theme_override_fonts/font = ExtResource("2_p5jf0")
-theme_override_font_sizes/font_size = 40
-text = "Du kannst erst in dieses Gebiet, wenn du 10 voll ausgewachsene Pflanzen hast!!!
+theme_override_font_sizes/font_size = 50
+text = "
 
-Alternativ kannst du auch 100 Münzen zahlen!!"
+Um das Greenhouse freizuschalten, musst du 100 Münzen zahlen."
 horizontal_alignment = 1
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
@@ -47,14 +47,14 @@ theme = ExtResource("3_tlqqu")
 theme_override_colors/font_focus_color = Color(0.761386, 0.273843, 0.27925, 1)
 theme_override_colors/font_color = Color(0.823529, 0, 0, 1)
 theme_override_font_sizes/font_size = 41
-text = "Quit"
+text = "Abbruch"
 script = ExtResource("4_7wc24")
 
 [node name="Buy" type="Button" parent="Sprite2D"]
-offset_left = -5.91304
-offset_top = 10.9227
-offset_right = 166.087
-offset_bottom = 60.9227
+offset_left = -1.0
+offset_top = 11.0
+offset_right = 152.0
+offset_bottom = 61.0
 scale = Vector2(0.285, 0.285)
 theme = ExtResource("3_tlqqu")
 theme_override_font_sizes/font_size = 41

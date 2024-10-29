@@ -126,7 +126,7 @@ public partial class Plant : Sprite2D
 
     private void RecalculateWaterLevel() {
         long timeSinceLastTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds() - waterLevelTimestamp;
-        waterLevel -= (decayRatePerDay / 24 / 60 / 60) * timeSinceLastTimestamp * 10000;
+        waterLevel -= (decayRatePerDay / 24 / 60 / 60) * timeSinceLastTimestamp;
         //GD.Print("WaterLevel: " + waterLevel);
         waterLevelTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds();
 
@@ -147,7 +147,7 @@ public partial class Plant : Sprite2D
         if (growProgress <= 1)
         {
             long timeSinceLastTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds() - growProgressTimestamp;
-            growProgress += (growRatePerDay / 24 / 60 / 60) * timeSinceLastTimestamp * 500;
+            growProgress += (growRatePerDay / 24 / 60 / 60) * timeSinceLastTimestamp;
             //GD.Print("GrowProgress: " + growProgress);
             growProgressTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds();
         }

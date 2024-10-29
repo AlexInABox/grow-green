@@ -54,9 +54,9 @@ metadata/_edit_lock_ = true
 
 [node name="Load Game" type="Button" parent="."]
 offset_left = 100.0
-offset_top = 400.0
+offset_top = 457.0
 offset_right = 473.0
-offset_bottom = 491.0
+offset_bottom = 548.0
 scale = Vector2(1.4, 1.4)
 theme = ExtResource("1_0cr8b")
 text = "Spiel Laden"
@@ -64,28 +64,19 @@ script = ExtResource("5_ash0u")
 
 [node name="New Game" type="Button" parent="." groups=["newGameButton"]]
 offset_left = 100.0
-offset_top = 550.0
+offset_top = 602.0
 offset_right = 472.0
-offset_bottom = 641.0
+offset_bottom = 693.0
 scale = Vector2(1.4, 1.4)
 theme = ExtResource("1_0cr8b")
 text = "Neues Spiel"
 script = ExtResource("6_h7u0b")
 
-[node name="Settings" type="Button" parent="."]
-offset_left = 100.0
-offset_top = 700.0
-offset_right = 470.0
-offset_bottom = 791.0
-scale = Vector2(1.4, 1.4)
-theme = ExtResource("1_0cr8b")
-text = "Einstellungen"
-
 [node name="Credits" type="Button" parent="."]
-offset_left = 100.0
-offset_top = 850.0
-offset_right = 359.0
-offset_bottom = 941.0
+offset_left = 103.0
+offset_top = 749.0
+offset_right = 362.0
+offset_bottom = 840.0
 scale = Vector2(1.4, 1.4)
 theme = ExtResource("1_0cr8b")
 text = "Credits"
@@ -217,10 +208,10 @@ texture = ExtResource("15_cykk0")
 [node name="Power" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 483.0
-offset_top = 850.0
-offset_right = 574.0
-offset_bottom = 941.0
+offset_left = 486.0
+offset_top = 749.0
+offset_right = 577.0
+offset_bottom = 840.0
 scale = Vector2(1.4, 1.4)
 
 [node name="PowerButton" type="Button" parent="Power"]

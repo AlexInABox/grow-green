@@ -26,10 +26,10 @@ offset_right = 673.0
 offset_bottom = 192.0
 scale = Vector2(0.12, 0.12)
 theme_override_fonts/font = ExtResource("2_3iuey")
-theme_override_font_sizes/font_size = 40
-text = "AAAAAA! Diese Aktion **überschreibt** deinen alten Speicherstand!
+theme_override_font_sizes/font_size = 44
+text = "Diese Aktion überschreibt deinen alten Speicherstand!
 
-Bist du dir gaaaanz sicher dass du das machen möchtest?"
+Bist du dir sicher, dass du das möchtest?"
 horizontal_alignment = 1
 autowrap_mode = 3
 
@@ -43,7 +43,7 @@ theme = ExtResource("3_lr351")
 theme_override_colors/font_focus_color = Color(0.761386, 0.273843, 0.27925, 1)
 theme_override_colors/font_color = Color(0.823529, 0, 0, 1)
 theme_override_font_sizes/font_size = 41
-text = "Ja! :3"
+text = "JA"
 script = ExtResource("5_jhhmk")
 
 [node name="Cancel" type="Button" parent="Sprite2D"]
@@ -54,5 +54,5 @@ offset_bottom = 60.9227
 scale = Vector2(0.285, 0.285)
 theme = ExtResource("3_lr351")
 theme_override_font_sizes/font_size = 41
-text = "OMG NEIN!"
+text = "NEIN"
 script = ExtResource("6_bjxuk")
