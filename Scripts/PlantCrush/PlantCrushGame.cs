@@ -37,7 +37,6 @@ public partial class PlantCrushGame : Node
 			}
 			else
 			{
-				GD.Print($"Node {nodeName} or prefab not found.");
 			}
 		}
 	}

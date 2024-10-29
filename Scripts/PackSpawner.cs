@@ -20,7 +20,6 @@ public partial class PackSpawner : Node
         sceneManager = GetNode<SceneManager>("SceneManager");
         leaveButton = GetNode<Button>("LeaveButton");
         
-            GD.Print("AAAAAH");
             button = GetNode<Button>("BuyPackButton");
             button.Pressed += BuyPack;
             
@@ -37,7 +36,6 @@ public partial class PackSpawner : Node
         }
         else
         {
-            GD.Print("Not enough coins");
         }
     }
     

@@ -29,21 +29,17 @@ public partial class ShopPlantButton : Button
 
 	private void ButtonGotPressed() {
 		if (sceneManager.GetCoinCount() < cost) {
-			GD.Print("DU ABSOLUTER VOLLIDIOT. DU BIST ARM!! KEIN GELD NIX DA!!");
 		} else {
 			while (sceneManager.IsSaveLocked())
 			{
-				GD.Print("Still locked");
 				// Wait for .1 seconds (100 milliseconds)
 				System.Threading.Thread.Sleep(100);
 			}
-			GD.Print("Natürlich kannst du " + className + " kaufen :)))");
 			sceneManager.SetCoinCount(sceneManager.GetCoinCount() - cost);
 
 			Plant plant = sceneManager.GetPlantByClassName(className);
 			sceneManager.AddNewPlantToListOfOwnedPlants(plant);
 		}
-		GD.Print("Du hast noch " + sceneManager.GetCoinCount() + " coins!");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -22,25 +22,6 @@ using System.Collections.Generic;
 	}
 
 	private void PlaceAllPlants(List<Plant> plantList) {
-		/*
-		int counter = 0;
-		for (int x = 1; x <= 2; x++) {
-			for (int y = 1; y <= 13; y++) {
-				if (plantList.Count == counter){
-					return;
-				}
-				var plantPrefabInstance = plantPrefab.Instantiate();
-				GetNode("../AllPlantsGoHere").AddChild(plantPrefabInstance);
-
-				var plantWrapper = plantPrefabInstance.GetNode<Node2D>("../plant_wrapper");
-				plantWrapper.Set("position", new Vector2(64+(128*y), 712+(128*x)));
-				plantWrapper.Set("name", "freaky" + counter);
-
-				plantWrapper.AddChild(plantList[counter]);
-				counter++;
-			}
-		}
-		*/
 
 		foreach(Plant plant in plantList){
 			int spawnPointNumber = plant.spawnPoint;
@@ -49,7 +30,7 @@ using System.Collections.Generic;
 			Node2D spawnPoint = spawnPointWrapper.GetNodeOrNull<Node2D>($"SpawnPoint{spawnPointNumber}");
 
 			if (spawnPoint is null) {
-				break;
+				continue;
 			}
 			var plantPrefabInstance = plantPrefab.Instantiate();
 

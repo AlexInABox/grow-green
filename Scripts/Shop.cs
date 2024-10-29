@@ -18,7 +18,6 @@ public partial class Shop : Node
 
 	public void SetPlayer(){
 		player = GetTree().Root.GetNode<Player>("Player");
-		GD.Print(player);
 	}
 
 

@@ -14,7 +14,6 @@ public partial class TitleSceneManager : Node
 		createGameButton = GetNode<BaseButton>("../New Game");
 
 		if (db.IsThisTheFirstRun()){
-			GD.Print("This is their first run omg!!");
 			loadGameButton.Disabled = true;
 			playerObject = new Player();
 		} else {

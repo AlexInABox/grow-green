@@ -14,7 +14,6 @@ public partial class ContinueGameButton : Button
 	private void ButtonPressedEvent()
 	{
 		titleScreenManager.SaveMyPlayerObjectAndCreateTheGame();
-		GD.Print("TEST");
 		var newScenePath = "res://Scenes/MainSzene.tscn";
 		GetTree().ChangeSceneToFile(newScenePath);
 	}
