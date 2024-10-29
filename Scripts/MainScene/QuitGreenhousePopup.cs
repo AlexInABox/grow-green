@@ -12,8 +12,7 @@ public partial class QuitGreenhousePopup : Button
 	}
 
 	private void Verlassen(){
-		var shopScene = "res://Scenes/MainSzene.tscn";
-		GetTree().ChangeSceneToFile(shopScene);
+		GetParent().GetParent().QueueFree();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
