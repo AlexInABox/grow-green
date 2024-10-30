@@ -28,7 +28,7 @@ To add plants to your collection, open the shop and buy a plant by simply clicki
 
 You have multiple specimen of the same plant? No problem! By changing the color of the pot, you can easily differentiate them. No risk of mix-ups! Select the color of your choice and tap the pot, you want to change. If you open Potpacks, your price will be automatically added to the pot selection and you can use the skins how often you want.
 
-![Repositioning your plants.](./GIFs/drag.gif)
+![Repositioning your plants.](/GIFs/drag.gif)
 
 Change the layout of your home by selecting a plant and dragging it to your preffered position. If only furnishing was this easy in real life, right?
 
