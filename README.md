@@ -16,31 +16,31 @@ Related paper to the project: [GrowGreen Paper](https://github.com/theoleuthardt
 
 GrowGreen has a very UI/UX friendly design, but we're including short instructions anyway, so you won't waste any time on figuring the game out, when you could already be having fun!
 
-![Changing the character.](./GIFS/character.gif)
+![Changing the character.](./GIFs/character.gif)
 
 First off, changing the character to your liking will help you personalize your home. Feel free to try different ones, you can change them how often you feel like.
 
-![Changing the character.](./GIFS/buy.gif)
+![Changing the character.](./GIFs/buy.gif)
 
 To add plants to your collection, open the shop and buy a plant by simply clicking on it. The plants are in three rows, sorted by their difficulty level. The difficulty has effects on the price and grow speed. After buying the plant will automatically appear in your home.
 
-![Changing the character.](./GIFS/pots.gif)
+![Changing the character.](./GIFs/pots.gif)
 
 You have multiple specimen of the same plant? No problem! By changing the color of the pot, you can easily differentiate them. No risk of mix-ups! Select the color of your choice and tap the pot, you want to change. If you open Potpacks, your price will be automatically added to the pot selection and you can use the skins how often you want.
 
-![Changing the character.](./GIFS/drag.gif)
+![Changing the character.](./GIFs/drag.gif)
 
 Change the layout of your home by selecting a plant and dragging it to your preffered position. If only furnishing was this easy in real life, right?
 
-![Changing the character.](./GIFS/water.gif)
+![Changing the character.](./GIFs/water.gif)
 
 When hovering over a plant, you will see their german name, plant class, growth status and watering level. To water your plant, simply click on it (shortly) BUT be cautious, if you overwater your plants, they will rot. If you forget to water them, they will dry out - just as in real life.
 
-![Changing the character.](./GIFS/packs.gif)
+![Changing the character.](./GIFs/packs.gif)
 
 When opening Plantpacks, you have the chance of a easy, middle or hard plant - all for only six coins. After buying the pack, you have to open it, to see the plant you won. To continue either opening packs or playing, click the plant once. It'll be directly added to your home. The logic behind Potpacks is the same, but they're more expensive, because you will win a special not-for-sale potskin, which you can use forever, how many times you want.
 
-![Changing the character.](./GIFS/memory.gif)
+![Changing the character.](./GIFs/memory.gif)
 
 The goal of memory is matching all the hidden pairs. When finishing a round, you'll win coins. The amount of coins depends on the difficulty you've chosen, the harder the game, the bigger the reward.
 
