@@ -1,0 +1,45 @@
+GitHub:
+- changed-files:
+  - any-glob-to-any-file: .github/** # Any modifications to github related files
+
+Database: # Add the 'Database' label
+- changed-files:
+  - any-glob-to-any-file: grow-green/Database/** # Any modifications to the Database itself
+
+Fonts: # Add the 'Fonts' label
+- changed-files:
+  - any-glob-to-any-file: grow-green/Fonts/** # Any modifications to Fonts
+
+Icons: # Add the 'Icons' label
+- changed-files:
+  - any-glob-to-any-file: grow-green/Icons/** # Any modifications to Icons
+
+Prefabs: # Add the 'Prefabs' label
+- changed-files:
+  - any-glob-to-any-file: grow-green/Prefabs/** # Any modifications to Prefabs
+
+Scenes: # Add the 'Scenes' label
+- changed-files:
+  - any-glob-to-any-file: grow-green/Scenes/** # Any modifications to Scenes
+
+Scripts: # Add the 'Scripts' label
+- changed-files:
+  - any-glob-to-any-file: grow-green/Scripts/** # Any modifications to Scripts
+
+Shaders: # Add the 'Shaders' label
+- changed-files:
+  - any-glob-to-any-file: grow-green/Shaders/** # Any modifications to Shaders
+
+Sounds: # Add the 'Sounds' label
+- changed-files:
+  - any-glob-to-any-file: grow-green/Sounds/** # Any modifications to Sounds
+
+Textures: # Add the 'Textures' label
+- changed-files:
+  - any-glob-to-any-file: grow-green/Textures/** # Any modifications to Textures
+
+Themes: # Add the 'Themes' label
+- changed-files:
+  - any-glob-to-any-file: grow-green/Themes/** # Any modifications to Themes
+
+#TODO: add labels for each godot scene specifically
