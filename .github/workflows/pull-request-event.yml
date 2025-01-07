@@ -9,10 +9,6 @@ on:
       - edited
       - synchronize
 
-defaults:
-  run:
-    working-directory: ./grow-green
-
 jobs:
   set-labels:
     name: Set Labels
