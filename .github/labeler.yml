@@ -4,42 +4,42 @@ GitHub:
 
 Database: # Add the 'Database' label
 - changed-files:
-  - any-glob-to-any-file: grow-green/Database/** # Any modifications to the Database itself
+  - any-glob-to-any-file: Database/** # Any modifications to the Database itself
 
 Fonts: # Add the 'Fonts' label
 - changed-files:
-  - any-glob-to-any-file: grow-green/Fonts/** # Any modifications to Fonts
+  - any-glob-to-any-file: Fonts/** # Any modifications to Fonts
 
 Icons: # Add the 'Icons' label
 - changed-files:
-  - any-glob-to-any-file: grow-green/Icons/** # Any modifications to Icons
+  - any-glob-to-any-file: Icons/** # Any modifications to Icons
 
 Prefabs: # Add the 'Prefabs' label
 - changed-files:
-  - any-glob-to-any-file: grow-green/Prefabs/** # Any modifications to Prefabs
+  - any-glob-to-any-file: Prefabs/** # Any modifications to Prefabs
 
 Scenes: # Add the 'Scenes' label
 - changed-files:
-  - any-glob-to-any-file: grow-green/Scenes/** # Any modifications to Scenes
+  - any-glob-to-any-file: Scenes/** # Any modifications to Scenes
 
 Scripts: # Add the 'Scripts' label
 - changed-files:
-  - any-glob-to-any-file: grow-green/Scripts/** # Any modifications to Scripts
+  - any-glob-to-any-file: Scripts/** # Any modifications to Scripts
 
 Shaders: # Add the 'Shaders' label
 - changed-files:
-  - any-glob-to-any-file: grow-green/Shaders/** # Any modifications to Shaders
+  - any-glob-to-any-file: Shaders/** # Any modifications to Shaders
 
 Sounds: # Add the 'Sounds' label
 - changed-files:
-  - any-glob-to-any-file: grow-green/Sounds/** # Any modifications to Sounds
+  - any-glob-to-any-file: Sounds/** # Any modifications to Sounds
 
 Textures: # Add the 'Textures' label
 - changed-files:
-  - any-glob-to-any-file: grow-green/Textures/** # Any modifications to Textures
+  - any-glob-to-any-file: Textures/** # Any modifications to Textures
 
 Themes: # Add the 'Themes' label
 - changed-files:
-  - any-glob-to-any-file: grow-green/Themes/** # Any modifications to Themes
+  - any-glob-to-any-file: Themes/** # Any modifications to Themes
 
 #TODO: add labels for each godot scene specifically
