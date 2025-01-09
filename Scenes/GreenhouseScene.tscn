@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_e7yyb"]
 [ext_resource type="Script" path="res://Scripts/GreenhouseScene.cs" id="2_k45pb"]
-[ext_resource type="PackedScene" path="res://Prefabs/spawnPoint.tscn" id="3_px7ul"]
+[ext_resource type="PackedScene" uid="uid://bxj5nxe1yf7t0" path="res://Prefabs/spawnPoint.tscn" id="3_px7ul"]
 [ext_resource type="Texture2D" uid="uid://bmlucsypqwwd5" path="res://Textures/Icons/trashcan.png" id="4_ikxi1"]
 [ext_resource type="Texture2D" uid="uid://cmxfcly5l04y" path="res://Textures/Backgrounds/greenhouse.png" id="4_yh1it"]
 [ext_resource type="PackedScene" uid="uid://d07rokqxx2fl3" path="res://Prefabs/coinDisplay_wrapper.tscn" id="7_fva8s"]
