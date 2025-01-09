@@ -1,0 +1,109 @@
+name: "Pull Request build check"
+on:
+  pull_request_target:
+    branches:
+      - '**'
+    types:
+      - opened
+      - synchronize
+
+env:
+  GODOT_VERSION: 4.3
+  EXPORT_NAME: GrowGreen
+
+jobs:
+  build-windows:
+    name: Build Windows
+    runs-on: ubuntu-latest
+    container:
+      image: barichello/godot-ci:mono-4.3
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: true # large file storage
+
+      - name: .NET installation
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Setup Godot Templates
+        run: |
+          mkdir -v -p ~/.local/share/godot/export_templates/
+          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable.mono ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable.mono
+
+      - name: Windows Build
+        run: |
+          mkdir -v -p builds/windows
+          godot --headless --verbose --export-release "Windows Desktop" builds/windows/${{ env.EXPORT_NAME }}.exe
+
+      - name: Upload binary as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows
+          path: builds/windows/${{ env.EXPORT_NAME }}.exe
+
+  build-linux:
+    name: Build Linux
+    runs-on: ubuntu-latest
+    container:
+      image: barichello/godot-ci:mono-4.3
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: true # large file storage
+
+      - name: .NET installation
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Setup Godot Templates
+        run: |
+          mkdir -v -p ~/.local/share/godot/export_templates/
+          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable.mono ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable.mono
+
+      - name: Linux Build
+        run: |
+          mkdir -v -p builds/linux
+          godot --headless --verbose --export-release "Linux" builds/linux/${{ env.EXPORT_NAME }}.x86_64
+
+      - name: Upload binary as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux
+          path: builds/linux/${{ env.EXPORT_NAME }}.x86_64
+
+  build-mac:
+    name: Build MacOS
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: true # large file storage
+
+      - name: Setup Godot-mono
+        run: |
+          brew install --cask godot-mono
+
+      - name: Setup Godot Templates
+        run: |
+          export GODOT_TEMPLATES_PATH="$HOME/Library/Application Support/Godot/export_templates/${{ env.GODOT_VERSION}}.stable.mono/"
+          mkdir -p "$GODOT_TEMPLATES_PATH"
+          wget -q https://github.com/godotengine/godot/releases/download/${{ env.GODOT_VERSION}}-stable/Godot_v${{ env.GODOT_VERSION}}-stable_mono_export_templates.tpz
+          unzip -j Godot_v${{ env.GODOT_VERSION}}-stable_mono_export_templates.tpz -d "$GODOT_TEMPLATES_PATH"
+
+      - name: MacOS Build
+        run: |
+          export PATH=/Applications/Godot_mono.app/Contents/MacOS:$PATH
+          mkdir -v -p builds/mac
+          godot --headless --verbose --export-release "macOS" builds/mac/${{ env.EXPORT_NAME }}.dmg
+
+      - name: Upload binary as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: mac
+          path: builds/mac/${{ env.EXPORT_NAME }}.dmg
