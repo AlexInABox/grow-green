@@ -21,7 +21,7 @@ public partial class PotChanger : Node
 
 	private List<Button> buttons = new List<Button>();
 
-	private List<Button> SpawnpointButtons = new List<Button>();
+	private List<PlantButton> SpawnpointButtons = new List<PlantButton>();
 
 	// Speichert, ob ein Button gedrückt wurde, um Sprite zu wählen
 	private bool isSelectingSprite = false;
@@ -41,7 +41,7 @@ public partial class PotChanger : Node
 			{
 				sprites.Add(potSprite);
 			}
-			Button SpawnpointButton = spawns.GetNodeOrNull<Button>("plant_wrapper/Button");
+			PlantButton SpawnpointButton = spawns.GetNodeOrNull<PlantButton>("plant_wrapper/Button");
 			if (SpawnpointButton != null)
 			{
 				SpawnpointButtons.Add(SpawnpointButton);
@@ -86,6 +86,8 @@ public partial class PotChanger : Node
 				int spriteIndex = m;
 				var button = SpawnpointButtons[m];
 				button.Pressed += () => SelectSprite(sprites[spriteIndex]);
+
+				BlockWateringForAllPlants();
 			}
 		}
 	}
@@ -110,6 +112,28 @@ public partial class PotChanger : Node
 			//
 			Plant ourPlant = targetSprite.GetNode<Plant>("../Plant");
 			ourPlant.pot = buttonSprites[selectedTextureIndex].Name;
+			
+			AllowWateringForAllPlants();
+		}
+	}
+
+	private void BlockWateringForAllPlants()
+	{
+		if (i < 0 || i >= buttonSprites.Count) return;
+		for (int m = 0; m < sprites.Count; m++)
+		{
+			var button = SpawnpointButtons[m];
+			button.Pressed -= button.ButtonWasPressed;
+		}
+	}
+	
+	private void AllowWateringForAllPlants()
+	{
+		if (i < 0 || i >= buttonSprites.Count) return;
+		for (int m = 0; m < sprites.Count; m++)
+		{
+			var button = SpawnpointButtons[m];
+			button.Pressed += button.ButtonWasPressed;
 		}
 	}
 
