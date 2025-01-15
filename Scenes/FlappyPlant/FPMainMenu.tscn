@@ -1,0 +1,70 @@
+[gd_scene load_steps=14 format=3 uid="uid://xbe7jevnprrg"]
+
+[ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_fbntm"]
+[ext_resource type="Theme" uid="uid://cxgao5s1phj5n" path="res://Themes/mainMenuButtons.tres" id="1_qp4br"]
+[ext_resource type="Script" path="res://Scripts/FlappyPlant/StartGameButton.cs" id="4_gtpd2"]
+[ext_resource type="PackedScene" uid="uid://d07rokqxx2fl3" path="res://Prefabs/coinDisplay_wrapper.tscn" id="4_gw7y0"]
+[ext_resource type="Texture2D" uid="uid://bmpnx8afa8exa" path="res://Textures/Icons/exit.png" id="5_he462"]
+[ext_resource type="Script" path="res://Scripts/PlantPack/LeaveButton.cs" id="6_bwg2l"]
+[ext_resource type="Texture2D" uid="uid://du47d27nnh6s7" path="res://Textures/Packs/minigame_single.png" id="7_dejcq"]
+[ext_resource type="Texture2D" uid="uid://bg57hfx11ytfp" path="res://Textures/Plants/alocasia3.png" id="8_5a6kd"]
+[ext_resource type="Texture2D" uid="uid://cytn4u5ejjnbe" path="res://Textures/Pots/plain_brown.png" id="9_yhpge"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_77xxd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vliag"]
+texture = ExtResource("5_he462")
+modulate_color = Color(0.470076, 0.470076, 0.470076, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ubrbm"]
+texture = ExtResource("5_he462")
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_868an"]
+texture = ExtResource("5_he462")
+
+[node name="FpMainMenu" type="Node2D"]
+
+[node name="SceneManager" type="Node" parent="."]
+script = ExtResource("1_fbntm")
+
+[node name="StartButton" type="Button" parent="."]
+offset_left = 728.0
+offset_top = 777.0
+offset_right = 987.0
+offset_bottom = 868.0
+scale = Vector2(2, 2)
+theme = ExtResource("1_qp4br")
+text = "Start"
+script = ExtResource("4_gtpd2")
+
+[node name="coinDisplay_wrapper" parent="." instance=ExtResource("4_gw7y0")]
+position = Vector2(1641, 72)
+
+[node name="LeaveButton" type="Button" parent="."]
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 155.0
+offset_bottom = 155.0
+theme_override_styles/focus = SubResource("StyleBoxTexture_77xxd")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vliag")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ubrbm")
+theme_override_styles/normal = SubResource("StyleBoxTexture_868an")
+script = ExtResource("6_bwg2l")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(965, 545)
+scale = Vector2(12, 12)
+texture = ExtResource("7_dejcq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(960, 500)
+scale = Vector2(9, 9)
+texture = ExtResource("8_5a6kd")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(960, 500)
+scale = Vector2(9, 9)
+texture = ExtResource("9_yhpge")

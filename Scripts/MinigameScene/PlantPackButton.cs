@@ -12,7 +12,8 @@ public partial class PlantPackButton : Button
 
 	private void ButtonPressed()
 	{
-		var nextScene = "res://Scenes/PackOpeningMinigame.tscn";
+		//var nextScene = "res://Scenes/PackOpeningMinigame.tscn";
+		var nextScene = "res://Scenes/FlappyPlant/FPMainMenu.tscn";
 		GetTree().ChangeSceneToFile(nextScene);
 	}
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,0 +1,72 @@
+[gd_scene load_steps=13 format=3 uid="uid://c728fel7iwsrf"]
+
+[ext_resource type="Script" path="res://Scripts/FlappyPlant/FlappyScript.cs" id="1_000qw"]
+[ext_resource type="Script" path="res://Scripts/FlappyPlant/FlappyPlant.cs" id="1_hvdm2"]
+[ext_resource type="Texture2D" uid="uid://m80m06w7ig6d" path="res://Textures/Icons/Icons/FloppyDisk.png" id="2_6061k"]
+[ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="2_amir6"]
+[ext_resource type="Script" path="res://Scripts/FlappyPlant/BackgroundScroll.cs" id="3_fx3l2"]
+[ext_resource type="Texture2D" uid="uid://d1x701w828ata" path="res://Textures/Clouds/Clouds 1/4.png" id="4_8td5r"]
+[ext_resource type="Script" path="res://Scripts/FlappyPlant/ObstacleSpawner.cs" id="5_vqxja"]
+[ext_resource type="PackedScene" uid="uid://brmtk1ey2s37a" path="res://Scenes/FlappyPlant/Obstacle.tscn" id="6_q2ksj"]
+[ext_resource type="PackedScene" uid="uid://cvaiuw1pb6imx" path="res://Scenes/FlappyPlant/ObstacleTop.tscn" id="6_qbbwf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n21r3"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3b32e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h66s3"]
+size = Vector2(547.25, 20)
+
+[node name="FpGame" type="Node2D"]
+script = ExtResource("1_000qw")
+
+[node name="SceneManager" type="Node" parent="."]
+script = ExtResource("2_amir6")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+z_index = 1
+script = ExtResource("1_hvdm2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(235, 524)
+scale = Vector2(7, 7)
+texture = ExtResource("2_6061k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(235, 524)
+scale = Vector2(7, 7)
+shape = SubResource("CircleShape2D_n21r3")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(273, -11)
+physics_material_override = SubResource("PhysicsMaterial_3b32e")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_h66s3")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(273, -11)
+physics_material_override = SubResource("PhysicsMaterial_3b32e")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(4.375, 1103)
+shape = SubResource("RectangleShape2D_h66s3")
+
+[node name="Background" type="Node2D" parent="."]
+script = ExtResource("3_fx3l2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+position = Vector2(1474, 458)
+texture = ExtResource("4_8td5r")
+
+[node name="ObstacleSpawner" type="Node2D" parent="."]
+script = ExtResource("5_vqxja")
+TopObstacleScene = ExtResource("6_qbbwf")
+BottomObstacleScene = ExtResource("6_q2ksj")
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 1.0
+offset_top = 31.0
+offset_right = 85.0
+offset_bottom = 70.0
+theme_override_font_sizes/font_size = 72
