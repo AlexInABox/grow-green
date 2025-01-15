@@ -46,26 +46,23 @@ offset_bottom = 334.0
 theme = ExtResource("2_ikdca")
 theme_override_fonts/font = ExtResource("3_m7drt")
 theme_override_font_sizes/font_size = 80
-text = "Projektmanager:        Maja Günther"
+text = "Projektmanager:        Domenik Wilhelm"
 
 [node name="Softwareentwickler" type="Label" parent="."]
 offset_left = 196.0
-offset_top = 385.0
+offset_top = 533.0
 offset_right = 1882.0
-offset_bottom = 798.0
+offset_bottom = 946.0
 theme = ExtResource("2_ikdca")
 theme_override_fonts/font = ExtResource("3_m7drt")
 theme_override_font_sizes/font_size = 80
-text = "Softwareentwickler: Alexander Betke 
-                                 Domenik Wilhelm 
-                                 Josh Tischer 
-                                 Theo Leuthardt"
+text = "Softwareentwickler: Josh Tischer "
 
 [node name="Designer" type="Label" parent="."]
 offset_left = 197.0
-offset_top = 304.0
+offset_top = 367.0
 offset_right = 1872.0
-offset_bottom = 420.0
+offset_bottom = 483.0
 theme = ExtResource("2_ikdca")
 theme_override_fonts/font = ExtResource("3_m7drt")
 theme_override_font_sizes/font_size = 80
@@ -73,26 +70,25 @@ text = "Designer:                   Maja Günther"
 
 [node name="Dev-Ops-Engineer" type="Label" parent="."]
 offset_left = 198.0
-offset_top = 718.0
+offset_top = 714.0
 offset_right = 1865.0
-offset_bottom = 923.0
+offset_bottom = 919.0
 theme = ExtResource("2_ikdca")
 theme_override_fonts/font = ExtResource("3_m7drt")
 theme_override_font_sizes/font_size = 80
 text = "Dev-Ops-Engineer:   Alexander Betke
-                                 Theo Leuthardt
+
 "
 
 [node name="Paperautor" type="Label" parent="."]
 offset_left = 196.0
-offset_top = 881.0
+offset_top = 877.0
 offset_right = 1871.0
-offset_bottom = 1086.0
+offset_bottom = 1082.0
 theme = ExtResource("2_ikdca")
 theme_override_fonts/font = ExtResource("3_m7drt")
 theme_override_font_sizes/font_size = 80
-text = "Paperautor:               Maja Günther
-                                 Theo Leuthardt"
+text = "Paperautor:               Theo Leuthardt"
 
 [node name="BackToTitleMenu" type="Button" parent="."]
 offset_left = 5.0

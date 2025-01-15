@@ -20,14 +20,14 @@ public partial class PlantButton : Button
     {   
         //sceneManager = GetNode<SceneManager>("/root/MainSzene/SceneManager");
         sceneManager = GetNode<SceneManager>("../../../../SceneManager");
-        Pressed += ButtonPressed;
+        Pressed += ButtonWasPressed;
         //myPlant = GetNode<Plant>("../Plant"); //will error when sprite hasnt loaded yet. but works anyways for some reason
         MouseEntered += ButtonHovered;
         MouseExited += ButtonNotHoveredAnymore;
         plantWrapper = GetParent<Node2D>();
     }
 
-    private void ButtonPressed()
+    public void ButtonWasPressed()
     {
         myPlant = GetNode<Plant>("../Plant");
         if (wasDraging == false)
