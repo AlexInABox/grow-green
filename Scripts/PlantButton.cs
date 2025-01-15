@@ -1,23 +1,28 @@
-using Godot;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Godot;
 
 public partial class PlantButton : Button
 {
-    Plant myPlant;
-    Node2D plantWrapper;
-    SceneManager sceneManager;
+    private bool dragActivated;
+    private long initialDragAttemptTimeStamp;
+    private bool isHovering;
+    private bool isMouseDown;
+    private Plant myPlant;
+    private Node2D plantWrapper;
 
-    bool wasMouseDown = false;
-    bool isMouseDown = false;
-    bool wasHovering = false;
-    bool isHovering = false;
-    bool dragActivated = false;
+
+    private bool queueDrag;
+    private SceneManager sceneManager;
+    private bool wasDraging;
+    private bool wasHovering;
+
+    private bool wasMouseDown;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
-    {   
+    {
         //sceneManager = GetNode<SceneManager>("/root/MainSzene/SceneManager");
         sceneManager = GetNode<SceneManager>("../../../../SceneManager");
         Pressed += ButtonWasPressed;
@@ -30,34 +35,26 @@ public partial class PlantButton : Button
     public void ButtonWasPressed()
     {
         myPlant = GetNode<Plant>("../Plant");
-        if (wasDraging == false)
-        {
-            myPlant.WaterPlant();
-        }
-      
+        if (wasDraging == false) myPlant.WaterPlant();
     }
 
     private void ButtonHovered()
     {
         isHovering = true;
-       
+
         float buttonXPosition = GlobalPosition.X;
 
         Node2D statusBubbleA = GetNode<Node2D>("../statusBubble");
         Node2D statusBubbleB = GetNode<Node2D>("../statusBubbleLeft");
-        
+
         statusBubbleA.Hide();
         statusBubbleB.Hide();
 
-        
+
         if (buttonXPosition < 960)
-        {
-            statusBubbleA.Show(); 
-        }
+            statusBubbleA.Show();
         else
-        {
-            statusBubbleB.Show(); 
-        }
+            statusBubbleB.Show();
     }
 
     private void ButtonNotHoveredAnymore()
@@ -70,80 +67,110 @@ public partial class PlantButton : Button
         statusBubbleB.Hide();
     }
 
-    
-    bool queueDrag = false;
-    long initialDragAttemptTimeStamp;
-    bool wasDraging = false;
     public override void _Process(double delta)
     {
         isMouseDown = Input.IsMouseButtonPressed(MouseButton.Left);
 
-        if (!isMouseDown){
+        if (!isMouseDown)
+        {
             dragActivated = false;
             queueDrag = false;
             GetParent().GetParent().GetParent().GetNode<Node2D>("Trash").Hide();
         }
 
-        if (isHovering && isMouseDown && !wasMouseDown){
+        if (isHovering && isMouseDown && !wasMouseDown)
+        {
             queueDrag = true;
             initialDragAttemptTimeStamp = DateTimeOffset.Now.ToUnixTimeMilliseconds();
         }
 
         long timeSinceDragQueueStart = DateTimeOffset.Now.ToUnixTimeMilliseconds() - initialDragAttemptTimeStamp;
-        if (queueDrag && ((DateTimeOffset.Now.ToUnixTimeMilliseconds() - initialDragAttemptTimeStamp) > 500)){
+        if (queueDrag && DateTimeOffset.Now.ToUnixTimeMilliseconds() - initialDragAttemptTimeStamp > 500)
             dragActivated = true;
-        }
 
-        if (dragActivated){
+        if (dragActivated)
+        {
             plantWrapper.GlobalPosition = GetGlobalMousePosition();
             GetParent().GetParent().GetParent().GetNode<Node2D>("Trash").Show();
-        } 
+        }
 
         wasMouseDown = isMouseDown;
 
         AnimationPlayer animationPlayer = GetNode<AnimationPlayer>("../AnimationPlayer");
-        if (queueDrag && !dragActivated) {
+        if (queueDrag && !dragActivated)
             animationPlayer.Play("Plants/visualDragHint");
-        } else {
+        else
             animationPlayer.Stop();
-        }
 
-        if (wasDraging && !dragActivated){
+        if (wasDraging && !dragActivated)
+        {
             Node2D nearestSpawnPoint = GetNearestSpawnPoint();
-            if (nearestSpawnPoint.Name == "Trash"){
+            if (nearestSpawnPoint.Name == "Trash")
+            {
                 DeleteThisPlant();
                 return;
             }
+
+            if (nearestSpawnPoint.Name == "GreenhouseNodeDragTarget")
+            {
+                if (sceneManager.GetHasUnlockedGreenhouse())
+                    MovePlantToGreenhouse();
+                else
+                    //TODO: Show hint notifying that the greenhouse is not unlocked yet.
+                    ResetPosition();
+                return;
+            }
+
+            if (nearestSpawnPoint.Name == "LeaveButtonDragTarget")
+            {
+                MovePlantToMainScene();
+                return;
+            }
+
             SetNewSpawnPoint(nearestSpawnPoint);
         }
 
         wasDraging = dragActivated;
     }
 
-    private Node2D GetNearestSpawnPoint(){
+    private Node2D GetNearestSpawnPoint()
+    {
         //First gather all our needed stuffs >.<
         Vector2 ourPosition = GetParent<Node2D>().GlobalPosition;
         float shortestDistanceYet = float.MaxValue;
         Node2D nearestSpawnPoint = GetParent<Node2D>(); //worst case; its our own spawnpoint
 
-        foreach (Node2D spawnPoint in GetParent<Node2D>().GetParent<Node2D>().GetParent().GetChildren().Cast<Node2D>()) {
-            float distance = ourPosition.DistanceTo(spawnPoint.GlobalPosition);
-            if (distance < shortestDistanceYet) {
+        List<Node2D> listOfTargetsToCheck = new();
+        foreach (Node2D spawnPoint in GetParent<Node2D>().GetParent<Node2D>().GetParent().GetChildren().Cast<Node2D>())
+            listOfTargetsToCheck.Add(spawnPoint);
+        listOfTargetsToCheck.Add(GetNodeOrNull<Node2D>("/root/MainSzene/GreenhouseNodeDragTarget"));
+        listOfTargetsToCheck.Add(GetNodeOrNull<Node2D>("/root/Greenhouse/LeaveButtonDragTarget"));
+
+        foreach (Node2D target in listOfTargetsToCheck)
+        {
+            if (target is null) continue;
+
+            float distance = ourPosition.DistanceTo(target.GlobalPosition);
+            if (distance < shortestDistanceYet)
+            {
                 shortestDistanceYet = distance;
-                nearestSpawnPoint = spawnPoint;
+                nearestSpawnPoint = target;
             }
         }
+
 
         return nearestSpawnPoint;
     }
 
-    private void SetNewSpawnPoint(Node2D spawnPoint){
+    private void SetNewSpawnPoint(Node2D spawnPoint)
+    {
         //1. move nodes in tree to new spawnPoint
         //2. reset position to zero under new spawnPoint
         //3. set spawnPoint value in plant object
         //4. switch spawnPoint with already existing plant!
         Node2D plantAtNewSpawnPoint = spawnPoint.GetChildOrNull<Node2D>(0);
-        if (plantAtNewSpawnPoint is not null){
+        if (plantAtNewSpawnPoint is not null)
+        {
             Node2D oldSpawnPoint = GetParent().GetParent<Node2D>();
 
             spawnPoint.RemoveChild(plantAtNewSpawnPoint);
@@ -152,19 +179,21 @@ public partial class PlantButton : Button
             oldSpawnPoint.AddChild(plantAtNewSpawnPoint);
             spawnPoint.AddChild(GetParent());
 
-            GetParent<Node2D>().Position = new Vector2(0,0);
-            plantAtNewSpawnPoint.Position = new Vector2(0,0);
+            GetParent<Node2D>().Position = new Vector2(0, 0);
+            plantAtNewSpawnPoint.Position = new Vector2(0, 0);
 
             Plant PlantB = plantAtNewSpawnPoint.GetNode<Plant>("Plant");
             Plant PlantA = GetNode<Plant>("../Plant");
 
             PlantA.spawnPoint = spawnPoint.Name.ToString().Remove(0, 10).ToInt();
             PlantB.spawnPoint = oldSpawnPoint.Name.ToString().Remove(0, 10).ToInt();
-        } else {
+        }
+        else
+        {
             GetParent().GetParent().RemoveChild(GetParent());
             spawnPoint.AddChild(GetParent());
 
-            GetParent<Node2D>().Position = new Vector2(0,0);
+            GetParent<Node2D>().Position = new Vector2(0, 0);
 
             Plant PlantA = GetNode<Plant>("../Plant");
 
@@ -172,10 +201,44 @@ public partial class PlantButton : Button
         }
     }
 
-    private void DeleteThisPlant(){
+    private void DeleteThisPlant()
+    {
         List<Plant> listOfOwnedPlants = sceneManager.GetListOfOwnedPlants();
         listOfOwnedPlants.Remove(GetNode<Plant>("../Plant"));
 
         GetParent().QueueFree();
+    }
+
+    private void MovePlantToGreenhouse()
+    {
+        if (sceneManager.TrySwitchPlantToGreenhouseOnly(GetNode<Plant>("../Plant")) == 1)
+        {
+            GetParent().QueueFree();
+        }
+        else
+        {
+            GD.Print("Couldnt move maybe full?");
+            //TODO: Show hint notifying the user that the greenhouse is full.
+            ResetPosition();
+        }
+    }
+
+    private void MovePlantToMainScene()
+    {
+        if (sceneManager.TrySwitchPlantToMainSceneOnly(GetNode<Plant>("../Plant")) == 1)
+        {
+            GetParent().QueueFree();
+        }
+        else
+        {
+            GD.Print("Couldnt move maybe full?");
+            //TODO: Show hint notifying the user that the greenhouse is full.
+            ResetPosition();
+        }
+    }
+
+    private void ResetPosition()
+    {
+        GetParent<Node2D>().Position = new Vector2(0, 0);
     }
 }

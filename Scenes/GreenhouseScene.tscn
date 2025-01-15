@@ -188,6 +188,9 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_qls5d")
 theme_override_styles/normal = SubResource("StyleBoxTexture_o6bub")
 script = ExtResource("10_0w0d6")
 
+[node name="LeaveButtonDragTarget" type="Node2D" parent="."]
+position = Vector2(63, 79)
+
 [node name="coinDisplay_wrapper" parent="." instance=ExtResource("7_fva8s")]
 position = Vector2(1641, 72)
 
