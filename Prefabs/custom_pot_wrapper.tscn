@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://reeq375ay0uo"]
 
+[ext_resource type="Script" path="res://Scripts/MainScene/CustomPotButton.cs" id="1_hab7a"]
 [ext_resource type="Texture2D" uid="uid://dic3lrgxdgtvn" path="res://Textures/Pots/animal_giraffe.png" id="1_lxmeb"]
-[ext_resource type="Script" path="res://Scripts/MainScene/CustomPotChanger.cs" id="1_vxjhw"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mo802"]
 
@@ -43,7 +43,8 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_okve0")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_w2e67")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_1absi")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_fbqvg")
-script = ExtResource("1_vxjhw")
+script = ExtResource("1_hab7a")
+metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_lxmeb")

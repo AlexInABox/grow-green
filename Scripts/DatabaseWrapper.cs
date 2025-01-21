@@ -528,6 +528,11 @@ public partial class DatabaseWrapper
         return fillMeUp;
     }
 
+    /// <summary>
+    ///     Returns the requested <see cref="Pot"/> if it exists in the <see cref="DatabaseWrapper"/>.
+    ///     If not it will return the default <see cref="Pot"/>
+    /// </summary>
+    /// <param name="potName">The name of the requested <see cref="Pot"/></param>
     public Pot GetPotByName(string potName){
         List<Pot> listOfAllPots = GetListOfAllPots();
 

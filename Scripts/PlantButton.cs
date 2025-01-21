@@ -15,7 +15,7 @@ public partial class PlantButton : Button
 
     private bool queueDrag;
     private SceneManager sceneManager;
-    private bool wasDraging;
+    private bool wasDragging;
     private bool wasHovering;
 
     private bool wasMouseDown;
@@ -24,7 +24,7 @@ public partial class PlantButton : Button
     public override void _Ready()
     {
         //sceneManager = GetNode<SceneManager>("/root/MainSzene/SceneManager");
-        sceneManager = GetNode<SceneManager>("../../../../SceneManager");
+        sceneManager = GetTree().Root.GetChildren()[0].GetNode<SceneManager>("SceneManager");
         Pressed += ButtonWasPressed;
         //myPlant = GetNode<Plant>("../Plant"); //will error when sprite hasnt loaded yet. but works anyways for some reason
         MouseEntered += ButtonHovered;
@@ -35,7 +35,7 @@ public partial class PlantButton : Button
     public void ButtonWasPressed()
     {
         myPlant = GetNode<Plant>("../Plant");
-        if (wasDraging == false) myPlant.WaterPlant();
+        if (wasDragging == false) myPlant.WaterPlant();
     }
 
     private void ButtonHovered()
@@ -102,7 +102,7 @@ public partial class PlantButton : Button
         else
             animationPlayer.Stop();
 
-        if (wasDraging && !dragActivated)
+        if (wasDragging && !dragActivated)
         {
             Node2D nearestSpawnPoint = GetNearestSpawnPoint();
             if (nearestSpawnPoint.Name == "Trash")
@@ -130,7 +130,7 @@ public partial class PlantButton : Button
             SetNewSpawnPoint(nearestSpawnPoint);
         }
 
-        wasDraging = dragActivated;
+        wasDragging = dragActivated;
     }
 
     private Node2D GetNearestSpawnPoint()
