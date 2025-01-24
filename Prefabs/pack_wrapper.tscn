@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b18ydjx3thpux"]
+[gd_scene load_steps=10 format=3 uid="uid://46t5lth1u6sh"]
 
 [ext_resource type="Script" path="res://Scripts/PackOpening.cs" id="1_lxgxv"]
 [ext_resource type="Texture2D" uid="uid://dhun4gb3o56m" path="res://Textures/Packs/pack_plant.png" id="2_0dkdr"]

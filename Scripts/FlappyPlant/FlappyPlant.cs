@@ -3,7 +3,7 @@ using System;
 
 public partial class FlappyPlant : CharacterBody2D
 {
-    private const float Gravity = 400.0f;
+    private const float Gravity = 900.0f;
     private const float JumpForce = -300.0f;  
 
     public override void _PhysicsProcess(double delta)
