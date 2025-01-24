@@ -14,7 +14,7 @@ public partial class Obstacle : Node2D
     {
         Position -= new Vector2((float)(Speed * delta), 0);
         
-        if (Position.X < -50)
+        if (Position.X < -200)
         {
             QueueFree();
         }

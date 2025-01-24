@@ -1,16 +1,31 @@
-[gd_scene load_steps=13 format=3 uid="uid://c728fel7iwsrf"]
+[gd_scene load_steps=15 format=3 uid="uid://c728fel7iwsrf"]
 
 [ext_resource type="Script" path="res://Scripts/FlappyPlant/FlappyScript.cs" id="1_000qw"]
 [ext_resource type="Script" path="res://Scripts/FlappyPlant/FlappyPlant.cs" id="1_hvdm2"]
-[ext_resource type="Texture2D" uid="uid://m80m06w7ig6d" path="res://Textures/Icons/Icons/FloppyDisk.png" id="2_6061k"]
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="2_amir6"]
 [ext_resource type="Script" path="res://Scripts/FlappyPlant/BackgroundScroll.cs" id="3_fx3l2"]
-[ext_resource type="Texture2D" uid="uid://d1x701w828ata" path="res://Textures/Clouds/Clouds 1/4.png" id="4_8td5r"]
+[ext_resource type="Texture2D" uid="uid://cr8gcpmsbf8k1" path="res://Textures/Minigames/Flappy Plant/bee1.png" id="4_ftlh2"]
+[ext_resource type="Texture2D" uid="uid://cw42h7vc6t6ul" path="res://Textures/Minigames/Flappy Plant/bee2.png" id="5_dc35k"]
 [ext_resource type="Script" path="res://Scripts/FlappyPlant/ObstacleSpawner.cs" id="5_vqxja"]
 [ext_resource type="PackedScene" uid="uid://brmtk1ey2s37a" path="res://Scenes/FlappyPlant/Obstacle.tscn" id="6_q2ksj"]
 [ext_resource type="PackedScene" uid="uid://cvaiuw1pb6imx" path="res://Scenes/FlappyPlant/ObstacleTop.tscn" id="6_qbbwf"]
+[ext_resource type="Texture2D" uid="uid://dnhr3k6em48wa" path="res://Textures/Minigames/Flappy Plant/fp_background.png" id="6_y7wfd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n21r3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ufwrj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ftlh2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_dc35k")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3b32e"]
 
@@ -27,15 +42,16 @@ script = ExtResource("2_amir6")
 z_index = 1
 script = ExtResource("1_hvdm2")
 
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-position = Vector2(235, 524)
-scale = Vector2(7, 7)
-texture = ExtResource("2_6061k")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(235, 524)
+position = Vector2(235, 540)
 scale = Vector2(7, 7)
 shape = SubResource("CircleShape2D_n21r3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(235, 540)
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_ufwrj")
+animation = &"jump"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(273, -11)
@@ -56,8 +72,9 @@ shape = SubResource("RectangleShape2D_h66s3")
 script = ExtResource("3_fx3l2")
 
 [node name="Sprite2D" type="Sprite2D" parent="Background"]
-position = Vector2(1474, 458)
-texture = ExtResource("4_8td5r")
+scale = Vector2(25, 25)
+texture = ExtResource("6_y7wfd")
+centered = false
 
 [node name="ObstacleSpawner" type="Node2D" parent="."]
 script = ExtResource("5_vqxja")
@@ -65,8 +82,8 @@ TopObstacleScene = ExtResource("6_qbbwf")
 BottomObstacleScene = ExtResource("6_q2ksj")
 
 [node name="ScoreLabel" type="Label" parent="."]
-offset_left = 1.0
-offset_top = 31.0
-offset_right = 85.0
-offset_bottom = 70.0
-theme_override_font_sizes/font_size = 72
+offset_left = 1720.0
+offset_top = 32.0
+offset_right = 1804.0
+offset_bottom = 177.0
+theme_override_font_sizes/font_size = 144
