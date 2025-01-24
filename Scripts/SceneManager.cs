@@ -63,6 +63,7 @@ public partial class SceneManager : Node
         return db.GetPlantByClassName(className);
     }
 
+    /// <inheritdoc cref="DatabaseWrapper.GetPotByName"/>
     public Pot GetPotByName(string potName)
     {
         return db.GetPotByName(potName);
@@ -217,4 +218,32 @@ public partial class SceneManager : Node
 
         return 0; //MainScene is full
     }
+
+    /// <summary>
+    ///     Returns a list of every found <see cref="PlantWrapper"/> currently existing in the scene.
+    /// </summary>
+    /// <returns><see cref="List{T}"/></returns>
+    public List<PlantWrapper> GetListOfAllPlantWrapperInScene()
+    {
+        List<PlantWrapper> plantWrappers = new List<PlantWrapper>();
+        Node root = GetTree().Root.GetChild(0); // Assumes the first child is the scene root
+        
+        FindPlantWrappers(root);
+
+        return plantWrappers;
+        
+        void FindPlantWrappers(Node node)
+        {
+            if (node is PlantWrapper plantWrapper)
+            {
+                plantWrappers.Add(plantWrapper);
+            }
+
+            foreach (Node child in node.GetChildren())
+            {
+                FindPlantWrappers(child);
+            }
+        }
+    }
+
 }

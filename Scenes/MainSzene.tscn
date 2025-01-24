@@ -32,11 +32,11 @@
 [ext_resource type="Script" path="res://Scripts/MainScene/LeaveButton.cs" id="28_wy10c"]
 [ext_resource type="Script" path="res://Scripts/MainScene/ScamerGreenhouseButton.cs" id="29_p6mlw"]
 [ext_resource type="Texture2D" uid="uid://lnhjmhpb5n0p" path="res://Textures/Icons/backpack.png" id="31_lgrid"]
-[ext_resource type="Script" path="res://Scripts/MainScene/PotChanger.cs" id="31_pha1o"]
 [ext_resource type="Script" path="res://Scripts/MainScene/PotSkins.cs" id="32_wjedw"]
 [ext_resource type="Texture2D" uid="uid://d1iundnhibpig" path="res://Textures/Icons/pot_selection_overlay.png" id="33_m7vrf"]
 [ext_resource type="Texture2D" uid="uid://cytn4u5ejjnbe" path="res://Textures/Pots/plain_brown.png" id="34_efjfr"]
 [ext_resource type="Script" path="res://Scripts/MainScene/PanelLeaver.cs" id="35_3xfey"]
+[ext_resource type="Script" path="res://Scripts/MainScene/CustomPotButton.cs" id="36_5ukbt"]
 [ext_resource type="Texture2D" uid="uid://dnou3d6cq1k7v" path="res://Textures/Pots/plain_black.png" id="37_gy6i2"]
 [ext_resource type="Script" path="res://Scripts/MainScene/CustomPotSpawner.cs" id="37_pyrr7"]
 [ext_resource type="Texture2D" uid="uid://c1lj47bb36f0g" path="res://Textures/Pots/plain_grey.png" id="38_vuwlt"]
@@ -124,39 +124,39 @@ modulate_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o6bub"]
 texture = ExtResource("28_mtxqj")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_we068"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_785cv"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ymgp7"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e0mwm"]
 texture = ExtResource("31_lgrid")
 modulate_color = Color(0.347817, 0.347817, 0.347817, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b6c5m"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b5hp7"]
 texture = ExtResource("31_lgrid")
 modulate_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i86l7"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_syld4"]
 texture = ExtResource("31_lgrid")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_56ari"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kb5tm"]
 texture = ExtResource("33_m7vrf")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uykgh"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rn47v"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d8hfn"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lq5y0"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6iclx"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gwohc"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m12rn"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5re5o"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lj4j8"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xacny"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q74jh"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h5hk6"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7yn17"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d1tsk"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dcefc"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n43hm"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_002u2"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g27id"]
 
 [node name="MainSzene" type="Node2D"]
 
@@ -512,8 +512,8 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_o6bub")
 script = ExtResource("28_wy10c")
 metadata/_edit_lock_ = true
 
-[node name="PotChanger" type="Node" parent="."]
-script = ExtResource("31_pha1o")
+[node name="coinDisplay_wrapper" parent="." instance=ExtResource("52_p40kd")]
+position = Vector2(1641, 72)
 
 [node name="PotSkins" type="Button" parent="."]
 z_index = 1
@@ -522,10 +522,10 @@ offset_top = 5.0
 offset_right = 308.0
 offset_bottom = 140.0
 scale = Vector2(1.1, 1.1)
-theme_override_styles/focus = SubResource("StyleBoxTexture_we068")
-theme_override_styles/hover = SubResource("StyleBoxTexture_ymgp7")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_b6c5m")
-theme_override_styles/normal = SubResource("StyleBoxTexture_i86l7")
+theme_override_styles/focus = SubResource("StyleBoxTexture_785cv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_e0mwm")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_b5hp7")
+theme_override_styles/normal = SubResource("StyleBoxTexture_syld4")
 script = ExtResource("32_wjedw")
 metadata/_edit_lock_ = true
 
@@ -538,7 +538,7 @@ offset_top = -5.0
 offset_right = 424.0
 offset_bottom = 1075.0
 scale = Vector2(0.9, 0.9)
-theme_override_styles/panel = SubResource("StyleBoxTexture_56ari")
+theme_override_styles/panel = SubResource("StyleBoxTexture_kb5tm")
 metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="PotSkins/Panel"]
@@ -560,10 +560,11 @@ offset_left = 36.0
 offset_top = 159.0
 offset_right = 194.0
 offset_bottom = 287.0
-theme_override_styles/focus = SubResource("StyleBoxTexture_uykgh")
-theme_override_styles/hover = SubResource("StyleBoxTexture_d8hfn")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_6iclx")
-theme_override_styles/normal = SubResource("StyleBoxTexture_m12rn")
+theme_override_styles/focus = SubResource("StyleBoxTexture_rn47v")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lq5y0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gwohc")
+theme_override_styles/normal = SubResource("StyleBoxTexture_5re5o")
+script = ExtResource("36_5ukbt")
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="PotSkins/Panel/plain_brown"]
@@ -577,10 +578,11 @@ offset_left = 208.0
 offset_top = 159.0
 offset_right = 366.0
 offset_bottom = 287.0
-theme_override_styles/focus = SubResource("StyleBoxTexture_uykgh")
-theme_override_styles/hover = SubResource("StyleBoxTexture_d8hfn")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_6iclx")
-theme_override_styles/normal = SubResource("StyleBoxTexture_m12rn")
+theme_override_styles/focus = SubResource("StyleBoxTexture_rn47v")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lq5y0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gwohc")
+theme_override_styles/normal = SubResource("StyleBoxTexture_5re5o")
+script = ExtResource("36_5ukbt")
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="PotSkins/Panel/plain_black"]
@@ -594,10 +596,11 @@ offset_left = 378.0
 offset_top = 159.0
 offset_right = 536.0
 offset_bottom = 287.0
-theme_override_styles/focus = SubResource("StyleBoxTexture_uykgh")
-theme_override_styles/hover = SubResource("StyleBoxTexture_d8hfn")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_6iclx")
-theme_override_styles/normal = SubResource("StyleBoxTexture_m12rn")
+theme_override_styles/focus = SubResource("StyleBoxTexture_rn47v")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lq5y0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gwohc")
+theme_override_styles/normal = SubResource("StyleBoxTexture_5re5o")
+script = ExtResource("36_5ukbt")
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="PotSkins/Panel/plain_grey"]
@@ -611,10 +614,11 @@ offset_left = 36.0
 offset_top = 302.0
 offset_right = 194.0
 offset_bottom = 430.0
-theme_override_styles/focus = SubResource("StyleBoxTexture_uykgh")
-theme_override_styles/hover = SubResource("StyleBoxTexture_d8hfn")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_6iclx")
-theme_override_styles/normal = SubResource("StyleBoxTexture_m12rn")
+theme_override_styles/focus = SubResource("StyleBoxTexture_rn47v")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lq5y0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gwohc")
+theme_override_styles/normal = SubResource("StyleBoxTexture_5re5o")
+script = ExtResource("36_5ukbt")
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="PotSkins/Panel/plain_blue_dark"]
@@ -628,10 +632,11 @@ offset_left = 208.0
 offset_top = 302.0
 offset_right = 366.0
 offset_bottom = 430.0
-theme_override_styles/focus = SubResource("StyleBoxTexture_uykgh")
-theme_override_styles/hover = SubResource("StyleBoxTexture_d8hfn")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_6iclx")
-theme_override_styles/normal = SubResource("StyleBoxTexture_m12rn")
+theme_override_styles/focus = SubResource("StyleBoxTexture_rn47v")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lq5y0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gwohc")
+theme_override_styles/normal = SubResource("StyleBoxTexture_5re5o")
+script = ExtResource("36_5ukbt")
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="PotSkins/Panel/plain_blue_light"]
@@ -645,10 +650,11 @@ offset_left = 378.0
 offset_top = 302.0
 offset_right = 536.0
 offset_bottom = 430.0
-theme_override_styles/focus = SubResource("StyleBoxTexture_uykgh")
-theme_override_styles/hover = SubResource("StyleBoxTexture_d8hfn")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_6iclx")
-theme_override_styles/normal = SubResource("StyleBoxTexture_m12rn")
+theme_override_styles/focus = SubResource("StyleBoxTexture_rn47v")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lq5y0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gwohc")
+theme_override_styles/normal = SubResource("StyleBoxTexture_5re5o")
+script = ExtResource("36_5ukbt")
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="PotSkins/Panel/plain_white"]
@@ -662,10 +668,11 @@ offset_left = 378.0
 offset_top = 446.0
 offset_right = 536.0
 offset_bottom = 574.0
-theme_override_styles/focus = SubResource("StyleBoxTexture_uykgh")
-theme_override_styles/hover = SubResource("StyleBoxTexture_d8hfn")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_6iclx")
-theme_override_styles/normal = SubResource("StyleBoxTexture_m12rn")
+theme_override_styles/focus = SubResource("StyleBoxTexture_rn47v")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lq5y0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gwohc")
+theme_override_styles/normal = SubResource("StyleBoxTexture_5re5o")
+script = ExtResource("36_5ukbt")
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="PotSkins/Panel/plain_yellow"]
@@ -679,10 +686,11 @@ offset_left = 208.0
 offset_top = 446.0
 offset_right = 366.0
 offset_bottom = 574.0
-theme_override_styles/focus = SubResource("StyleBoxTexture_uykgh")
-theme_override_styles/hover = SubResource("StyleBoxTexture_d8hfn")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_6iclx")
-theme_override_styles/normal = SubResource("StyleBoxTexture_m12rn")
+theme_override_styles/focus = SubResource("StyleBoxTexture_rn47v")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lq5y0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gwohc")
+theme_override_styles/normal = SubResource("StyleBoxTexture_5re5o")
+script = ExtResource("36_5ukbt")
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="PotSkins/Panel/plain_green_dark"]
@@ -696,10 +704,11 @@ offset_left = 38.0
 offset_top = 446.0
 offset_right = 196.0
 offset_bottom = 574.0
-theme_override_styles/focus = SubResource("StyleBoxTexture_uykgh")
-theme_override_styles/hover = SubResource("StyleBoxTexture_d8hfn")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_6iclx")
-theme_override_styles/normal = SubResource("StyleBoxTexture_m12rn")
+theme_override_styles/focus = SubResource("StyleBoxTexture_rn47v")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lq5y0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gwohc")
+theme_override_styles/normal = SubResource("StyleBoxTexture_5re5o")
+script = ExtResource("36_5ukbt")
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="PotSkins/Panel/plain_green_light"]
@@ -713,10 +722,11 @@ offset_left = 38.0
 offset_top = 590.0
 offset_right = 196.0
 offset_bottom = 718.0
-theme_override_styles/focus = SubResource("StyleBoxTexture_uykgh")
-theme_override_styles/hover = SubResource("StyleBoxTexture_d8hfn")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_6iclx")
-theme_override_styles/normal = SubResource("StyleBoxTexture_m12rn")
+theme_override_styles/focus = SubResource("StyleBoxTexture_rn47v")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lq5y0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gwohc")
+theme_override_styles/normal = SubResource("StyleBoxTexture_5re5o")
+script = ExtResource("36_5ukbt")
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="PotSkins/Panel/plain_red"]
@@ -730,10 +740,11 @@ offset_left = 208.0
 offset_top = 590.0
 offset_right = 366.0
 offset_bottom = 718.0
-theme_override_styles/focus = SubResource("StyleBoxTexture_uykgh")
-theme_override_styles/hover = SubResource("StyleBoxTexture_d8hfn")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_6iclx")
-theme_override_styles/normal = SubResource("StyleBoxTexture_m12rn")
+theme_override_styles/focus = SubResource("StyleBoxTexture_rn47v")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lq5y0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gwohc")
+theme_override_styles/normal = SubResource("StyleBoxTexture_5re5o")
+script = ExtResource("36_5ukbt")
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="PotSkins/Panel/plain_orange"]
@@ -747,10 +758,11 @@ offset_left = 378.0
 offset_top = 590.0
 offset_right = 536.0
 offset_bottom = 718.0
-theme_override_styles/focus = SubResource("StyleBoxTexture_uykgh")
-theme_override_styles/hover = SubResource("StyleBoxTexture_d8hfn")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_6iclx")
-theme_override_styles/normal = SubResource("StyleBoxTexture_m12rn")
+theme_override_styles/focus = SubResource("StyleBoxTexture_rn47v")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lq5y0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gwohc")
+theme_override_styles/normal = SubResource("StyleBoxTexture_5re5o")
+script = ExtResource("36_5ukbt")
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="PotSkins/Panel/plain_purple"]
@@ -764,10 +776,11 @@ offset_left = 38.0
 offset_top = 734.0
 offset_right = 196.0
 offset_bottom = 862.0
-theme_override_styles/focus = SubResource("StyleBoxTexture_uykgh")
-theme_override_styles/hover = SubResource("StyleBoxTexture_d8hfn")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_6iclx")
-theme_override_styles/normal = SubResource("StyleBoxTexture_m12rn")
+theme_override_styles/focus = SubResource("StyleBoxTexture_rn47v")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lq5y0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gwohc")
+theme_override_styles/normal = SubResource("StyleBoxTexture_5re5o")
+script = ExtResource("36_5ukbt")
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="PotSkins/Panel/plain_pink"]
@@ -781,10 +794,11 @@ offset_left = 208.0
 offset_top = 734.0
 offset_right = 366.0
 offset_bottom = 862.0
-theme_override_styles/focus = SubResource("StyleBoxTexture_uykgh")
-theme_override_styles/hover = SubResource("StyleBoxTexture_d8hfn")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_6iclx")
-theme_override_styles/normal = SubResource("StyleBoxTexture_m12rn")
+theme_override_styles/focus = SubResource("StyleBoxTexture_rn47v")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lq5y0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gwohc")
+theme_override_styles/normal = SubResource("StyleBoxTexture_5re5o")
+script = ExtResource("36_5ukbt")
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="PotSkins/Panel/plain_pink_light"]
@@ -798,7 +812,7 @@ offset_left = 36.0
 offset_top = 874.0
 offset_right = 537.0
 offset_bottom = 1046.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_lj4j8")
+theme_override_styles/panel = SubResource("StyleBoxTexture_xacny")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="PotSkins/Panel/CustomPots"]
 layout_mode = 0
@@ -812,18 +826,14 @@ custom_minimum_size = Vector2(5000, 129.35)
 layout_mode = 2
 script = ExtResource("37_pyrr7")
 
-[node name="PanelLeaver" type="Button" parent="PotSkins"]
-visible = false
+[node name="PanelLeaver" type="Button" parent="PotSkins/Panel"]
 layout_mode = 0
-offset_left = 408.0
-offset_top = -21.0
-offset_right = 1754.0
-offset_bottom = 1062.0
-theme_override_styles/focus = SubResource("StyleBoxTexture_q74jh")
-theme_override_styles/hover = SubResource("StyleBoxTexture_7yn17")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_dcefc")
-theme_override_styles/normal = SubResource("StyleBoxTexture_002u2")
+offset_left = 572.0
+offset_top = 9.0
+offset_right = 1941.0
+offset_bottom = 1092.0
+theme_override_styles/focus = SubResource("StyleBoxTexture_h5hk6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_d1tsk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_n43hm")
+theme_override_styles/normal = SubResource("StyleBoxTexture_g27id")
 script = ExtResource("35_3xfey")
-
-[node name="coinDisplay_wrapper" parent="." instance=ExtResource("52_p40kd")]
-position = Vector2(1641, 72)

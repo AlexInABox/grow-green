@@ -9,13 +9,11 @@ public partial class PanelLeaver : Button
 	public override void _Ready()
 	{
 		Pressed += PotterRemover;
-		PotSelector = GetNode<Panel>("../Panel");
-		PanelRemover = GetNode<Button>("../PanelLeaver");
+		PotSelector = GetNode<Panel>("../../Panel");
 	}
 
 	private void PotterRemover() {
 		PotSelector.Visible = false;
-		PanelRemover.Visible = false;
 	}
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
