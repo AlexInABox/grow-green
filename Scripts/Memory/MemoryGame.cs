@@ -22,7 +22,7 @@ public partial class MemoryGame : Node
 	
 	public override void _Ready()
 	{
-		sceneManager = GetNode<SceneManager>("SceneManager");
+		sceneManager = GetTree().GetCurrentScene().GetNode<SceneManager>("SceneManager");
 		prefab = (PackedScene)ResourceLoader.Load("res://Prefabs/MemoryCard.tscn");
 		scenePath = GetTree().CurrentScene.SceneFilePath;
 		string sceneName = System.IO.Path.GetFileNameWithoutExtension(scenePath);

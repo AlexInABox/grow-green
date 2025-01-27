@@ -5,16 +5,15 @@ public partial class BuyGreenhouse : Button
 {
 	SceneManager sceneManager;
 
-	private int greenhouseCost = 100;
+	private int greenhouseCost = 1;
 	
 	private MainSzene mainSzene;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		sceneManager = GetNode<SceneManager>("/root/MainSzene/SceneManager");
-		mainSzene = GetNode<MainSzene>("/root/MainSzene/MainSceneScript");
+		sceneManager = GetTree().GetCurrentScene().GetNode<SceneManager>("SceneManager");
+		mainSzene = GetTree().GetCurrentScene().GetNode<MainSzene>("MainSceneScript");
 		Pressed += TryBuyGreenhouse;
-		
 	}
 
 	public void TryBuyGreenhouse()

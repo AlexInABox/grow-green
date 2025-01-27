@@ -6,7 +6,7 @@ public partial class ShopButton : Button
 	SceneManager sceneManager;
 	public override void _Ready()
 	{
-		sceneManager = GetNode<SceneManager>("../SceneManager");
+		sceneManager = GetTree().GetCurrentScene().GetNode<SceneManager>("SceneManager");
 		Pressed += ButtonPressed;
 	}
 

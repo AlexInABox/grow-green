@@ -24,7 +24,7 @@ public partial class PackOpening : Button
         light = GetNode<Light2D>("PointLight2D"); 
         light.Visible = false; 
         
-        sceneManager = GetNode<SceneManager>("../../SceneManager");
+        sceneManager = GetTree().GetCurrentScene().GetNode<SceneManager>("SceneManager");
         packSpawner = GetNode<PackSpawner>("../../../PackOpeningMinigame");
     }
 

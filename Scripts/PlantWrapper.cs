@@ -8,7 +8,7 @@ public partial class PlantWrapper : Node2D
 	public string proposedPotSkin;
 	public override void _Ready()
 	{
-		sceneManager = GetTree().Root.GetChildren()[0].GetNode<SceneManager>("SceneManager");
+		sceneManager = GetTree().GetCurrentScene().GetNode<SceneManager>("SceneManager");
 		Plant plant = GetNode<Plant>("Plant");
 		string potName = plant.pot;
 		proposedPotSkin = plant.pot;

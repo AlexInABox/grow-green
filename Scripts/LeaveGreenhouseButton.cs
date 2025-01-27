@@ -7,7 +7,7 @@ public partial class LeaveGreenhouseButton : Button
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		sceneManager = GetNode<SceneManager>("../SceneManager");
+		sceneManager = GetTree().GetCurrentScene().GetNode<SceneManager>("SceneManager");
 		Pressed += ButtonPressed;
 	}
 

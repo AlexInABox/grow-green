@@ -9,7 +9,7 @@ public partial class GreenhouseScene : Node
 
 	public override void _Ready()
 	{
-		sceneManager = GetNode<SceneManager>("../SceneManager");
+		sceneManager = GetTree().GetCurrentScene().GetNode<SceneManager>("SceneManager");
 		List<Plant> plantList = sceneManager.GetListOfOwnedPlants(); 
 		PlaceAllPlants(plantList);
 	}

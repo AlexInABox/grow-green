@@ -10,8 +10,8 @@ public partial class CustomPotButton : Button
 
     public override void _Ready()
     {
-        sceneManager = GetTree().Root.GetChildren()[0].GetNode<SceneManager>("SceneManager");
-        potSelectPanel = GetTree().Root.GetChildren()[0].GetNode<Panel>("PotSkins/Panel");
+        sceneManager = GetTree().GetCurrentScene().GetNode<SceneManager>("SceneManager");
+        potSelectPanel = GetTree().GetCurrentScene().GetNode<Panel>("PotSkins/Panel");
 
         Pressed += OnButtonPressed;
     }
@@ -33,6 +33,8 @@ public partial class CustomPotButton : Button
     private void BlockWateringForAllPlants()
     {
         List<PlantWrapper> listOfAllPlantWrapper = sceneManager.GetListOfAllPlantWrapperInScene();
+        GD.Print("BlockWateringForAllPlants");
+        GD.Print(listOfAllPlantWrapper.Count);
         foreach (PlantWrapper plantWrapper in listOfAllPlantWrapper)
         {
             PlantButton plantButton = plantWrapper.GetNode<PlantButton>("Button");

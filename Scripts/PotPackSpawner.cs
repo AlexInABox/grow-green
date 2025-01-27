@@ -19,7 +19,7 @@ public partial class PotPackSpawner : Node
 
     public override void _Ready()
     {
-            sceneManager = GetNode<SceneManager>("SceneManager");
+            sceneManager = GetTree().GetCurrentScene().GetNode<SceneManager>("SceneManager");GetNode<SceneManager>("SceneManager");
             leaveButton = GetNode<Button>("LeaveButton");
         
             button = GetNode<Button>("BuyPackButton");

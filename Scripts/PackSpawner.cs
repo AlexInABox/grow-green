@@ -17,7 +17,7 @@ public partial class PackSpawner : Node
 
     public override void _Ready()
     {
-        sceneManager = GetNode<SceneManager>("SceneManager");
+        sceneManager = GetTree().GetCurrentScene().GetNode<SceneManager>("SceneManager");
         leaveButton = GetNode<Button>("LeaveButton");
         
             button = GetNode<Button>("BuyPackButton");
