@@ -63,7 +63,7 @@ public partial class SceneManager : Node
         return db.GetPlantByClassName(className);
     }
 
-    /// <inheritdoc cref="DatabaseWrapper.GetPotByName"/>
+    /// <inheritdoc cref="DatabaseWrapper.GetPotByName" />
     public Pot GetPotByName(string potName)
     {
         return db.GetPotByName(potName);
@@ -220,30 +220,45 @@ public partial class SceneManager : Node
     }
 
     /// <summary>
-    ///     Returns a list of every found <see cref="PlantWrapper"/> currently existing in the scene.
+    ///     Returns a list of every found <see cref="PlantWrapper" /> currently existing in the scene.
     /// </summary>
-    /// <returns><see cref="List{T}"/></returns>
+    /// <returns>
+    ///     <see cref="List{T}" />
+    /// </returns>
     public List<PlantWrapper> GetListOfAllPlantWrapperInScene()
     {
-        List<PlantWrapper> plantWrappers = new List<PlantWrapper>();
+        List<PlantWrapper> plantWrappers = new();
         Node root = GetTree().Root.GetChild(0); // Assumes the first child is the scene root
-        
+
         FindPlantWrappers(root);
 
         return plantWrappers;
-        
+
         void FindPlantWrappers(Node node)
         {
-            if (node is PlantWrapper plantWrapper)
-            {
-                plantWrappers.Add(plantWrapper);
-            }
+            if (node is PlantWrapper plantWrapper) plantWrappers.Add(plantWrapper);
 
-            foreach (Node child in node.GetChildren())
-            {
-                FindPlantWrappers(child);
-            }
+            foreach (Node child in node.GetChildren()) FindPlantWrappers(child);
         }
     }
 
+    /// <summary>
+    ///     Returns the highscore of the current <see cref="Player" /> in the FlappyPlant game.
+    /// </summary>
+    /// <returns>
+    ///     <see cref="int" />
+    /// </returns>
+    public int GetFlappyPlantHighscore()
+    {
+        return playerObject.flappyPlantHighscore;
+    }
+
+    /// <summary>
+    ///     Set the flappyPlant highscore for the current <see cref="Player" />.
+    /// </summary>
+    /// <param name="flappyPlantHighscore">The highscore as an <see cref="int" />.</param>
+    public void SetFlappyPlantHighscore(int flappyPlantHighscore)
+    {
+        playerObject.flappyPlantHighscore = flappyPlantHighscore;
+    }
 }
