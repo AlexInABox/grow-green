@@ -28,19 +28,8 @@ public partial class ShopPlantButton : Button
 	}
 
 	private void ButtonGotPressed() {
-		if (sceneManager.GetCoinCount() < cost) {
-		} else {
-			while (sceneManager.IsSaveLocked())
-			{
-				// Wait for .1 seconds (100 milliseconds)
-				System.Threading.Thread.Sleep(100);
-			}
-			sceneManager.SetCoinCount(sceneManager.GetCoinCount() - cost);
-
-			Plant plant = sceneManager.GetPlantByClassName(className);
-			sceneManager.AddNewPlantToListOfOwnedPlants(plant);
-		}
-	}
+		sceneManager.SpawnShopBuyConfirmationPopup(className, cost); 
+	} 
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)

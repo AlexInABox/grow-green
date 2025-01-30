@@ -39,20 +39,14 @@ using System.Collections.Generic;
 			
 			var styleBoxTextureNormal = new StyleBoxTexture();
 			styleBoxTextureNormal.Texture = (Texture2D)GD.Load(PlantTexture);
-			var styleBoxTextureSeed = new StyleBoxTexture();
-			/* styleBoxTextureSeed.Texture = (Texture2D)GD.Load(SeedTexture); */
-			var styleBoxTextureSeedPressed = new StyleBoxTexture();
-			styleBoxTextureSeedPressed.Texture = (Texture2D)GD.Load(SeedTexture);
-			styleBoxTextureSeedPressed.ModulateColor = new Color(0f, 0f, 0f);
-			/* var styleBoxTextureNormalHovered = new StyleBoxTexture();
-			styleBoxTextureNormalHovered.Texture = (Texture2D)GD.Load(PlantTexture);
-			styleBoxTextureNormalHovered.RegionRect = new Rect2(Vector2.Zero, new Vector2(64, 64)); 
- */
+			var styleBoxTextureHover = new StyleBoxTexture();
+			var styleBoxTexturePressed = new StyleBoxTexture();
+
 			var theme = Theme ?? new Theme();
 
 			theme.SetStylebox("normal", "Button", styleBoxTextureNormal);
-			theme.SetStylebox("hover", "Button", styleBoxTextureSeed);
-			theme.SetStylebox("pressed", "Button", styleBoxTextureSeedPressed);
+			theme.SetStylebox("hover", "Button", styleBoxTextureHover);
+			theme.SetStylebox("pressed", "Button", styleBoxTexturePressed);
 
 			shopButton.Theme = theme;
 			shopButton.CustomMinimumSize = new Vector2(240, 240);
@@ -71,6 +65,7 @@ using System.Collections.Generic;
 			ShopPlantButton shopButtonScript = easyShopWrapper.GetNode<ShopPlantButton>("PlantButton");
 			shopButtonScript.className = plant.className;
 			shopButtonScript.cost = plant.cost;
+
 
 			counter++;
 			easyShopWrapper.AddChild(myNewSprite);

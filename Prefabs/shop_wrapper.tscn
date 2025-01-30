@@ -54,7 +54,6 @@ texture = ExtResource("3_puvi1")
 
 [node name="Pot" type="Sprite2D" parent="statusBubble"]
 position = Vector2(-5.78125, 4.29688)
-scale = Vector2(1, 1)
 texture = ExtResource("5_240r4")
 
 [node name="Plant" type="Sprite2D" parent="statusBubble"]
