@@ -33,7 +33,9 @@ public partial class ConfirmationPopup : Node2D
 
 	private void buy(){
 		if (sceneManager.GetCoinCount() < Price) {
-			/* GetParent().GetParent().QueueFree(); */
+			Label warning = GetNode<Label>("Sprite2D/Warning");
+			warning.Text = $"Dafür reicht ihr Geld leider nicht aus";
+			warning.AddThemeColorOverride("font_color", new Color(0f, 0f, 0f));
 		} 
 		else {
 			while (sceneManager.IsSaveLocked())
@@ -45,8 +47,8 @@ public partial class ConfirmationPopup : Node2D
 
 			Plant plant = sceneManager.GetPlantByClassName(PlantName);
 			sceneManager.AddNewPlantToListOfOwnedPlants(plant);
+			QueueFree(); 
 		}
-		/* GetParent().GetParent().QueueFree(); */
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
