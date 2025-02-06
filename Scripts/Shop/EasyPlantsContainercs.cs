@@ -27,7 +27,7 @@ using System.Collections.Generic;
 			var shopPrefabInstance = shopPrefab.Instantiate();
 			AddChild(shopPrefabInstance);
 			var easyShopWrapper = shopPrefabInstance.GetNode<Node2D>("../ShopWrapper");
-			easyShopWrapper.Set("position", new Vector2(240*counter, 110));
+			easyShopWrapper.Set("position", new Vector2(240*counter, 40));
 			easyShopWrapper.Set("name", "freaky" + counter);
 
 			Button shopButton = easyShopWrapper.GetNode<Button>("PlantButton");
@@ -47,6 +47,7 @@ using System.Collections.Generic;
 			theme.SetStylebox("normal", "Button", styleBoxTextureNormal);
 			theme.SetStylebox("hover", "Button", styleBoxTextureHover);
 			theme.SetStylebox("pressed", "Button", styleBoxTexturePressed);
+			theme.SetStylebox("focus", "Button", styleBoxTexturePressed);
 
 			shopButton.Theme = theme;
 			shopButton.CustomMinimumSize = new Vector2(240, 240);
