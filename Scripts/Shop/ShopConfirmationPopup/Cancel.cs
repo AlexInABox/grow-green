@@ -3,11 +3,10 @@ using System;
 
 public partial class Cancel : Button
 {
-	SceneManager sceneManager;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		sceneManager = GetNode<SceneManager>("../../../SceneManager");
 		Pressed += Verlassen;
 	}
 

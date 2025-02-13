@@ -101,16 +101,6 @@ public partial class SceneManager : Node
         GetParent().AddChild(unlockPopupInstance);
     }
 
-    public void SpawnShopBuyConfirmationPopup(string className, int cost)
-    {
-        PackedScene confirmationPopup = GD.Load<PackedScene>("res://Prefabs/shopBuyConfirmation_popup.tscn");
-        Node confirmationPopupInstance = confirmationPopup.Instantiate();
-        ConfirmationPopup PopupScript = (ConfirmationPopup)confirmationPopupInstance;
-        PopupScript.SetClassName(className);
-        PopupScript.SetPrice(cost);
-        PopupScript.ChangeLabel();
-        GetParent().AddChild(confirmationPopupInstance);
-    }
 
     public void AddNewPlantToListOfOwnedPlants(Plant plantToAdd)
     {
