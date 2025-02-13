@@ -102,6 +102,7 @@ public partial class SceneManager : Node
         GetParent().AddChild(unlockPopupInstance);
     }
 
+
     public void AddNewPlantToListOfOwnedPlants(Plant plantToAdd)
     {
         //automtically generate the spawnPoint
