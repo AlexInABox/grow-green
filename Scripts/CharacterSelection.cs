@@ -4,7 +4,7 @@ using System;
 public partial class CharacterSelection : ScrollContainer
 {
 	private int characterNumber;
-	AlienButton[] alienButtons = new AlienButton[5];
+	AlienButton[] alienButtons = new AlienButton[10];
 	TitleSceneManager titleScreenManager;
 	
 	// Called when the node enters the scene tree for the first time.

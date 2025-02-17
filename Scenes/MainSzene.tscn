@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://bqv77dvuy6ly0"]
+[gd_scene load_steps=103 format=3 uid="uid://bqv77dvuy6ly0"]
 
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_06be7"]
 [ext_resource type="Texture2D" uid="uid://da3gby3k4mva" path="res://Textures/Backgrounds/HOUSE.png" id="1_bo6pn"]
@@ -27,21 +27,36 @@
 [ext_resource type="Texture2D" uid="uid://lhsbbpvrph4e" path="res://Textures/Aliens/Paintings/5_right.jpg" id="20_hae6m"]
 [ext_resource type="Texture2D" uid="uid://drijk174aakbu" path="res://Textures/Icons/Icons/DoorIcon.png" id="24_amdw1"]
 [ext_resource type="Script" path="res://Scripts/GreenhouseButton.cs" id="24_hti8h"]
+[ext_resource type="Texture2D" uid="uid://o4e76pcrpalc" path="res://Textures/Aliens/Paintings/6_left.jpg" id="26_etwdn"]
 [ext_resource type="Texture2D" uid="uid://bty24gjoo7nm6" path="res://Textures/Icons/Icons/new_open_door.png" id="27_2kl61"]
+[ext_resource type="Texture2D" uid="uid://dick3m8d0ygl5" path="res://Textures/Aliens/Paintings/6_middle.jpg" id="27_7su1m"]
+[ext_resource type="Texture2D" uid="uid://wkd6l1633fw5" path="res://Textures/Aliens/Paintings/6_right.jpg" id="28_jcmd3"]
 [ext_resource type="Texture2D" uid="uid://bmpnx8afa8exa" path="res://Textures/Icons/exit.png" id="28_mtxqj"]
 [ext_resource type="Script" path="res://Scripts/MainScene/LeaveButton.cs" id="28_wy10c"]
+[ext_resource type="Texture2D" uid="uid://bd4iwl41vqm1o" path="res://Textures/Aliens/Paintings/7_left.jpg" id="29_6r2de"]
 [ext_resource type="Script" path="res://Scripts/MainScene/ScamerGreenhouseButton.cs" id="29_p6mlw"]
+[ext_resource type="Texture2D" uid="uid://cjddg7gr3q20p" path="res://Textures/Aliens/Paintings/7_middle.jpg" id="30_n8nra"]
+[ext_resource type="Texture2D" uid="uid://btfycw6dbbhi5" path="res://Textures/Aliens/Paintings/7_right.jpg" id="31_8yl6d"]
 [ext_resource type="Texture2D" uid="uid://lnhjmhpb5n0p" path="res://Textures/Icons/backpack.png" id="31_lgrid"]
+[ext_resource type="Texture2D" uid="uid://cydp0vu6y0h52" path="res://Textures/Aliens/Paintings/8_left.png" id="32_epw1f"]
 [ext_resource type="Script" path="res://Scripts/MainScene/PotSkins.cs" id="32_wjedw"]
 [ext_resource type="Texture2D" uid="uid://d1iundnhibpig" path="res://Textures/Icons/pot_selection_overlay.png" id="33_m7vrf"]
+[ext_resource type="Texture2D" uid="uid://jq2wl8y4a7tm" path="res://Textures/Aliens/Paintings/8_middle.png" id="33_wyj68"]
+[ext_resource type="Texture2D" uid="uid://f53sy6aobk1a" path="res://Textures/Aliens/Paintings/8_right.png" id="34_8ehmm"]
 [ext_resource type="Texture2D" uid="uid://cytn4u5ejjnbe" path="res://Textures/Pots/plain_brown.png" id="34_efjfr"]
 [ext_resource type="Script" path="res://Scripts/MainScene/PanelLeaver.cs" id="35_3xfey"]
+[ext_resource type="Texture2D" uid="uid://6ns4frtidmh" path="res://Textures/Aliens/Paintings/9_left.jpg" id="35_rjcup"]
 [ext_resource type="Script" path="res://Scripts/MainScene/CustomPotButton.cs" id="36_5ukbt"]
+[ext_resource type="Texture2D" uid="uid://cfavgebxu5fx4" path="res://Textures/Aliens/Paintings/9_middle.jpg" id="36_ltq7w"]
+[ext_resource type="Texture2D" uid="uid://cb2kxhaxm3jn4" path="res://Textures/Aliens/Paintings/9_right.jpg" id="37_1bl0o"]
 [ext_resource type="Texture2D" uid="uid://dnou3d6cq1k7v" path="res://Textures/Pots/plain_black.png" id="37_gy6i2"]
 [ext_resource type="Script" path="res://Scripts/MainScene/CustomPotSpawner.cs" id="37_pyrr7"]
+[ext_resource type="Texture2D" uid="uid://d0inoj7dtlrll" path="res://Textures/Aliens/Paintings/10_left.jpg" id="38_ca1ht"]
 [ext_resource type="Texture2D" uid="uid://c1lj47bb36f0g" path="res://Textures/Pots/plain_grey.png" id="38_vuwlt"]
+[ext_resource type="Texture2D" uid="uid://b40ii3siylq7n" path="res://Textures/Aliens/Paintings/10_middle.jpg" id="39_rv1qa"]
 [ext_resource type="Texture2D" uid="uid://khueuf5d54d3" path="res://Textures/Pots/plain_blue_dark.png" id="39_udfdm"]
 [ext_resource type="Texture2D" uid="uid://cf0ksf52shp8b" path="res://Textures/Pots/plain_blue_light.png" id="40_u162t"]
+[ext_resource type="Texture2D" uid="uid://tmfuehnnvc2d" path="res://Textures/Aliens/Paintings/10_right.jpg" id="40_vjo58"]
 [ext_resource type="Texture2D" uid="uid://hlwwfsvgs1fx" path="res://Textures/Pots/plain_white.png" id="41_4gh6b"]
 [ext_resource type="Texture2D" uid="uid://cj0xfyoym87v4" path="res://Textures/Pots/plain_yellow.png" id="42_h1fd2"]
 [ext_resource type="Texture2D" uid="uid://c34n8kx6wfp3q" path="res://Textures/Pots/plain_green_dark.png" id="43_odhxc"]
@@ -469,6 +484,156 @@ polygon = PackedVector2Array(4, 99, 123, 153, 122, 386, 4, 408)
 z_index = -6
 position = Vector2(339, -18)
 texture = ExtResource("20_hae6m")
+texture_offset = Vector2(-20, -200)
+texture_scale = Vector2(1.8, 1.1)
+polygon = PackedVector2Array(20, 189, 105, 227, 105, 379, 17, 388)
+
+[node name="FlowerAlienPictures" type="Control" parent="Pictures" groups=["Pictures"]]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_top = 176.0
+offset_bottom = 176.0
+
+[node name="leftFlower" type="Polygon2D" parent="Pictures/FlowerAlienPictures"]
+z_index = -6
+position = Vector2(1, -5)
+texture = ExtResource("26_etwdn")
+texture_scale = Vector2(1.2, 0.45)
+polygon = PackedVector2Array(-5, -6, 134, 63, 135, 408, -2, 433)
+
+[node name="middleFlower" type="Polygon2D" parent="Pictures/FlowerAlienPictures"]
+z_index = -6
+position = Vector2(194, -8)
+texture = ExtResource("27_7su1m")
+texture_offset = Vector2(-5, -120)
+texture_scale = Vector2(1.4, 0.7)
+polygon = PackedVector2Array(4, 99, 123, 153, 122, 386, 4, 408)
+
+[node name="rightFlower" type="Polygon2D" parent="Pictures/FlowerAlienPictures"]
+z_index = -6
+position = Vector2(339, -18)
+texture = ExtResource("28_jcmd3")
+texture_offset = Vector2(-20, -200)
+texture_scale = Vector2(1.8, 1.1)
+polygon = PackedVector2Array(20, 189, 105, 227, 105, 379, 17, 388)
+
+[node name="RabbitAlienPictures" type="Control" parent="Pictures" groups=["Pictures"]]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_top = 176.0
+offset_bottom = 176.0
+
+[node name="leftRabbit" type="Polygon2D" parent="Pictures/RabbitAlienPictures"]
+z_index = -6
+position = Vector2(1, -5)
+texture = ExtResource("29_6r2de")
+texture_scale = Vector2(1.2, 0.45)
+polygon = PackedVector2Array(-5, -6, 134, 63, 135, 408, -2, 433)
+
+[node name="middleRabbit" type="Polygon2D" parent="Pictures/RabbitAlienPictures"]
+z_index = -6
+position = Vector2(194, -8)
+texture = ExtResource("30_n8nra")
+texture_offset = Vector2(-5, -120)
+texture_scale = Vector2(1.4, 0.7)
+polygon = PackedVector2Array(4, 99, 123, 153, 122, 386, 4, 408)
+
+[node name="rightRabbit" type="Polygon2D" parent="Pictures/RabbitAlienPictures"]
+z_index = -6
+position = Vector2(339, -18)
+texture = ExtResource("31_8yl6d")
+texture_offset = Vector2(-20, -200)
+texture_scale = Vector2(1.8, 1.1)
+polygon = PackedVector2Array(20, 189, 105, 227, 105, 379, 17, 388)
+
+[node name="MusicAlienPictures" type="Control" parent="Pictures" groups=["Pictures"]]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_top = 176.0
+offset_bottom = 176.0
+
+[node name="leftMusic" type="Polygon2D" parent="Pictures/MusicAlienPictures"]
+z_index = -6
+position = Vector2(1, -5)
+texture = ExtResource("32_epw1f")
+texture_scale = Vector2(1.2, 0.45)
+polygon = PackedVector2Array(-5, -6, 134, 63, 135, 408, -2, 433)
+
+[node name="middleMusic" type="Polygon2D" parent="Pictures/MusicAlienPictures"]
+z_index = -6
+position = Vector2(194, -8)
+texture = ExtResource("33_wyj68")
+texture_offset = Vector2(-5, -120)
+texture_scale = Vector2(1.4, 0.7)
+polygon = PackedVector2Array(4, 99, 123, 153, 122, 386, 4, 408)
+
+[node name="rightMusic" type="Polygon2D" parent="Pictures/MusicAlienPictures"]
+z_index = -6
+position = Vector2(339, -18)
+texture = ExtResource("34_8ehmm")
+texture_offset = Vector2(-20, -200)
+texture_scale = Vector2(1.8, 1.1)
+polygon = PackedVector2Array(20, 189, 105, 227, 105, 379, 17, 388)
+
+[node name="CatAlienPictures" type="Control" parent="Pictures" groups=["Pictures"]]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_top = 176.0
+offset_bottom = 176.0
+
+[node name="leftCat" type="Polygon2D" parent="Pictures/CatAlienPictures"]
+z_index = -6
+position = Vector2(1, -5)
+texture = ExtResource("35_rjcup")
+texture_scale = Vector2(1.2, 0.45)
+polygon = PackedVector2Array(-5, -6, 134, 63, 135, 408, -2, 433)
+
+[node name="middleCat" type="Polygon2D" parent="Pictures/CatAlienPictures"]
+z_index = -6
+position = Vector2(194, -8)
+texture = ExtResource("36_ltq7w")
+texture_offset = Vector2(-5, -120)
+texture_scale = Vector2(1.4, 0.7)
+polygon = PackedVector2Array(4, 99, 123, 153, 122, 386, 4, 408)
+
+[node name="rightCat" type="Polygon2D" parent="Pictures/CatAlienPictures"]
+z_index = -6
+position = Vector2(339, -18)
+texture = ExtResource("37_1bl0o")
+texture_offset = Vector2(-20, -200)
+texture_scale = Vector2(1.8, 1.1)
+polygon = PackedVector2Array(20, 189, 105, 227, 105, 379, 17, 388)
+
+[node name="DivaAlienPictures" type="Control" parent="Pictures" groups=["Pictures"]]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_top = 176.0
+offset_bottom = 176.0
+
+[node name="leftDiva" type="Polygon2D" parent="Pictures/DivaAlienPictures"]
+z_index = -6
+position = Vector2(1, -5)
+texture = ExtResource("38_ca1ht")
+texture_scale = Vector2(1.2, 0.45)
+polygon = PackedVector2Array(-5, -6, 134, 63, 135, 408, -2, 433)
+
+[node name="middleDiva" type="Polygon2D" parent="Pictures/DivaAlienPictures"]
+z_index = -6
+position = Vector2(194, -8)
+texture = ExtResource("39_rv1qa")
+texture_offset = Vector2(-5, -120)
+texture_scale = Vector2(1.4, 0.7)
+polygon = PackedVector2Array(4, 99, 123, 153, 122, 386, 4, 408)
+
+[node name="rightDiva" type="Polygon2D" parent="Pictures/DivaAlienPictures"]
+z_index = -6
+position = Vector2(339, -18)
+texture = ExtResource("40_vjo58")
 texture_offset = Vector2(-20, -200)
 texture_scale = Vector2(1.8, 1.1)
 polygon = PackedVector2Array(20, 189, 105, 227, 105, 379, 17, 388)

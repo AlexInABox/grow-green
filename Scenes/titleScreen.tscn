@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bp4pm6nyj77pp"]
+[gd_scene load_steps=31 format=3 uid="uid://bp4pm6nyj77pp"]
 
 [ext_resource type="Theme" uid="uid://cxgao5s1phj5n" path="res://Themes/mainMenuButtons.tres" id="1_0cr8b"]
 [ext_resource type="Script" path="res://Scripts/TitleSceneManager.cs" id="1_eympr"]
@@ -23,6 +23,11 @@
 [ext_resource type="Texture2D" uid="uid://don867uga6wtk" path="res://Textures/Aliens/5_alien.png" id="15_cykk0"]
 [ext_resource type="Texture2D" uid="uid://cfbffd0ksgdpo" path="res://Textures/Icons/Icons/Power.png" id="16_82qyu"]
 [ext_resource type="Script" path="res://Scripts/PowerButton.cs" id="16_wsys8"]
+[ext_resource type="Texture2D" uid="uid://cilsrxjbwcwui" path="res://Textures/Aliens/6_alien.png" id="22_42ivh"]
+[ext_resource type="Texture2D" uid="uid://bqv0q6faxvyrn" path="res://Textures/Aliens/7_alien.png" id="23_qmevh"]
+[ext_resource type="Texture2D" uid="uid://c17of3qgjuat6" path="res://Textures/Aliens/8_alien.png" id="24_xjrxt"]
+[ext_resource type="Texture2D" uid="uid://x0nx1c612b12" path="res://Textures/Aliens/9_alien.png" id="25_qnafe"]
+[ext_resource type="Texture2D" uid="uid://dvm4gmtbhpl4h" path="res://Textures/Aliens/10_alien.png" id="26_xwqfp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_epo8v"]
 shader = ExtResource("2_pgwvi")
@@ -204,6 +209,86 @@ script = ExtResource("11_m1rrk")
 position = Vector2(155, 237)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("15_cykk0")
+
+[node name="FlowerAlien" type="Control" parent="Panel/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(320, 478)
+layout_mode = 2
+
+[node name="FlowerAlienButton" type="Button" parent="Panel/ScrollContainer/HBoxContainer/FlowerAlien" groups=["AlienButtons"]]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 478.0
+theme = ExtResource("11_fidcb")
+script = ExtResource("11_m1rrk")
+
+[node name="Alien" type="Sprite2D" parent="Panel/ScrollContainer/HBoxContainer/FlowerAlien"]
+position = Vector2(155, 237)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("22_42ivh")
+
+[node name="RabbitAlien" type="Control" parent="Panel/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(320, 478)
+layout_mode = 2
+
+[node name="RabbitAlienButton" type="Button" parent="Panel/ScrollContainer/HBoxContainer/RabbitAlien" groups=["AlienButtons"]]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 478.0
+theme = ExtResource("11_fidcb")
+script = ExtResource("11_m1rrk")
+
+[node name="Alien" type="Sprite2D" parent="Panel/ScrollContainer/HBoxContainer/RabbitAlien"]
+position = Vector2(155, 237)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("23_qmevh")
+
+[node name="MusicAlien" type="Control" parent="Panel/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(320, 478)
+layout_mode = 2
+
+[node name="MusicAlienButton" type="Button" parent="Panel/ScrollContainer/HBoxContainer/MusicAlien" groups=["AlienButtons"]]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 478.0
+theme = ExtResource("11_fidcb")
+script = ExtResource("11_m1rrk")
+
+[node name="Alien" type="Sprite2D" parent="Panel/ScrollContainer/HBoxContainer/MusicAlien"]
+position = Vector2(155, 237)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("24_xjrxt")
+
+[node name="CatAlien" type="Control" parent="Panel/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(320, 478)
+layout_mode = 2
+
+[node name="CatAlienButton" type="Button" parent="Panel/ScrollContainer/HBoxContainer/CatAlien" groups=["AlienButtons"]]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 478.0
+theme = ExtResource("11_fidcb")
+script = ExtResource("11_m1rrk")
+
+[node name="Alien" type="Sprite2D" parent="Panel/ScrollContainer/HBoxContainer/CatAlien"]
+position = Vector2(155, 237)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("25_qnafe")
+
+[node name="DivaAlien" type="Control" parent="Panel/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(320, 478)
+layout_mode = 2
+
+[node name="DivaAlienButton" type="Button" parent="Panel/ScrollContainer/HBoxContainer/DivaAlien" groups=["AlienButtons"]]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 478.0
+theme = ExtResource("11_fidcb")
+script = ExtResource("11_m1rrk")
+
+[node name="Alien" type="Sprite2D" parent="Panel/ScrollContainer/HBoxContainer/DivaAlien"]
+position = Vector2(155, 237)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("26_xwqfp")
 
 [node name="Power" type="Control" parent="."]
 layout_mode = 3
