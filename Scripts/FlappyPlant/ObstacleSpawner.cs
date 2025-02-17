@@ -74,6 +74,6 @@ public partial class ObstacleSpawner : Node2D
         float speedFactor = speedIncrease / 100.0f;  
         float newSpawnInterval = SpawnInterval - speedFactor;
         
-        spawnTimer.WaitTime = Mathf.Max(newSpawnInterval, 0.5f);
+        spawnTimer.WaitTime = Mathf.Max(newSpawnInterval, 1.0f);
     }
 }
