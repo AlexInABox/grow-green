@@ -1,22 +1,21 @@
 using Godot;
 using System;
 
-namespace MinigameScene;
-public partial class PlantPackButton : Button
+public partial class AgainButton : Button
 {
-
-	[Export] private String nextScene;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		Pressed += ButtonPressed;
+		Pressed += ButtonPressedEvent;
+	}
+	
+	private void ButtonPressedEvent()
+	{
+		var mainScene = "res://Scenes/FlappyPlant/FPGame.tscn";
+		GetTree().ChangeSceneToFile(mainScene);
+		GetParent().GetParent().QueueFree();
 	}
 
-	private void ButtonPressed()
-	{
-		//var nextScene = "res://Scenes/PackOpeningMinigame.tscn";
-		GetTree().ChangeSceneToFile(nextScene);
-	}
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{

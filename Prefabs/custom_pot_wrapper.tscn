@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://reeq375ay0uo"]
+[gd_scene load_steps=14 format=3 uid="uid://l0x144b8qvxy"]
 
 [ext_resource type="Script" path="res://Scripts/MainScene/CustomPotButton.cs" id="1_hab7a"]
 [ext_resource type="Texture2D" uid="uid://dic3lrgxdgtvn" path="res://Textures/Pots/animal_giraffe.png" id="1_lxmeb"]

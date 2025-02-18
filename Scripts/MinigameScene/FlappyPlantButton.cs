@@ -2,7 +2,7 @@ using Godot;
 using System;
 
 namespace MinigameScene;
-public partial class PlantPackButton : Button
+public partial class FlappyPlantButton : Button
 {
 
 	[Export] private String nextScene;
@@ -15,6 +15,7 @@ public partial class PlantPackButton : Button
 	private void ButtonPressed()
 	{
 		//var nextScene = "res://Scenes/PackOpeningMinigame.tscn";
+		nextScene = "res://Scenes/FlappyPlant/FPMainMenu.tscn";
 		GetTree().ChangeSceneToFile(nextScene);
 	}
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

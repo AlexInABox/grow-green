@@ -1,9 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://dsaewohprj4cb"]
+[gd_scene load_steps=33 format=3 uid="uid://dsaewohprj4cb"]
 
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_7qpdi"]
-[ext_resource type="Texture2D" uid="uid://bjqyte70oshda" path="res://Textures/Backgrounds/minigames_3.png" id="1_oqn6f"]
-[ext_resource type="Texture2D" uid="uid://nwx0qpsthetn" path="res://Textures/Minigames/pack_plant.png" id="2_kv6bd"]
 [ext_resource type="Texture2D" uid="uid://bmpnx8afa8exa" path="res://Textures/Icons/exit.png" id="2_rs3lo"]
+[ext_resource type="Texture2D" uid="uid://dqpmvw2iejemy" path="res://Textures/Backgrounds/minigames_new.png" id="2_yfepj"]
 [ext_resource type="Texture2D" uid="uid://dwo8i83ib3xpw" path="res://Textures/Minigames/pack_pot_overpowered.png" id="3_dufge"]
 [ext_resource type="Script" path="res://Scripts/MinigameScene/PlantPackButton.cs" id="3_xv58d"]
 [ext_resource type="Texture2D" uid="uid://b8lg04hcutagf" path="res://Textures/Minigames/memory.png" id="4_b10us"]
@@ -11,19 +10,21 @@
 [ext_resource type="Script" path="res://Scripts/MinigameScene/LeaveButton.cs" id="6_lpels"]
 [ext_resource type="Script" path="res://Scripts/MinigameScene/MemoryButton.cs" id="8_i3mos"]
 [ext_resource type="PackedScene" uid="uid://d07rokqxx2fl3" path="res://Prefabs/coinDisplay_wrapper.tscn" id="11_5ns72"]
+[ext_resource type="Texture2D" uid="uid://dhun4gb3o56m" path="res://Textures/Packs/pack_plant.png" id="11_11ds4"]
+[ext_resource type="Texture2D" uid="uid://chnjlt6vs0ff3" path="res://Textures/Minigames/Flappy Plant/flappy_plant.png" id="12_446g6"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mple7"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4cm5a"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_46kwo"]
-texture = ExtResource("2_kv6bd")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mytxr"]
+texture = ExtResource("11_11ds4")
 modulate_color = Color(0.470588, 0.470588, 0.470588, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rob2d"]
-texture = ExtResource("2_kv6bd")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x5fyo"]
+texture = ExtResource("11_11ds4")
 modulate_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kbwg2"]
-texture = ExtResource("2_kv6bd")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kc8o2"]
+texture = ExtResource("11_11ds4")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qocfs"]
 
@@ -64,6 +65,19 @@ modulate_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ld3x0"]
 texture = ExtResource("2_rs3lo")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r8oiu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_klopn"]
+texture = ExtResource("12_446g6")
+modulate_color = Color(0.470588, 0.470588, 0.470588, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vfqyj"]
+texture = ExtResource("12_446g6")
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gmoc2"]
+texture = ExtResource("12_446g6")
+
 [node name="MinigameSzene" type="Node2D"]
 
 [node name="SceneManager" type="Node" parent="."]
@@ -72,7 +86,7 @@ script = ExtResource("1_7qpdi")
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -13
 scale = Vector2(12, 12)
-texture = ExtResource("1_oqn6f")
+texture = ExtResource("2_yfepj")
 centered = false
 
 [node name="MinigameLabel" type="Label" parent="."]
@@ -93,57 +107,24 @@ text = "MINIGAMES"
 horizontal_alignment = 1
 
 [node name="PlantPackButton" type="Button" parent="."]
-offset_left = 83.0
-offset_top = 207.0
-offset_right = 580.0
-offset_bottom = 985.0
-theme_override_styles/focus = SubResource("StyleBoxTexture_mple7")
-theme_override_styles/hover = SubResource("StyleBoxTexture_46kwo")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_rob2d")
-theme_override_styles/normal = SubResource("StyleBoxTexture_kbwg2")
+offset_left = 88.0
+offset_top = 176.0
+offset_right = 601.0
+offset_bottom = 966.0
+scale = Vector2(0.5, 0.5)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4cm5a")
+theme_override_styles/hover = SubResource("StyleBoxTexture_mytxr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_x5fyo")
+theme_override_styles/normal = SubResource("StyleBoxTexture_kc8o2")
 script = ExtResource("3_xv58d")
-
-[node name="PlantLabel" type="Label" parent="PlantPackButton"]
-z_index = 5
-custom_minimum_size = Vector2(100, 50)
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -170.5
-offset_top = 416.0
-offset_right = 191.5
-offset_bottom = 518.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0.164706, 0.364706, 0.470588, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 100
-text = "PLANT"
-horizontal_alignment = 1
-
-[node name="PlantPackLabel" type="Label" parent="PlantPackButton"]
-z_index = 5
-custom_minimum_size = Vector2(100, 50)
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -179.5
-offset_top = 501.0
-offset_right = 182.5
-offset_bottom = 603.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0.164706, 0.364706, 0.470588, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 100
-text = "PACK"
-horizontal_alignment = 1
+nextScene = "res://Scenes/PackOpeningMinigame.tscn"
 
 [node name="PotPackButton" type="Button" parent="."]
-offset_left = 706.0
-offset_top = 201.0
-offset_right = 1219.0
-offset_bottom = 991.0
+offset_left = 88.0
+offset_top = 631.0
+offset_right = 601.0
+offset_bottom = 1421.0
+scale = Vector2(0.5, 0.5)
 theme_override_styles/focus = SubResource("StyleBoxTexture_qocfs")
 theme_override_styles/hover = SubResource("StyleBoxTexture_0dm85")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_s4bp0")
@@ -157,12 +138,13 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -170.5
-offset_top = 416.0
-offset_right = 191.5
-offset_bottom = 518.0
+offset_left = 134.5
+offset_top = 192.0
+offset_right = 496.5
+offset_bottom = 294.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0.67451, 0.929412, 0.643137, 1)
+scale = Vector2(2, 2)
+theme_override_colors/font_color = Color(0.297792, 0.512537, 0.273736, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 100
 text = "POT
@@ -176,12 +158,13 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -177.5
-offset_top = 517.0
-offset_right = 184.5
-offset_bottom = 619.0
+offset_left = 127.5
+offset_top = 352.0
+offset_right = 489.5
+offset_bottom = 454.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0.67451, 0.929412, 0.643137, 1)
+scale = Vector2(2, 2)
+theme_override_colors/font_color = Color(0.298039, 0.513726, 0.27451, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 100
 text = "PACK"
@@ -229,3 +212,86 @@ script = ExtResource("6_lpels")
 
 [node name="coinDisplay_wrapper" parent="." instance=ExtResource("11_5ns72")]
 position = Vector2(1641, 72)
+
+[node name="PlantLabel" type="Label" parent="."]
+z_index = 5
+custom_minimum_size = Vector2(100, 50)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 280.0
+offset_top = 280.0
+offset_right = 642.0
+offset_bottom = 382.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.164706, 0.364706, 0.470588, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "PLANT"
+horizontal_alignment = 1
+
+[node name="PlantLabel" type="Label" parent="PlantLabel"]
+z_index = 5
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 219.0
+offset_top = 176.0
+offset_right = 581.0
+offset_bottom = 278.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.588235, 0.113725, 0.486275, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "PLANT"
+horizontal_alignment = 1
+
+[node name="PlantLabel" type="Label" parent="PlantLabel/PlantLabel"]
+z_index = 5
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -165.0
+offset_top = -264.0
+offset_right = 197.0
+offset_bottom = -162.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.588235, 0.113725, 0.486275, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "FLAPPY"
+horizontal_alignment = 1
+
+[node name="PlantPackLabel" type="Label" parent="."]
+z_index = 5
+custom_minimum_size = Vector2(100, 50)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 280.0
+offset_top = 352.0
+offset_right = 642.0
+offset_bottom = 454.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.164706, 0.364706, 0.470588, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "PACK"
+horizontal_alignment = 1
+
+[node name="FlappyPlantButton2" type="Button" parent="."]
+offset_left = 776.0
+offset_top = 168.0
+offset_right = 786.105
+offset_bottom = 178.2
+scale = Vector2(40, 40)
+theme_override_styles/focus = SubResource("StyleBoxTexture_r8oiu")
+theme_override_styles/hover = SubResource("StyleBoxTexture_klopn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vfqyj")
+theme_override_styles/normal = SubResource("StyleBoxTexture_gmoc2")
+script = ExtResource("3_xv58d")
+nextScene = "res://Scenes/FlappyPlant/FPMainMenu.tscn"

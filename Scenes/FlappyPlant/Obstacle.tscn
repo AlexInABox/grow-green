@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://brmtk1ey2s37a"]
+
+[ext_resource type="Script" path="res://Scripts/FlappyPlant/Obstacle.cs" id="1_bbdoc"]
+[ext_resource type="Script" path="res://Scripts/FlappyPlant/Collision.cs" id="2_ghuro"]
+[ext_resource type="Texture2D" uid="uid://blp6s8pdlarue" path="res://Textures/Minigames/Flappy Plant/pixil-frame-0_1.png" id="3_q04dj"]
+[ext_resource type="Script" path="res://Scripts/FlappyPlant/Passed.cs" id="4_goq0w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a30ja"]
+size = Vector2(32, 226)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6011n"]
+size = Vector2(1.8, 62.4)
+
+[node name="Obstacle" type="Node2D"]
+script = ExtResource("1_bbdoc")
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(5, 5)
+script = ExtResource("2_ghuro")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 103.4)
+shape = SubResource("RectangleShape2D_a30ja")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(0, 80)
+scale = Vector2(2, 2)
+texture = ExtResource("3_q04dj")
+
+[node name="PassArea" type="Area2D" parent="."]
+scale = Vector2(25, 25)
+script = ExtResource("4_goq0w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PassArea"]
+position = Vector2(1.02, -25.96)
+shape = SubResource("RectangleShape2D_6011n")
