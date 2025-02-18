@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://2uhahxp1efvg"]
+
+[ext_resource type="Script" path="res://Scripts/Shop/ShopConfirmationPopup/ConfirmationPopup.cs" id="1_b5ayi"]
+[ext_resource type="Texture2D" uid="uid://caplkr8i4j4mp" path="res://Textures/Buttons/UI_Flat_Frame03a.png" id="1_on2yi"]
+[ext_resource type="FontFile" uid="uid://16884th6cwds" path="res://Fonts/Jersey25-Regular.ttf" id="2_a0en4"]
+[ext_resource type="Script" path="res://Scripts/Shop/ShopConfirmationPopup/Warning.cs" id="3_7beaf"]
+[ext_resource type="Theme" uid="uid://cxgao5s1phj5n" path="res://Themes/mainMenuButtons.tres" id="3_dtv68"]
+[ext_resource type="Script" path="res://Scripts/Shop/ShopConfirmationPopup/Cancel.cs" id="4_l6yuc"]
+
+[node name="ShopBuyConfirmationPopup" type="Node2D"]
+script = ExtResource("1_b5ayi")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 3
+offset_right = 1912.0
+offset_bottom = 1078.0
+color = Color(0, 0, 0, 0.470588)
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 4
+position = Vector2(960, 510)
+scale = Vector2(7, 7)
+texture = ExtResource("1_on2yi")
+
+[node name="Warning" type="Label" parent="Sprite2D"]
+offset_left = -43.0
+offset_top = -25.0
+offset_right = 673.0
+offset_bottom = 192.0
+scale = Vector2(0.12, 0.12)
+theme_override_fonts/font = ExtResource("2_a0en4")
+theme_override_font_sizes/font_size = 50
+text = "
+
+Möchtest du <PlantName> wirklich Kaufen?"
+horizontal_alignment = 1
+autowrap_mode = 3
+script = ExtResource("3_7beaf")
+metadata/_edit_use_anchors_ = true
+
+[node name="Buy" type="Button" parent="Sprite2D"]
+offset_left = 4.57143
+offset_top = 8.71428
+offset_right = 183.571
+offset_bottom = 82.7143
+scale = Vector2(0.2, 0.2)
+theme = ExtResource("3_dtv68")
+text = "Kaufen"
+
+[node name="Cancel" type="Button" parent="Sprite2D"]
+offset_left = -42.0
+offset_top = 8.71429
+offset_right = 172.0
+offset_bottom = 82.7143
+scale = Vector2(0.2, 0.2)
+theme = ExtResource("3_dtv68")
+theme_override_colors/font_color = Color(0.559523, 8.90419e-07, 3.36915e-07, 1)
+text = "Abbruch"
+script = ExtResource("4_l6yuc")

@@ -5,7 +5,7 @@ using System;
 public partial class LoadPictures : Node
 {
 
-	Control[] pictures = new Control[5];
+	Control[] pictures = new Control[10];
 	SceneManager sceneManager;
 	int characterId;
 	// Called when the node enters the scene tree for the first time.
@@ -24,7 +24,7 @@ public partial class LoadPictures : Node
 			}
 		} 
 
-		for (int o = 0; o < 5; o++)
+		for (int o = 0; o < 10; o++)
 		{
 			if (o == characterId - 1) pictures[o].Visible = true;
 			else pictures[o].Visible = false;

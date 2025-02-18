@@ -27,20 +27,15 @@ public partial class ShopPlantButton : Button
 		statusBubble.Hide();
 	}
 
-	private void ButtonGotPressed() {
-		if (sceneManager.GetCoinCount() < cost) {
-		} else {
-			while (sceneManager.IsSaveLocked())
-			{
-				// Wait for .1 seconds (100 milliseconds)
-				System.Threading.Thread.Sleep(100);
-			}
-			sceneManager.SetCoinCount(sceneManager.GetCoinCount() - cost);
-
-			Plant plant = sceneManager.GetPlantByClassName(className);
-			sceneManager.AddNewPlantToListOfOwnedPlants(plant);
-		}
-	}
+	private void ButtonGotPressed() { 
+		PackedScene confirmationPopup = GD.Load<PackedScene>("res://Prefabs/shopBuyConfirmation_popup.tscn");
+		Node confirmationPopupInstance = confirmationPopup.Instantiate();
+		ConfirmationPopup PopupScript = (ConfirmationPopup)confirmationPopupInstance;
+		PopupScript.SetClassName(className);
+		PopupScript.SetPrice(cost);
+		PopupScript.ChangeLabel();
+		GetParent().GetParent().GetParent().GetParent().GetParent().AddChild(confirmationPopupInstance);
+	} 
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)

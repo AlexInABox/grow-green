@@ -4,6 +4,7 @@ CREATE TABLE "playerStats" (
 	"coins"	INTEGER,
 	"characterId"	INTEGER,
 	"greenhouseUnlocked" BOOLEAN,
+	"flappyPlantHighscore"	INTEGER,
 	PRIMARY KEY("username")
 );
 

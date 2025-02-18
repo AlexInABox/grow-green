@@ -11,7 +11,6 @@ public partial class CustomPotSpawner : HBoxContainer
 	public override void _Ready()
 	{
 		sceneManager = GetTree().Root.GetChildren()[0].GetNode<SceneManager>("SceneManager");
-		//sceneManager = GetNode<SceneManager>("/root/MainSzene/SceneManager");
 
 		List<Pot> ownedPots = sceneManager.GetListOfOwnedPots();
 		var counter = 0;
@@ -22,6 +21,7 @@ public partial class CustomPotSpawner : HBoxContainer
 			var castedInstance = (Node2D)customPotPrefabInstance;
 			castedInstance.AddChild(pot);
 			castedInstance.Position = new Vector2(80 + (128*counter), 40);
+			castedInstance.GetNode<Button>("Button").Name = pot.potName;
 			
 			counter++;
 		}
