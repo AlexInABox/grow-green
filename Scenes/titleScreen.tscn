@@ -210,82 +210,82 @@ position = Vector2(155, 237)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("15_cykk0")
 
-[node name="FlowerAlien" type="Control" parent="Panel/ScrollContainer/HBoxContainer"]
+[node name="Blumpfine" type="Control" parent="Panel/ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(320, 478)
 layout_mode = 2
 
-[node name="FlowerAlienButton" type="Button" parent="Panel/ScrollContainer/HBoxContainer/FlowerAlien" groups=["AlienButtons"]]
+[node name="FlowerAlienButton" type="Button" parent="Panel/ScrollContainer/HBoxContainer/Blumpfine" groups=["AlienButtons"]]
 layout_mode = 0
 offset_right = 320.0
 offset_bottom = 478.0
 theme = ExtResource("11_fidcb")
 script = ExtResource("11_m1rrk")
 
-[node name="Alien" type="Sprite2D" parent="Panel/ScrollContainer/HBoxContainer/FlowerAlien"]
+[node name="Alien" type="Sprite2D" parent="Panel/ScrollContainer/HBoxContainer/Blumpfine"]
 position = Vector2(155, 237)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("22_42ivh")
 
-[node name="RabbitAlien" type="Control" parent="Panel/ScrollContainer/HBoxContainer"]
+[node name="Vladimir" type="Control" parent="Panel/ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(320, 478)
 layout_mode = 2
 
-[node name="RabbitAlienButton" type="Button" parent="Panel/ScrollContainer/HBoxContainer/RabbitAlien" groups=["AlienButtons"]]
+[node name="RabbitAlienButton" type="Button" parent="Panel/ScrollContainer/HBoxContainer/Vladimir" groups=["AlienButtons"]]
 layout_mode = 0
 offset_right = 320.0
 offset_bottom = 478.0
 theme = ExtResource("11_fidcb")
 script = ExtResource("11_m1rrk")
 
-[node name="Alien" type="Sprite2D" parent="Panel/ScrollContainer/HBoxContainer/RabbitAlien"]
+[node name="Alien" type="Sprite2D" parent="Panel/ScrollContainer/HBoxContainer/Vladimir"]
 position = Vector2(155, 237)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("23_qmevh")
 
-[node name="MusicAlien" type="Control" parent="Panel/ScrollContainer/HBoxContainer"]
+[node name="Dj Planti" type="Control" parent="Panel/ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(320, 478)
 layout_mode = 2
 
-[node name="MusicAlienButton" type="Button" parent="Panel/ScrollContainer/HBoxContainer/MusicAlien" groups=["AlienButtons"]]
+[node name="MusicAlienButton" type="Button" parent="Panel/ScrollContainer/HBoxContainer/Dj Planti" groups=["AlienButtons"]]
 layout_mode = 0
 offset_right = 320.0
 offset_bottom = 478.0
 theme = ExtResource("11_fidcb")
 script = ExtResource("11_m1rrk")
 
-[node name="Alien" type="Sprite2D" parent="Panel/ScrollContainer/HBoxContainer/MusicAlien"]
+[node name="Alien" type="Sprite2D" parent="Panel/ScrollContainer/HBoxContainer/Dj Planti"]
 position = Vector2(155, 237)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("24_xjrxt")
 
-[node name="CatAlien" type="Control" parent="Panel/ScrollContainer/HBoxContainer"]
+[node name="Miau Stec" type="Control" parent="Panel/ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(320, 478)
 layout_mode = 2
 
-[node name="CatAlienButton" type="Button" parent="Panel/ScrollContainer/HBoxContainer/CatAlien" groups=["AlienButtons"]]
+[node name="CatAlienButton" type="Button" parent="Panel/ScrollContainer/HBoxContainer/Miau Stec" groups=["AlienButtons"]]
 layout_mode = 0
 offset_right = 320.0
 offset_bottom = 478.0
 theme = ExtResource("11_fidcb")
 script = ExtResource("11_m1rrk")
 
-[node name="Alien" type="Sprite2D" parent="Panel/ScrollContainer/HBoxContainer/CatAlien"]
+[node name="Alien" type="Sprite2D" parent="Panel/ScrollContainer/HBoxContainer/Miau Stec"]
 position = Vector2(155, 237)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("25_qnafe")
 
-[node name="DivaAlien" type="Control" parent="Panel/ScrollContainer/HBoxContainer"]
+[node name="Green Kardashian" type="Control" parent="Panel/ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(320, 478)
 layout_mode = 2
 
-[node name="DivaAlienButton" type="Button" parent="Panel/ScrollContainer/HBoxContainer/DivaAlien" groups=["AlienButtons"]]
+[node name="DivaAlienButton" type="Button" parent="Panel/ScrollContainer/HBoxContainer/Green Kardashian" groups=["AlienButtons"]]
 layout_mode = 0
 offset_right = 320.0
 offset_bottom = 478.0
 theme = ExtResource("11_fidcb")
 script = ExtResource("11_m1rrk")
 
-[node name="Alien" type="Sprite2D" parent="Panel/ScrollContainer/HBoxContainer/DivaAlien"]
+[node name="Alien" type="Sprite2D" parent="Panel/ScrollContainer/HBoxContainer/Green Kardashian"]
 position = Vector2(155, 237)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("26_xwqfp")

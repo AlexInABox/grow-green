@@ -488,21 +488,21 @@ texture_offset = Vector2(-20, -200)
 texture_scale = Vector2(1.8, 1.1)
 polygon = PackedVector2Array(20, 189, 105, 227, 105, 379, 17, 388)
 
-[node name="FlowerAlienPictures" type="Control" parent="Pictures" groups=["Pictures"]]
+[node name="BlumpfinePictures" type="Control" parent="Pictures" groups=["Pictures"]]
 visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = 176.0
 offset_bottom = 176.0
 
-[node name="leftFlower" type="Polygon2D" parent="Pictures/FlowerAlienPictures"]
+[node name="leftFlower" type="Polygon2D" parent="Pictures/BlumpfinePictures"]
 z_index = -6
 position = Vector2(1, -5)
 texture = ExtResource("26_etwdn")
 texture_scale = Vector2(1.2, 0.45)
 polygon = PackedVector2Array(-5, -6, 134, 63, 135, 408, -2, 433)
 
-[node name="middleFlower" type="Polygon2D" parent="Pictures/FlowerAlienPictures"]
+[node name="middleFlower" type="Polygon2D" parent="Pictures/BlumpfinePictures"]
 z_index = -6
 position = Vector2(194, -8)
 texture = ExtResource("27_7su1m")
@@ -510,7 +510,7 @@ texture_offset = Vector2(-5, -120)
 texture_scale = Vector2(1.4, 0.7)
 polygon = PackedVector2Array(4, 99, 123, 153, 122, 386, 4, 408)
 
-[node name="rightFlower" type="Polygon2D" parent="Pictures/FlowerAlienPictures"]
+[node name="rightFlower" type="Polygon2D" parent="Pictures/BlumpfinePictures"]
 z_index = -6
 position = Vector2(339, -18)
 texture = ExtResource("28_jcmd3")
@@ -518,21 +518,21 @@ texture_offset = Vector2(-20, -200)
 texture_scale = Vector2(1.8, 1.1)
 polygon = PackedVector2Array(20, 189, 105, 227, 105, 379, 17, 388)
 
-[node name="RabbitAlienPictures" type="Control" parent="Pictures" groups=["Pictures"]]
+[node name="VladimirPictures" type="Control" parent="Pictures" groups=["Pictures"]]
 visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = 176.0
 offset_bottom = 176.0
 
-[node name="leftRabbit" type="Polygon2D" parent="Pictures/RabbitAlienPictures"]
+[node name="leftRabbit" type="Polygon2D" parent="Pictures/VladimirPictures"]
 z_index = -6
 position = Vector2(1, -5)
 texture = ExtResource("29_6r2de")
 texture_scale = Vector2(1.2, 0.45)
 polygon = PackedVector2Array(-5, -6, 134, 63, 135, 408, -2, 433)
 
-[node name="middleRabbit" type="Polygon2D" parent="Pictures/RabbitAlienPictures"]
+[node name="middleRabbit" type="Polygon2D" parent="Pictures/VladimirPictures"]
 z_index = -6
 position = Vector2(194, -8)
 texture = ExtResource("30_n8nra")
@@ -540,7 +540,7 @@ texture_offset = Vector2(-5, -120)
 texture_scale = Vector2(1.4, 0.7)
 polygon = PackedVector2Array(4, 99, 123, 153, 122, 386, 4, 408)
 
-[node name="rightRabbit" type="Polygon2D" parent="Pictures/RabbitAlienPictures"]
+[node name="rightRabbit" type="Polygon2D" parent="Pictures/VladimirPictures"]
 z_index = -6
 position = Vector2(339, -18)
 texture = ExtResource("31_8yl6d")
@@ -548,21 +548,21 @@ texture_offset = Vector2(-20, -200)
 texture_scale = Vector2(1.8, 1.1)
 polygon = PackedVector2Array(20, 189, 105, 227, 105, 379, 17, 388)
 
-[node name="MusicAlienPictures" type="Control" parent="Pictures" groups=["Pictures"]]
+[node name="Dj PlantiPictures" type="Control" parent="Pictures" groups=["Pictures"]]
 visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = 176.0
 offset_bottom = 176.0
 
-[node name="leftMusic" type="Polygon2D" parent="Pictures/MusicAlienPictures"]
+[node name="leftMusic" type="Polygon2D" parent="Pictures/Dj PlantiPictures"]
 z_index = -6
 position = Vector2(1, -5)
 texture = ExtResource("32_epw1f")
 texture_scale = Vector2(1.2, 0.45)
 polygon = PackedVector2Array(-5, -6, 134, 63, 135, 408, -2, 433)
 
-[node name="middleMusic" type="Polygon2D" parent="Pictures/MusicAlienPictures"]
+[node name="middleMusic" type="Polygon2D" parent="Pictures/Dj PlantiPictures"]
 z_index = -6
 position = Vector2(194, -8)
 texture = ExtResource("33_wyj68")
@@ -570,7 +570,7 @@ texture_offset = Vector2(-5, -120)
 texture_scale = Vector2(1.4, 0.7)
 polygon = PackedVector2Array(4, 99, 123, 153, 122, 386, 4, 408)
 
-[node name="rightMusic" type="Polygon2D" parent="Pictures/MusicAlienPictures"]
+[node name="rightMusic" type="Polygon2D" parent="Pictures/Dj PlantiPictures"]
 z_index = -6
 position = Vector2(339, -18)
 texture = ExtResource("34_8ehmm")
@@ -578,21 +578,21 @@ texture_offset = Vector2(-20, -200)
 texture_scale = Vector2(1.8, 1.1)
 polygon = PackedVector2Array(20, 189, 105, 227, 105, 379, 17, 388)
 
-[node name="CatAlienPictures" type="Control" parent="Pictures" groups=["Pictures"]]
+[node name="Miau StecPictures" type="Control" parent="Pictures" groups=["Pictures"]]
 visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = 176.0
 offset_bottom = 176.0
 
-[node name="leftCat" type="Polygon2D" parent="Pictures/CatAlienPictures"]
+[node name="leftCat" type="Polygon2D" parent="Pictures/Miau StecPictures"]
 z_index = -6
 position = Vector2(1, -5)
 texture = ExtResource("35_rjcup")
 texture_scale = Vector2(1.2, 0.45)
 polygon = PackedVector2Array(-5, -6, 134, 63, 135, 408, -2, 433)
 
-[node name="middleCat" type="Polygon2D" parent="Pictures/CatAlienPictures"]
+[node name="middleCat" type="Polygon2D" parent="Pictures/Miau StecPictures"]
 z_index = -6
 position = Vector2(194, -8)
 texture = ExtResource("36_ltq7w")
@@ -600,7 +600,7 @@ texture_offset = Vector2(-5, -120)
 texture_scale = Vector2(1.4, 0.7)
 polygon = PackedVector2Array(4, 99, 123, 153, 122, 386, 4, 408)
 
-[node name="rightCat" type="Polygon2D" parent="Pictures/CatAlienPictures"]
+[node name="rightCat" type="Polygon2D" parent="Pictures/Miau StecPictures"]
 z_index = -6
 position = Vector2(339, -18)
 texture = ExtResource("37_1bl0o")
@@ -608,21 +608,21 @@ texture_offset = Vector2(-20, -200)
 texture_scale = Vector2(1.8, 1.1)
 polygon = PackedVector2Array(20, 189, 105, 227, 105, 379, 17, 388)
 
-[node name="DivaAlienPictures" type="Control" parent="Pictures" groups=["Pictures"]]
+[node name="Green KardashianPictures" type="Control" parent="Pictures" groups=["Pictures"]]
 visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = 176.0
 offset_bottom = 176.0
 
-[node name="leftDiva" type="Polygon2D" parent="Pictures/DivaAlienPictures"]
+[node name="leftDiva" type="Polygon2D" parent="Pictures/Green KardashianPictures"]
 z_index = -6
 position = Vector2(1, -5)
 texture = ExtResource("38_ca1ht")
 texture_scale = Vector2(1.2, 0.45)
 polygon = PackedVector2Array(-5, -6, 134, 63, 135, 408, -2, 433)
 
-[node name="middleDiva" type="Polygon2D" parent="Pictures/DivaAlienPictures"]
+[node name="middleDiva" type="Polygon2D" parent="Pictures/Green KardashianPictures"]
 z_index = -6
 position = Vector2(194, -8)
 texture = ExtResource("39_rv1qa")
@@ -630,7 +630,7 @@ texture_offset = Vector2(-5, -120)
 texture_scale = Vector2(1.4, 0.7)
 polygon = PackedVector2Array(4, 99, 123, 153, 122, 386, 4, 408)
 
-[node name="rightDiva" type="Polygon2D" parent="Pictures/DivaAlienPictures"]
+[node name="rightDiva" type="Polygon2D" parent="Pictures/Green KardashianPictures"]
 z_index = -6
 position = Vector2(339, -18)
 texture = ExtResource("40_vjo58")
