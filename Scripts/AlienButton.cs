@@ -14,7 +14,7 @@ public partial class AlienButton : Button
 	public override void _Ready()
 	{
 		freaky = false;
-		charSelect = GetNode<AudioStreamPlayer>("../../../../../CharacterSelect");
+	
 		myAlien = GetNode<Sprite2D>("../Alien");
 		soundPlayer = (SoundPlayer)GetNode("/root/SoundPlayer");
 		string textureName = System.IO.Path.GetFileName(myAlien.Texture.ResourcePath);

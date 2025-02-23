@@ -1,9 +1,8 @@
-[gd_scene load_steps=104 format=3 uid="uid://bqv77dvuy6ly0"]
+[gd_scene load_steps=103 format=3 uid="uid://bqv77dvuy6ly0"]
 
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_06be7"]
 [ext_resource type="Texture2D" uid="uid://da3gby3k4mva" path="res://Textures/Backgrounds/HOUSE.png" id="1_bo6pn"]
 [ext_resource type="Script" path="res://Scripts/MainSzene.cs" id="1_rm010"]
-[ext_resource type="AudioStream" uid="uid://cgw8a4c52ecpa" path="res://Sounds/Background Music/MainSzene.mp3" id="3_r3yey"]
 [ext_resource type="PackedScene" uid="uid://bxj5nxe1yf7t0" path="res://Prefabs/spawnPoint.tscn" id="4_vckgm"]
 [ext_resource type="Texture2D" uid="uid://k1nlupvlorva" path="res://Textures/Icons/Icons/MinigamesIcon.png" id="4_wnhev"]
 [ext_resource type="Texture2D" uid="uid://bmlucsypqwwd5" path="res://Textures/Icons/trashcan.png" id="4_ws6uo"]
@@ -181,9 +180,6 @@ script = ExtResource("1_06be7")
 
 [node name="MainSceneScript" type="Node" parent="."]
 script = ExtResource("1_rm010")
-
-[node name="Music" type="AudioStreamPlayer" parent="MainSceneScript"]
-stream = ExtResource("3_r3yey")
 
 [node name="SpawnPointWrapper" type="Node" parent="."]
 

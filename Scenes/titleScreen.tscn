@@ -157,6 +157,7 @@ stream = ExtResource("17_4f5h3")
 volume_db = 14.991
 
 [node name="Area2D" type="Area2D" parent="Panel/ScrollContainer/HBoxContainer/SnoopyAlien/Alien"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/ScrollContainer/HBoxContainer/SnoopyAlien/Alien/Area2D"]
 shape = SubResource("CircleShape2D_8k4iu")
@@ -265,6 +266,7 @@ scale = Vector2(0.8, 0.8)
 texture = ExtResource("23_qmevh")
 
 [node name="Area2D" type="Area2D" parent="Panel/ScrollContainer/HBoxContainer/Vladimir/Alien"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/ScrollContainer/HBoxContainer/Vladimir/Alien/Area2D"]
 shape = SubResource("CircleShape2D_wbmn4")
