@@ -10,7 +10,7 @@ public partial class CustomPotSpawner : HBoxContainer
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		sceneManager = GetTree().Root.GetChildren()[0].GetNode<SceneManager>("SceneManager");
+		sceneManager = GetTree().GetCurrentScene().GetNode<SceneManager>("SceneManager");
 
 		List<Pot> ownedPots = sceneManager.GetListOfOwnedPots();
 		var counter = 0;

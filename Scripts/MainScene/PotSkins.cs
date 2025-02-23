@@ -10,7 +10,7 @@ public partial class PotSkins : Button
 	{
 		Pressed += Potter;
 		PotSelector = GetNode<Panel>("Panel");
-		PanelRemover = GetNode<Button>("PanelLeaver");
+		PanelRemover = GetNode<Button>("Panel/PanelLeaver");
 	}
 
 	private void Potter() {

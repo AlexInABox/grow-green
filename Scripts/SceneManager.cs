@@ -228,7 +228,7 @@ public partial class SceneManager : Node
 	public List<PlantWrapper> GetListOfAllPlantWrapperInScene()
 	{
 		List<PlantWrapper> plantWrappers = new();
-		Node root = GetTree().Root.GetChild(0); // Assumes the first child is the scene root
+		Node root = GetTree().GetCurrentScene(); // Assumes the first child is the scene root
 
 		FindPlantWrappers(root);
 

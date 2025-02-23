@@ -24,7 +24,7 @@ public partial class PlantButton : Button
     public override void _Ready()
     {
         //sceneManager = GetNode<SceneManager>("/root/MainSzene/SceneManager");
-        sceneManager = GetTree().Root.GetChildren()[0].GetNode<SceneManager>("SceneManager");
+        sceneManager = GetTree().GetCurrentScene().GetNode<SceneManager>("SceneManager");
         Pressed += ButtonWasPressed;
         //myPlant = GetNode<Plant>("../Plant"); //will error when sprite hasnt loaded yet. but works anyways for some reason
         MouseEntered += ButtonHovered;

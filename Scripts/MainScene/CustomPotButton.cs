@@ -10,8 +10,14 @@ public partial class CustomPotButton : Button
 
     public override void _Ready()
     {
-        sceneManager = GetTree().Root.GetChildren()[0].GetNode<SceneManager>("SceneManager");
-        potSelectPanel = GetTree().Root.GetChildren()[0].GetNode<Panel>("PotSkins/Panel");
+        if (GetTree().GetCurrentScene().HasNode("SceneManager")){
+        sceneManager = GetTree().GetCurrentScene().GetNode<SceneManager>("SceneManager");
+        }
+        else{
+        GD.Print("SceneManager node not found!");
+        }
+
+        potSelectPanel = GetTree().GetCurrentScene().GetNode<Panel>("PotSkins/Panel");
 
         Pressed += OnButtonPressed;
     }
