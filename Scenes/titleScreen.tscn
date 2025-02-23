@@ -1,7 +1,8 @@
-[gd_scene load_steps=31 format=3 uid="uid://bp4pm6nyj77pp"]
+[gd_scene load_steps=33 format=3 uid="uid://bp4pm6nyj77pp"]
 
 [ext_resource type="Theme" uid="uid://cxgao5s1phj5n" path="res://Themes/mainMenuButtons.tres" id="1_0cr8b"]
 [ext_resource type="Script" path="res://Scripts/TitleSceneManager.cs" id="1_eympr"]
+[ext_resource type="AudioStream" uid="uid://bcxvx2f7cx0fo" path="res://Sounds/Background Music/MainMenu.mp3" id="2_btnue"]
 [ext_resource type="Texture2D" uid="uid://budx05tdgqvy0" path="res://Textures/Aliens/1_alien.png" id="2_dtjgp"]
 [ext_resource type="Shader" path="res://Shaders/blurme.gdshader" id="2_pgwvi"]
 [ext_resource type="Texture2D" uid="uid://dp4q5eewdkote" path="res://Textures/Aliens/2_alien.png" id="3_6runn"]
@@ -21,6 +22,7 @@
 [ext_resource type="Script" path="res://Scripts/AlienButton.cs" id="11_m1rrk"]
 [ext_resource type="Texture2D" uid="uid://bjx3snqfb17jy" path="res://Textures/Aliens/4_alien.png" id="14_vcq6k"]
 [ext_resource type="Texture2D" uid="uid://don867uga6wtk" path="res://Textures/Aliens/5_alien.png" id="15_cykk0"]
+[ext_resource type="AudioStream" uid="uid://ygqjaapp4kxx" path="res://Sounds/Effects/Easteregg.mp3" id="16_8acsu"]
 [ext_resource type="Texture2D" uid="uid://cfbffd0ksgdpo" path="res://Textures/Icons/Icons/Power.png" id="16_82qyu"]
 [ext_resource type="Script" path="res://Scripts/PowerButton.cs" id="16_wsys8"]
 [ext_resource type="Texture2D" uid="uid://cilsrxjbwcwui" path="res://Textures/Aliens/6_alien.png" id="22_42ivh"]
@@ -41,6 +43,9 @@ shader_parameter/color_over = null
 
 [node name="TitleSceneManager" type="Node" parent="."]
 script = ExtResource("1_eympr")
+
+[node name="TitleSceneMusic" type="AudioStreamPlayer" parent="TitleSceneManager"]
+stream = ExtResource("2_btnue")
 
 [node name="Backround" type="Sprite2D" parent="."]
 z_index = -1000
@@ -139,6 +144,9 @@ material = SubResource("ShaderMaterial_vw1ss")
 position = Vector2(169, 217)
 texture = ExtResource("2_dtjgp")
 script = ExtResource("3_408km")
+
+[node name="Move" type="AudioStreamPlayer2D" parent="Panel/ScrollContainer/HBoxContainer/SnoopyAlien/Alien"]
+stream = ExtResource("16_8acsu")
 
 [node name="SnoopyAlienButton" type="Button" parent="Panel/ScrollContainer/HBoxContainer/SnoopyAlien" groups=["AlienButtons"]]
 layout_mode = 0

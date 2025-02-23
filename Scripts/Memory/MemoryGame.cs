@@ -18,7 +18,8 @@ public partial class MemoryGame : Node
 	private int reward;
 	private String scenePath;
 	private string[] nodeNames;
-    private Vector2 sizeEdit;
+	private Vector2 sizeEdit;
+	private AudioStreamPlayer music;
 	
 	public override void _Ready()
 	{
@@ -26,6 +27,7 @@ public partial class MemoryGame : Node
 		prefab = (PackedScene)ResourceLoader.Load("res://Prefabs/MemoryCard.tscn");
 		scenePath = GetTree().CurrentScene.SceneFilePath;
 		string sceneName = System.IO.Path.GetFileNameWithoutExtension(scenePath);
+		music = GetNode<AudioStreamPlayer>("Music");
 		
 		switch (sceneName)
 		{
@@ -187,6 +189,7 @@ public partial class MemoryGame : Node
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		
+		if (!music.Playing)
+		music.Play();
 	}
 }

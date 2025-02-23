@@ -3,26 +3,47 @@ using System;
 
 public partial class SnoopyAlien : Sprite2D
 {
-	// Called when the node enters the scene tree for the first time.
+	private AudioStreamPlayer2D moveAudio;
+
 	public override void _Ready()
 	{
+		moveAudio = GetNode<AudioStreamPlayer2D>("Move");
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
 		float AMOUNT = 5;
-		if(Input.IsKeyPressed(Key.W)){
-			this.Position += new Vector2(0,-AMOUNT);
+		bool moving = false;
+
+		if (Input.IsKeyPressed(Key.W))
+		{
+			Position += new Vector2(0, -AMOUNT);
+			moving = true;
 		}
-		if(Input.IsKeyPressed(Key.S)){
-			this.Position += new Vector2(0,AMOUNT);
+		if (Input.IsKeyPressed(Key.S))
+		{
+			Position += new Vector2(0, AMOUNT);
+			moving = true;
 		}
-		if(Input.IsKeyPressed(Key.A)){
-			this.Position += new Vector2(-AMOUNT,0);
+		if (Input.IsKeyPressed(Key.A))
+		{
+			Position += new Vector2(-AMOUNT, 0);
+			moving = true;
 		}
-		if(Input.IsKeyPressed(Key.D)){
-			this.Position += new Vector2(AMOUNT,0);
+		if (Input.IsKeyPressed(Key.D))
+		{
+			Position += new Vector2(AMOUNT, 0);
+			moving = true;
+		}
+
+		if (moving)
+		{
+			if (!moveAudio.Playing)
+				moveAudio.Play();
+		}
+		else
+		{
+			moveAudio.Stop();
 		}
 	}
 }

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dncyevy0iv06w"
+path="res://.godot/imported/Worm.mp3-c06d8d85168da71b23a509ca52e5da50.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Background Music/mini games/Worm.mp3"
+dest_files=["res://.godot/imported/Worm.mp3-c06d8d85168da71b23a509ca52e5da50.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
