@@ -8,10 +8,11 @@ public partial class FlappyScript : Node
 	private int score = 0;
 	private Label scoreLabel;
 	private SceneManager sceneManager;
+	private AudioStreamPlayer music;
 	public override void _Ready()
 	{
 		sceneManager = GetNode<SceneManager>("SceneManager");
-
+		music = GetNode<AudioStreamPlayer>("Music");
 		scoreLabel = GetNode<Label>("ScoreLabel");
 		scoreLabel.Text = "0";
 	}
@@ -37,5 +38,7 @@ public partial class FlappyScript : Node
 	}
 	public override void _Process(double delta)
 	{
+		if (!music.Playing)
+		music.Play();
 	}
 }

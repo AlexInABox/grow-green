@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ckt2lbmbvplv7" path="res://Textures/Coin2.png" id="6_aknfm"]
 [ext_resource type="Texture2D" uid="uid://bmpnx8afa8exa" path="res://Textures/Icons/exit.png" id="8_db748"]
 [ext_resource type="Script" path="res://Scripts/PlantPack/LeaveButton.cs" id="9_5fjvm"]
-[ext_resource type="AudioStream" uid="uid://db6y7bvmgwmbk" path="res://Sounds/Background Music/Shop.mp3" id="9_37ld3"]
+[ext_resource type="AudioStream" uid="uid://w0vof3a4ajri" path="res://Sounds/Background Music/Minigames.mp3" id="9_f7drl"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eradl"]
 
@@ -92,4 +92,4 @@ text = "Pot Pack"
 horizontal_alignment = 1
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_37ld3")
+stream = ExtResource("9_f7drl")

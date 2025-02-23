@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c728fel7iwsrf"]
+[gd_scene load_steps=16 format=3 uid="uid://c728fel7iwsrf"]
 
 [ext_resource type="Script" path="res://Scripts/FlappyPlant/FlappyScript.cs" id="1_000qw"]
 [ext_resource type="Script" path="res://Scripts/FlappyPlant/FlappyPlant.cs" id="1_hvdm2"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://brmtk1ey2s37a" path="res://Scenes/FlappyPlant/Obstacle.tscn" id="6_q2ksj"]
 [ext_resource type="PackedScene" uid="uid://cvaiuw1pb6imx" path="res://Scenes/FlappyPlant/ObstacleTop.tscn" id="6_qbbwf"]
 [ext_resource type="Texture2D" uid="uid://dnhr3k6em48wa" path="res://Textures/Minigames/Flappy Plant/fp_background.png" id="6_y7wfd"]
+[ext_resource type="AudioStream" uid="uid://ledw4lped2fw" path="res://Sounds/Background Music/mini games/FlappyPlant.mp3" id="11_ilgee"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n21r3"]
 
@@ -87,3 +88,6 @@ offset_top = 32.0
 offset_right = 1804.0
 offset_bottom = 177.0
 theme_override_font_sizes/font_size = 144
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_ilgee")

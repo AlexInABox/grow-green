@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c1u7yjtif3cfe"]
+[gd_scene load_steps=24 format=3 uid="uid://c1u7yjtif3cfe"]
 
 [ext_resource type="Texture2D" uid="uid://d0wths31vyi5s" path="res://Textures/Minigames/Memory/memory_medium.png" id="1_ia00b"]
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_m752m"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://oa8wf4yb58y5" path="res://Textures/Minigames/Memory/memory_stack_14.png" id="10_iqllv"]
 [ext_resource type="Texture2D" uid="uid://cmjwu87w4bt4o" path="res://Textures/Minigames/Memory/memory_stack_16.png" id="11_y43e0"]
 [ext_resource type="Theme" uid="uid://cxgao5s1phj5n" path="res://Themes/mainMenuButtons.tres" id="12_66vi4"]
+[ext_resource type="AudioStream" uid="uid://dabnccidd7a2w" path="res://Sounds/Background Music/mini games/Memory.mp3" id="19_wne0c"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wn6tn"]
 
@@ -208,3 +209,6 @@ position = Vector2(1266, 702)
 
 [node name="D4" type="Node2D" parent="."]
 position = Vector2(1266, 906)
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_wne0c")
