@@ -182,7 +182,7 @@ script = ExtResource("1_06be7")
 [node name="MainSceneScript" type="Node" parent="."]
 script = ExtResource("1_rm010")
 
-[node name="MainSceneMusic" type="AudioStreamPlayer" parent="MainSceneScript"]
+[node name="Music" type="AudioStreamPlayer" parent="MainSceneScript"]
 stream = ExtResource("3_r3yey")
 
 [node name="SpawnPointWrapper" type="Node" parent="."]

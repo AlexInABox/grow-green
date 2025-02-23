@@ -40,7 +40,9 @@ public partial class GreenhouseScene : Node
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		if (!music.Playing)
-		music.Play();
+		if (GetTree().CurrentScene.HasNode(GetPath())){
+			if (!music.Playing)
+			music.Play(); 
+		}
 	}
 }

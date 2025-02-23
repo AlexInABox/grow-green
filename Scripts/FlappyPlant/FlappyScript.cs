@@ -38,7 +38,9 @@ public partial class FlappyScript : Node
 	}
 	public override void _Process(double delta)
 	{
-		if (!music.Playing)
-		music.Play();
+		if (GetTree().CurrentScene.HasNode(GetPath())){
+			if (!music.Playing)
+			music.Play(); 
+		}
 	}
 }

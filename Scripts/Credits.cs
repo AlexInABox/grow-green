@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class FpMainMenu : Node2D
+public partial class Credits : Node2D
 {
 	private AudioStreamPlayer music;
 	// Called when the node enters the scene tree for the first time.

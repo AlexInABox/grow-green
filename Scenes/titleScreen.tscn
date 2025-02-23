@@ -44,7 +44,7 @@ shader_parameter/color_over = null
 [node name="TitleSceneManager" type="Node" parent="."]
 script = ExtResource("1_eympr")
 
-[node name="TitleSceneMusic" type="AudioStreamPlayer" parent="TitleSceneManager"]
+[node name="Music" type="AudioStreamPlayer" parent="TitleSceneManager"]
 stream = ExtResource("2_btnue")
 
 [node name="Backround" type="Sprite2D" parent="."]

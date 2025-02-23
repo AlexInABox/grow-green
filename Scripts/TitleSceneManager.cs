@@ -7,13 +7,13 @@ public partial class TitleSceneManager : Node
 
 	BaseButton loadGameButton;
 	BaseButton createGameButton;
-	private AudioStreamPlayer titleAudio;
+	private AudioStreamPlayer music;
 	
 	public override void _Ready()
 	{	
 		loadGameButton = GetNode<BaseButton>("../Load Game");
 		createGameButton = GetNode<BaseButton>("../New Game");
-		titleAudio = GetNode<AudioStreamPlayer>("TitleSceneMusic");
+		music = GetNode<AudioStreamPlayer>("Music");
 
 		if (db.IsThisTheFirstRun()){
 			loadGameButton.Disabled = true;
@@ -69,7 +69,9 @@ public partial class TitleSceneManager : Node
 		//IT IS MY GOD-GIVEN RIGHT TO USE A DATABASE ACCORDING TO MY WILL! IF A HUMAN BEING, LIKE ME, WANTS TO WRITE TO A DATABASE AT EVERY FRAME, THEY MUST NOT BE HINDERED BY A LESSER BEING, LIKE MY COMPUTER!!!!!!!!!
 		//db.UpdateSave(playerObject);
 		
-		if (!titleAudio.Playing)
-			titleAudio.Play();
+		if (GetTree().CurrentScene.HasNode(GetPath())){
+			if (!music.Playing)
+			music.Play(); 
+		}
 	}
 }

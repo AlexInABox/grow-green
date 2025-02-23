@@ -9,8 +9,6 @@ public partial class SceneManager : Node
 
 	public bool IAMREADY;
 	private Player playerObject;
-	
-	private AudioStreamPlayer music;
 
 	public void SetHasUnlockedGreenhouse(bool hasUnlockedGreenhouse)
 	{
@@ -26,7 +24,6 @@ public partial class SceneManager : Node
 	{
 		playerObject = db.GetPlayerObject();
 		IAMREADY = true;
-		music = GetNode<AudioStreamPlayer>("Music");
 	}
 
 	public int GetCoinCount()
@@ -91,10 +88,6 @@ public partial class SceneManager : Node
 			Thread thread = new(() => db.UpdateSave(playerObject));
 			thread.Start();
 		}
-		
-		if (!music.Playing)
-		music.Play();
-
 		//this is cool! save the everything every 60 frames and even then do it in a different thread! so cool!
 	}
 

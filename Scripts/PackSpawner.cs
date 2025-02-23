@@ -74,7 +74,9 @@ public partial class PackSpawner : Node
 	}
 	public override void _Process(double delta)
 	{
-		if (!music.Playing)
-		music.Play();
+		if (GetTree().CurrentScene.HasNode(GetPath())){
+			if (!music.Playing)
+			music.Play(); 
+		}
 	}
 }
