@@ -1,8 +1,7 @@
-[gd_scene load_steps=33 format=3 uid="uid://bp4pm6nyj77pp"]
+[gd_scene load_steps=35 format=3 uid="uid://bp4pm6nyj77pp"]
 
 [ext_resource type="Theme" uid="uid://cxgao5s1phj5n" path="res://Themes/mainMenuButtons.tres" id="1_0cr8b"]
 [ext_resource type="Script" path="res://Scripts/TitleSceneManager.cs" id="1_eympr"]
-[ext_resource type="AudioStream" uid="uid://bcxvx2f7cx0fo" path="res://Sounds/Background Music/MainMenu.mp3" id="2_btnue"]
 [ext_resource type="Texture2D" uid="uid://budx05tdgqvy0" path="res://Textures/Aliens/1_alien.png" id="2_dtjgp"]
 [ext_resource type="Shader" path="res://Shaders/blurme.gdshader" id="2_pgwvi"]
 [ext_resource type="Texture2D" uid="uid://dp4q5eewdkote" path="res://Textures/Aliens/2_alien.png" id="3_6runn"]
@@ -25,6 +24,7 @@
 [ext_resource type="AudioStream" uid="uid://ygqjaapp4kxx" path="res://Sounds/Effects/Easteregg.mp3" id="16_8acsu"]
 [ext_resource type="Texture2D" uid="uid://cfbffd0ksgdpo" path="res://Textures/Icons/Icons/Power.png" id="16_82qyu"]
 [ext_resource type="Script" path="res://Scripts/PowerButton.cs" id="16_wsys8"]
+[ext_resource type="AudioStream" uid="uid://bpfsq7uuugsox" path="res://Sounds/Effects/stone-creek-43557.mp3" id="17_4f5h3"]
 [ext_resource type="Texture2D" uid="uid://cilsrxjbwcwui" path="res://Textures/Aliens/6_alien.png" id="22_42ivh"]
 [ext_resource type="Texture2D" uid="uid://bqv0q6faxvyrn" path="res://Textures/Aliens/7_alien.png" id="23_qmevh"]
 [ext_resource type="Texture2D" uid="uid://c17of3qgjuat6" path="res://Textures/Aliens/8_alien.png" id="24_xjrxt"]
@@ -39,13 +39,16 @@ shader_parameter/color_over = null
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vw1ss"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_8k4iu"]
+radius = 182.26
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wbmn4"]
+radius = 140.33
+
 [node name="TitleScreen" type="Node2D"]
 
 [node name="TitleSceneManager" type="Node" parent="."]
 script = ExtResource("1_eympr")
-
-[node name="Music" type="AudioStreamPlayer" parent="TitleSceneManager"]
-stream = ExtResource("2_btnue")
 
 [node name="Backround" type="Sprite2D" parent="."]
 z_index = -1000
@@ -145,8 +148,19 @@ position = Vector2(169, 217)
 texture = ExtResource("2_dtjgp")
 script = ExtResource("3_408km")
 
-[node name="Move" type="AudioStreamPlayer2D" parent="Panel/ScrollContainer/HBoxContainer/SnoopyAlien/Alien"]
+[node name="Bumm" type="AudioStreamPlayer" parent="Panel/ScrollContainer/HBoxContainer/SnoopyAlien/Alien"]
 stream = ExtResource("16_8acsu")
+volume_db = 0.33
+
+[node name="Move" type="AudioStreamPlayer2D" parent="Panel/ScrollContainer/HBoxContainer/SnoopyAlien/Alien"]
+stream = ExtResource("17_4f5h3")
+volume_db = 14.991
+
+[node name="Area2D" type="Area2D" parent="Panel/ScrollContainer/HBoxContainer/SnoopyAlien/Alien"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/ScrollContainer/HBoxContainer/SnoopyAlien/Alien/Area2D"]
+shape = SubResource("CircleShape2D_8k4iu")
+one_way_collision_margin = 0.0
 
 [node name="SnoopyAlienButton" type="Button" parent="Panel/ScrollContainer/HBoxContainer/SnoopyAlien" groups=["AlienButtons"]]
 layout_mode = 0
@@ -249,6 +263,12 @@ script = ExtResource("11_m1rrk")
 position = Vector2(155, 237)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("23_qmevh")
+
+[node name="Area2D" type="Area2D" parent="Panel/ScrollContainer/HBoxContainer/Vladimir/Alien"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/ScrollContainer/HBoxContainer/Vladimir/Alien/Area2D"]
+shape = SubResource("CircleShape2D_wbmn4")
+one_way_collision_margin = 0.0
 
 [node name="Dj Planti" type="Control" parent="Panel/ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(320, 478)

@@ -16,13 +16,11 @@ public partial class PotPackSpawner : Node
 	private Button leaveButton;
 	DatabaseWrapper db = new DatabaseWrapper();
 	private List<Pot> ownablePots;
-	private AudioStreamPlayer music;
 
 	public override void _Ready()
 	{
 			sceneManager = GetNode<SceneManager>("SceneManager");
 			leaveButton = GetNode<Button>("LeaveButton");
-			music = GetNode<AudioStreamPlayer>("Music");
 		
 			button = GetNode<Button>("BuyPackButton");
 			button.Pressed += BuyPack;
@@ -33,6 +31,8 @@ public partial class PotPackSpawner : Node
 			{
 			   button.Disabled = true;
 			}
+			AudioPlayer audioPlayer = (AudioPlayer)GetNode("/root/AudioPlayer");
+			audioPlayer.PlayMinigameMusic();
 			
 	}
 
@@ -87,9 +87,5 @@ public partial class PotPackSpawner : Node
 	}
 	public override void _Process(double delta)
 	{
-	if (GetTree().CurrentScene.HasNode(GetPath())){
-			if (!music.Playing)
-			music.Play(); 
-		}
 	}
 }

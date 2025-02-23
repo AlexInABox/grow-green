@@ -3,9 +3,11 @@ using System;
 
 public partial class PowerButton : Button
 {
+	SoundPlayer soundPlayer;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		soundPlayer = (SoundPlayer)GetNode("/root/SoundPlayer");
 		Pressed += ButtonPressed;
 		MouseEntered += Hovered;
 		ButtonDown += ButtonDowned;
@@ -24,7 +26,7 @@ public partial class PowerButton : Button
 	}
 	private void ButtonPressed()
 	{
-
+		soundPlayer.PlayButtonCick();
 		GetTree().Quit();
 	}
 

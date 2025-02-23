@@ -3,14 +3,17 @@ using System;
 
 public partial class CreditsButton : Button
 {
+	SoundPlayer soundPlayer;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		soundPlayer = (SoundPlayer)GetNode("/root/SoundPlayer");
 		Pressed += ButtonPressedEvent;
 	}
 	
 	private void ButtonPressedEvent()
 	{
+		soundPlayer.PlayButtonCick();
 		var creditsScene = "res://Scenes/credits.tscn";
 		GetTree().ChangeSceneToFile(creditsScene);
 	}

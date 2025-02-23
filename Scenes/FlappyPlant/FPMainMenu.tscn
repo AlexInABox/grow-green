@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://xbe7jevnprrg"]
+[gd_scene load_steps=15 format=3 uid="uid://xbe7jevnprrg"]
 
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_fbntm"]
 [ext_resource type="Script" path="res://Scripts/FlappyPlant/FpMainMenu.cs" id="1_n1hp7"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://du47d27nnh6s7" path="res://Textures/Packs/minigame_single.png" id="7_dejcq"]
 [ext_resource type="Texture2D" uid="uid://bg57hfx11ytfp" path="res://Textures/Plants/alocasia3.png" id="8_5a6kd"]
 [ext_resource type="Texture2D" uid="uid://cytn4u5ejjnbe" path="res://Textures/Pots/plain_brown.png" id="9_yhpge"]
-[ext_resource type="AudioStream" uid="uid://w0vof3a4ajri" path="res://Sounds/Background Music/Minigames.mp3" id="11_j72k7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_77xxd"]
 
@@ -71,6 +70,3 @@ texture = ExtResource("8_5a6kd")
 position = Vector2(960, 500)
 scale = Vector2(9, 9)
 texture = ExtResource("9_yhpge")
-
-[node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_j72k7")

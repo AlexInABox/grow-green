@@ -23,6 +23,11 @@ config/macos_native_icon="res://Textures/Logo/LogoWithoutName_rounded.png"
 config/windows_native_icon="res://Textures/Logo/IconWithoutName.PNG"
 boot_splash/minimum_display_time=1500
 
+[autoload]
+
+AudioPlayer="*res://Scripts/AudioPlayer.cs"
+SoundPlayer="*res://Scripts/SoundPlayer.cs"
+
 [display]
 
 window/size/viewport_width=1920

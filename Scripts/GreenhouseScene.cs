@@ -6,11 +6,11 @@ public partial class GreenhouseScene : Node
 	// Called when the node enters the scene tree for the first time.
 	PackedScene plantPrefab = GD.Load<PackedScene>("res://Prefabs/plant_wrapper.tscn");
 	SceneManager sceneManager;
-	private AudioStreamPlayer music;
 
 	public override void _Ready()
 	{
-		music = GetNode<AudioStreamPlayer>("Music");
+		AudioPlayer audioPlayer = (AudioPlayer)GetNode("/root/AudioPlayer");
+		audioPlayer.PlayGreenMusic();
 		sceneManager = GetNode<SceneManager>("../SceneManager");
 		List<Plant> plantList = sceneManager.GetListOfOwnedPlants(); 
 		PlaceAllPlants(plantList);
@@ -40,9 +40,5 @@ public partial class GreenhouseScene : Node
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		if (GetTree().CurrentScene.HasNode(GetPath())){
-			if (!music.Playing)
-			music.Play(); 
-		}
 	}
 }

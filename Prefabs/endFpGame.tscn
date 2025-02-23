@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bw8pir22s5unx"]
+[gd_scene load_steps=7 format=3 uid="uid://c6khuervrergf"]
 
+[ext_resource type="Script" path="res://Scripts/FlappyPlant/EndFpGame.cs" id="1_a7psx"]
 [ext_resource type="Texture2D" uid="uid://caplkr8i4j4mp" path="res://Textures/Buttons/UI_Flat_Frame03a.png" id="1_d1rto"]
 [ext_resource type="FontFile" uid="uid://16884th6cwds" path="res://Fonts/Jersey25-Regular.ttf" id="2_2lrtd"]
 [ext_resource type="Theme" uid="uid://cxgao5s1phj5n" path="res://Themes/mainMenuButtons.tres" id="3_o3w8p"]
@@ -7,6 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/FlappyPlant/AgainButton.cs" id="5_xowan"]
 
 [node name="EndFpGame" type="Node2D"]
+script = ExtResource("1_a7psx")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = 3

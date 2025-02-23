@@ -13,14 +13,14 @@ public partial class PackSpawner : Node
 	private SceneManager sceneManager;
 	private PackedScene packedScene;
 	private Button leaveButton;
-	private AudioStreamPlayer music;
 	
 
 	public override void _Ready()
 	{
 		sceneManager = GetNode<SceneManager>("SceneManager");
 		leaveButton = GetNode<Button>("LeaveButton");
-		music = GetNode<AudioStreamPlayer>("Music");
+		AudioPlayer audioPlayer = (AudioPlayer)GetNode("/root/AudioPlayer");
+		audioPlayer.PlayMinigameMusic();
 		
 			button = GetNode<Button>("BuyPackButton");
 			button.Pressed += BuyPack;
@@ -74,9 +74,5 @@ public partial class PackSpawner : Node
 	}
 	public override void _Process(double delta)
 	{
-		if (GetTree().CurrentScene.HasNode(GetPath())){
-			if (!music.Playing)
-			music.Play(); 
-		}
 	}
 }

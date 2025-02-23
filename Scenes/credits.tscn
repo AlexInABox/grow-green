@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://wgxhohnyfdiy"]
+[gd_scene load_steps=11 format=3 uid="uid://wgxhohnyfdiy"]
 
 [ext_resource type="Texture2D" uid="uid://ibc4r6vtoalt" path="res://Textures/Backgrounds/creditsBackground.png" id="1_cyscu"]
 [ext_resource type="Script" path="res://Scripts/Credits.cs" id="1_xuib2"]
@@ -6,7 +6,6 @@
 [ext_resource type="FontFile" uid="uid://16884th6cwds" path="res://Fonts/Jersey25-Regular.ttf" id="3_m7drt"]
 [ext_resource type="Texture2D" uid="uid://bmpnx8afa8exa" path="res://Textures/Icons/exit.png" id="4_vmane"]
 [ext_resource type="Script" path="res://Scripts/BackToTitleMenuButton.cs" id="5_4vofa"]
-[ext_resource type="AudioStream" uid="uid://bcxvx2f7cx0fo" path="res://Sounds/Background Music/MainMenu.mp3" id="7_q8b1o"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kmjcv"]
 
@@ -104,6 +103,3 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_w4aif")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_8c5wc")
 theme_override_styles/normal = SubResource("StyleBoxTexture_qqxb1")
 script = ExtResource("5_4vofa")
-
-[node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_q8b1o")

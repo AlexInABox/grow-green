@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dsaewohprj4cb"]
+[gd_scene load_steps=34 format=3 uid="uid://dsaewohprj4cb"]
 
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_7qpdi"]
 [ext_resource type="Script" path="res://Scripts/MinigameScene/MinigameSzene.cs" id="1_u7qak"]
@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://d07rokqxx2fl3" path="res://Prefabs/coinDisplay_wrapper.tscn" id="11_5ns72"]
 [ext_resource type="Texture2D" uid="uid://dhun4gb3o56m" path="res://Textures/Packs/pack_plant.png" id="11_11ds4"]
 [ext_resource type="Texture2D" uid="uid://chnjlt6vs0ff3" path="res://Textures/Minigames/Flappy Plant/flappy_plant.png" id="12_446g6"]
-[ext_resource type="AudioStream" uid="uid://w0vof3a4ajri" path="res://Sounds/Background Music/Minigames.mp3" id="14_lr108"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4cm5a"]
 
@@ -298,6 +297,3 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_vfqyj")
 theme_override_styles/normal = SubResource("StyleBoxTexture_gmoc2")
 script = ExtResource("3_xv58d")
 nextScene = "res://Scenes/FlappyPlant/FPMainMenu.tscn"
-
-[node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("14_lr108")

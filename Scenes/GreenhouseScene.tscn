@@ -1,8 +1,7 @@
-[gd_scene load_steps=48 format=3 uid="uid://teexgk7q8m1u"]
+[gd_scene load_steps=47 format=3 uid="uid://teexgk7q8m1u"]
 
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_e7yyb"]
 [ext_resource type="Script" path="res://Scripts/GreenhouseScene.cs" id="2_k45pb"]
-[ext_resource type="AudioStream" uid="uid://cjm4q6u83silc" path="res://Sounds/Background Music/Greenhouse.mp3" id="3_8547x"]
 [ext_resource type="PackedScene" uid="uid://bxj5nxe1yf7t0" path="res://Prefabs/spawnPoint.tscn" id="3_px7ul"]
 [ext_resource type="Texture2D" uid="uid://bmlucsypqwwd5" path="res://Textures/Icons/trashcan.png" id="4_ikxi1"]
 [ext_resource type="Texture2D" uid="uid://cmxfcly5l04y" path="res://Textures/Backgrounds/greenhouse.png" id="4_yh1it"]
@@ -84,9 +83,6 @@ script = ExtResource("1_e7yyb")
 
 [node name="GreenhouseSceneScript" type="Node" parent="."]
 script = ExtResource("2_k45pb")
-
-[node name="Music" type="AudioStreamPlayer" parent="GreenhouseSceneScript"]
-stream = ExtResource("3_8547x")
 
 [node name="SpawnPointWrapper" type="Node" parent="."]
 
