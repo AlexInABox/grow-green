@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ledw4lped2fw"
+path="res://.godot/imported/FlappyPlant.mp3-d140d664431b1702c1056ac8cdf0f7ad.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Background Music/mini games/FlappyPlant.mp3"
+dest_files=["res://.godot/imported/FlappyPlant.mp3-d140d664431b1702c1056ac8cdf0f7ad.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

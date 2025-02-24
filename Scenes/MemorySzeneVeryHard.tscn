@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://ddrm422vlv2s7"]
+[gd_scene load_steps=27 format=3 uid="uid://ddrm422vlv2s7"]
 
 [ext_resource type="Script" path="res://Scripts/Memory/MemoryGame.cs" id="1_fl14q"]
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_g6xy0"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://2hkqlf5p44ls" path="res://Textures/Minigames/Memory/memory_stack_24.png" id="14_4146l"]
 [ext_resource type="Theme" uid="uid://cxgao5s1phj5n" path="res://Themes/mainMenuButtons.tres" id="15_ccxal"]
 [ext_resource type="PackedScene" uid="uid://d07rokqxx2fl3" path="res://Prefabs/coinDisplay_wrapper.tscn" id="21_c4twn"]
+[ext_resource type="AudioStream" uid="uid://dabnccidd7a2w" path="res://Sounds/Background Music/mini games/Memory.mp3" id="22_mwgyc"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wn6tn"]
 
@@ -262,3 +263,6 @@ centered = false
 
 [node name="coinDisplay_wrapper" parent="." instance=ExtResource("21_c4twn")]
 position = Vector2(1641, 72)
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_mwgyc")

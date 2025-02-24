@@ -4,6 +4,8 @@ using System;
 public partial class ConfirmationPopup : Node2D
 {
 	SceneManager sceneManager;
+	SoundPlayer soundPlayer;
+
 	public string PlantName { get; private set; }
 	
 	public void SetClassName(string className)
@@ -26,6 +28,7 @@ public partial class ConfirmationPopup : Node2D
 
 	public override void _Ready()
 	{
+		soundPlayer = (SoundPlayer)GetNode("/root/SoundPlayer");
 		sceneManager = GetNode<SceneManager>("../SceneManager");
 		Button buyButton = GetNode<Button>("Sprite2D/Buy");
 		if (sceneManager.GetCoinCount() < Price) {
@@ -43,7 +46,7 @@ public partial class ConfirmationPopup : Node2D
 				System.Threading.Thread.Sleep(100);
 			}
 			sceneManager.SetCoinCount(sceneManager.GetCoinCount() - Price);
-
+			soundPlayer.PlayBuy();
 			Plant plant = sceneManager.GetPlantByClassName(PlantName);
 			sceneManager.AddNewPlantToListOfOwnedPlants(plant);
 			QueueFree(); 

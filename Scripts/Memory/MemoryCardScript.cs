@@ -8,11 +8,13 @@ public partial class MemoryCardScript : Button
 	private MemoryGame memoryGame;
 	private Timer timer;
 	private Node2D cardNode;
+	SoundPlayer soundPlayer;
 
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		soundPlayer = (SoundPlayer)GetNode("/root/SoundPlayer");
 		Pressed += ButtonPressed;
 		spriteFront = (Sprite2D)GetNode("../MemoryFront");
 		memoryGame = (MemoryGame)GetNode("../../../../../MemoryGame");
@@ -34,6 +36,7 @@ public partial class MemoryCardScript : Button
 	}
 	private void ButtonPressed()
 	{
+		soundPlayer.PlayFlip();
 		RevealCard();
 		
 	}

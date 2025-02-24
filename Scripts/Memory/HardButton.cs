@@ -4,12 +4,18 @@ using System;
 namespace MinigameScene;
 public partial class HardButton : Button
 {
+	SoundPlayer soundPlayer;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		Pressed += ButtonPressed;
+		soundPlayer = (SoundPlayer)GetNode("/root/SoundPlayer");
+		Pressed += ButtonPressedAudio;
 	}
-
+	private void ButtonPressedAudio()
+	{
+		soundPlayer.PlayButtonCick();
+		ButtonPressed();
+	}
 	private void ButtonPressed()
 	{
 		var nextScene = "res://Scenes/MemorySzeneVeryHard.tscn";

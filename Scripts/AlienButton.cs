@@ -6,18 +6,23 @@ public partial class AlienButton : Button
 	private Sprite2D myAlien;
 	private int characterNumber;
 	private bool freaky;
+	private AudioStreamPlayer charSelect;
+
+	private SoundPlayer soundPlayer;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		freaky = false;
-		
+	
 		myAlien = GetNode<Sprite2D>("../Alien");
+		soundPlayer = (SoundPlayer)GetNode("/root/SoundPlayer");
 		string textureName = System.IO.Path.GetFileName(myAlien.Texture.ResourcePath);
 		if (textureName != null) characterNumber = textureName.Split('_')[0].ToInt();
 		
 		FocusEntered += ButtonFocused;
 		FocusExited += ButtonUnfocused;
+		Pressed += ButtonPressed;
 	}
 
 	private void ButtonFocused()
@@ -41,6 +46,11 @@ public partial class AlienButton : Button
 	{
 		freaky = false;
 		myAlien.Material = null;
+	}
+	
+	private void ButtonPressed()
+	{
+		soundPlayer.PlayAlien();
 	}
 
 	public int CharacterNumber()

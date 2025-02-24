@@ -14,10 +14,12 @@ public partial class PotPackOpening : Button
     private Pot tempPot;
     private PotPackSpawner packSpawner;
     private bool packIsOpen = false;
+    SoundPlayer soundPlayer;
     
     
     public override void _Ready()
     {
+        soundPlayer = (SoundPlayer)GetNode("/root/SoundPlayer");
         Pressed += ButtonPressed;
         
         animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer"); 
@@ -44,6 +46,7 @@ public partial class PotPackOpening : Button
 
     private void OpenPack()
     {
+        soundPlayer.PlayPack();
         RemovePlantSprite();
 
         Pot randomPot = GetWeightedRandomPot();

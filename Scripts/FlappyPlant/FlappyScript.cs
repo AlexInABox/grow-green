@@ -10,8 +10,9 @@ public partial class FlappyScript : Node
 	private SceneManager sceneManager;
 	public override void _Ready()
 	{
+		AudioPlayer audioPlayer = (AudioPlayer)GetNode("/root/AudioPlayer");
+		audioPlayer.PlayFlappyMusic();
 		sceneManager = GetNode<SceneManager>("SceneManager");
-
 		scoreLabel = GetNode<Label>("ScoreLabel");
 		scoreLabel.Text = "0";
 	}

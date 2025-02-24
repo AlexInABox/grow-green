@@ -3,11 +3,17 @@ using System;
 
 public partial class Cancel : Button
 {
-
+	SoundPlayer soundPlayer;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		Pressed += Verlassen;
+		soundPlayer = (SoundPlayer)GetNode("/root/SoundPlayer");
+		Pressed += VerlassenAudio;
+	}
+
+	private void VerlassenAudio(){
+		soundPlayer.PlayButtonCick();
+		Verlassen();
 	}
 
 	private void Verlassen(){

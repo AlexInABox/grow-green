@@ -13,12 +13,16 @@ using System.Collections.Generic;
 		sceneManager = GetNode<SceneManager>("../SceneManager");
 		List<Plant> plantList = sceneManager.GetListOfOwnedPlants(); 
 		PlaceAllPlants(plantList);
+		
+		AudioPlayer audioPlayer = (AudioPlayer)GetNode("/root/AudioPlayer");
+		audioPlayer.PlayMainMusic();
 
 		greenhouseButton = GetNode<Button>("../GreenhouseButton");
 		scammerGreenhouseButton = GetNode<Button>("../ScamerGreenhouseButton");
 		//GD.Print(sceneManager.GetHasUnlockedGreenhouse());
 		
 		CheckForGreenhouse();
+		
 	}
 
 	private void PlaceAllPlants(List<Plant> plantList) {
@@ -56,6 +60,5 @@ using System.Collections.Generic;
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-	
 	}
 }

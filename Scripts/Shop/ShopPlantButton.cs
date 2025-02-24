@@ -8,9 +8,12 @@ public partial class ShopPlantButton : Button
 	public string className = "";
 
 	SceneManager sceneManager;
+	SoundPlayer soundPlayer;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		soundPlayer = (SoundPlayer)GetNode("/root/SoundPlayer");
 		sceneManager = GetNode<SceneManager>("../../../../../SceneManager");
 		MouseEntered += ButtonHovered;
 		MouseExited += ButtonNotHovered;
@@ -28,6 +31,7 @@ public partial class ShopPlantButton : Button
 	}
 
 	private void ButtonGotPressed() { 
+		soundPlayer.PlayButtonCick();
 		PackedScene confirmationPopup = GD.Load<PackedScene>("res://Prefabs/shopBuyConfirmation_popup.tscn");
 		Node confirmationPopupInstance = confirmationPopup.Instantiate();
 		ConfirmationPopup PopupScript = (ConfirmationPopup)confirmationPopupInstance;

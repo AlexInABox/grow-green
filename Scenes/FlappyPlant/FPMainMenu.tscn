@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://xbe7jevnprrg"]
+[gd_scene load_steps=15 format=3 uid="uid://xbe7jevnprrg"]
 
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_fbntm"]
+[ext_resource type="Script" path="res://Scripts/FlappyPlant/FpMainMenu.cs" id="1_n1hp7"]
 [ext_resource type="Theme" uid="uid://cxgao5s1phj5n" path="res://Themes/mainMenuButtons.tres" id="1_qp4br"]
 [ext_resource type="Script" path="res://Scripts/FlappyPlant/StartGameButton.cs" id="4_gtpd2"]
 [ext_resource type="PackedScene" uid="uid://d07rokqxx2fl3" path="res://Prefabs/coinDisplay_wrapper.tscn" id="4_gw7y0"]
@@ -24,6 +25,7 @@ modulate_color = Color(0, 0, 0, 1)
 texture = ExtResource("5_he462")
 
 [node name="FpMainMenu" type="Node2D"]
+script = ExtResource("1_n1hp7")
 
 [node name="SceneManager" type="Node" parent="."]
 script = ExtResource("1_fbntm")
