@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://cybr4i56w8fnp"]
+
+[ext_resource type="Texture2D" uid="uid://caplkr8i4j4mp" path="res://Textures/Buttons/UI_Flat_Frame03a.png" id="1_jr2ci"]
+[ext_resource type="Shader" path="res://Shaders/blurme.gdshader" id="1_ut4pt"]
+[ext_resource type="FontFile" uid="uid://16884th6cwds" path="res://Fonts/Jersey25-Regular.ttf" id="2_ex47q"]
+[ext_resource type="SpriteFrames" uid="uid://drp6tx0prs4yn" path="res://SpriteFrames/character.tres" id="4_mv1k2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8rt3k"]
+shader = ExtResource("1_ut4pt")
+shader_parameter/blur_amount = 2.5
+shader_parameter/mix_amount = 0.0
+shader_parameter/color_over = null
+
+[node name="TutorialPopup" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1912.0
+offset_bottom = 1078.0
+color = Color(0, 0, 0, 0.470588)
+
+[node name="BlurLayer" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_8rt3k")
+offset_left = -6.10352e-05
+offset_top = -1.52588e-05
+offset_right = 1922.0
+offset_bottom = 1081.0
+metadata/_edit_lock_ = true
+
+[node name="Popup" type="Sprite2D" parent="."]
+position = Vector2(960, 537)
+scale = Vector2(14, 14)
+texture = ExtResource("1_jr2ci")
+region_rect = Rect2(3, 3, 90, 58)
+
+[node name="Title" type="Label" parent="Popup"]
+offset_left = -57.4286
+offset_top = -28.5
+offset_right = 658.571
+offset_bottom = 188.5
+scale = Vector2(0.16, 0.16)
+theme_override_fonts/font = ExtResource("2_ex47q")
+theme_override_font_sizes/font_size = 44
+text = "Tutorial"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="GIF" type="AnimatedSprite2D" parent="Popup"]
+position = Vector2(-0.0714296, 0.928573)
+scale = Vector2(0.055, 0.055)
+sprite_frames = ExtResource("4_mv1k2")
+animation = &"character"
+
+[node name="Explanation" type="Label" parent="Popup"]
+offset_left = -35.4286
+offset_top = 22.7143
+offset_right = 949.571
+offset_bottom = 163.714
+scale = Vector2(0.07, 0.07)
+theme_override_fonts/font = ExtResource("2_ex47q")
+theme_override_font_sizes/font_size = 44
+text = "Diese Aktion überschreibt deinen alten Speicherstand!
+
+Bist du dir sicher, dass du das möchtest?"
+horizontal_alignment = 1
+autowrap_mode = 3
