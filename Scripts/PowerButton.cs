@@ -8,7 +8,7 @@ public partial class PowerButton : Button
 	public override void _Ready()
 	{
 		soundPlayer = (SoundPlayer)GetNode("/root/SoundPlayer");
-		Pressed += ButtonPressed;
+		Pressed += ButtonPressedSound;
 		MouseEntered += Hovered;
 		ButtonDown += ButtonDowned;
 		ButtonUp += ButtonUped;
@@ -24,9 +24,13 @@ public partial class PowerButton : Button
 		Node2D sprite = GetNode<Node2D>("../Sprite2D");
 		sprite.MoveLocalY(5);
 	}
-	private void ButtonPressed()
+	private void ButtonPressedSound()
 	{
 		soundPlayer.PlayButtonCick();
+		ButtonPressed();
+	}
+	private void ButtonPressed()
+	{
 		GetTree().Quit();
 	}
 

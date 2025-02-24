@@ -25,6 +25,8 @@ public partial class Plant : Sprite2D
     public int spawnPoint;    
     private string[] growthTextures;
 
+    SoundPlayer soundPlayer;
+
 
     //status bubble stuff
     ColorRect growProgressBar;
@@ -84,6 +86,7 @@ public partial class Plant : Sprite2D
 
     public override void _Ready()
     {
+        soundPlayer = (SoundPlayer)GetNode("/root/SoundPlayer");
         Name = "Plant";
         ZIndex = 2;
 
@@ -119,9 +122,14 @@ public partial class Plant : Sprite2D
     public void WaterPlant() {
         if (waterLevel < 100)
         {
+            soundPlayer.PlayWater();
             waterLevel += wateringImpact;
-            RefreshMetadata();
         }
+        if (waterLevel > 100 && !rotten && waterLevel <= 110){
+            soundPlayer.PlayOverwater();
+        }
+
+        RefreshMetadata();
     }
 
     private void RecalculateWaterLevel() {
@@ -129,7 +137,7 @@ public partial class Plant : Sprite2D
         waterLevel -= (decayRatePerDay / 24 / 60 / 60) * timeSinceLastTimestamp;
         //GD.Print("WaterLevel: " + waterLevel);
         waterLevelTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds();
-
+        if (waterLevel == 0) soundPlayer.PlayDry();
         if (waterLevel > 100) rotten = true;
         if (waterLevel <= 0) withered = true;
     }

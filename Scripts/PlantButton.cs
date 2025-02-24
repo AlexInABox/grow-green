@@ -11,6 +11,7 @@ public partial class PlantButton : Button
     private bool isMouseDown;
     private Plant myPlant;
     private Node2D plantWrapper;
+    SoundPlayer soundPlayer;
 
 
     private bool queueDrag;
@@ -23,6 +24,7 @@ public partial class PlantButton : Button
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+        soundPlayer = (SoundPlayer)GetNode("/root/SoundPlayer");
         //sceneManager = GetNode<SceneManager>("/root/MainSzene/SceneManager");
         sceneManager = GetTree().GetCurrentScene().GetNode<SceneManager>("SceneManager");
         Pressed += ButtonWasPressed;
@@ -107,14 +109,17 @@ public partial class PlantButton : Button
             Node2D nearestSpawnPoint = GetNearestSpawnPoint();
             if (nearestSpawnPoint.Name == "Trash")
             {
+                soundPlayer.PlayTrash();
                 DeleteThisPlant();
                 return;
             }
 
             if (nearestSpawnPoint.Name == "GreenhouseNodeDragTarget")
             {
-                if (sceneManager.GetHasUnlockedGreenhouse())
+                if (sceneManager.GetHasUnlockedGreenhouse()){
+                    soundPlayer.PlayTrash();
                     MovePlantToGreenhouse();
+                }
                 else
                     //TODO: Show hint notifying that the greenhouse is not unlocked yet.
                     ResetPosition();
@@ -123,10 +128,11 @@ public partial class PlantButton : Button
 
             if (nearestSpawnPoint.Name == "LeaveButtonDragTarget")
             {
+                soundPlayer.PlayTrash();
                 MovePlantToMainScene();
                 return;
             }
-
+            soundPlayer.PlayTrash();
             SetNewSpawnPoint(nearestSpawnPoint);
         }
 
