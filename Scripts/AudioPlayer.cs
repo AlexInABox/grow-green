@@ -14,7 +14,7 @@ public partial class AudioPlayer : AudioStreamPlayer
 	private static readonly AudioStreamMP3 wormMusic = (AudioStreamMP3) GD.Load("res://Sounds/Background Music/mini games/Worm.mp3");
 
 	// Methode zum Abspielen von Musik mit einem optionalen Lautstärkewert
-	private void _play_music(AudioStream music, float volume = 0.0f)
+	private void _play_music(AudioStreamMP3 music, float volume = 0.0f)
 	{
 		if (Stream == music)
 		{
@@ -22,10 +22,9 @@ public partial class AudioPlayer : AudioStreamPlayer
 		}
 		Stream = music;
 		VolumeDb = volume;
-		if (music is AudioStreamMP3 mp3Stream)
-		{
-			mp3Stream.Loop = true;
-		}
+
+		music.Loop = true;
+		
 		Play();
 	}
 	
