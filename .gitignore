@@ -38,3 +38,6 @@ GrowGreen.console.exe
 # DotSettings for userstuff
 *.sln.DotSettings.user
 GrowGreen.sln.DotSettings.user
+
+# Domenik
+.vscode
