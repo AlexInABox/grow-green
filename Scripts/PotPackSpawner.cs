@@ -16,9 +16,11 @@ public partial class PotPackSpawner : Node
 	private Button leaveButton;
 	DatabaseWrapper db = new DatabaseWrapper();
 	private List<Pot> ownablePots;
+	SoundPlayer soundPlayer;
 
 	public override void _Ready()
 	{
+			soundPlayer = (SoundPlayer)GetNode("/root/SoundPlayer");
 			sceneManager = GetNode<SceneManager>("SceneManager");
 			leaveButton = GetNode<Button>("LeaveButton");
 		
@@ -39,6 +41,7 @@ public partial class PotPackSpawner : Node
  
 	public void BuyPack()
 	{
+		soundPlayer.PlayButtonCick();
 		if (sceneManager.GetCoinCount() >= cost)
 		{
 			button.Disabled = true;

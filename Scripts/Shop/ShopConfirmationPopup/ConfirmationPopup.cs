@@ -46,7 +46,7 @@ public partial class ConfirmationPopup : Node2D
 				System.Threading.Thread.Sleep(100);
 			}
 			sceneManager.SetCoinCount(sceneManager.GetCoinCount() - Price);
-			soundPlayer.PlayButtonCick();
+			soundPlayer.PlayBuy();
 			Plant plant = sceneManager.GetPlantByClassName(PlantName);
 			sceneManager.AddNewPlantToListOfOwnedPlants(plant);
 			QueueFree(); 

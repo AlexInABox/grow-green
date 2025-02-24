@@ -13,10 +13,12 @@ public partial class PackSpawner : Node
 	private SceneManager sceneManager;
 	private PackedScene packedScene;
 	private Button leaveButton;
+	SoundPlayer soundPlayer;
 	
 
 	public override void _Ready()
 	{
+		soundPlayer = (SoundPlayer)GetNode("/root/SoundPlayer");
 		sceneManager = GetNode<SceneManager>("SceneManager");
 		leaveButton = GetNode<Button>("LeaveButton");
 		AudioPlayer audioPlayer = (AudioPlayer)GetNode("/root/AudioPlayer");
@@ -29,6 +31,7 @@ public partial class PackSpawner : Node
 
 	public void BuyPack()
 	{
+		soundPlayer.PlayButtonCick();
 		if (sceneManager.GetCoinCount() >= cost)
 		{
 			button.Disabled = true;

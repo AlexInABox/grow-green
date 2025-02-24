@@ -15,6 +15,9 @@ public partial class SoundPlayer : AudioStreamPlayer
 	private static readonly AudioStream dry = (AudioStream) GD.Load("res://Sounds/Effects/Buttons/Die.mp3");
 	private static readonly AudioStream water = (AudioStream) GD.Load("res://Sounds/Effects/Buttons/Water.mp3");
 	private static readonly AudioStream overwater = (AudioStream) GD.Load("res://Sounds/Effects/Buttons/Water2.mp3");
+	private static readonly AudioStream flip = (AudioStream) GD.Load("res://Sounds/Effects/Buttons/Flip.mp3");	
+	private static readonly AudioStream pack = (AudioStream) GD.Load("res://Sounds/Effects/Buttons/Pack.mp3");
+	private static readonly AudioStream boom = (AudioStream) GD.Load("res://Sounds/Effects/Easteregg.mp3");
 
 	private void _play_sound(AudioStream music, float volume = 0.0f)
 	{
@@ -69,5 +72,17 @@ public partial class SoundPlayer : AudioStreamPlayer
 	public void PlayOverwater()
 	{
 		_play_sound(overwater);
+	}
+	public void PlayFlip()
+	{
+		_play_sound(flip);
+	}
+	public void PlayPack()
+	{
+		_play_sound(pack);
+	}
+	public void PlayBoom()
+	{
+		_play_sound(boom);
 	}
 }

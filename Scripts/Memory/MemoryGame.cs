@@ -19,9 +19,11 @@ public partial class MemoryGame : Node
 	private String scenePath;
 	private string[] nodeNames;
 	private Vector2 sizeEdit;
+	SoundPlayer soundPlayer;
 	
 	public override void _Ready()
 	{
+		soundPlayer = (SoundPlayer)GetNode("/root/SoundPlayer");
 		sceneManager = GetNode<SceneManager>("SceneManager");
 		prefab = (PackedScene)ResourceLoader.Load("res://Prefabs/MemoryCard.tscn");
 		scenePath = GetTree().CurrentScene.SceneFilePath;
@@ -94,6 +96,7 @@ public partial class MemoryGame : Node
 		{
 			if (card.GetId() == lastCard.GetId() && card != lastCard)
 			{
+				soundPlayer.PlayTrash();
 				PairFound(card, lastCard);
 				lastCard = null;
 
@@ -131,6 +134,7 @@ public partial class MemoryGame : Node
 
 	private void EndGame()
 	{
+		soundPlayer.PlayMemoryWin();
 		var coins = sceneManager.GetCoinCount() + reward ;
 		sceneManager.SetCoinCount(coins);
 		

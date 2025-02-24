@@ -4,15 +4,15 @@ using System;
 public partial class SnoopyAlien : Sprite2D
 {
 	private AudioStreamPlayer2D moveAudio;
-	private AudioStreamPlayer boom;
+	private SoundPlayer soundPlayer;
 	private Sprite2D rabbit;
 
 	public override void _Ready()
 	{
 		rabbit = GetNode<Sprite2D>("../../Vladimir/Alien");
 		moveAudio = GetNode<AudioStreamPlayer2D>("Move");
-		boom = GetNode<AudioStreamPlayer>("Bumm");
-		var area1 = rabbit.GetNode<Area2D>("Area2D");
+		soundPlayer = (SoundPlayer)GetNode("/root/SoundPlayer");
+		var area1 = GetNode<Area2D>("Area2D");
 		
 		 area1.BodyEntered += OnBodyEntered;
 	}
@@ -20,13 +20,9 @@ public partial class SnoopyAlien : Sprite2D
 	private void OnBodyEntered(Node body)
 	{
 		// Überprüfen, ob das berührte Objekt das `rabbit` (Sprite2D) ist
-		if (body == this)
+		if (body.Name == "rabbit")
 		{
-			// Wenn das Boom-Audio nicht schon spielt, dann abspielen
-			if (!boom.Playing)
-			{
-				boom.Play();
-			}
+			soundPlayer.PlayBoom();
 		}
 	}
 

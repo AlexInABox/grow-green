@@ -3,16 +3,18 @@ using System;
 
 public partial class StartGameButton : Button
 {
-	
+	SoundPlayer soundPlayer;
    
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+        soundPlayer = (SoundPlayer)GetNode("/root/SoundPlayer");
         Pressed += ButtonPressedEvent;
     }
 
     private void ButtonPressedEvent()
     {
+        soundPlayer.PlayButtonCick();
         var creditsScene = "res://Scenes/FlappyPlant/FPGame.tscn";
         GetTree().ChangeSceneToFile(creditsScene);
     }

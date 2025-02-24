@@ -7,8 +7,11 @@ public partial class FlappyPlant : CharacterBody2D
 
     private AnimatedSprite2D _animatedSprite;
 
+    SoundPlayer soundPlayer;
+
     public override void _Ready()
     {
+        soundPlayer = (SoundPlayer)GetNode("/root/SoundPlayer");
         _animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
         if (_animatedSprite != null)
         {
@@ -25,6 +28,7 @@ public partial class FlappyPlant : CharacterBody2D
 
         if (Input.IsActionJustPressed("ui_accept"))
         {
+            soundPlayer.PlayJump();
             velocity.Y = JumpForce;
         }
 
