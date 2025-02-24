@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bp4pm6nyj77pp"]
+[gd_scene load_steps=36 format=3 uid="uid://bp4pm6nyj77pp"]
 
 [ext_resource type="Theme" uid="uid://cxgao5s1phj5n" path="res://Themes/mainMenuButtons.tres" id="1_0cr8b"]
 [ext_resource type="Script" path="res://Scripts/TitleSceneManager.cs" id="1_eympr"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://6n1r7dwg1utg" path="res://Textures/Aliens/3_alien.png" id="4_8djou"]
 [ext_resource type="Script" path="res://Scripts/ContinueGameButton.cs" id="5_ash0u"]
 [ext_resource type="Script" path="res://Scripts/CreateGameButton.cs" id="6_h7u0b"]
+[ext_resource type="Script" path="res://Scripts/Tutorial/TutorialButton.cs" id="7_au1o7"]
 [ext_resource type="Texture2D" uid="uid://dg4m3mxd4m8kt" path="res://Textures/TitleBackgroundDemo.png" id="7_d8aej"]
 [ext_resource type="Texture2D" uid="uid://uq5amk2rjiey" path="res://Textures/Buttons/UI_Flat_Banner01a.png" id="7_e4g20"]
 [ext_resource type="Script" path="res://Scripts/CreditsButton.cs" id="7_pf44q"]
@@ -67,9 +68,9 @@ metadata/_edit_lock_ = true
 
 [node name="Load Game" type="Button" parent="."]
 offset_left = 100.0
-offset_top = 457.0
+offset_top = 400.0
 offset_right = 473.0
-offset_bottom = 548.0
+offset_bottom = 491.0
 scale = Vector2(1.4, 1.4)
 theme = ExtResource("1_0cr8b")
 text = "Spiel Laden"
@@ -77,19 +78,29 @@ script = ExtResource("5_ash0u")
 
 [node name="New Game" type="Button" parent="." groups=["newGameButton"]]
 offset_left = 100.0
-offset_top = 602.0
+offset_top = 544.0
 offset_right = 472.0
-offset_bottom = 693.0
+offset_bottom = 635.0
 scale = Vector2(1.4, 1.4)
 theme = ExtResource("1_0cr8b")
 text = "Neues Spiel"
 script = ExtResource("6_h7u0b")
 
+[node name="Tutorial" type="Button" parent="."]
+offset_left = 101.0
+offset_top = 688.0
+offset_right = 474.0
+offset_bottom = 779.0
+scale = Vector2(1.4, 1.4)
+theme = ExtResource("1_0cr8b")
+text = "Tutorial"
+script = ExtResource("7_au1o7")
+
 [node name="Credits" type="Button" parent="."]
 offset_left = 103.0
-offset_top = 749.0
+offset_top = 828.0
 offset_right = 362.0
-offset_bottom = 840.0
+offset_bottom = 919.0
 scale = Vector2(1.4, 1.4)
 theme = ExtResource("1_0cr8b")
 text = "Credits"
@@ -101,7 +112,6 @@ scale = Vector2(12.71, 12.71)
 texture = ExtResource("7_e4g20")
 
 [node name="Title" type="Label" parent="."]
-z_index = 4096
 offset_left = 705.0
 offset_top = 127.0
 offset_right = 2422.0
@@ -324,21 +334,21 @@ texture = ExtResource("26_xwqfp")
 layout_mode = 3
 anchors_preset = 0
 offset_left = 486.0
-offset_top = 749.0
+offset_top = 822.0
 offset_right = 577.0
-offset_bottom = 840.0
+offset_bottom = 913.0
 scale = Vector2(1.4, 1.4)
 
 [node name="PowerButton" type="Button" parent="Power"]
 layout_mode = 0
 offset_left = 3.57143
-offset_top = 1.74046e-05
+offset_top = 4.99892
 offset_right = 94.5714
-offset_bottom = 91.0
+offset_bottom = 95.9989
 theme = ExtResource("1_0cr8b")
 script = ExtResource("16_wsys8")
 
 [node name="Sprite2D" type="Sprite2D" parent="Power"]
-position = Vector2(47.1429, 40)
+position = Vector2(47.1429, 43.5711)
 scale = Vector2(4.53571, 4.95982)
 texture = ExtResource("16_82qyu")
