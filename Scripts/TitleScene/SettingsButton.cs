@@ -3,19 +3,16 @@ using System;
 
 public partial class SettingsButton : Button
 {
-	SoundPlayer soundPlayer;
 	// Called when the node enters the scene tree for the first time.
+	private const string PathToSettingsScene = "res://Scenes/settings.tscn";
 	public override void _Ready()
 	{
-		soundPlayer = (SoundPlayer)GetNode("/root/SoundPlayer");
 		Pressed += ButtonPressedEvent;
 	}
 	
 	private void ButtonPressedEvent()
 	{
-		soundPlayer.PlayButtonCick();
-		var creditsScene = "res://Scenes/credits.tscn";
-		GetTree().ChangeSceneToFile(creditsScene);
+		GetTree().ChangeSceneToFile(PathToSettingsScene);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
