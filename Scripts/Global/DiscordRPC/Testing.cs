@@ -3,18 +3,13 @@ using System.Threading;
 using DiscordRPC;
 using DiscordRPC.Logging;
 using Godot;
-namespace GrowGreen.Global.DiscordRPC;
+namespace GrowGreen.Scripts.Global.DiscordRPC;
 
 public partial class Testing: Node2D
 {
     private DiscordRpcClient client;
     public override void _Ready()
     {
-        /*
-    Create a Discord client
-    NOTE: 	If you are using Unity3D, you must use the full constructor and define
-             the pipe connection.
-    */
         client = new DiscordRpcClient("1326860770042187796");			
 	
         //Set the logger
