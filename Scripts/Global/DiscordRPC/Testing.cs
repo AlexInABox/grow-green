@@ -3,7 +3,7 @@ using System.Threading;
 using DiscordRPC;
 using DiscordRPC.Logging;
 using Godot;
-namespace GrowGreen.Scripts.DiscordRPC;
+namespace GrowGreen.Global.DiscordRPC;
 
 public partial class Testing: Node2D
 {
