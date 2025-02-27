@@ -4,10 +4,12 @@ using System;
 public partial class LeaveButton : Button
 {
 	SoundPlayer soundPlayer;
+	SettingsManager settingsManager;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		soundPlayer = (SoundPlayer)GetNode("/root/SoundPlayer");
+		settingsManager = (SettingsManager)GetNode("/root/SettingsManager");
 		Pressed += VerlassenAudio;
 	}
 
@@ -17,6 +19,7 @@ public partial class LeaveButton : Button
 	}
 
 	private void Verlassen(){
+		settingsManager.settingsDisplayed = false;
 		GetParent().QueueFree();
 	}
 

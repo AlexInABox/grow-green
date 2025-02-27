@@ -4,7 +4,7 @@ using System;
 public partial class SettingsButton : Button
 {
 	// Called when the node enters the scene tree for the first time.
-	private const string PathToSettingsScene = "res://Scenes/settings.tscn";
+	PackedScene audioScalerPackedScene = GD.Load<PackedScene>("res://Prefabs/audioScaler.tscn");
 	public override void _Ready()
 	{
 		Pressed += ButtonPressedEvent;
@@ -12,7 +12,8 @@ public partial class SettingsButton : Button
 	
 	private void ButtonPressedEvent()
 	{
-		GetTree().ChangeSceneToFile(PathToSettingsScene);
+		Node confirmationPopupInstance = audioScalerPackedScene.Instantiate();
+		GetParent().AddChild(confirmationPopupInstance);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
