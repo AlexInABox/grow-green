@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cybr4i56w8fnp"]
+[gd_scene load_steps=24 format=3 uid="uid://cybr4i56w8fnp"]
 
 [ext_resource type="Script" path="res://Scripts/Tutorial/TutorialSceneManager.cs" id="1_1kq03"]
 [ext_resource type="Texture2D" uid="uid://caplkr8i4j4mp" path="res://Textures/Buttons/UI_Flat_Frame03a.png" id="1_jr2ci"]
@@ -8,6 +8,15 @@
 [ext_resource type="Texture2D" uid="uid://bmpnx8afa8exa" path="res://Textures/Icons/exit.png" id="2_ployn"]
 [ext_resource type="Script" path="res://Scripts/Tutorial/LeaveTutorialButton.cs" id="3_1a7lh"]
 [ext_resource type="SpriteFrames" uid="uid://drp6tx0prs4yn" path="res://SpriteFrames/character.tres" id="4_mv1k2"]
+[ext_resource type="SpriteFrames" uid="uid://bqbew2jpxo5po" path="res://SpriteFrames/buy.tres" id="9_0n32e"]
+[ext_resource type="SpriteFrames" uid="uid://8afkughcdh54" path="res://SpriteFrames/pots.tres" id="10_638my"]
+[ext_resource type="SpriteFrames" uid="uid://dggmjvao2a17k" path="res://SpriteFrames/drag.tres" id="11_70m36"]
+[ext_resource type="SpriteFrames" uid="uid://coebqpthrq02y" path="res://SpriteFrames/water.tres" id="12_rx5ei"]
+[ext_resource type="SpriteFrames" uid="uid://d25o2ea1edym3" path="res://SpriteFrames/packs.tres" id="13_0eo5d"]
+[ext_resource type="SpriteFrames" uid="uid://bard462gip8ek" path="res://SpriteFrames/memory.tres" id="14_eilna"]
+[ext_resource type="Theme" uid="uid://cxgao5s1phj5n" path="res://Themes/mainMenuButtons.tres" id="15_3ugnu"]
+[ext_resource type="Texture2D" uid="uid://osnxfngpexh5" path="res://Textures/Buttons/UI_Flat_IconArrow01c_mirror.png" id="17_od2qi"]
+[ext_resource type="Texture2D" uid="uid://hydswv4l1sfq" path="res://Textures/Buttons/UI_Flat_IconArrow01c.png" id="18_2xoqd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8rt3k"]
 shader = ExtResource("1_ut4pt")
@@ -28,6 +37,9 @@ modulate_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_somyk"]
 texture = ExtResource("2_ployn")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbcon"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [node name="Tutorial" type="Node2D"]
 
 [node name="TutorialSceneManager" type="Node" parent="."]
@@ -41,8 +53,9 @@ texture = ExtResource("1_qm1d8")
 centered = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 1912.0
-offset_bottom = 1078.0
+offset_top = 6.0
+offset_right = 1920.0
+offset_bottom = 1084.0
 color = Color(0, 0, 0, 0.470588)
 
 [node name="BlurLayer" type="ColorRect" parent="."]
@@ -65,40 +78,412 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_somyk")
 script = ExtResource("3_1a7lh")
 metadata/_edit_lock_ = true
 
-[node name="Popup" type="Sprite2D" parent="."]
-position = Vector2(960, 537)
-scale = Vector2(14, 14)
+[node name="CharacterSelection" type="Sprite2D" parent="."]
+position = Vector2(983, 543)
+scale = Vector2(14.9896, 14.9844)
 texture = ExtResource("1_jr2ci")
 region_rect = Rect2(3, 3, 90, 58)
 
-[node name="Title" type="Label" parent="Popup"]
-offset_left = -57.4286
-offset_top = -28.5
-offset_right = 658.571
-offset_bottom = 188.5
-scale = Vector2(0.16, 0.16)
-theme_override_fonts/font = ExtResource("2_ex47q")
-theme_override_font_sizes/font_size = 44
+[node name="ScrollContainer" type="ScrollContainer" parent="CharacterSelection"]
+offset_left = -45.0
+offset_top = -29.0
+offset_right = 963.0
+offset_bottom = 615.0
+scale = Vector2(0.09, 0.09)
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CharacterSelection/ScrollContainer"]
+custom_minimum_size = Vector2(1000, 620)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="CharacterSelection/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 620)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tbcon")
+
+[node name="Title" type="Label" parent="CharacterSelection/ScrollContainer/VBoxContainer/Panel"]
+layout_direction = 1
+layout_mode = 2
+offset_left = 305.791
+offset_top = 1.14703
+offset_right = 405.791
+offset_bottom = 21.147
+scale = Vector2(4, 4)
 text = "Tutorial"
 horizontal_alignment = 1
-autowrap_mode = 3
 
-[node name="GIF" type="AnimatedSprite2D" parent="Popup"]
-position = Vector2(-0.0714296, 0.928573)
-scale = Vector2(0.055, 0.055)
+[node name="GIF" type="AnimatedSprite2D" parent="CharacterSelection/ScrollContainer/VBoxContainer/Panel"]
+position = Vector2(500, 268.092)
+scale = Vector2(0.5, 0.512)
 sprite_frames = ExtResource("4_mv1k2")
 animation = &"character"
 
-[node name="Explanation" type="Label" parent="Popup"]
-offset_left = -35.4286
-offset_top = 22.7143
-offset_right = 949.571
-offset_bottom = 163.714
-scale = Vector2(0.07, 0.07)
+[node name="Explanation" type="Label" parent="CharacterSelection/ScrollContainer/VBoxContainer/Panel"]
+custom_minimum_size = Vector2(1000, 200)
+layout_mode = 2
+offset_left = 4.10003
+offset_top = 471.266
+offset_right = 1004.1
+offset_bottom = 671.266
 theme_override_fonts/font = ExtResource("2_ex47q")
 theme_override_font_sizes/font_size = 44
-text = "Diese Aktion überschreibt deinen alten Speicherstand!
-
-Bist du dir sicher, dass du das möchtest?"
+text = "First off, changing the character to your liking will help you personalize your home. Feel free to try different ones, you can change them how often you feel like."
 horizontal_alignment = 1
 autowrap_mode = 3
+
+[node name="BuyPlants" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(986, 546)
+scale = Vector2(14.99, 14.979)
+texture = ExtResource("1_jr2ci")
+region_rect = Rect2(3, 3, 90, 58)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BuyPlants"]
+offset_left = -45.0
+offset_top = -29.0
+offset_right = 963.0
+offset_bottom = 615.0
+scale = Vector2(0.09, 0.09)
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BuyPlants/ScrollContainer"]
+custom_minimum_size = Vector2(1000, 750)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="BuyPlants/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 750)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tbcon")
+
+[node name="Title" type="Label" parent="BuyPlants/ScrollContainer/VBoxContainer/Panel"]
+layout_direction = 1
+layout_mode = 2
+offset_left = 305.791
+offset_top = 1.14703
+offset_right = 405.791
+offset_bottom = 21.147
+scale = Vector2(4, 4)
+text = "Buy Plants"
+horizontal_alignment = 1
+
+[node name="GIF" type="AnimatedSprite2D" parent="BuyPlants/ScrollContainer/VBoxContainer/Panel"]
+position = Vector2(502.224, 282.18)
+scale = Vector2(0.5, 0.512)
+sprite_frames = ExtResource("9_0n32e")
+animation = &"buy"
+
+[node name="Explanation" type="Label" parent="BuyPlants/ScrollContainer/VBoxContainer/Panel"]
+custom_minimum_size = Vector2(1000, 200)
+layout_mode = 2
+offset_left = 2.61751
+offset_top = 498.702
+offset_right = 1002.62
+offset_bottom = 735.702
+theme_override_fonts/font = ExtResource("2_ex47q")
+theme_override_font_sizes/font_size = 44
+text = "To add plants to your collection, open the shop and buy a plant by simply clicking on it. The plants are in three rows, sorted by their difficulty level. The difficulty has effects on the price and grow speed. After buying the plant will automatically appear in your home."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Pots" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(986, 546)
+scale = Vector2(14.99, 14.979)
+texture = ExtResource("1_jr2ci")
+region_rect = Rect2(3, 3, 90, 58)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Pots"]
+offset_left = -45.0
+offset_top = -29.0
+offset_right = 963.0
+offset_bottom = 615.0
+scale = Vector2(0.09, 0.09)
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pots/ScrollContainer"]
+custom_minimum_size = Vector2(1000, 850)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Pots/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 850)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tbcon")
+
+[node name="Title" type="Label" parent="Pots/ScrollContainer/VBoxContainer/Panel"]
+layout_direction = 1
+layout_mode = 2
+offset_left = 305.791
+offset_top = 1.14703
+offset_right = 405.791
+offset_bottom = 21.147
+scale = Vector2(4, 4)
+text = "Pots"
+horizontal_alignment = 1
+
+[node name="GIF" type="AnimatedSprite2D" parent="Pots/ScrollContainer/VBoxContainer/Panel"]
+position = Vector2(502.224, 282.18)
+scale = Vector2(0.5, 0.512)
+sprite_frames = ExtResource("10_638my")
+animation = &"pots"
+
+[node name="Explanation" type="Label" parent="Pots/ScrollContainer/VBoxContainer/Panel"]
+custom_minimum_size = Vector2(1000, 200)
+layout_mode = 2
+offset_left = 2.61751
+offset_top = 498.702
+offset_right = 1002.62
+offset_bottom = 735.702
+theme_override_fonts/font = ExtResource("2_ex47q")
+theme_override_font_sizes/font_size = 44
+text = "You have multiple specimen of the same plant? No problem! By changing the color of the pot, you can easily differentiate them. No risk of mix-ups! Select the color of your choice and tap the pot, you want to change. If you open Potpacks, your price will be automatically added to the pot selection and you can use the skins how often you want."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="ChangeLayout" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(986, 546)
+scale = Vector2(14.99, 14.979)
+texture = ExtResource("1_jr2ci")
+region_rect = Rect2(3, 3, 90, 58)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ChangeLayout"]
+offset_left = -45.0
+offset_top = -29.0
+offset_right = 963.0
+offset_bottom = 615.0
+scale = Vector2(0.09, 0.09)
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChangeLayout/ScrollContainer"]
+custom_minimum_size = Vector2(1000, 650)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="ChangeLayout/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 650)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tbcon")
+
+[node name="Title" type="Label" parent="ChangeLayout/ScrollContainer/VBoxContainer/Panel"]
+layout_direction = 1
+layout_mode = 2
+offset_left = 251.686
+offset_top = 2.51537
+offset_right = 374.686
+offset_bottom = 22.5154
+scale = Vector2(4, 4)
+text = "Change your Layout"
+horizontal_alignment = 1
+
+[node name="GIF" type="AnimatedSprite2D" parent="ChangeLayout/ScrollContainer/VBoxContainer/Panel"]
+position = Vector2(502.224, 282.18)
+scale = Vector2(0.5, 0.512)
+sprite_frames = ExtResource("11_70m36")
+animation = &"drag"
+
+[node name="Explanation" type="Label" parent="ChangeLayout/ScrollContainer/VBoxContainer/Panel"]
+custom_minimum_size = Vector2(1000, 200)
+layout_mode = 2
+offset_left = 2.61751
+offset_top = 498.702
+offset_right = 1002.62
+offset_bottom = 735.702
+theme_override_fonts/font = ExtResource("2_ex47q")
+theme_override_font_sizes/font_size = 44
+text = "Change the layout of your home by selecting a plant and dragging it to your preffered position. If only furnishing was this easy in real life, right?"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="WaterPlants" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(986, 546)
+scale = Vector2(14.99, 14.979)
+texture = ExtResource("1_jr2ci")
+region_rect = Rect2(3, 3, 90, 58)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="WaterPlants"]
+offset_left = -45.0
+offset_top = -29.0
+offset_right = 963.0
+offset_bottom = 615.0
+scale = Vector2(0.09, 0.09)
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WaterPlants/ScrollContainer"]
+custom_minimum_size = Vector2(1000, 790)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="WaterPlants/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 790)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tbcon")
+
+[node name="Title" type="Label" parent="WaterPlants/ScrollContainer/VBoxContainer/Panel"]
+layout_direction = 1
+layout_mode = 2
+offset_left = 288.748
+offset_top = 1.03181
+offset_right = 399.748
+offset_bottom = 21.0318
+scale = Vector2(4, 4)
+text = "Water your Plants"
+horizontal_alignment = 1
+
+[node name="GIF" type="AnimatedSprite2D" parent="WaterPlants/ScrollContainer/VBoxContainer/Panel"]
+position = Vector2(502.224, 282.18)
+scale = Vector2(0.5, 0.512)
+sprite_frames = ExtResource("12_rx5ei")
+animation = &"water"
+
+[node name="Explanation" type="Label" parent="WaterPlants/ScrollContainer/VBoxContainer/Panel"]
+custom_minimum_size = Vector2(1000, 200)
+layout_mode = 2
+offset_left = 2.61751
+offset_top = 498.702
+offset_right = 1002.62
+offset_bottom = 735.702
+theme_override_fonts/font = ExtResource("2_ex47q")
+theme_override_font_sizes/font_size = 44
+text = "When hovering over a plant, you will see their german name, plant class, growth status and watering level. To water your plant, simply click on it (shortly) BUT be cautious, if you overwater your plants, they will rot. If you forget to water them, they will dry out - just as in real life."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="PlantPacks" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(986, 546)
+scale = Vector2(14.99, 14.979)
+texture = ExtResource("1_jr2ci")
+region_rect = Rect2(3, 3, 90, 58)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PlantPacks"]
+offset_left = -45.0
+offset_top = -29.0
+offset_right = 963.0
+offset_bottom = 615.0
+scale = Vector2(0.09, 0.09)
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlantPacks/ScrollContainer"]
+custom_minimum_size = Vector2(1000, 890)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="PlantPacks/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 890)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tbcon")
+
+[node name="Title" type="Label" parent="PlantPacks/ScrollContainer/VBoxContainer/Panel"]
+layout_direction = 1
+layout_mode = 2
+offset_left = 305.791
+offset_top = 1.14703
+offset_right = 405.791
+offset_bottom = 21.147
+scale = Vector2(4, 4)
+text = "Plant Packs"
+horizontal_alignment = 1
+
+[node name="GIF" type="AnimatedSprite2D" parent="PlantPacks/ScrollContainer/VBoxContainer/Panel"]
+position = Vector2(502.224, 282.18)
+scale = Vector2(0.5, 0.512)
+sprite_frames = ExtResource("13_0eo5d")
+animation = &"packs"
+
+[node name="Explanation" type="Label" parent="PlantPacks/ScrollContainer/VBoxContainer/Panel"]
+custom_minimum_size = Vector2(1000, 200)
+layout_mode = 2
+offset_left = 2.61751
+offset_top = 498.702
+offset_right = 1002.62
+offset_bottom = 735.702
+theme_override_fonts/font = ExtResource("2_ex47q")
+theme_override_font_sizes/font_size = 44
+text = "When opening Plantpacks, you have the chance of a easy, middle or hard plant - all for only six coins. After buying the pack, you have to open it, to see the plant you won. To continue either opening packs or playing, click the plant once. It'll be directly added to your home. The logic behind Potpacks is the same, but they're more expensive, because you will win a special not-for-sale potskin, which you can use forever, how many times you want."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Memory" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(986, 546)
+scale = Vector2(14.99, 14.979)
+texture = ExtResource("1_jr2ci")
+region_rect = Rect2(3, 3, 90, 58)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Memory"]
+offset_left = -45.0
+offset_top = -29.0
+offset_right = 963.0
+offset_bottom = 615.0
+scale = Vector2(0.09, 0.09)
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Memory/ScrollContainer"]
+custom_minimum_size = Vector2(1000, 850)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Memory/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 850)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tbcon")
+
+[node name="Title" type="Label" parent="Memory/ScrollContainer/VBoxContainer/Panel"]
+layout_direction = 1
+layout_mode = 2
+offset_left = 251.686
+offset_top = 2.51537
+offset_right = 374.686
+offset_bottom = 22.5154
+scale = Vector2(4, 4)
+text = "Minigame: Memory"
+horizontal_alignment = 1
+
+[node name="GIF" type="AnimatedSprite2D" parent="Memory/ScrollContainer/VBoxContainer/Panel"]
+position = Vector2(502.224, 282.18)
+scale = Vector2(0.5, 0.512)
+sprite_frames = ExtResource("14_eilna")
+animation = &"memory"
+
+[node name="Explanation" type="Label" parent="Memory/ScrollContainer/VBoxContainer/Panel"]
+custom_minimum_size = Vector2(1000, 200)
+layout_mode = 2
+offset_left = 2.61751
+offset_top = 498.702
+offset_right = 1002.62
+offset_bottom = 735.702
+theme_override_fonts/font = ExtResource("2_ex47q")
+theme_override_font_sizes/font_size = 44
+text = "The goal of memory is matching all the hidden pairs. When finishing a round, you'll win coins. The amount of coins depends on the difficulty you've chosen, the harder the game, the bigger the reward.
+
+Have fun (but not too much, we don't want you to forget your real life plants (and friends))!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Previous" type="Button" parent="."]
+visible = false
+offset_left = 94.0
+offset_top = 454.0
+offset_right = 185.0
+offset_bottom = 545.0
+scale = Vector2(1.4, 1.4)
+theme = ExtResource("15_3ugnu")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Previous"]
+position = Vector2(47.1429, 42.857)
+scale = Vector2(6, 6)
+texture = ExtResource("17_od2qi")
+
+[node name="Next" type="Button" parent="."]
+offset_left = 1740.0
+offset_top = 456.0
+offset_right = 1831.0
+offset_bottom = 547.0
+scale = Vector2(1.4, 1.4)
+theme = ExtResource("15_3ugnu")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Next"]
+position = Vector2(47.1428, 42.8571)
+scale = Vector2(6, 6)
+texture = ExtResource("18_2xoqd")
