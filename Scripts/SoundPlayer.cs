@@ -19,12 +19,24 @@ public partial class SoundPlayer : AudioStreamPlayer
 	private static readonly AudioStream pack = (AudioStream) GD.Load("res://Sounds/Effects/Buttons/Pack.mp3");
 	private static readonly AudioStream boom = (AudioStream) GD.Load("res://Sounds/Effects/Easteregg.mp3");
 
-	private void _play_sound(AudioStream music, float volume = 0.0f)
+	public float soundVolume = 0.0f;
+
+	private void _play_sound(AudioStream music)
 	{
 		Stream = music;
-		VolumeDb = volume;
+		VolumeDb = soundVolume;	
 		Play();
 	}
+
+	public void SetVolume(float volume)
+    {
+        soundVolume = volume;
+        if (Playing)
+        {
+            VolumeDb = soundVolume;
+        }
+    }
+
 	public void PlayButtonCick()
 	{
 		_play_sound(buttonClick);
