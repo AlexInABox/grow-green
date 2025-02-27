@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bp4pm6nyj77pp"]
+[gd_scene load_steps=37 format=3 uid="uid://bp4pm6nyj77pp"]
 
 [ext_resource type="Theme" uid="uid://cxgao5s1phj5n" path="res://Themes/mainMenuButtons.tres" id="1_0cr8b"]
 [ext_resource type="Script" path="res://Scripts/TitleSceneManager.cs" id="1_eympr"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://uq5amk2rjiey" path="res://Textures/Buttons/UI_Flat_Banner01a.png" id="7_e4g20"]
 [ext_resource type="Script" path="res://Scripts/CreditsButton.cs" id="7_pf44q"]
 [ext_resource type="Theme" uid="uid://dado8c3hcwn42" path="res://Themes/Title Panel.tres" id="7_wmu50"]
+[ext_resource type="Texture2D" uid="uid://0nur0mcf7bya" path="res://Textures/Icons/Icons/Info.png" id="8_nuly8"]
 [ext_resource type="Script" path="res://Scripts/CharacterSelection.cs" id="8_ouchp"]
 [ext_resource type="Theme" uid="uid://dmjhuaiflncfp" path="res://Themes/titleLabel.tres" id="9_83qmt"]
 [ext_resource type="Theme" uid="uid://cxxlwbnncwcxi" path="res://Themes/versionNumberLabel.tres" id="10_jq2tx"]
@@ -30,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://c17of3qgjuat6" path="res://Textures/Aliens/8_alien.png" id="24_xjrxt"]
 [ext_resource type="Texture2D" uid="uid://x0nx1c612b12" path="res://Textures/Aliens/9_alien.png" id="25_qnafe"]
 [ext_resource type="Texture2D" uid="uid://dvm4gmtbhpl4h" path="res://Textures/Aliens/10_alien.png" id="26_xwqfp"]
+[ext_resource type="Texture2D" uid="uid://dkxnqcfp5j0o8" path="res://Textures/Icons/Icons/Gear.png" id="30_uuuul"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_epo8v"]
 shader = ExtResource("2_pgwvi")
@@ -87,13 +89,19 @@ script = ExtResource("6_h7u0b")
 
 [node name="Credits" type="Button" parent="."]
 offset_left = 103.0
-offset_top = 749.0
-offset_right = 362.0
-offset_bottom = 840.0
+offset_top = 750.0
+offset_right = 194.0
+offset_bottom = 841.0
 scale = Vector2(1.4, 1.4)
 theme = ExtResource("1_0cr8b")
-text = "Credits"
+icon_alignment = 1
+expand_icon = true
 script = ExtResource("7_pf44q")
+
+[node name="Sprite2D" type="Sprite2D" parent="Credits"]
+position = Vector2(46.4286, 43.5714)
+scale = Vector2(4.25, 4.25)
+texture = ExtResource("8_nuly8")
 
 [node name="UiFlatBanner01a" type="Sprite2D" parent="."]
 position = Vector2(960, 157)
@@ -320,13 +328,29 @@ position = Vector2(155, 237)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("26_xwqfp")
 
+[node name="Settings" type="Button" parent="."]
+offset_left = 297.0
+offset_top = 750.0
+offset_right = 388.0
+offset_bottom = 841.0
+scale = Vector2(1.4, 1.4)
+theme = ExtResource("1_0cr8b")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("7_pf44q")
+
+[node name="Sprite2D" type="Sprite2D" parent="Settings"]
+position = Vector2(46.115, 40)
+scale = Vector2(3.95, 3.95)
+texture = ExtResource("30_uuuul")
+
 [node name="Power" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 486.0
-offset_top = 749.0
+offset_top = 750.0
 offset_right = 577.0
-offset_bottom = 840.0
+offset_bottom = 841.0
 scale = Vector2(1.4, 1.4)
 
 [node name="PowerButton" type="Button" parent="Power"]
@@ -339,6 +363,6 @@ theme = ExtResource("1_0cr8b")
 script = ExtResource("16_wsys8")
 
 [node name="Sprite2D" type="Sprite2D" parent="Power"]
-position = Vector2(47.1429, 40)
-scale = Vector2(4.53571, 4.95982)
+position = Vector2(48.5714, 40.7143)
+scale = Vector2(4.241, 4.637)
 texture = ExtResource("16_82qyu")
