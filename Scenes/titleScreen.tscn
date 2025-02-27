@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bp4pm6nyj77pp"]
+[gd_scene load_steps=38 format=3 uid="uid://bp4pm6nyj77pp"]
 
 [ext_resource type="Theme" uid="uid://cxgao5s1phj5n" path="res://Themes/mainMenuButtons.tres" id="1_0cr8b"]
 [ext_resource type="Script" path="res://Scripts/TitleSceneManager.cs" id="1_eympr"]
@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://c17of3qgjuat6" path="res://Textures/Aliens/8_alien.png" id="24_xjrxt"]
 [ext_resource type="Texture2D" uid="uid://x0nx1c612b12" path="res://Textures/Aliens/9_alien.png" id="25_qnafe"]
 [ext_resource type="Texture2D" uid="uid://dvm4gmtbhpl4h" path="res://Textures/Aliens/10_alien.png" id="26_xwqfp"]
+[ext_resource type="Script" path="res://Scripts/TitleScene/SettingsButton.cs" id="30_rlf84"]
 [ext_resource type="Texture2D" uid="uid://dkxnqcfp5j0o8" path="res://Textures/Icons/Icons/Gear.png" id="30_uuuul"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_epo8v"]
@@ -337,7 +338,7 @@ scale = Vector2(1.4, 1.4)
 theme = ExtResource("1_0cr8b")
 icon_alignment = 1
 expand_icon = true
-script = ExtResource("7_pf44q")
+script = ExtResource("30_rlf84")
 
 [node name="Sprite2D" type="Sprite2D" parent="Settings"]
 position = Vector2(46.115, 40)
