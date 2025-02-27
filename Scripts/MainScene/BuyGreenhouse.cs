@@ -4,20 +4,24 @@ using System;
 public partial class BuyGreenhouse : Button
 {
 	SceneManager sceneManager;
+	SoundPlayer soundPlayer;
 
-	private int greenhouseCost = 1;
+	private int greenhouseCost = 100;
 	
 	private MainSzene mainSzene;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		sceneManager = GetTree().GetCurrentScene().GetNode<SceneManager>("SceneManager");
-		mainSzene = GetTree().GetCurrentScene().GetNode<MainSzene>("MainSceneScript");
+		soundPlayer = (SoundPlayer)GetNode("/root/SoundPlayer");
+		sceneManager = GetNode<SceneManager>("/root/MainSzene/SceneManager");
+		mainSzene = GetNode<MainSzene>("/root/MainSzene/MainSceneScript");
 		Pressed += TryBuyGreenhouse;
+		
 	}
 
 	public void TryBuyGreenhouse()
 	{
+		soundPlayer.PlayButtonCick();
 		if (sceneManager.GetCoinCount() >= greenhouseCost)
 		{
 			sceneManager.SetCoinCount(sceneManager.GetCoinCount() - greenhouseCost);

@@ -7,10 +7,18 @@ public partial class CustomPotButton : Button
 {
     private Panel potSelectPanel;
     private SceneManager sceneManager;
+    SoundPlayer soundPlayer;
 
     public override void _Ready()
     {
+        soundPlayer = (SoundPlayer)GetNode("/root/SoundPlayer");
+        if (GetTree().GetCurrentScene().HasNode("SceneManager")){
         sceneManager = GetTree().GetCurrentScene().GetNode<SceneManager>("SceneManager");
+        }
+        else{
+        GD.Print("SceneManager node not found!");
+        }
+
         potSelectPanel = GetTree().GetCurrentScene().GetNode<Panel>("PotSkins/Panel");
 
         Pressed += OnButtonPressed;
@@ -19,6 +27,7 @@ public partial class CustomPotButton : Button
     // Wenn ein Button gedrückt wird, aktiviere den Sprite-Auswahlmodus
     private void OnButtonPressed()
     {
+        soundPlayer.PlayButtonCick();
         potSelectPanel.Visible = false;
         BlockWateringForAllPlants();
         PrepareAllPlantsForImminentPotChange();
@@ -26,6 +35,7 @@ public partial class CustomPotButton : Button
 
     private void OnPotSkinApplied()
     {
+        soundPlayer.PlayButtonCick();
         UnAlertAllPlantsForImminentPotChange();
         AllowWateringForAllPlants();
     }
@@ -33,8 +43,6 @@ public partial class CustomPotButton : Button
     private void BlockWateringForAllPlants()
     {
         List<PlantWrapper> listOfAllPlantWrapper = sceneManager.GetListOfAllPlantWrapperInScene();
-        GD.Print("BlockWateringForAllPlants");
-        GD.Print(listOfAllPlantWrapper.Count);
         foreach (PlantWrapper plantWrapper in listOfAllPlantWrapper)
         {
             PlantButton plantButton = plantWrapper.GetNode<PlantButton>("Button");

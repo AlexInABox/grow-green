@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://wgxhohnyfdiy"]
+[gd_scene load_steps=11 format=3 uid="uid://wgxhohnyfdiy"]
 
 [ext_resource type="Texture2D" uid="uid://ibc4r6vtoalt" path="res://Textures/Backgrounds/creditsBackground.png" id="1_cyscu"]
+[ext_resource type="Script" path="res://Scripts/Credits.cs" id="1_xuib2"]
 [ext_resource type="Theme" uid="uid://bbdcfkyq8ydu1" path="res://Themes/creditsLabels.tres" id="2_ikdca"]
 [ext_resource type="FontFile" uid="uid://16884th6cwds" path="res://Fonts/Jersey25-Regular.ttf" id="3_m7drt"]
 [ext_resource type="Texture2D" uid="uid://bmpnx8afa8exa" path="res://Textures/Icons/exit.png" id="4_vmane"]
@@ -20,6 +21,7 @@ modulate_color = Color(0, 0, 0, 1)
 texture = ExtResource("4_vmane")
 
 [node name="Credits" type="Node2D"]
+script = ExtResource("1_xuib2")
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -1

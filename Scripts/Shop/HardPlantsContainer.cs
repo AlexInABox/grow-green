@@ -28,7 +28,7 @@ using System.Collections.Generic;
 			var shopPrefabInstance = shopPrefab.Instantiate();
 			AddChild(shopPrefabInstance);
 			var easyShopWrapper = shopPrefabInstance.GetNode<Node2D>("../ShopWrapper");
-			easyShopWrapper.Set("position", new Vector2(240*counter, 110));
+			easyShopWrapper.Set("position", new Vector2(240*counter, 40));
 			easyShopWrapper.Set("name", "freaky" + counter);
 
 			Button shopButton = easyShopWrapper.GetNode<Button>("PlantButton");
@@ -36,29 +36,29 @@ using System.Collections.Generic;
 			Label NameLabel = easyShopWrapper.GetNode<Label>("statusBubble/NameLabel");
 			Label DifficultyLabel = easyShopWrapper.GetNode<Label>("statusBubble/DifficultyLabel");
 			Label PreisLabel = easyShopWrapper.GetNode<Label>("statusBubble/Price");
+			Sprite2D BubblePlant = easyShopWrapper.GetNode<Sprite2D>("statusBubble/Plant");
 			
 			var styleBoxTextureNormal = new StyleBoxTexture();
 			styleBoxTextureNormal.Texture = (Texture2D)GD.Load(PlantTexture);
-			var styleBoxTextureSeed = new StyleBoxTexture();
-			styleBoxTextureSeed.Texture = (Texture2D)GD.Load(SeedTexture);
-			var styleBoxTextureSeedPressed = new StyleBoxTexture();
-			styleBoxTextureSeedPressed.Texture = (Texture2D)GD.Load(SeedTexture);
-			styleBoxTextureSeedPressed.ModulateColor = new Color(0f, 0f, 0f);
+			var styleBoxTextureHover = new StyleBoxTexture();
+			var styleBoxTexturePressed = new StyleBoxTexture();
 
 			var theme = Theme ?? new Theme();
 
 			theme.SetStylebox("normal", "Button", styleBoxTextureNormal);
-			theme.SetStylebox("hover", "Button", styleBoxTextureSeed);
-			theme.SetStylebox("pressed", "Button", styleBoxTextureSeedPressed);
+			theme.SetStylebox("hover", "Button", styleBoxTextureHover);
+			theme.SetStylebox("pressed", "Button", styleBoxTexturePressed);
+			theme.SetStylebox("focus", "Button", styleBoxTexturePressed);
 
 			shopButton.Theme = theme;
 			shopButton.CustomMinimumSize = new Vector2(240, 240);
 
 			Bubble.Visible = false;
-			Bubble.Position = new Vector2(220, -50);
-			Bubble.Scale = new Vector2(7, 7);
+			Bubble.Position = new Vector2(120, 80);
+			Bubble.Scale = new Vector2(8, 8);
 
 			NameLabel.Text = plant.className;
+			BubblePlant.Texture = (Texture2D)GD.Load(PlantTexture);
 			DifficultyLabel.Text = "schwer";
 			DifficultyLabel.AddThemeColorOverride("font_color", new Color(0.5372549019607843f, 0.2235294117647059f, 0.2f));
 			string costAsString = plant.cost.ToString();
@@ -67,6 +67,7 @@ using System.Collections.Generic;
 			ShopPlantButton shopButtonScript = easyShopWrapper.GetNode<ShopPlantButton>("PlantButton");
 			shopButtonScript.className = plant.className;
 			shopButtonScript.cost = plant.cost;
+
 
 			counter++;
 			easyShopWrapper.AddChild(myNewSprite);

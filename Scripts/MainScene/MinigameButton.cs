@@ -5,15 +5,18 @@ namespace MainScene;
 public partial class MinigameButton : Button
 {
 	SceneManager sceneManager;
+	SoundPlayer soundPlayer;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		sceneManager = GetTree().GetCurrentScene().GetNode<SceneManager>("SceneManager");
+		soundPlayer = (SoundPlayer)GetNode("/root/SoundPlayer");
+		sceneManager = GetNode<SceneManager>("../SceneManager");
 		Pressed += ButtonPressed;
 	}
 
 	private void ButtonPressed()
 	{
+		soundPlayer.PlayButtonCick();
 		sceneManager.UpdateSaveBlocking();
 		var newScene = "res://Scenes/MinigameSzene.tscn";
 		GetTree().ChangeSceneToFile(newScene);

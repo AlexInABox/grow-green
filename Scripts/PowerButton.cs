@@ -3,10 +3,12 @@ using System;
 
 public partial class PowerButton : Button
 {
+	SoundPlayer soundPlayer;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		Pressed += ButtonPressed;
+		soundPlayer = (SoundPlayer)GetNode("/root/SoundPlayer");
+		Pressed += ButtonPressedSound;
 		MouseEntered += Hovered;
 		ButtonDown += ButtonDowned;
 		ButtonUp += ButtonUped;
@@ -22,9 +24,13 @@ public partial class PowerButton : Button
 		Node2D sprite = GetNode<Node2D>("../Sprite2D");
 		sprite.MoveLocalY(5);
 	}
+	private void ButtonPressedSound()
+	{
+		soundPlayer.PlayButtonCick();
+		ButtonPressed();
+	}
 	private void ButtonPressed()
 	{
-
 		GetTree().Quit();
 	}
 

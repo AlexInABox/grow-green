@@ -13,10 +13,12 @@ public partial class PackOpening : Button
     private Plant tempPlant;
     private PackSpawner packSpawner;
     private bool packIsOpen = false;
+    SoundPlayer soundPlayer;
 
     
     public override void _Ready()
     {
+        soundPlayer = (SoundPlayer)GetNode("/root/SoundPlayer");
         Pressed += ButtonPressed;
         plantList = db.GetListOfAllPlants();
         
@@ -44,6 +46,7 @@ public partial class PackOpening : Button
 
     private void OpenPack()
     {
+        soundPlayer.PlayPack();
         RemovePlantSprite();
 
         Random random = new Random();

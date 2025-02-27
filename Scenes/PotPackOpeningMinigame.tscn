@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bguxo788a0516"]
+[gd_scene load_steps=14 format=3 uid="uid://bguxo788a0516"]
 
 [ext_resource type="Script" path="res://Scripts/PotPackSpawner.cs" id="1_6pbmw"]
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="2_evs51"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" path="res://Scripts/PlantPack/LeaveButton.cs" id="9_5fjvm"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eradl"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iptgu"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dicth"]
 texture = ExtResource("8_db748")
@@ -66,6 +68,7 @@ offset_top = 5.0
 offset_right = 155.0
 offset_bottom = 155.0
 theme_override_styles/focus = SubResource("StyleBoxTexture_eradl")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_iptgu")
 theme_override_styles/hover = SubResource("StyleBoxTexture_dicth")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_w04y5")
 theme_override_styles/normal = SubResource("StyleBoxTexture_7yy41")

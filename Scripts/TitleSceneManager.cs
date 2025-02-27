@@ -19,7 +19,8 @@ public partial class TitleSceneManager : Node
 		} else {
 			playerObject = db.GetPlayerObject();
 		}
-
+		AudioPlayer audioPlayer = (AudioPlayer)GetNode("/root/AudioPlayer");
+		audioPlayer.PlayTitleMusic();
 	}
 
 	public int GetCharacterId(){
@@ -37,7 +38,7 @@ public partial class TitleSceneManager : Node
 	public void CreateNewGame(){
 		db.CreateNewSave();
 
-	    int characterId = playerObject.characterId;
+		int characterId = playerObject.characterId;
 		playerObject = new Player(characterId);
 
 		SaveMyPlayerObjectAndCreateTheGame();

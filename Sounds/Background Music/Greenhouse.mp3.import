@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cjm4q6u83silc"
+path="res://.godot/imported/Greenhouse.mp3-affa5039ac4e54881efe44f25d01f42b.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Background Music/Greenhouse.mp3"
+dest_files=["res://.godot/imported/Greenhouse.mp3-affa5039ac4e54881efe44f25d01f42b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

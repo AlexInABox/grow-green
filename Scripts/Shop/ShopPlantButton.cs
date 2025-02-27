@@ -8,10 +8,13 @@ public partial class ShopPlantButton : Button
 	public string className = "";
 
 	SceneManager sceneManager;
+	SoundPlayer soundPlayer;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		sceneManager = GetTree().GetCurrentScene().GetNode<SceneManager>("SceneManager");
+		soundPlayer = (SoundPlayer)GetNode("/root/SoundPlayer");
+		sceneManager = GetNode<SceneManager>("../../../../../SceneManager");
 		MouseEntered += ButtonHovered;
 		MouseExited += ButtonNotHovered;
 		Pressed += ButtonGotPressed;
@@ -27,20 +30,16 @@ public partial class ShopPlantButton : Button
 		statusBubble.Hide();
 	}
 
-	private void ButtonGotPressed() {
-		if (sceneManager.GetCoinCount() < cost) {
-		} else {
-			while (sceneManager.IsSaveLocked())
-			{
-				// Wait for .1 seconds (100 milliseconds)
-				System.Threading.Thread.Sleep(100);
-			}
-			sceneManager.SetCoinCount(sceneManager.GetCoinCount() - cost);
-
-			Plant plant = sceneManager.GetPlantByClassName(className);
-			sceneManager.AddNewPlantToListOfOwnedPlants(plant);
-		}
-	}
+	private void ButtonGotPressed() { 
+		soundPlayer.PlayButtonCick();
+		PackedScene confirmationPopup = GD.Load<PackedScene>("res://Prefabs/shopBuyConfirmation_popup.tscn");
+		Node confirmationPopupInstance = confirmationPopup.Instantiate();
+		ConfirmationPopup PopupScript = (ConfirmationPopup)confirmationPopupInstance;
+		PopupScript.SetClassName(className);
+		PopupScript.SetPrice(cost);
+		PopupScript.ChangeLabel();
+		GetParent().GetParent().GetParent().GetParent().GetParent().AddChild(confirmationPopupInstance);
+	} 
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)

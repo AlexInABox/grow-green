@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://ea1g0ffnyjnb"]
+[gd_scene load_steps=17 format=3 uid="uid://ea1g0ffnyjnb"]
 
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_01qya"]
 [ext_resource type="Texture2D" uid="uid://pklblu1n2kih" path="res://Textures/Backgrounds/ShopBackground.png" id="1_8vc7e"]
+[ext_resource type="Script" path="res://Scripts/Shop/ShopSzene.cs" id="1_wid7o"]
 [ext_resource type="Script" path="res://Scripts/Shop/LeaveButton.cs" id="3_sufmd"]
 [ext_resource type="Script" path="res://Scripts/Shop/EasyPlantsContainercs.cs" id="3_ykhpk"]
 [ext_resource type="Script" path="res://Scripts/Shop/MediumPlantsContainer.cs" id="4_v6w1e"]
@@ -30,6 +31,7 @@ texture = ExtResource("6_iq0d4")
 
 [node name="ShopSzene" type="Node2D"]
 z_index = -10
+script = ExtResource("1_wid7o")
 
 [node name="SceneManager" type="Node" parent="."]
 script = ExtResource("1_01qya")
@@ -67,7 +69,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_ypfra")
 [node name="ScrollContainer" type="ScrollContainer" parent="EasyPlants"]
 layout_mode = 0
 offset_left = 36.0
-offset_top = -63.0
+offset_top = 13.0
 offset_right = 1812.0
 offset_bottom = 264.0
 
@@ -88,9 +90,9 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_jlq6n")
 [node name="ScrollContainer" type="ScrollContainer" parent="MediumPlants"]
 layout_mode = 0
 offset_left = 36.0
-offset_top = -63.0
+offset_top = 11.0
 offset_right = 1812.0
-offset_bottom = 264.0
+offset_bottom = 262.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MediumPlants/ScrollContainer"]
 custom_minimum_size = Vector2(1920, 240)
@@ -107,9 +109,9 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_q2255")
 [node name="ScrollContainer" type="ScrollContainer" parent="HardPlants"]
 layout_mode = 0
 offset_left = 36.0
-offset_top = -63.0
+offset_top = 11.0
 offset_right = 1812.0
-offset_bottom = 264.0
+offset_bottom = 262.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HardPlants/ScrollContainer"]
 custom_minimum_size = Vector2(1920, 240)

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://db6y7bvmgwmbk"
+path="res://.godot/imported/Shop.mp3-92d4caa7635cd922569651a48bff243d.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Background Music/Shop.mp3"
+dest_files=["res://.godot/imported/Shop.mp3-92d4caa7635cd922569651a48bff243d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

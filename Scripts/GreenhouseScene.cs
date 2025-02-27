@@ -9,7 +9,9 @@ public partial class GreenhouseScene : Node
 
 	public override void _Ready()
 	{
-		sceneManager = GetTree().GetCurrentScene().GetNode<SceneManager>("SceneManager");
+		AudioPlayer audioPlayer = (AudioPlayer)GetNode("/root/AudioPlayer");
+		audioPlayer.PlayGreenMusic();
+		sceneManager = GetNode<SceneManager>("../SceneManager");
 		List<Plant> plantList = sceneManager.GetListOfOwnedPlants(); 
 		PlaceAllPlants(plantList);
 	}

@@ -4,14 +4,17 @@ using System;
 public partial class ShopButton : Button
 {
 	SceneManager sceneManager;
+	SoundPlayer soundPlayer;
 	public override void _Ready()
 	{
-		sceneManager = GetTree().GetCurrentScene().GetNode<SceneManager>("SceneManager");
+		soundPlayer = (SoundPlayer)GetNode("/root/SoundPlayer");
+		sceneManager = GetNode<SceneManager>("../SceneManager");
 		Pressed += ButtonPressed;
 	}
 
 	private void ButtonPressed()
 	{
+		soundPlayer.PlayButtonCick();
 		sceneManager.UpdateSaveBlocking();
 		var shopScene = "res://Scenes/ShopSzene.tscn";
 		GetTree().ChangeSceneToFile(shopScene);

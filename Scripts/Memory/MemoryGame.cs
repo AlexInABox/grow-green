@@ -18,14 +18,18 @@ public partial class MemoryGame : Node
 	private int reward;
 	private String scenePath;
 	private string[] nodeNames;
-    private Vector2 sizeEdit;
+	private Vector2 sizeEdit;
+	SoundPlayer soundPlayer;
 	
 	public override void _Ready()
 	{
-		sceneManager = GetTree().GetCurrentScene().GetNode<SceneManager>("SceneManager");
+		soundPlayer = (SoundPlayer)GetNode("/root/SoundPlayer");
+		sceneManager = GetNode<SceneManager>("SceneManager");
 		prefab = (PackedScene)ResourceLoader.Load("res://Prefabs/MemoryCard.tscn");
 		scenePath = GetTree().CurrentScene.SceneFilePath;
 		string sceneName = System.IO.Path.GetFileNameWithoutExtension(scenePath);
+		AudioPlayer audioPlayer = (AudioPlayer)GetNode("/root/AudioPlayer");
+		audioPlayer.PlayMemoryMusic();
 		
 		switch (sceneName)
 		{
@@ -92,6 +96,7 @@ public partial class MemoryGame : Node
 		{
 			if (card.GetId() == lastCard.GetId() && card != lastCard)
 			{
+				soundPlayer.PlayTrash();
 				PairFound(card, lastCard);
 				lastCard = null;
 
@@ -129,6 +134,7 @@ public partial class MemoryGame : Node
 
 	private void EndGame()
 	{
+		soundPlayer.PlayMemoryWin();
 		var coins = sceneManager.GetCoinCount() + reward ;
 		sceneManager.SetCoinCount(coins);
 		
@@ -187,6 +193,5 @@ public partial class MemoryGame : Node
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		
 	}
 }
