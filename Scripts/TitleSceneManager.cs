@@ -64,10 +64,9 @@ public partial class TitleSceneManager : Node
 		//blurLayer.Show();
 	}
 	
-	public void SpawnTutorialPopup(){
-		PackedScene tutorialPopup = GD.Load<PackedScene>("res://Prefabs/tutorial_popup.tscn");
-		Node tutorialPopupInstance = tutorialPopup.Instantiate();
-		GetParent().AddChild(tutorialPopupInstance);
+	public void OpenTutorial(){
+		string tutorialScene = "res://Scenes/Tutorial/Tutorial.tscn";
+		GetTree().ChangeSceneToFile(tutorialScene);
 	}
 
 	public override void _Process(double delta)

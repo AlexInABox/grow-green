@@ -1,8 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://cybr4i56w8fnp"]
+[gd_scene load_steps=14 format=3 uid="uid://cybr4i56w8fnp"]
 
+[ext_resource type="Script" path="res://Scripts/Tutorial/TutorialSceneManager.cs" id="1_1kq03"]
 [ext_resource type="Texture2D" uid="uid://caplkr8i4j4mp" path="res://Textures/Buttons/UI_Flat_Frame03a.png" id="1_jr2ci"]
+[ext_resource type="Texture2D" uid="uid://dg4m3mxd4m8kt" path="res://Textures/TitleBackgroundDemo.png" id="1_qm1d8"]
 [ext_resource type="Shader" path="res://Shaders/blurme.gdshader" id="1_ut4pt"]
 [ext_resource type="FontFile" uid="uid://16884th6cwds" path="res://Fonts/Jersey25-Regular.ttf" id="2_ex47q"]
+[ext_resource type="Texture2D" uid="uid://bmpnx8afa8exa" path="res://Textures/Icons/exit.png" id="2_ployn"]
+[ext_resource type="Script" path="res://Scripts/Tutorial/LeaveTutorialButton.cs" id="3_1a7lh"]
 [ext_resource type="SpriteFrames" uid="uid://drp6tx0prs4yn" path="res://SpriteFrames/character.tres" id="4_mv1k2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8rt3k"]
@@ -11,7 +15,30 @@ shader_parameter/blur_amount = 2.5
 shader_parameter/mix_amount = 0.0
 shader_parameter/color_over = null
 
-[node name="TutorialPopup" type="Node2D"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b3k7w"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eini0"]
+texture = ExtResource("2_ployn")
+modulate_color = Color(0.470076, 0.470076, 0.470076, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mpfts"]
+texture = ExtResource("2_ployn")
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_somyk"]
+texture = ExtResource("2_ployn")
+
+[node name="Tutorial" type="Node2D"]
+
+[node name="TutorialSceneManager" type="Node" parent="."]
+script = ExtResource("1_1kq03")
+
+[node name="Backround" type="Sprite2D" parent="."]
+z_index = -1000
+z_as_relative = false
+scale = Vector2(0.375, 0.375)
+texture = ExtResource("1_qm1d8")
+centered = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1912.0
@@ -24,6 +51,18 @@ offset_left = -6.10352e-05
 offset_top = -1.52588e-05
 offset_right = 1922.0
 offset_bottom = 1081.0
+metadata/_edit_lock_ = true
+
+[node name="Leave Button" type="Button" parent="."]
+offset_left = 29.0
+offset_top = 13.0
+offset_right = 179.0
+offset_bottom = 163.0
+theme_override_styles/focus = SubResource("StyleBoxTexture_b3k7w")
+theme_override_styles/hover = SubResource("StyleBoxTexture_eini0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mpfts")
+theme_override_styles/normal = SubResource("StyleBoxTexture_somyk")
+script = ExtResource("3_1a7lh")
 metadata/_edit_lock_ = true
 
 [node name="Popup" type="Sprite2D" parent="."]

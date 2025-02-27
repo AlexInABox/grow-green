@@ -101,9 +101,9 @@ script = ExtResource("7_au1o7")
 
 [node name="Credits" type="Button" parent="."]
 offset_left = 103.0
-offset_top = 750.0
+offset_top = 834.0
 offset_right = 194.0
-offset_bottom = 841.0
+offset_bottom = 925.0
 scale = Vector2(1.4, 1.4)
 theme = ExtResource("1_0cr8b")
 icon_alignment = 1
@@ -341,9 +341,9 @@ texture = ExtResource("26_xwqfp")
 
 [node name="Settings" type="Button" parent="."]
 offset_left = 297.0
-offset_top = 750.0
+offset_top = 834.0
 offset_right = 388.0
-offset_bottom = 841.0
+offset_bottom = 925.0
 scale = Vector2(1.4, 1.4)
 theme = ExtResource("1_0cr8b")
 icon_alignment = 1
@@ -359,9 +359,9 @@ texture = ExtResource("30_uuuul")
 layout_mode = 3
 anchors_preset = 0
 offset_left = 486.0
-offset_top = 750.0
+offset_top = 825.0
 offset_right = 577.0
-offset_bottom = 841.0
+offset_bottom = 916.0
 scale = Vector2(1.4, 1.4)
 
 [node name="PowerButton" type="Button" parent="Power"]
