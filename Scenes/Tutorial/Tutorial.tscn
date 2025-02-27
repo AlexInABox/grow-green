@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cybr4i56w8fnp"]
+[gd_scene load_steps=26 format=3 uid="uid://cybr4i56w8fnp"]
 
 [ext_resource type="Script" path="res://Scripts/Tutorial/TutorialSceneManager.cs" id="1_1kq03"]
 [ext_resource type="Texture2D" uid="uid://caplkr8i4j4mp" path="res://Textures/Buttons/UI_Flat_Frame03a.png" id="1_jr2ci"]
@@ -15,8 +15,10 @@
 [ext_resource type="SpriteFrames" uid="uid://d25o2ea1edym3" path="res://SpriteFrames/packs.tres" id="13_0eo5d"]
 [ext_resource type="SpriteFrames" uid="uid://bard462gip8ek" path="res://SpriteFrames/memory.tres" id="14_eilna"]
 [ext_resource type="Theme" uid="uid://cxgao5s1phj5n" path="res://Themes/mainMenuButtons.tres" id="15_3ugnu"]
+[ext_resource type="Script" path="res://Scripts/Tutorial/PreviousButton.cs" id="16_r6hwd"]
 [ext_resource type="Texture2D" uid="uid://osnxfngpexh5" path="res://Textures/Buttons/UI_Flat_IconArrow01c_mirror.png" id="17_od2qi"]
 [ext_resource type="Texture2D" uid="uid://hydswv4l1sfq" path="res://Textures/Buttons/UI_Flat_IconArrow01c.png" id="18_2xoqd"]
+[ext_resource type="Script" path="res://Scripts/Tutorial/NextButton.cs" id="18_yt11j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8rt3k"]
 shader = ExtResource("1_ut4pt")
@@ -78,7 +80,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_somyk")
 script = ExtResource("3_1a7lh")
 metadata/_edit_lock_ = true
 
-[node name="CharacterSelection" type="Sprite2D" parent="."]
+[node name="CharacterSelection" type="Sprite2D" parent="." groups=["Tutorial"]]
 position = Vector2(983, 543)
 scale = Vector2(14.9896, 14.9844)
 texture = ExtResource("1_jr2ci")
@@ -112,7 +114,7 @@ scale = Vector2(4, 4)
 text = "Tutorial"
 horizontal_alignment = 1
 
-[node name="GIF" type="AnimatedSprite2D" parent="CharacterSelection/ScrollContainer/VBoxContainer/Panel"]
+[node name="GIF" type="AnimatedSprite2D" parent="CharacterSelection/ScrollContainer/VBoxContainer/Panel" groups=["TutorialAnimations"]]
 position = Vector2(500, 268.092)
 scale = Vector2(0.5, 0.512)
 sprite_frames = ExtResource("4_mv1k2")
@@ -131,7 +133,7 @@ text = "First off, changing the character to your liking will help you personali
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="BuyPlants" type="Sprite2D" parent="."]
+[node name="BuyPlants" type="Sprite2D" parent="." groups=["Tutorial"]]
 visible = false
 position = Vector2(986, 546)
 scale = Vector2(14.99, 14.979)
@@ -166,7 +168,7 @@ scale = Vector2(4, 4)
 text = "Buy Plants"
 horizontal_alignment = 1
 
-[node name="GIF" type="AnimatedSprite2D" parent="BuyPlants/ScrollContainer/VBoxContainer/Panel"]
+[node name="GIF" type="AnimatedSprite2D" parent="BuyPlants/ScrollContainer/VBoxContainer/Panel" groups=["TutorialAnimations"]]
 position = Vector2(502.224, 282.18)
 scale = Vector2(0.5, 0.512)
 sprite_frames = ExtResource("9_0n32e")
@@ -185,7 +187,7 @@ text = "To add plants to your collection, open the shop and buy a plant by simpl
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Pots" type="Sprite2D" parent="."]
+[node name="Pots" type="Sprite2D" parent="." groups=["Tutorial"]]
 visible = false
 position = Vector2(986, 546)
 scale = Vector2(14.99, 14.979)
@@ -220,7 +222,7 @@ scale = Vector2(4, 4)
 text = "Pots"
 horizontal_alignment = 1
 
-[node name="GIF" type="AnimatedSprite2D" parent="Pots/ScrollContainer/VBoxContainer/Panel"]
+[node name="GIF" type="AnimatedSprite2D" parent="Pots/ScrollContainer/VBoxContainer/Panel" groups=["TutorialAnimations"]]
 position = Vector2(502.224, 282.18)
 scale = Vector2(0.5, 0.512)
 sprite_frames = ExtResource("10_638my")
@@ -239,8 +241,7 @@ text = "You have multiple specimen of the same plant? No problem! By changing th
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="ChangeLayout" type="Sprite2D" parent="."]
-visible = false
+[node name="ChangeLayout" type="Sprite2D" parent="." groups=["Tutorial"]]
 position = Vector2(986, 546)
 scale = Vector2(14.99, 14.979)
 texture = ExtResource("1_jr2ci")
@@ -255,11 +256,11 @@ scale = Vector2(0.09, 0.09)
 horizontal_scroll_mode = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ChangeLayout/ScrollContainer"]
-custom_minimum_size = Vector2(1000, 650)
+custom_minimum_size = Vector2(1000, 640)
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="ChangeLayout/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(1000, 650)
+custom_minimum_size = Vector2(1000, 640)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_tbcon")
 
@@ -274,7 +275,7 @@ scale = Vector2(4, 4)
 text = "Change your Layout"
 horizontal_alignment = 1
 
-[node name="GIF" type="AnimatedSprite2D" parent="ChangeLayout/ScrollContainer/VBoxContainer/Panel"]
+[node name="GIF" type="AnimatedSprite2D" parent="ChangeLayout/ScrollContainer/VBoxContainer/Panel" groups=["TutorialAnimations"]]
 position = Vector2(502.224, 282.18)
 scale = Vector2(0.5, 0.512)
 sprite_frames = ExtResource("11_70m36")
@@ -293,7 +294,7 @@ text = "Change the layout of your home by selecting a plant and dragging it to y
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="WaterPlants" type="Sprite2D" parent="."]
+[node name="WaterPlants" type="Sprite2D" parent="." groups=["Tutorial"]]
 visible = false
 position = Vector2(986, 546)
 scale = Vector2(14.99, 14.979)
@@ -328,7 +329,7 @@ scale = Vector2(4, 4)
 text = "Water your Plants"
 horizontal_alignment = 1
 
-[node name="GIF" type="AnimatedSprite2D" parent="WaterPlants/ScrollContainer/VBoxContainer/Panel"]
+[node name="GIF" type="AnimatedSprite2D" parent="WaterPlants/ScrollContainer/VBoxContainer/Panel" groups=["TutorialAnimations"]]
 position = Vector2(502.224, 282.18)
 scale = Vector2(0.5, 0.512)
 sprite_frames = ExtResource("12_rx5ei")
@@ -347,7 +348,7 @@ text = "When hovering over a plant, you will see their german name, plant class,
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="PlantPacks" type="Sprite2D" parent="."]
+[node name="PlantPacks" type="Sprite2D" parent="." groups=["Tutorial"]]
 visible = false
 position = Vector2(986, 546)
 scale = Vector2(14.99, 14.979)
@@ -382,7 +383,7 @@ scale = Vector2(4, 4)
 text = "Plant Packs"
 horizontal_alignment = 1
 
-[node name="GIF" type="AnimatedSprite2D" parent="PlantPacks/ScrollContainer/VBoxContainer/Panel"]
+[node name="GIF" type="AnimatedSprite2D" parent="PlantPacks/ScrollContainer/VBoxContainer/Panel" groups=["TutorialAnimations"]]
 position = Vector2(502.224, 282.18)
 scale = Vector2(0.5, 0.512)
 sprite_frames = ExtResource("13_0eo5d")
@@ -401,7 +402,7 @@ text = "When opening Plantpacks, you have the chance of a easy, middle or hard p
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Memory" type="Sprite2D" parent="."]
+[node name="Memory" type="Sprite2D" parent="." groups=["Tutorial"]]
 visible = false
 position = Vector2(986, 546)
 scale = Vector2(14.99, 14.979)
@@ -436,7 +437,7 @@ scale = Vector2(4, 4)
 text = "Minigame: Memory"
 horizontal_alignment = 1
 
-[node name="GIF" type="AnimatedSprite2D" parent="Memory/ScrollContainer/VBoxContainer/Panel"]
+[node name="GIF" type="AnimatedSprite2D" parent="Memory/ScrollContainer/VBoxContainer/Panel" groups=["TutorialAnimations"]]
 position = Vector2(502.224, 282.18)
 scale = Vector2(0.5, 0.512)
 sprite_frames = ExtResource("14_eilna")
@@ -457,7 +458,7 @@ Have fun (but not too much, we don't want you to forget your real life plants (a
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Previous" type="Button" parent="."]
+[node name="Previous" type="Button" parent="." groups=["NavigationButtons"]]
 visible = false
 offset_left = 94.0
 offset_top = 454.0
@@ -467,13 +468,14 @@ scale = Vector2(1.4, 1.4)
 theme = ExtResource("15_3ugnu")
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("16_r6hwd")
 
 [node name="Sprite2D" type="Sprite2D" parent="Previous"]
 position = Vector2(47.1429, 42.857)
 scale = Vector2(6, 6)
 texture = ExtResource("17_od2qi")
 
-[node name="Next" type="Button" parent="."]
+[node name="Next" type="Button" parent="." groups=["NavigationButtons"]]
 offset_left = 1740.0
 offset_top = 456.0
 offset_right = 1831.0
@@ -482,6 +484,7 @@ scale = Vector2(1.4, 1.4)
 theme = ExtResource("15_3ugnu")
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("18_yt11j")
 
 [node name="Sprite2D" type="Sprite2D" parent="Next"]
 position = Vector2(47.1428, 42.8571)
