@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://xbe7jevnprrg"]
+[gd_scene load_steps=16 format=3 uid="uid://xbe7jevnprrg"]
 
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_fbntm"]
 [ext_resource type="Script" path="res://Scripts/FlappyPlant/FpMainMenu.cs" id="1_n1hp7"]
@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://bmpnx8afa8exa" path="res://Textures/Icons/exit.png" id="5_he462"]
 [ext_resource type="Script" path="res://Scripts/PlantPack/LeaveButton.cs" id="6_bwg2l"]
 [ext_resource type="Texture2D" uid="uid://du47d27nnh6s7" path="res://Textures/Packs/minigame_single.png" id="7_dejcq"]
-[ext_resource type="Texture2D" uid="uid://bg57hfx11ytfp" path="res://Textures/Plants/alocasia3.png" id="8_5a6kd"]
-[ext_resource type="Texture2D" uid="uid://cytn4u5ejjnbe" path="res://Textures/Pots/plain_brown.png" id="9_yhpge"]
+[ext_resource type="Texture2D" uid="uid://cr8gcpmsbf8k1" path="res://Textures/Minigames/Flappy Plant/bee1.png" id="9_w2eeg"]
+[ext_resource type="Texture2D" uid="uid://cw42h7vc6t6ul" path="res://Textures/Minigames/Flappy Plant/bee2.png" id="10_qfwd3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_77xxd"]
 
@@ -23,6 +23,20 @@ modulate_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_868an"]
 texture = ExtResource("5_he462")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1iden"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_w2eeg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_qfwd3")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}]
 
 [node name="FpMainMenu" type="Node2D"]
 script = ExtResource("1_n1hp7")
@@ -60,13 +74,20 @@ scale = Vector2(12, 12)
 texture = ExtResource("7_dejcq")
 centered = false
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = 1
-position = Vector2(960, 500)
-scale = Vector2(9, 9)
-texture = ExtResource("8_5a6kd")
+[node name="Label" type="Label" parent="."]
+offset_left = 461.0
+offset_top = 264.0
+offset_right = 549.0
+offset_bottom = 281.0
+scale = Vector2(12, 12)
+theme_override_colors/font_color = Color(0.588235, 0.113725, 0.486275, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "FLAPPY PLANT"
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(960, 500)
-scale = Vector2(9, 9)
-texture = ExtResource("9_yhpge")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1009, 580)
+scale = Vector2(12, 12)
+sprite_frames = SubResource("SpriteFrames_1iden")
+animation = &"jump"
+frame_progress = 0.763349

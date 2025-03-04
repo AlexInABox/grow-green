@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dsaewohprj4cb"]
+[gd_scene load_steps=38 format=3 uid="uid://dsaewohprj4cb"]
 
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_7qpdi"]
 [ext_resource type="Script" path="res://Scripts/MinigameScene/MinigameSzene.cs" id="1_u7qak"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://d07rokqxx2fl3" path="res://Prefabs/coinDisplay_wrapper.tscn" id="11_5ns72"]
 [ext_resource type="Texture2D" uid="uid://dhun4gb3o56m" path="res://Textures/Packs/pack_plant.png" id="11_11ds4"]
 [ext_resource type="Texture2D" uid="uid://chnjlt6vs0ff3" path="res://Textures/Minigames/Flappy Plant/flappy_plant.png" id="12_446g6"]
+[ext_resource type="Texture2D" uid="uid://dbuqbaj6xxiu1" path="res://Textures/Minigames/Snake/WormIcon.png" id="14_h38pl"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4cm5a"]
 
@@ -68,6 +69,17 @@ texture = ExtResource("2_rs3lo")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r8oiu"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m5th6"]
+texture = ExtResource("14_h38pl")
+modulate_color = Color(0.470588, 0.470588, 0.470588, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hvru5"]
+texture = ExtResource("14_h38pl")
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_enbme"]
+texture = ExtResource("14_h38pl")
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_klopn"]
 texture = ExtResource("12_446g6")
 modulate_color = Color(0.470588, 0.470588, 0.470588, 1)
@@ -77,6 +89,7 @@ texture = ExtResource("12_446g6")
 modulate_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gmoc2"]
+resource_local_to_scene = true
 texture = ExtResource("12_446g6")
 
 [node name="MinigameSzene" type="Node2D"]
@@ -119,6 +132,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_mytxr")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_x5fyo")
 theme_override_styles/normal = SubResource("StyleBoxTexture_kc8o2")
 script = ExtResource("3_xv58d")
+nextScene = "res://Scenes/PackOpeningMinigame.tscn"
 
 [node name="PotPackButton" type="Button" parent="."]
 offset_left = 88.0
@@ -214,6 +228,23 @@ script = ExtResource("6_lpels")
 [node name="coinDisplay_wrapper" parent="." instance=ExtResource("11_5ns72")]
 position = Vector2(1641, 72)
 
+[node name="WormLabel" type="Label" parent="."]
+z_index = 5
+custom_minimum_size = Vector2(100, 50)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 798.0
+offset_top = 762.0
+offset_right = 1160.0
+offset_bottom = 864.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.458824, 0.329412, 0, 0.615686)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "WORM"
+horizontal_alignment = 1
+
 [node name="PlantLabel" type="Label" parent="."]
 z_index = 5
 custom_minimum_size = Vector2(100, 50)
@@ -284,7 +315,20 @@ theme_override_font_sizes/font_size = 100
 text = "PACK"
 horizontal_alignment = 1
 
-[node name="FlappyPlantButton2" type="Button" parent="."]
+[node name="WormButton" type="Button" parent="."]
+offset_left = 765.0
+offset_top = 627.0
+offset_right = 775.0
+offset_bottom = 637.0
+scale = Vector2(40, 40)
+theme_override_styles/focus = SubResource("StyleBoxTexture_r8oiu")
+theme_override_styles/hover = SubResource("StyleBoxTexture_m5th6")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_hvru5")
+theme_override_styles/normal = SubResource("StyleBoxTexture_enbme")
+script = ExtResource("3_xv58d")
+nextScene = "res://Scenes/Worm/WormGame.tscn"
+
+[node name="FlappyPlantButton" type="Button" parent="."]
 offset_left = 776.0
 offset_top = 168.0
 offset_right = 786.105
@@ -295,3 +339,4 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_klopn")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_vfqyj")
 theme_override_styles/normal = SubResource("StyleBoxTexture_gmoc2")
 script = ExtResource("3_xv58d")
+nextScene = "res://Scenes/FlappyPlant/FPMainMenu.tscn"

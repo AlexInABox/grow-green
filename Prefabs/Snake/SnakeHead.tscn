@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://r7e6t3m1oipb"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_twfes"]
+load_path = "res://.godot/imported/pixil-frame-06.png-9d12b8db11e3075eb6714b198f492353.ctex"
+
+[node name="SnakeHead" type="Node2D"]
+
+[node name="Pixil-frame-06" type="Sprite2D" parent="."]
+scale = Vector2(12, 12)
+texture = SubResource("CompressedTexture2D_twfes")
