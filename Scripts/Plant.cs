@@ -1,8 +1,12 @@
 using Godot;
 using System;
+using System.Diagnostics;
 
 public partial class Plant : Sprite2D
 {
+    //Global stuff
+    private SceneManager _sceneManager;
+    
     //constants
     public string className; // Class name
     public string plantName; // Name
@@ -86,6 +90,7 @@ public partial class Plant : Sprite2D
 
     public override void _Ready()
     {
+        _sceneManager = GetTree().GetCurrentScene().GetNode<SceneManager>("SceneManager");
         soundPlayer = (SoundPlayer)GetNode("/root/SoundPlayer");
         Name = "Plant";
         ZIndex = 2;
@@ -109,7 +114,29 @@ public partial class Plant : Sprite2D
         waterLevelBar = GetNode<ColorRect>("../statusBubble/waterLevelWrapper/ColorRect");
         waterLevelBarL = GetNode<ColorRect>("../statusBubbleLeft/waterLevelWrapper/ColorRect");
 
+        CalculatePotentialYield();
+
         RefreshMetadata();
+    }
+
+    private void CalculatePotentialYield()
+    {
+        //only generate yield for fully grown plants
+        if (growProgress < 1) return;
+        
+        long timeSinceLastTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds() - growProgressTimestamp;
+        
+        //generate one coin (or 2 or 3 if the plant is cool) every three hours
+        //this will round down. so 0.01 becomes 0; 0.9 becomes 0;
+        int collectedCoins = (int)((timeSinceLastTimestamp * yield) / 10800);
+        _sceneManager.SetCoinCount(_sceneManager.GetCoinCount() + collectedCoins);
+        
+        Debug.Print("Added " + collectedCoins + " coins. " + "Passed time: " + timeSinceLastTimestamp + " Grow Progress: " + growProgress);
+        if (collectedCoins != 0)
+        {
+            growProgressTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds(); //reset timestamp
+        }
+
     }
 
     public void RefreshMetadata() {
@@ -152,12 +179,27 @@ public partial class Plant : Sprite2D
             return;
         }
 
-        if (growProgress <= 1)
+        if (growProgress < 1)
         {
             long timeSinceLastTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds() - growProgressTimestamp;
-            growProgress += (growRatePerDay / 24 / 60 / 60) * timeSinceLastTimestamp;
+            growProgress = Math.Min((growProgress + ((growRatePerDay / 24 / 60 / 60) * timeSinceLastTimestamp)), 1);
             //GD.Print("GrowProgress: " + growProgress);
             growProgressTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds();
+            return;
+        }
+
+        // ReSharper disable once CompareOfFloatsByEqualityOperator
+        if (growProgress == 1)
+        {
+            return;
+        }
+        
+        //Leave this here for older save compatibility
+        if (growProgress > 1)
+        {
+            growProgressTimestamp = DateTimeOffset.Now.ToUnixTimeSeconds();
+            growProgress = 1;
+            return;
         }
     }
 
