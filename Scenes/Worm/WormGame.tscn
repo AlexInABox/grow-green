@@ -1,0 +1,23 @@
+[gd_scene load_steps=7 format=3 uid="uid://de0ydp7eyukk4"]
+
+[ext_resource type="Script" path="res://Scripts/Worm/SnakeGame.cs" id="1_jowhm"]
+[ext_resource type="PackedScene" uid="uid://drkdv17nbk50x" path="res://Prefabs/SnakeHead.tscn" id="2_80aei"]
+[ext_resource type="PackedScene" uid="uid://byq3g5aeaqwpu" path="res://Prefabs/SnakeBody.tscn" id="3_dquyi"]
+[ext_resource type="PackedScene" uid="uid://8weegtimb0qc" path="res://Prefabs/SnakeTail.tscn" id="4_pxi5h"]
+[ext_resource type="Texture2D" uid="uid://cfqmj4g6wk0qu" path="res://Textures/Minigames/Snake/pixil-frame-05.png" id="5_kdq3s"]
+[ext_resource type="PackedScene" uid="uid://k5jvgk7u8lm8" path="res://Prefabs/SnakeFood.tscn" id="5_udms8"]
+
+[node name="WormGame" type="Node2D"]
+script = ExtResource("1_jowhm")
+HeadSprite = ExtResource("2_80aei")
+BodySprite = ExtResource("3_dquyi")
+TailSprite = ExtResource("4_pxi5h")
+FoodSprite = ExtResource("5_udms8")
+
+[node name="SnakeContainer" type="Node2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -2
+scale = Vector2(12, 12)
+texture = ExtResource("5_kdq3s")
+centered = false

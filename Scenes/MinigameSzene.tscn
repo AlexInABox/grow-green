@@ -119,7 +119,6 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_mytxr")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_x5fyo")
 theme_override_styles/normal = SubResource("StyleBoxTexture_kc8o2")
 script = ExtResource("3_xv58d")
-nextScene = "res://Scenes/PackOpeningMinigame.tscn"
 
 [node name="PotPackButton" type="Button" parent="."]
 offset_left = 88.0
@@ -296,4 +295,3 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_klopn")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_vfqyj")
 theme_override_styles/normal = SubResource("StyleBoxTexture_gmoc2")
 script = ExtResource("3_xv58d")
-nextScene = "res://Scenes/FlappyPlant/FPMainMenu.tscn"
