@@ -5,7 +5,7 @@ using DiscordRPC.Logging;
 using Godot;
 namespace GrowGreen.Scripts.Global.DiscordRPC;
 
-public partial class Testing: Node2D
+public partial class BackgroundLogic: Node2D
 {
     private DiscordRpcClient client;
     public override void _Ready()
