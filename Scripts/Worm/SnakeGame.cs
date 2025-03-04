@@ -34,10 +34,13 @@ public partial class SnakeGame : Node
     private Vector2 _foodPosition;  
     
     private RandomNumberGenerator rng = new RandomNumberGenerator();
+    SoundPlayer soundPlayer;
+
 
     public override void _Ready()
     {
         sceneManager = GetNode<SceneManager>("SceneManager");
+        soundPlayer = (SoundPlayer)GetNode("/root/SoundPlayer");
         _scoreLabel = GetNode<Label>("ScoreLabel"); 
         UpdateScoreLabel(); 
         
@@ -91,7 +94,7 @@ public partial class SnakeGame : Node
         
         if (newHead == _foodPosition)
         {
-            //ESSENSOUND HIER!
+            soundPlayer.PlayEating();
             GD.Print("Food eaten at: " + newHead);
             _snakePositions.Insert(0, newHead);
             _score++; 
@@ -203,7 +206,7 @@ public partial class SnakeGame : Node
 
     private void GameOver()
     {
-        int result = _score / 5;
+        int result = _score / 4;
         sceneManager.SetCoinCount(sceneManager.GetCoinCount() + result);
         sceneManager.UpdateSaveBlocking();
         GetTree().CurrentScene.QueueFree();
