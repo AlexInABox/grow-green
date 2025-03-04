@@ -13,20 +13,32 @@ public partial class AudioPlayer : AudioStreamPlayer
 	private static readonly AudioStreamMP3 flappyMusic = (AudioStreamMP3) GD.Load("res://Sounds/Background Music/mini games/FlappyPlant.mp3");
 	private static readonly AudioStreamMP3 wormMusic = (AudioStreamMP3) GD.Load("res://Sounds/Background Music/mini games/Worm.mp3");
 
+	public float musicVolume = 0.0f;
+
 	// Methode zum Abspielen von Musik mit einem optionalen Lautstärkewert
-	private void _play_music(AudioStreamMP3 music, float volume = 0.0f)
+	private void _play_music(AudioStreamMP3 music)
 	{
 		if (Stream == music)
 		{
 			return;
 		}
 		Stream = music;
-		VolumeDb = volume;
+		VolumeDb = musicVolume;
 
 		music.Loop = true;
 		
 		Play();
 	}
+
+	public void SetVolume(float volume)
+    {
+        musicVolume = volume;
+        // Optional: Hier kann auch das aktuell abgespielte Musikstück aktualisiert werden, falls gewünscht
+        if (Playing)
+        {
+            VolumeDb = musicVolume;
+        }
+    }
 	
 	public void PlayTitleMusic()
 	{

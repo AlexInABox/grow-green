@@ -11,7 +11,7 @@ public partial class LoadPictures : Node
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		sceneManager = GetNode<SceneManager>("../SceneManager");
+		sceneManager = GetTree().GetCurrentScene().GetNode<SceneManager>("SceneManager");
 		characterId = sceneManager.GetCharacterId();
 
 		var i = 0;
