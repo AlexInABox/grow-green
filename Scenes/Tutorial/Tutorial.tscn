@@ -106,11 +106,11 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_tbcon")
 [node name="Title" type="Label" parent="CharacterSelection/ScrollContainer/VBoxContainer/Panel"]
 layout_direction = 1
 layout_mode = 2
-offset_left = 305.791
-offset_top = 1.14703
-offset_right = 405.791
-offset_bottom = 21.147
-scale = Vector2(4, 4)
+offset_left = 180.0
+offset_top = 1.0
+offset_right = 819.0
+offset_bottom = 85.0
+theme_override_font_sizes/font_size = 80
 text = "Tutorial"
 horizontal_alignment = 1
 
@@ -160,11 +160,11 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_tbcon")
 [node name="Title" type="Label" parent="BuyPlants/ScrollContainer/VBoxContainer/Panel"]
 layout_direction = 1
 layout_mode = 2
-offset_left = 305.791
-offset_top = 1.14703
-offset_right = 405.791
-offset_bottom = 21.147
-scale = Vector2(4, 4)
+offset_left = 182.0
+offset_top = 1.0
+offset_right = 821.0
+offset_bottom = 98.0
+theme_override_font_sizes/font_size = 85
 text = "Buy Plants"
 horizontal_alignment = 1
 
@@ -214,11 +214,11 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_tbcon")
 [node name="Title" type="Label" parent="Pots/ScrollContainer/VBoxContainer/Panel"]
 layout_direction = 1
 layout_mode = 2
-offset_left = 305.791
-offset_top = 1.14703
-offset_right = 405.791
-offset_bottom = 21.147
-scale = Vector2(4, 4)
+offset_left = 183.0
+offset_top = 1.0
+offset_right = 820.0
+offset_bottom = 99.0
+theme_override_font_sizes/font_size = 85
 text = "Pots"
 horizontal_alignment = 1
 
@@ -268,11 +268,11 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_tbcon")
 [node name="Title" type="Label" parent="ChangeLayout/ScrollContainer/VBoxContainer/Panel"]
 layout_direction = 1
 layout_mode = 2
-offset_left = 251.686
-offset_top = 2.51537
-offset_right = 374.686
-offset_bottom = 22.5154
-scale = Vector2(4, 4)
+offset_left = 183.0
+offset_top = 1.0
+offset_right = 821.0
+offset_bottom = 99.0
+theme_override_font_sizes/font_size = 85
 text = "Change your Layout"
 horizontal_alignment = 1
 
@@ -322,11 +322,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_tbcon")
 [node name="Title" type="Label" parent="WaterPlants/ScrollContainer/VBoxContainer/Panel"]
 layout_direction = 1
 layout_mode = 2
-offset_left = 288.748
-offset_top = 1.03181
-offset_right = 399.748
-offset_bottom = 21.0318
-scale = Vector2(4, 4)
+offset_left = 183.0
+offset_right = 821.0
+offset_bottom = 98.0
+theme_override_font_sizes/font_size = 85
 text = "Water your Plants"
 horizontal_alignment = 1
 
@@ -376,11 +375,11 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_tbcon")
 [node name="Title" type="Label" parent="PlantPacks/ScrollContainer/VBoxContainer/Panel"]
 layout_direction = 1
 layout_mode = 2
-offset_left = 305.791
-offset_top = 1.14703
-offset_right = 405.791
-offset_bottom = 21.147
-scale = Vector2(4, 4)
+offset_left = 182.0
+offset_top = 1.0
+offset_right = 821.0
+offset_bottom = 99.0
+theme_override_font_sizes/font_size = 85
 text = "Plant Packs"
 horizontal_alignment = 1
 
@@ -430,11 +429,11 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_tbcon")
 [node name="Title" type="Label" parent="Memory/ScrollContainer/VBoxContainer/Panel"]
 layout_direction = 1
 layout_mode = 2
-offset_left = 251.686
-offset_top = 2.51537
-offset_right = 374.686
-offset_bottom = 22.5154
-scale = Vector2(4, 4)
+offset_left = 182.0
+offset_top = 1.0
+offset_right = 822.0
+offset_bottom = 99.0
+theme_override_font_sizes/font_size = 85
 text = "Minigame: Memory"
 horizontal_alignment = 1
 
