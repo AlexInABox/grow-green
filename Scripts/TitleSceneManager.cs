@@ -63,6 +63,11 @@ public partial class TitleSceneManager : Node
 		//ColorRect blurLayer = GetNode<ColorRect>("../BlurLayer");
 		//blurLayer.Show();
 	}
+	
+	public void OpenTutorial(){
+		string tutorialScene = "res://Scenes/Tutorial/Tutorial.tscn";
+		GetTree().ChangeSceneToFile(tutorialScene);
+	}
 
 	public override void _Process(double delta)
 	{
