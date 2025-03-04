@@ -28,6 +28,10 @@ public partial class FlappyScript : Node
 	{
 		int result = score / 5;
 		sceneManager.SetCoinCount(sceneManager.GetCoinCount() + result);
+		if (sceneManager.GetFlappyPlantHighscore() < score)
+		{
+			sceneManager.SetFlappyPlantHighscore(score);
+		}
 		sceneManager.UpdateSaveBlocking();
 		GetTree().CurrentScene.QueueFree();
 		PackedScene endgamePopup = GD.Load<PackedScene>("res://Prefabs/endFpGame.tscn");

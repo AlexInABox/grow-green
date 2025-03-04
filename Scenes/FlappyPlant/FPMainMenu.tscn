@@ -90,4 +90,13 @@ position = Vector2(1009, 580)
 scale = Vector2(12, 12)
 sprite_frames = SubResource("SpriteFrames_1iden")
 animation = &"jump"
-frame_progress = 0.763349
+frame_progress = 0.38446
+
+[node name="HighscoreLabel" type="Label" parent="."]
+offset_left = 723.0
+offset_top = 947.0
+offset_right = 812.0
+offset_bottom = 964.0
+scale = Vector2(6, 6)
+text = "Highscore: 100
+"
