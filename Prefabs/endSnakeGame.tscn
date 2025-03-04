@@ -1,14 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://c6khuervrergf"]
+[gd_scene load_steps=7 format=3 uid="uid://dl2s4ubwbtmvt"]
 
-[ext_resource type="Script" path="res://Scripts/FlappyPlant/EndFpGame.cs" id="1_a7psx"]
-[ext_resource type="Texture2D" uid="uid://caplkr8i4j4mp" path="res://Textures/Buttons/UI_Flat_Frame03a.png" id="1_d1rto"]
-[ext_resource type="FontFile" uid="uid://16884th6cwds" path="res://Fonts/Jersey25-Regular.ttf" id="2_2lrtd"]
-[ext_resource type="Theme" uid="uid://cxgao5s1phj5n" path="res://Themes/mainMenuButtons.tres" id="3_o3w8p"]
-[ext_resource type="Script" path="res://Scripts/FlappyPlant/MenuButton.cs" id="4_nny2j"]
-[ext_resource type="Script" path="res://Scripts/FlappyPlant/AgainButton.cs" id="5_xowan"]
+[ext_resource type="Script" path="res://Scripts/FlappyPlant/EndFpGame.cs" id="1_b05jp"]
+[ext_resource type="Texture2D" uid="uid://caplkr8i4j4mp" path="res://Textures/Buttons/UI_Flat_Frame03a.png" id="2_a1og3"]
+[ext_resource type="FontFile" uid="uid://16884th6cwds" path="res://Fonts/Jersey25-Regular.ttf" id="3_wb76o"]
+[ext_resource type="Theme" uid="uid://cxgao5s1phj5n" path="res://Themes/mainMenuButtons.tres" id="4_h0tj6"]
+[ext_resource type="Script" path="res://Scripts/FlappyPlant/MenuButton.cs" id="5_5jn3u"]
+[ext_resource type="Script" path="res://Scripts/FlappyPlant/AgainButton.cs" id="6_47jgl"]
 
-[node name="EndFpGame" type="Node2D"]
-script = ExtResource("1_a7psx")
+[node name="EndSnakeGame" type="Node2D"]
+z_index = 2
+script = ExtResource("1_b05jp")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = 3
@@ -21,7 +22,7 @@ metadata/_edit_use_anchors_ = true
 z_index = 4
 position = Vector2(960, 510)
 scale = Vector2(7, 7)
-texture = ExtResource("1_d1rto")
+texture = ExtResource("2_a1og3")
 region_rect = Rect2(3, 3, 90, 58)
 
 [node name="Info" type="Label" parent="Sprite2D"]
@@ -30,7 +31,7 @@ offset_top = -25.0
 offset_right = 673.0
 offset_bottom = 192.0
 scale = Vector2(0.12, 0.12)
-theme_override_fonts/font = ExtResource("2_2lrtd")
+theme_override_fonts/font = ExtResource("3_wb76o")
 theme_override_font_sizes/font_size = 72
 text = "
 Score:
@@ -54,13 +55,13 @@ offset_top = 11.0
 offset_right = 78.0
 offset_bottom = 61.0
 scale = Vector2(0.285, 0.285)
-theme = ExtResource("3_o3w8p")
+theme = ExtResource("4_h0tj6")
 theme_override_colors/font_focus_color = Color(0.761386, 0.273843, 0.27925, 1)
 theme_override_colors/font_color = Color(0.823529, 0, 0, 1)
 theme_override_font_sizes/font_size = 41
 text = "Menü"
-script = ExtResource("4_nny2j")
-scene = "res://Scenes/FlappyPlant/FPMainMenu.tscn"
+script = ExtResource("5_5jn3u")
+scene = "res://Scenes/MinigameSzene.tscn"
 
 [node name="Again" type="Button" parent="Sprite2D"]
 offset_left = -1.0
@@ -68,8 +69,8 @@ offset_top = 11.0
 offset_right = 152.0
 offset_bottom = 61.0
 scale = Vector2(0.285, 0.285)
-theme = ExtResource("3_o3w8p")
+theme = ExtResource("4_h0tj6")
 theme_override_font_sizes/font_size = 41
 text = "Nochmal"
-script = ExtResource("5_xowan")
-scene = "res://Scenes/FlappyPlant/FPGame.tscn"
+script = ExtResource("6_47jgl")
+scene = "res://Scenes/Worm/WormGame.tscn"

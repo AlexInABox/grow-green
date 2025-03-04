@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://k5jvgk7u8lm8"]
+
+[ext_resource type="Texture2D" uid="uid://4q0dmxtqabn7" path="res://Textures/Minigames/Snake/pixil-frame-010.png" id="1_kk462"]
+
+[node name="SnakeFood" type="Node2D"]
+
+[node name="Pixil-frame-010" type="Sprite2D" parent="."]
+z_index = 10
+scale = Vector2(12, 12)
+texture = ExtResource("1_kk462")

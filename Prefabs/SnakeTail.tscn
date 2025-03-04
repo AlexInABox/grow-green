@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://8weegtimb0qc"]
+
+[ext_resource type="Texture2D" uid="uid://yqmo3pmrnytm" path="res://Textures/Minigames/Snake/pixil-frame-09.png" id="1_vbg8o"]
+
+[node name="SnakeBody" type="Node2D"]
+
+[node name="Pixil-frame-08" type="Sprite2D" parent="."]
+scale = Vector2(12, 12)
+texture = ExtResource("1_vbg8o")

@@ -44,6 +44,11 @@ public partial class AudioPlayer : AudioStreamPlayer
 	{
 		_play_music(titleMusic);
 	}
+
+	public void PlayWormMusic()
+	{
+		_play_music(wormMusic);
+	}
 	
 	public void PlayMainMusic()
 	{
