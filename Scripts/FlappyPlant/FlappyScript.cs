@@ -28,13 +28,17 @@ public partial class FlappyScript : Node
 	{
 		int result = score / 5;
 		sceneManager.SetCoinCount(sceneManager.GetCoinCount() + result);
+		if (sceneManager.GetFlappyPlantHighscore() < score)
+		{
+			sceneManager.SetFlappyPlantHighscore(score);
+		}
 		sceneManager.UpdateSaveBlocking();
-		GetTree().CurrentScene.QueueFree();
 		PackedScene endgamePopup = GD.Load<PackedScene>("res://Prefabs/endFpGame.tscn");
 		var unlockPopupInstance = endgamePopup.Instantiate();
 		GetParent().AddChild(unlockPopupInstance);
 		var scoreLabel = unlockPopupInstance.GetNode<Label>("Sprite2D/ScoreLabel");
 		scoreLabel.Text = score.ToString();
+		GetTree().ChangeSceneToFile("res://Scenes/DeathScene.tscn");
 	}
 	public override void _Process(double delta)
 	{

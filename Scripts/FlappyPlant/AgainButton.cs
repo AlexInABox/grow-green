@@ -4,6 +4,8 @@ using System;
 public partial class AgainButton : Button
 {
 	SoundPlayer soundPlayer;
+
+	[Export] private String scene;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -18,8 +20,7 @@ public partial class AgainButton : Button
 	}
 	private void ButtonPressedEvent()
 	{
-		var mainScene = "res://Scenes/FlappyPlant/FPGame.tscn";
-		GetTree().ChangeSceneToFile(mainScene);
+		GetTree().ChangeSceneToFile(scene);
 		GetParent().GetParent().QueueFree();
 	}
 
