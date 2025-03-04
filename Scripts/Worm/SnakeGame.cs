@@ -211,12 +211,12 @@ public partial class SnakeGame : Node
         int result = _score / 4;
         sceneManager.SetCoinCount(sceneManager.GetCoinCount() + result);
         sceneManager.UpdateSaveBlocking();
-        GetTree().CurrentScene.QueueFree();
         PackedScene endgamePopup = GD.Load<PackedScene>("res://Prefabs/endSnakeGame.tscn");
         var unlockPopupInstance = endgamePopup.Instantiate();
         GetParent().AddChild(unlockPopupInstance);
         var scoreLabel = unlockPopupInstance.GetNode<Label>("Sprite2D/ScoreLabel");
         scoreLabel.Text = _score.ToString();
+        GetTree().ChangeSceneToFile("res://Scenes/DeathScene.tscn");
     }
 
     public override void _UnhandledInput(InputEvent @event)

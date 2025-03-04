@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/FlappyPlant/AgainButton.cs" id="6_47jgl"]
 
 [node name="EndSnakeGame" type="Node2D"]
+z_index = 2
 script = ExtResource("1_b05jp")
 
 [node name="ColorRect" type="ColorRect" parent="."]
