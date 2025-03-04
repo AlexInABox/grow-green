@@ -169,7 +169,7 @@ public partial class MemoryGame : Node
 	private void AssignTextureToInstance(Node2D instance)
 	{
 		Random r = new Random();
-		int rInt = r.Next(0, memoryTextures.Count - 1);
+		int rInt = r.Next(0, memoryTextures.Count);
 
 		string textureName = memoryTextures[rInt];
 		memoryTextures.RemoveAt(rInt);  

@@ -42,11 +42,11 @@ public partial class MemoryCardScript : Button
 	}
 
 	public void RevealCard()
-	{
-		spriteFront.Visible = true;
-		memoryGame.CardIsTurned(this);
-		Disabled = true;
-	}
+{
+    Disabled = true;               
+    spriteFront.Visible = true;
+    memoryGame.CardIsTurned(this);
+}
 
 	public void HideCard()
 	{
