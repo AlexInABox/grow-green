@@ -43,6 +43,8 @@ public partial class SnakeGame : Node
         soundPlayer = (SoundPlayer)GetNode("/root/SoundPlayer");
         _scoreLabel = GetNode<Label>("ScoreLabel"); 
         UpdateScoreLabel(); 
+        AudioPlayer audioPlayer = (AudioPlayer)GetNode("/root/AudioPlayer");
+        audioPlayer.PlayWormMusic();
         
         _snakeContainer = GetNode<Node2D>("SnakeContainer");
         _foodContainer = GetNode<Node2D>("FoodContainer");
