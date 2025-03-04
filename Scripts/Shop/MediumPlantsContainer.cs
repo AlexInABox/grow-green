@@ -10,7 +10,7 @@ using System.Collections.Generic;
 
 	public override void _Ready()
 	{
-		sceneManager = GetNode<SceneManager>("../../../SceneManager");
+		sceneManager = GetTree().GetCurrentScene().GetNode<SceneManager>("SceneManager");
 		List<Plant> plantList = sceneManager.GetListOfAllPlants(); 
 		PlaceAllPlants(plantList);
 	}

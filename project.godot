@@ -28,6 +28,7 @@ boot_splash/minimum_display_time=1500
 AudioPlayer="*res://Scripts/AudioPlayer.cs"
 SoundPlayer="*res://Scripts/SoundPlayer.cs"
 SettingsManager="*res://Scripts/Global/SettingsManager.cs"
+DiscordRPC="*res://Scripts/Global/DiscordRPC/BackgroundLogic.cs"
 
 [display]
 
