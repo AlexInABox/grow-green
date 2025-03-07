@@ -42,6 +42,8 @@ public partial class TutorialSceneManager : Node
 				k++;
 			}
 		}
+		
+		SetTutorial(0);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -16,7 +16,7 @@
 [ext_resource type="SpriteFrames" uid="uid://bard462gip8ek" path="res://SpriteFrames/memory.tres" id="14_eilna"]
 [ext_resource type="Theme" uid="uid://cxgao5s1phj5n" path="res://Themes/mainMenuButtons.tres" id="15_3ugnu"]
 [ext_resource type="Script" path="res://Scripts/Tutorial/PreviousButton.cs" id="16_r6hwd"]
-[ext_resource type="Texture2D" uid="uid://cqu6iqj17p1bc" path="res://Textures/Buttons/UI_Flat_IconArrow01c_mirror.png" id="17_od2qi"]
+[ext_resource type="Texture2D" uid="uid://osnxfngpexh5" path="res://Textures/Buttons/UI_Flat_IconArrow01c_mirror.png" id="17_od2qi"]
 [ext_resource type="Texture2D" uid="uid://hydswv4l1sfq" path="res://Textures/Buttons/UI_Flat_IconArrow01c.png" id="18_2xoqd"]
 [ext_resource type="Script" path="res://Scripts/Tutorial/NextButton.cs" id="18_yt11j"]
 
