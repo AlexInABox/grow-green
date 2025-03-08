@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cybr4i56w8fnp"]
+[gd_scene load_steps=29 format=3 uid="uid://cybr4i56w8fnp"]
 
 [ext_resource type="Script" path="res://Scripts/Tutorial/TutorialSceneManager.cs" id="1_1kq03"]
 [ext_resource type="Texture2D" uid="uid://caplkr8i4j4mp" path="res://Textures/Buttons/UI_Flat_Frame03a.png" id="1_jr2ci"]
@@ -9,14 +9,17 @@
 [ext_resource type="Script" path="res://Scripts/Tutorial/LeaveTutorialButton.cs" id="3_1a7lh"]
 [ext_resource type="SpriteFrames" uid="uid://drp6tx0prs4yn" path="res://SpriteFrames/character.tres" id="4_mv1k2"]
 [ext_resource type="SpriteFrames" uid="uid://bqbew2jpxo5po" path="res://SpriteFrames/buy.tres" id="9_0n32e"]
+[ext_resource type="SpriteFrames" uid="uid://d2ei6d6c2y5jh" path="res://SpriteFrames/soundsettings.tres" id="9_i8b1f"]
 [ext_resource type="SpriteFrames" uid="uid://8afkughcdh54" path="res://SpriteFrames/pots.tres" id="10_638my"]
 [ext_resource type="SpriteFrames" uid="uid://dggmjvao2a17k" path="res://SpriteFrames/drag.tres" id="11_70m36"]
 [ext_resource type="SpriteFrames" uid="uid://coebqpthrq02y" path="res://SpriteFrames/water.tres" id="12_rx5ei"]
-[ext_resource type="SpriteFrames" uid="uid://d25o2ea1edym3" path="res://SpriteFrames/packs.tres" id="13_0eo5d"]
 [ext_resource type="SpriteFrames" uid="uid://bard462gip8ek" path="res://SpriteFrames/memory.tres" id="14_eilna"]
+[ext_resource type="SpriteFrames" uid="uid://c0hxcc0qe0nj0" path="res://SpriteFrames/packs.tres" id="14_ilngh"]
 [ext_resource type="Theme" uid="uid://cxgao5s1phj5n" path="res://Themes/mainMenuButtons.tres" id="15_3ugnu"]
 [ext_resource type="Script" path="res://Scripts/Tutorial/PreviousButton.cs" id="16_r6hwd"]
-[ext_resource type="Texture2D" uid="uid://cqu6iqj17p1bc" path="res://Textures/Buttons/UI_Flat_IconArrow01c_mirror.png" id="17_od2qi"]
+[ext_resource type="SpriteFrames" uid="uid://cunmp24qs6atr" path="res://SpriteFrames/flappyplant.tres" id="16_vsnw6"]
+[ext_resource type="SpriteFrames" uid="uid://nm0d1vojebwu" path="res://SpriteFrames/worm.tres" id="17_2y04m"]
+[ext_resource type="Texture2D" uid="uid://osnxfngpexh5" path="res://Textures/Buttons/UI_Flat_IconArrow01c_mirror.png" id="17_od2qi"]
 [ext_resource type="Texture2D" uid="uid://hydswv4l1sfq" path="res://Textures/Buttons/UI_Flat_IconArrow01c.png" id="18_2xoqd"]
 [ext_resource type="Script" path="res://Scripts/Tutorial/NextButton.cs" id="18_yt11j"]
 
@@ -81,6 +84,7 @@ script = ExtResource("3_1a7lh")
 metadata/_edit_lock_ = true
 
 [node name="CharacterSelection" type="Sprite2D" parent="." groups=["Tutorial"]]
+visible = false
 position = Vector2(983, 543)
 scale = Vector2(14.9896, 14.9844)
 texture = ExtResource("1_jr2ci")
@@ -115,8 +119,8 @@ text = "Tutorial"
 horizontal_alignment = 1
 
 [node name="GIF" type="AnimatedSprite2D" parent="CharacterSelection/ScrollContainer/VBoxContainer/Panel" groups=["TutorialAnimations"]]
-position = Vector2(500, 268.092)
-scale = Vector2(0.5, 0.512)
+position = Vector2(509.636, 275.507)
+scale = Vector2(0.77, 0.782)
 sprite_frames = ExtResource("4_mv1k2")
 animation = &"character"
 
@@ -129,7 +133,60 @@ offset_right = 1004.1
 offset_bottom = 671.266
 theme_override_fonts/font = ExtResource("2_ex47q")
 theme_override_font_sizes/font_size = 44
-text = "First off, changing the character to your liking will help you personalize your home. Feel free to try different ones, you can change them how often you feel like."
+text = "Zu aller erst kann ein Charakter ausgewählt werden, um das Interior des Hauses zu personalisieren. Aber keine Sorge, dies zu jeder Zeit im Titelmenü veränderbar!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="SoundSettings" type="Sprite2D" parent="." groups=["Tutorial"]]
+visible = false
+position = Vector2(983, 543)
+scale = Vector2(14.9896, 14.9844)
+texture = ExtResource("1_jr2ci")
+region_rect = Rect2(3, 3, 90, 58)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="SoundSettings"]
+offset_left = -45.0
+offset_top = -29.0
+offset_right = 963.0
+offset_bottom = 615.0
+scale = Vector2(0.09, 0.09)
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SoundSettings/ScrollContainer"]
+custom_minimum_size = Vector2(1000, 620)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="SoundSettings/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 620)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tbcon")
+
+[node name="Title" type="Label" parent="SoundSettings/ScrollContainer/VBoxContainer/Panel"]
+layout_direction = 1
+layout_mode = 2
+offset_left = 180.0
+offset_top = 1.0
+offset_right = 819.0
+offset_bottom = 85.0
+theme_override_font_sizes/font_size = 80
+text = "Sound"
+horizontal_alignment = 1
+
+[node name="GIF" type="AnimatedSprite2D" parent="SoundSettings/ScrollContainer/VBoxContainer/Panel" groups=["TutorialAnimations"]]
+position = Vector2(509.636, 264.384)
+scale = Vector2(0.77, 0.782)
+sprite_frames = ExtResource("9_i8b1f")
+
+[node name="Explanation" type="Label" parent="SoundSettings/ScrollContainer/VBoxContainer/Panel"]
+custom_minimum_size = Vector2(1000, 200)
+layout_mode = 2
+offset_left = 4.0
+offset_top = 454.0
+offset_right = 1004.0
+offset_bottom = 671.0
+theme_override_fonts/font = ExtResource("2_ex47q")
+theme_override_font_sizes/font_size = 44
+text = "Mit den letzten Updates ist nun Musik in GrowGreen zu hören! Dafür lassen sich die Hintergrundmusik und die Soundeffekte seperat voneinander in ihrer Lautstärke anpassen im Einstellungsmenü."
 horizontal_alignment = 1
 autowrap_mode = 3
 
@@ -149,7 +206,7 @@ scale = Vector2(0.09, 0.09)
 horizontal_scroll_mode = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="BuyPlants/ScrollContainer"]
-custom_minimum_size = Vector2(1000, 750)
+custom_minimum_size = Vector2(1000, 835)
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="BuyPlants/ScrollContainer/VBoxContainer"]
@@ -165,7 +222,7 @@ offset_top = 1.0
 offset_right = 821.0
 offset_bottom = 98.0
 theme_override_font_sizes/font_size = 85
-text = "Buy Plants"
+text = "Kaufe Planzen!"
 horizontal_alignment = 1
 
 [node name="GIF" type="AnimatedSprite2D" parent="BuyPlants/ScrollContainer/VBoxContainer/Panel" groups=["TutorialAnimations"]]
@@ -183,7 +240,7 @@ offset_right = 1002.62
 offset_bottom = 735.702
 theme_override_fonts/font = ExtResource("2_ex47q")
 theme_override_font_sizes/font_size = 44
-text = "To add plants to your collection, open the shop and buy a plant by simply clicking on it. The plants are in three rows, sorted by their difficulty level. The difficulty has effects on the price and grow speed. After buying the plant will automatically appear in your home."
+text = "Um deiner Sammlung Pflanzen hinzuzufügen, öffne den Shop und kaufe eine Pflanze, indem du sie einfach anklickst. Die Pflanzen befinden sich in drei Reihen, sortiert nach ihrem Schwierigkeitsgrad. Der Schwierigkeitsgrad hat Auswirkungen auf den Preis und die Wachstumsgeschwindigkeit. Nach dem Kauf wird die Pflanze automatisch in deinem Haus erscheinen."
 horizontal_alignment = 1
 autowrap_mode = 3
 
@@ -203,7 +260,7 @@ scale = Vector2(0.09, 0.09)
 horizontal_scroll_mode = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Pots/ScrollContainer"]
-custom_minimum_size = Vector2(1000, 850)
+custom_minimum_size = Vector2(1000, 880)
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Pots/ScrollContainer/VBoxContainer"]
@@ -219,7 +276,7 @@ offset_top = 1.0
 offset_right = 820.0
 offset_bottom = 99.0
 theme_override_font_sizes/font_size = 85
-text = "Pots"
+text = "Pflanzentöpfe"
 horizontal_alignment = 1
 
 [node name="GIF" type="AnimatedSprite2D" parent="Pots/ScrollContainer/VBoxContainer/Panel" groups=["TutorialAnimations"]]
@@ -237,7 +294,7 @@ offset_right = 1002.62
 offset_bottom = 735.702
 theme_override_fonts/font = ExtResource("2_ex47q")
 theme_override_font_sizes/font_size = 44
-text = "You have multiple specimen of the same plant? No problem! By changing the color of the pot, you can easily differentiate them. No risk of mix-ups! Select the color of your choice and tap the pot, you want to change. If you open Potpacks, your price will be automatically added to the pot selection and you can use the skins how often you want."
+text = "Du hast mehrere Exemplare der gleichen Pflanze? Kein Problem! Indem du die Farbe des Topfes änderst, kannst du sie leicht voneinander unterscheiden. Keine Verwechslungsgefahr! Wähle die Farbe deiner Wahl und tippe auf den Topf, den du ändern möchtest. Wenn du Potpacks öffnest, wird dein Preis automatisch zur Topfauswahl hinzugefügt und du kannst die Skins so oft du willst verwenden."
 horizontal_alignment = 1
 autowrap_mode = 3
 
@@ -268,12 +325,12 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_tbcon")
 [node name="Title" type="Label" parent="ChangeLayout/ScrollContainer/VBoxContainer/Panel"]
 layout_direction = 1
 layout_mode = 2
-offset_left = 183.0
-offset_top = 1.0
-offset_right = 821.0
-offset_bottom = 99.0
+offset_left = 70.825
+offset_top = 1.03181
+offset_right = 947.825
+offset_bottom = 99.0318
 theme_override_font_sizes/font_size = 85
-text = "Change your Layout"
+text = "Verschiebe deine Pflanzen!"
 horizontal_alignment = 1
 
 [node name="GIF" type="AnimatedSprite2D" parent="ChangeLayout/ScrollContainer/VBoxContainer/Panel" groups=["TutorialAnimations"]]
@@ -285,13 +342,13 @@ animation = &"drag"
 [node name="Explanation" type="Label" parent="ChangeLayout/ScrollContainer/VBoxContainer/Panel"]
 custom_minimum_size = Vector2(1000, 200)
 layout_mode = 2
-offset_left = 2.61751
-offset_top = 498.702
-offset_right = 1002.62
-offset_bottom = 735.702
+offset_left = 4.11385
+offset_top = 486.155
+offset_right = 1004.12
+offset_bottom = 723.155
 theme_override_fonts/font = ExtResource("2_ex47q")
 theme_override_font_sizes/font_size = 44
-text = "Change the layout of your home by selecting a plant and dragging it to your preffered position. If only furnishing was this easy in real life, right?"
+text = "Ändere das Layout deiner Wohnung, indem du eine Pflanze auswählst und sie an die gewünschte Stelle ziehst. Wenn das Einrichten im echten Leben nur so einfach wäre, oder?"
 horizontal_alignment = 1
 autowrap_mode = 3
 
@@ -315,18 +372,19 @@ custom_minimum_size = Vector2(1000, 790)
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="WaterPlants/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(1000, 790)
+custom_minimum_size = Vector2(1000, 830)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_tbcon")
 
 [node name="Title" type="Label" parent="WaterPlants/ScrollContainer/VBoxContainer/Panel"]
 layout_direction = 1
 layout_mode = 2
-offset_left = 183.0
-offset_right = 821.0
-offset_bottom = 98.0
+offset_left = 164.962
+offset_top = 0.290029
+offset_right = 844.962
+offset_bottom = 98.29
 theme_override_font_sizes/font_size = 85
-text = "Water your Plants"
+text = "Gieße deine Pflanzen"
 horizontal_alignment = 1
 
 [node name="GIF" type="AnimatedSprite2D" parent="WaterPlants/ScrollContainer/VBoxContainer/Panel" groups=["TutorialAnimations"]]
@@ -338,24 +396,24 @@ animation = &"water"
 [node name="Explanation" type="Label" parent="WaterPlants/ScrollContainer/VBoxContainer/Panel"]
 custom_minimum_size = Vector2(1000, 200)
 layout_mode = 2
-offset_left = 2.61751
-offset_top = 498.702
-offset_right = 1002.62
-offset_bottom = 735.702
+offset_left = 2.63138
+offset_top = 486.155
+offset_right = 1002.63
+offset_bottom = 819.155
 theme_override_fonts/font = ExtResource("2_ex47q")
 theme_override_font_sizes/font_size = 44
-text = "When hovering over a plant, you will see their german name, plant class, growth status and watering level. To water your plant, simply click on it (shortly) BUT be cautious, if you overwater your plants, they will rot. If you forget to water them, they will dry out - just as in real life."
+text = "Wenn du den Mauszeiger über eine Pflanze bewegst, siehst du ihren deutschen Namen, die Pflanzenklasse, den Wachstumsstatus und die Bewässerungsstufe. Um deine Pflanze zu gießen, klicke einfach kurz auf sie – ABER sei vorsichtig! Wenn du deine Pflanzen zu viel gießt, werden sie verfaulen. Vergisst du, sie zu gießen, vertrocknen sie – genau wie im echten Leben."
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="PlantPacks" type="Sprite2D" parent="." groups=["Tutorial"]]
+[node name="Packs" type="Sprite2D" parent="." groups=["Tutorial"]]
 visible = false
 position = Vector2(986, 546)
 scale = Vector2(14.99, 14.979)
 texture = ExtResource("1_jr2ci")
 region_rect = Rect2(3, 3, 90, 58)
 
-[node name="ScrollContainer" type="ScrollContainer" parent="PlantPacks"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Packs"]
 offset_left = -45.0
 offset_top = -29.0
 offset_right = 963.0
@@ -363,16 +421,16 @@ offset_bottom = 615.0
 scale = Vector2(0.09, 0.09)
 horizontal_scroll_mode = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PlantPacks/ScrollContainer"]
-custom_minimum_size = Vector2(1000, 890)
+[node name="VBoxContainer" type="VBoxContainer" parent="Packs/ScrollContainer"]
+custom_minimum_size = Vector2(1000, 975)
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="PlantPacks/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(1000, 890)
+[node name="Panel" type="Panel" parent="Packs/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 970)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_tbcon")
 
-[node name="Title" type="Label" parent="PlantPacks/ScrollContainer/VBoxContainer/Panel"]
+[node name="Title" type="Label" parent="Packs/ScrollContainer/VBoxContainer/Panel"]
 layout_direction = 1
 layout_mode = 2
 offset_left = 182.0
@@ -380,16 +438,16 @@ offset_top = 1.0
 offset_right = 821.0
 offset_bottom = 99.0
 theme_override_font_sizes/font_size = 85
-text = "Plant Packs"
+text = "Packs"
 horizontal_alignment = 1
 
-[node name="GIF" type="AnimatedSprite2D" parent="PlantPacks/ScrollContainer/VBoxContainer/Panel" groups=["TutorialAnimations"]]
-position = Vector2(502.224, 282.18)
-scale = Vector2(0.5, 0.512)
-sprite_frames = ExtResource("13_0eo5d")
+[node name="GIF" type="AnimatedSprite2D" parent="Packs/ScrollContainer/VBoxContainer/Panel" groups=["TutorialAnimations"]]
+position = Vector2(509.636, 282.18)
+scale = Vector2(0.77, 0.788)
+sprite_frames = ExtResource("14_ilngh")
 animation = &"packs"
 
-[node name="Explanation" type="Label" parent="PlantPacks/ScrollContainer/VBoxContainer/Panel"]
+[node name="Explanation" type="Label" parent="Packs/ScrollContainer/VBoxContainer/Panel"]
 custom_minimum_size = Vector2(1000, 200)
 layout_mode = 2
 offset_left = 2.61751
@@ -398,7 +456,7 @@ offset_right = 1002.62
 offset_bottom = 735.702
 theme_override_fonts/font = ExtResource("2_ex47q")
 theme_override_font_sizes/font_size = 44
-text = "When opening Plantpacks, you have the chance of a easy, middle or hard plant - all for only six coins. After buying the pack, you have to open it, to see the plant you won. To continue either opening packs or playing, click the plant once. It'll be directly added to your home. The logic behind Potpacks is the same, but they're more expensive, because you will win a special not-for-sale potskin, which you can use forever, how many times you want."
+text = "Wenn du Plantpacks öffnest, hast du die Chance auf eine leichte, mittlere oder schwere Pflanze - alles für nur sechs Münzen. Nach dem Kauf des Päckchens musst du es öffnen, um die Pflanze zu sehen, die du gewonnen hast. Um entweder Packs zu öffnen oder weiterzuspielen, klicke einmal auf die Pflanze. Sie wird dann direkt zu deinem Haus hinzugefügt. Die Logik hinter den Potpacks ist dieselbe, aber sie sind teurer, weil du eine spezielle, unverkäufliche Topfhaut gewinnst, die du für immer benutzen kannst, so oft du willst."
 horizontal_alignment = 1
 autowrap_mode = 3
 
@@ -422,7 +480,7 @@ custom_minimum_size = Vector2(1000, 850)
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Memory/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(1000, 850)
+custom_minimum_size = Vector2(1000, 900)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_tbcon")
 
@@ -452,9 +510,114 @@ offset_right = 1002.62
 offset_bottom = 735.702
 theme_override_fonts/font = ExtResource("2_ex47q")
 theme_override_font_sizes/font_size = 44
-text = "The goal of memory is matching all the hidden pairs. When finishing a round, you'll win coins. The amount of coins depends on the difficulty you've chosen, the harder the game, the bigger the reward.
+text = "Das Ziel des Memorys ist es, alle versteckten Paare zu finden. Wenn du eine Runde abschließt, gewinnst du Münzen. Die Anzahl der Münzen hängt von der gewählten Schwierigkeit ab. Je schwieriger das Spiel, desto größer die Belohnung.
 
-Have fun (but not too much, we don't want you to forget your real life plants (and friends))!"
+Viel Spaß (aber nicht zu viel, wir wollen ja nicht, dass du deine Pflanzen (und Freunde) im echten Leben vergisst)!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="FlappyPlant" type="Sprite2D" parent="." groups=["Tutorial"]]
+visible = false
+position = Vector2(986, 546)
+scale = Vector2(14.99, 14.979)
+texture = ExtResource("1_jr2ci")
+region_rect = Rect2(3, 3, 90, 58)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="FlappyPlant"]
+offset_left = -45.0
+offset_top = -29.0
+offset_right = 963.0
+offset_bottom = 615.0
+scale = Vector2(0.09, 0.09)
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="FlappyPlant/ScrollContainer"]
+custom_minimum_size = Vector2(1000, 740)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="FlappyPlant/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 720)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tbcon")
+
+[node name="Title" type="Label" parent="FlappyPlant/ScrollContainer/VBoxContainer/Panel"]
+layout_direction = 1
+layout_mode = 2
+offset_left = 149.396
+offset_top = 2.51537
+offset_right = 893.396
+offset_bottom = 100.515
+theme_override_font_sizes/font_size = 85
+text = "Minigame: Flappy Plant"
+horizontal_alignment = 1
+
+[node name="GIF" type="AnimatedSprite2D" parent="FlappyPlant/ScrollContainer/VBoxContainer/Panel" groups=["TutorialAnimations"]]
+position = Vector2(502.224, 282.18)
+scale = Vector2(0.77, 0.788)
+sprite_frames = ExtResource("16_vsnw6")
+
+[node name="Explanation" type="Label" parent="FlappyPlant/ScrollContainer/VBoxContainer/Panel"]
+custom_minimum_size = Vector2(1000, 200)
+layout_mode = 2
+offset_left = 2.61751
+offset_top = 498.702
+offset_right = 1002.62
+offset_bottom = 735.702
+theme_override_fonts/font = ExtResource("2_ex47q")
+theme_override_font_sizes/font_size = 44
+text = "Ziel ist es noch, deine Biene so lange wie möglich in der Luft zu halten! Tippe oder klicke, um sie hochzuhalten, weiche den Hindernissen aus und versuche, immer weiter zu kommen. Aber pass auf – wenn du den Boden berührst oder gegen ein Hindernis fliegst, ist das Spiel vorbei. "
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Worm" type="Sprite2D" parent="." groups=["Tutorial"]]
+position = Vector2(986, 546)
+scale = Vector2(14.99, 14.979)
+texture = ExtResource("1_jr2ci")
+region_rect = Rect2(3, 3, 90, 58)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Worm"]
+offset_left = -45.0
+offset_top = -29.0
+offset_right = 963.0
+offset_bottom = 615.0
+scale = Vector2(0.09, 0.09)
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Worm/ScrollContainer"]
+custom_minimum_size = Vector2(1000, 750)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Worm/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 750)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tbcon")
+
+[node name="Title" type="Label" parent="Worm/ScrollContainer/VBoxContainer/Panel"]
+layout_direction = 1
+layout_mode = 2
+offset_left = 182.0
+offset_top = 1.0
+offset_right = 822.0
+offset_bottom = 99.0
+theme_override_font_sizes/font_size = 85
+text = "Minigame: Worm"
+horizontal_alignment = 1
+
+[node name="GIF" type="AnimatedSprite2D" parent="Worm/ScrollContainer/VBoxContainer/Panel" groups=["TutorialAnimations"]]
+position = Vector2(502.224, 282.18)
+scale = Vector2(0.77, 0.788)
+sprite_frames = ExtResource("17_2y04m")
+
+[node name="Explanation" type="Label" parent="Worm/ScrollContainer/VBoxContainer/Panel"]
+custom_minimum_size = Vector2(1000, 200)
+layout_mode = 2
+offset_left = 2.61751
+offset_top = 498.702
+offset_right = 1002.62
+offset_bottom = 735.702
+theme_override_fonts/font = ExtResource("2_ex47q")
+theme_override_font_sizes/font_size = 44
+text = "Steuere deinen Wurm über das Spielfeld und sammle Wassertropfen ein, um ihn wachsen zu lassen! Je mehr du sammelst, desto länger wird er. Aber sei vorsichtig – wenn du gegen die Wände oder dich selbst stößt, ist das Spiel vorbei."
 horizontal_alignment = 1
 autowrap_mode = 3
 
