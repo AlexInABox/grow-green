@@ -5,8 +5,8 @@ using System.Collections.Generic;
 public partial class TutorialSceneManager : Node
 {
 	int currentTutorial = 0;
-	Sprite2D[] tutorials = new Sprite2D[7];
-	AnimatedSprite2D[] tutorialAnimations = new AnimatedSprite2D[7];
+	Sprite2D[] tutorials = new Sprite2D[10];
+	AnimatedSprite2D[] tutorialAnimations = new AnimatedSprite2D[10];
 	Button[] navigationButtons = new Button[2];
 	
 	// Called when the node enters the scene tree for the first time.
