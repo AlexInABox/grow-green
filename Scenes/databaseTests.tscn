@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dlp4fr3pqiq8c"]
 
-[ext_resource type="Script" path="res://Scripts/DatabaseInitializeButton.cs" id="1_6kstk"]
-[ext_resource type="Script" path="res://Scripts/DatabaseGetListButton.cs" id="2_868o6"]
+[ext_resource type="Script" uid="uid://djmh776420cos" path="res://Scripts/DatabaseInitializeButton.cs" id="1_6kstk"]
+[ext_resource type="Script" uid="uid://drb0456t0trc7" path="res://Scripts/DatabaseGetListButton.cs" id="2_868o6"]
 
 [node name="DatabaseTests" type="Node2D"]
 

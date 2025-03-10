@@ -12,7 +12,7 @@ on:
             - 'nuUh!'
 
 env:
-  GODOT_VERSION: 4.3
+  GODOT_VERSION: 4.4
   EXPORT_NAME: GrowGreen
 
 jobs:
@@ -20,7 +20,7 @@ jobs:
     name: Build Windows
     runs-on: ubuntu-latest
     container:
-      image: barichello/godot-ci:mono-4.3
+      image: barichello/godot-ci:mono-4.4
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -52,7 +52,7 @@ jobs:
     name: Build Linux
     runs-on: ubuntu-latest
     container:
-      image: barichello/godot-ci:mono-4.3
+      image: barichello/godot-ci:mono-4.4
     steps:
       - name: Checkout
         uses: actions/checkout@v4

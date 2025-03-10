@@ -1,13 +1,13 @@
 [gd_scene load_steps=13 format=3 uid="uid://trgi1meok1m7"]
 
-[ext_resource type="Script" path="res://Scripts/PackSpawner.cs" id="1_abtt4"]
-[ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="2_15lch"]
+[ext_resource type="Script" uid="uid://dyb4nyp0i62q7" path="res://Scripts/PackSpawner.cs" id="1_abtt4"]
+[ext_resource type="Script" uid="uid://liwrn1lvw052" path="res://Scripts/SceneManager.cs" id="2_15lch"]
 [ext_resource type="Texture2D" uid="uid://du47d27nnh6s7" path="res://Textures/Packs/minigame_single.png" id="2_obw1j"]
 [ext_resource type="PackedScene" uid="uid://d07rokqxx2fl3" path="res://Prefabs/coinDisplay_wrapper.tscn" id="4_1prl8"]
 [ext_resource type="Theme" uid="uid://cxgao5s1phj5n" path="res://Themes/mainMenuButtons.tres" id="5_2swni"]
 [ext_resource type="Texture2D" uid="uid://ckt2lbmbvplv7" path="res://Textures/Coin2.png" id="6_e7wl4"]
 [ext_resource type="Texture2D" uid="uid://bmpnx8afa8exa" path="res://Textures/Icons/exit.png" id="8_uxwgf"]
-[ext_resource type="Script" path="res://Scripts/PlantPack/LeaveButton.cs" id="9_7etoo"]
+[ext_resource type="Script" uid="uid://djhnqj5aedhgy" path="res://Scripts/PlantPack/LeaveButton.cs" id="9_7etoo"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eradl"]
 

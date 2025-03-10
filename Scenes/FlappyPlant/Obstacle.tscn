@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://brmtk1ey2s37a"]
 
-[ext_resource type="Script" path="res://Scripts/FlappyPlant/Obstacle.cs" id="1_bbdoc"]
-[ext_resource type="Script" path="res://Scripts/FlappyPlant/Collision.cs" id="2_ghuro"]
+[ext_resource type="Script" uid="uid://cbnaynagqmrl2" path="res://Scripts/FlappyPlant/Obstacle.cs" id="1_bbdoc"]
+[ext_resource type="Script" uid="uid://c3gdy5rapdruy" path="res://Scripts/FlappyPlant/Collision.cs" id="2_ghuro"]
 [ext_resource type="Texture2D" uid="uid://blp6s8pdlarue" path="res://Textures/Minigames/Flappy Plant/pixil-frame-0_1.png" id="3_q04dj"]
-[ext_resource type="Script" path="res://Scripts/FlappyPlant/Passed.cs" id="4_goq0w"]
+[ext_resource type="Script" uid="uid://bwjp3i0reoxvo" path="res://Scripts/FlappyPlant/Passed.cs" id="4_goq0w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a30ja"]
 size = Vector2(32, 226)

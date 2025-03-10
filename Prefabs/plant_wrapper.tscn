@@ -1,13 +1,13 @@
 [gd_scene load_steps=15 format=3 uid="uid://f57aqowuk20c"]
 
-[ext_resource type="Script" path="res://Scripts/PlantWrapper.cs" id="1_8i3x8"]
+[ext_resource type="Script" uid="uid://btu3xv58ednpo" path="res://Scripts/PlantWrapper.cs" id="1_8i3x8"]
 [ext_resource type="Texture2D" uid="uid://buqy5h6r8xf4y" path="res://Textures/Pots/default.png" id="1_tugmu"]
 [ext_resource type="Texture2D" uid="uid://da633vcabsr6c" path="res://Textures/Buttons/UI_Flat_Bar13a.png" id="2_i72dl"]
 [ext_resource type="Texture2D" uid="uid://0psxnxttgvu4" path="res://Textures/PlantStatsBubble/bubble_bigger_left.png" id="2_jtrm7"]
 [ext_resource type="Theme" uid="uid://bch6yw6lcxyeh" path="res://Themes/statusBubbleFont.tres" id="2_kxr6s"]
 [ext_resource type="Texture2D" uid="uid://dhjxjrt06dph4" path="res://Textures/Plants/agave2.png" id="2_wrp6y"]
 [ext_resource type="Theme" uid="uid://bik6akg25n2fr" path="res://Themes/plant_location_button.tres" id="4_42ljx"]
-[ext_resource type="Script" path="res://Scripts/PlantButton.cs" id="5_o0u11"]
+[ext_resource type="Script" uid="uid://b5wp8mmpsvnr4" path="res://Scripts/PlantButton.cs" id="5_o0u11"]
 [ext_resource type="Texture2D" uid="uid://brea70tcfm2ti" path="res://Textures/PlantStatsBubble/bubble_bigger_right.png" id="6_cv70p"]
 [ext_resource type="Texture2D" uid="uid://diyxfvakykl1u" path="res://Textures/Buttons/UI_Flat_Bar08a.png" id="7_oyynb"]
 
@@ -38,7 +38,7 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_aw80g"]
 _data = {
-"RESET": SubResource("Animation_n70bi")
+&"RESET": SubResource("Animation_n70bi")
 }
 
 [sub_resource type="Animation" id="Animation_lqgwm"]
@@ -69,7 +69,7 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5k7vf"]
 _data = {
-"visualDragHint": SubResource("Animation_lqgwm")
+&"visualDragHint": SubResource("Animation_lqgwm")
 }
 
 [node name="plant_wrapper" type="Node2D"]
@@ -265,6 +265,6 @@ metadata/_edit_lock_ = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
 libraries = {
-"": SubResource("AnimationLibrary_aw80g"),
-"Plants": SubResource("AnimationLibrary_5k7vf")
+&"": SubResource("AnimationLibrary_aw80g"),
+&"Plants": SubResource("AnimationLibrary_5k7vf")
 }

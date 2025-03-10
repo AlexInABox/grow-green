@@ -1,13 +1,13 @@
 [gd_scene load_steps=14 format=3 uid="uid://b14d5jkef6ug1"]
 
-[ext_resource type="Script" path="res://Scripts/AudioScaler/MusicSlider.cs" id="2_47gja"]
+[ext_resource type="Script" uid="uid://rwqvdwfdhnd6" path="res://Scripts/AudioScaler/MusicSlider.cs" id="2_47gja"]
 [ext_resource type="Texture2D" uid="uid://d2fcdf3wvh3b1" path="res://Textures/Buttons/UI_Flat_Handle06a.png" id="2_sbnaq"]
 [ext_resource type="Texture2D" uid="uid://caplkr8i4j4mp" path="res://Textures/Buttons/UI_Flat_Frame03a.png" id="2_seqiy"]
 [ext_resource type="Texture2D" uid="uid://c0uq7sqjmphmi" path="res://Textures/Buttons/UI_Flat_Bar05a.png" id="3_7su8t"]
 [ext_resource type="FontFile" uid="uid://16884th6cwds" path="res://Fonts/Jersey25-Regular.ttf" id="3_upgtt"]
-[ext_resource type="Script" path="res://Scripts/AudioScaler/SoundSlider.cs" id="6_reg82"]
+[ext_resource type="Script" uid="uid://b0idn4x5a3xm3" path="res://Scripts/AudioScaler/SoundSlider.cs" id="6_reg82"]
 [ext_resource type="Texture2D" uid="uid://bmpnx8afa8exa" path="res://Textures/Icons/exit.png" id="7_qjwgw"]
-[ext_resource type="Script" path="res://Scripts/AudioScaler/LeaveButton.cs" id="8_kmrvv"]
+[ext_resource type="Script" uid="uid://cpel0lmcmu00l" path="res://Scripts/AudioScaler/LeaveButton.cs" id="8_kmrvv"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jsart"]
 texture = ExtResource("3_7su8t")

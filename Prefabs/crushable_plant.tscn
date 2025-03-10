@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://hkxjgmggvwyd"]
 
 [ext_resource type="Texture2D" uid="uid://djtdwjbgah1nl" path="res://Textures/Minigames/Memory/memory_01.png" id="1_boagc"]
-[ext_resource type="Script" path="res://Scripts/PlantCrush/CrushablePlant.cs" id="2_rmou2"]
+[ext_resource type="Script" uid="uid://dqc13fwfoe2dd" path="res://Scripts/PlantCrush/CrushablePlant.cs" id="2_rmou2"]
 
 [node name="CrushablePlant" type="Node2D"]
 

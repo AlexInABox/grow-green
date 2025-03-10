@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bclcwmr1viwwx"]
 
-[ext_resource type="Script" path="res://Scripts/PlantPack/PotPackOpening.cs" id="1_tmvr2"]
+[ext_resource type="Script" uid="uid://lwhk6epd57a2" path="res://Scripts/PlantPack/PotPackOpening.cs" id="1_tmvr2"]
 [ext_resource type="Texture2D" uid="uid://pcf5h0l5c27c" path="res://Textures/Packs/pack_pot_overpowered.png" id="2_6blbi"]
 [ext_resource type="Texture2D" uid="uid://buqy5h6r8xf4y" path="res://Textures/Pots/default.png" id="4_v2ma1"]
 [ext_resource type="Texture2D" uid="uid://17jsurkaucrc" path="res://Textures/Packs/light_texture.png" id="5_uf58l"]
@@ -39,8 +39,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a0acs"]
 _data = {
-"OpenPackAnimation": SubResource("Animation_hqd08"),
-"RESET": SubResource("Animation_t3xrx")
+&"OpenPackAnimation": SubResource("Animation_hqd08"),
+&"RESET": SubResource("Animation_t3xrx")
 }
 
 [node name="PotPackOpening" type="Node2D"]
@@ -73,7 +73,7 @@ texture = ExtResource("5_uf58l")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Button"]
 libraries = {
-"": SubResource("AnimationLibrary_a0acs")
+&"": SubResource("AnimationLibrary_a0acs")
 }
 
 [node name="PotLabel" type="Label" parent="Button"]

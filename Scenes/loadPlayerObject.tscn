@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://cuj4anxehb4nw"]
 
-[ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_msdyd"]
+[ext_resource type="Script" uid="uid://liwrn1lvw052" path="res://Scripts/SceneManager.cs" id="1_msdyd"]
 [ext_resource type="Texture2D" uid="uid://dm8qfia335esp" path="res://Textures/TestBackground.png" id="1_okkm2"]
-[ext_resource type="Shader" path="res://Shaders/blurme.gdshader" id="2_5o7uc"]
+[ext_resource type="Shader" uid="uid://dbirw6kh3gvsk" path="res://Shaders/blurme.gdshader" id="2_5o7uc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qryfh"]
 shader = ExtResource("2_5o7uc")
 shader_parameter/blur_amount = 2.5
 shader_parameter/mix_amount = 0.0
-shader_parameter/color_over = null
+shader_parameter/color_over = Color(0, 0, 0, 1)
 
 [node name="LoadPlayerObject" type="Node2D"]
 script = ExtResource("1_msdyd")

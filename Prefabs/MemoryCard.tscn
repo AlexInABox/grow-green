@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bp1qmlg1s0co7"]
 
 [ext_resource type="Texture2D" uid="uid://by61x6blxdcqg" path="res://Textures/Minigames/Memory/memory_back.png" id="1_adlvu"]
-[ext_resource type="Script" path="res://Scripts/Memory/MemoryCardScript.cs" id="1_t1naj"]
+[ext_resource type="Script" uid="uid://drop6i3dldtni" path="res://Scripts/Memory/MemoryCardScript.cs" id="1_t1naj"]
 [ext_resource type="Texture2D" uid="uid://djtdwjbgah1nl" path="res://Textures/Minigames/Memory/memory_01.png" id="2_nd3jm"]
 
 [node name="MemoryCard" type="Node2D"]
