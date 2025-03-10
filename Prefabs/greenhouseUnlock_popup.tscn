@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://caplkr8i4j4mp" path="res://Textures/Buttons/UI_Flat_Frame03a.png" id="1_d8hls"]
 [ext_resource type="FontFile" uid="uid://16884th6cwds" path="res://Fonts/Jersey25-Regular.ttf" id="2_p5jf0"]
 [ext_resource type="Theme" uid="uid://cxgao5s1phj5n" path="res://Themes/mainMenuButtons.tres" id="3_tlqqu"]
-[ext_resource type="Script" path="res://Scripts/MainScene/QuitGreenhousePopup.cs" id="4_7wc24"]
-[ext_resource type="Script" path="res://Scripts/MainScene/BuyGreenhouse.cs" id="4_uf64l"]
+[ext_resource type="Script" uid="uid://cuc2agc34mjsv" path="res://Scripts/MainScene/QuitGreenhousePopup.cs" id="4_7wc24"]
+[ext_resource type="Script" uid="uid://cuibp0o0vbkf" path="res://Scripts/MainScene/BuyGreenhouse.cs" id="4_uf64l"]
 
 [node name="CreateGameConfirmationPopup" type="Node2D"]
 
@@ -44,8 +44,8 @@ offset_right = 78.0
 offset_bottom = 61.0
 scale = Vector2(0.285, 0.285)
 theme = ExtResource("3_tlqqu")
-theme_override_colors/font_focus_color = Color(0.761386, 0.273843, 0.27925, 1)
 theme_override_colors/font_color = Color(0.823529, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.761386, 0.273843, 0.27925, 1)
 theme_override_font_sizes/font_size = 41
 text = "Abbruch"
 script = ExtResource("4_7wc24")

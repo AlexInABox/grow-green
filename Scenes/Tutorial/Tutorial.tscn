@@ -1,12 +1,12 @@
 [gd_scene load_steps=29 format=3 uid="uid://cybr4i56w8fnp"]
 
-[ext_resource type="Script" path="res://Scripts/Tutorial/TutorialSceneManager.cs" id="1_1kq03"]
+[ext_resource type="Script" uid="uid://bv2358e2j0gtk" path="res://Scripts/Tutorial/TutorialSceneManager.cs" id="1_1kq03"]
 [ext_resource type="Texture2D" uid="uid://caplkr8i4j4mp" path="res://Textures/Buttons/UI_Flat_Frame03a.png" id="1_jr2ci"]
 [ext_resource type="Texture2D" uid="uid://dg4m3mxd4m8kt" path="res://Textures/TitleBackgroundDemo.png" id="1_qm1d8"]
-[ext_resource type="Shader" path="res://Shaders/blurme.gdshader" id="1_ut4pt"]
+[ext_resource type="Shader" uid="uid://dbirw6kh3gvsk" path="res://Shaders/blurme.gdshader" id="1_ut4pt"]
 [ext_resource type="FontFile" uid="uid://16884th6cwds" path="res://Fonts/Jersey25-Regular.ttf" id="2_ex47q"]
 [ext_resource type="Texture2D" uid="uid://bmpnx8afa8exa" path="res://Textures/Icons/exit.png" id="2_ployn"]
-[ext_resource type="Script" path="res://Scripts/Tutorial/LeaveTutorialButton.cs" id="3_1a7lh"]
+[ext_resource type="Script" uid="uid://b5ukytgut2khe" path="res://Scripts/Tutorial/LeaveTutorialButton.cs" id="3_1a7lh"]
 [ext_resource type="SpriteFrames" uid="uid://drp6tx0prs4yn" path="res://SpriteFrames/character.tres" id="4_mv1k2"]
 [ext_resource type="SpriteFrames" uid="uid://bqbew2jpxo5po" path="res://SpriteFrames/buy.tres" id="9_0n32e"]
 [ext_resource type="SpriteFrames" uid="uid://d2ei6d6c2y5jh" path="res://SpriteFrames/soundsettings.tres" id="9_i8b1f"]
@@ -16,18 +16,18 @@
 [ext_resource type="SpriteFrames" uid="uid://bard462gip8ek" path="res://SpriteFrames/memory.tres" id="14_eilna"]
 [ext_resource type="SpriteFrames" uid="uid://c0hxcc0qe0nj0" path="res://SpriteFrames/packs.tres" id="14_ilngh"]
 [ext_resource type="Theme" uid="uid://cxgao5s1phj5n" path="res://Themes/mainMenuButtons.tres" id="15_3ugnu"]
-[ext_resource type="Script" path="res://Scripts/Tutorial/PreviousButton.cs" id="16_r6hwd"]
+[ext_resource type="Script" uid="uid://bd8oq8aisexp1" path="res://Scripts/Tutorial/PreviousButton.cs" id="16_r6hwd"]
 [ext_resource type="SpriteFrames" uid="uid://cunmp24qs6atr" path="res://SpriteFrames/flappyplant.tres" id="16_vsnw6"]
 [ext_resource type="SpriteFrames" uid="uid://nm0d1vojebwu" path="res://SpriteFrames/worm.tres" id="17_2y04m"]
-[ext_resource type="Texture2D" uid="uid://osnxfngpexh5" path="res://Textures/Buttons/UI_Flat_IconArrow01c_mirror.png" id="17_od2qi"]
+[ext_resource type="Texture2D" uid="uid://dkviqqv08ooo6" path="res://Textures/Buttons/UI_Flat_IconArrow01c_mirror.png" id="17_od2qi"]
 [ext_resource type="Texture2D" uid="uid://hydswv4l1sfq" path="res://Textures/Buttons/UI_Flat_IconArrow01c.png" id="18_2xoqd"]
-[ext_resource type="Script" path="res://Scripts/Tutorial/NextButton.cs" id="18_yt11j"]
+[ext_resource type="Script" uid="uid://bw4twluihf3n4" path="res://Scripts/Tutorial/NextButton.cs" id="18_yt11j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8rt3k"]
 shader = ExtResource("1_ut4pt")
 shader_parameter/blur_amount = 2.5
 shader_parameter/mix_amount = 0.0
-shader_parameter/color_over = null
+shader_parameter/color_over = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b3k7w"]
 

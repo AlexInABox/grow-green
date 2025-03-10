@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://dvf2by6ii450u"]
 
-[ext_resource type="Script" path="res://Scripts/TestGardenLoader.cs" id="1_n7wyd"]
-[ext_resource type="Shader" path="res://Shaders/blurme.gdshader" id="3_xa46e"]
+[ext_resource type="Script" uid="uid://da7eglko4yror" path="res://Scripts/TestGardenLoader.cs" id="1_n7wyd"]
+[ext_resource type="Shader" uid="uid://dbirw6kh3gvsk" path="res://Shaders/blurme.gdshader" id="3_xa46e"]
 [ext_resource type="Texture2D" uid="uid://dm8qfia335esp" path="res://Textures/TestBackground.png" id="7_frndc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_laerm"]
 shader = ExtResource("3_xa46e")
 shader_parameter/blur_amount = 2.5
 shader_parameter/mix_amount = 0.0
-shader_parameter/color_over = null
+shader_parameter/color_over = Color(0, 0, 0, 1)
 
 [node name="TestGarden" type="Node2D"]
 script = ExtResource("1_n7wyd")

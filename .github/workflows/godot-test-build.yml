@@ -8,7 +8,7 @@ on:
       - synchronize
 
 env:
-  GODOT_VERSION: 4.3
+  GODOT_VERSION: 4.4
   EXPORT_NAME: GrowGreen
 
 jobs:
@@ -16,7 +16,7 @@ jobs:
     name: Build Windows
     runs-on: ubuntu-latest
     container:
-      image: barichello/godot-ci:mono-4.3
+      image: barichello/godot-ci:mono-4.4
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -48,7 +48,7 @@ jobs:
     name: Build Linux
     runs-on: ubuntu-latest
     container:
-      image: barichello/godot-ci:mono-4.3
+      image: barichello/godot-ci:mono-4.4
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -87,14 +87,15 @@ jobs:
 
       - name: Setup Godot-mono
         run: |
+          brew update
           brew install --cask godot-mono
 
       - name: Setup Godot Templates
         run: |
-          export GODOT_TEMPLATES_PATH="$HOME/Library/Application Support/Godot/export_templates/${{ env.GODOT_VERSION}}.stable.mono/"
+          export GODOT_TEMPLATES_PATH="$HOME/Library/Application Support/Godot/export_templates/${GODOT_VERSION}.stable.mono/"
           mkdir -p "$GODOT_TEMPLATES_PATH"
-          wget -q https://github.com/godotengine/godot/releases/download/${{ env.GODOT_VERSION}}-stable/Godot_v${{ env.GODOT_VERSION}}-stable_mono_export_templates.tpz
-          unzip -j Godot_v${{ env.GODOT_VERSION}}-stable_mono_export_templates.tpz -d "$GODOT_TEMPLATES_PATH"
+          wget -q https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_mono_export_templates.tpz
+          unzip -j Godot_v${GODOT_VERSION}-stable_mono_export_templates.tpz -d "$GODOT_TEMPLATES_PATH"
 
       - name: MacOS Build
         run: |

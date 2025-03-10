@@ -1,12 +1,12 @@
 [gd_scene load_steps=17 format=3 uid="uid://ea1g0ffnyjnb"]
 
-[ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="1_01qya"]
+[ext_resource type="Script" uid="uid://liwrn1lvw052" path="res://Scripts/SceneManager.cs" id="1_01qya"]
 [ext_resource type="Texture2D" uid="uid://pklblu1n2kih" path="res://Textures/Backgrounds/ShopBackground.png" id="1_8vc7e"]
-[ext_resource type="Script" path="res://Scripts/Shop/ShopSzene.cs" id="1_wid7o"]
-[ext_resource type="Script" path="res://Scripts/Shop/LeaveButton.cs" id="3_sufmd"]
-[ext_resource type="Script" path="res://Scripts/Shop/EasyPlantsContainercs.cs" id="3_ykhpk"]
-[ext_resource type="Script" path="res://Scripts/Shop/MediumPlantsContainer.cs" id="4_v6w1e"]
-[ext_resource type="Script" path="res://Scripts/Shop/HardPlantsContainer.cs" id="5_pl2fe"]
+[ext_resource type="Script" uid="uid://coiywcvw0v41h" path="res://Scripts/Shop/ShopSzene.cs" id="1_wid7o"]
+[ext_resource type="Script" uid="uid://cbgo8ebxjwgb6" path="res://Scripts/Shop/LeaveButton.cs" id="3_sufmd"]
+[ext_resource type="Script" uid="uid://pru48w60utxr" path="res://Scripts/Shop/EasyPlantsContainercs.cs" id="3_ykhpk"]
+[ext_resource type="Script" uid="uid://brdfpqa5xu8ev" path="res://Scripts/Shop/MediumPlantsContainer.cs" id="4_v6w1e"]
+[ext_resource type="Script" uid="uid://clicujq72s7rw" path="res://Scripts/Shop/HardPlantsContainer.cs" id="5_pl2fe"]
 [ext_resource type="Texture2D" uid="uid://bmpnx8afa8exa" path="res://Textures/Icons/exit.png" id="6_iq0d4"]
 [ext_resource type="PackedScene" uid="uid://d07rokqxx2fl3" path="res://Prefabs/coinDisplay_wrapper.tscn" id="8_fuq8i"]
 

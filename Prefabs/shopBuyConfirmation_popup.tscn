@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://2uhahxp1efvg"]
 
-[ext_resource type="Script" path="res://Scripts/Shop/ShopConfirmationPopup/ConfirmationPopup.cs" id="1_b5ayi"]
+[ext_resource type="Script" uid="uid://dlxfpuv711umm" path="res://Scripts/Shop/ShopConfirmationPopup/ConfirmationPopup.cs" id="1_b5ayi"]
 [ext_resource type="Texture2D" uid="uid://caplkr8i4j4mp" path="res://Textures/Buttons/UI_Flat_Frame03a.png" id="1_on2yi"]
 [ext_resource type="FontFile" uid="uid://16884th6cwds" path="res://Fonts/Jersey25-Regular.ttf" id="2_a0en4"]
-[ext_resource type="Script" path="res://Scripts/Shop/ShopConfirmationPopup/Warning.cs" id="3_7beaf"]
+[ext_resource type="Script" uid="uid://dvl7s1v3gnfyo" path="res://Scripts/Shop/ShopConfirmationPopup/Warning.cs" id="3_7beaf"]
 [ext_resource type="Theme" uid="uid://cxgao5s1phj5n" path="res://Themes/mainMenuButtons.tres" id="3_dtv68"]
-[ext_resource type="Script" path="res://Scripts/Shop/ShopConfirmationPopup/Cancel.cs" id="4_l6yuc"]
+[ext_resource type="Script" uid="uid://b063wloluije0" path="res://Scripts/Shop/ShopConfirmationPopup/Cancel.cs" id="4_l6yuc"]
 
 [node name="ShopBuyConfirmationPopup" type="Node2D"]
 script = ExtResource("1_b5ayi")

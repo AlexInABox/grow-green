@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dchis331cpnnw" path="res://Textures/Plants/agave3.png" id="4_6rofv"]
 [ext_resource type="Theme" uid="uid://ds3phtivtqrph" path="res://Themes/ShopButton.tres" id="4_fexn2"]
 [ext_resource type="Texture2D" uid="uid://cytn4u5ejjnbe" path="res://Textures/Pots/plain_brown.png" id="5_240r4"]
-[ext_resource type="Script" path="res://Scripts/Shop/ShopPlantButton.cs" id="5_elf68"]
+[ext_resource type="Script" uid="uid://yd00ccyryy37" path="res://Scripts/Shop/ShopPlantButton.cs" id="5_elf68"]
 
 [node name="ShopWrapper" type="Node2D"]
 metadata/_edit_lock_ = true
