@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://de0ydp7eyukk4"]
 
-[ext_resource type="Script" path="res://Scripts/Worm/SnakeGame.cs" id="1_jowhm"]
-[ext_resource type="PackedScene" path="res://Prefabs/SnakeHead.tscn" id="2_80aei"]
-[ext_resource type="PackedScene" path="res://Prefabs/SnakeBody.tscn" id="3_dquyi"]
-[ext_resource type="PackedScene" path="res://Prefabs/SnakeTail.tscn" id="4_pxi5h"]
+[ext_resource type="Script" uid="uid://h58cibyh22y0" path="res://Scripts/Worm/SnakeGame.cs" id="1_jowhm"]
+[ext_resource type="PackedScene" uid="uid://drkdv17nbk50x" path="res://Prefabs/SnakeHead.tscn" id="2_80aei"]
+[ext_resource type="PackedScene" uid="uid://byq3g5aeaqwpu" path="res://Prefabs/SnakeBody.tscn" id="3_dquyi"]
+[ext_resource type="PackedScene" uid="uid://8weegtimb0qc" path="res://Prefabs/SnakeTail.tscn" id="4_pxi5h"]
 [ext_resource type="Texture2D" uid="uid://cfqmj4g6wk0qu" path="res://Textures/Minigames/Snake/pixil-frame-05.png" id="5_kdq3s"]
-[ext_resource type="PackedScene" path="res://Prefabs/SnakeFood.tscn" id="5_udms8"]
-[ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="6_g6c5n"]
+[ext_resource type="PackedScene" uid="uid://k5jvgk7u8lm8" path="res://Prefabs/SnakeFood.tscn" id="5_udms8"]
+[ext_resource type="Script" uid="uid://liwrn1lvw052" path="res://Scripts/SceneManager.cs" id="6_g6c5n"]
 
 [node name="WormGame" type="Node2D"]
 script = ExtResource("1_jowhm")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b172l6i6w5scc"]
 
 [ext_resource type="Texture2D" uid="uid://du47d27nnh6s7" path="res://Textures/Packs/minigame_single.png" id="1_i2k3u"]
-[ext_resource type="Script" path="res://Scripts/PlantCrush/PlantCrushGame.cs" id="1_kck3k"]
+[ext_resource type="Script" uid="uid://d4bc0emqt25vc" path="res://Scripts/PlantCrush/PlantCrushGame.cs" id="1_kck3k"]
 
 [node name="PlantCrush" type="Node2D"]
 script = ExtResource("1_kck3k")

@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://caplkr8i4j4mp" path="res://Textures/Buttons/UI_Flat_Frame03a.png" id="1_esfjh"]
 [ext_resource type="FontFile" uid="uid://16884th6cwds" path="res://Fonts/Jersey25-Regular.ttf" id="2_3iuey"]
 [ext_resource type="Theme" uid="uid://cxgao5s1phj5n" path="res://Themes/mainMenuButtons.tres" id="3_lr351"]
-[ext_resource type="Script" path="res://Scripts/OverwriteSaveConfirmationPopup/ConfirmButton.cs" id="5_jhhmk"]
-[ext_resource type="Script" path="res://Scripts/OverwriteSaveConfirmationPopup/CancelButton.cs" id="6_bjxuk"]
+[ext_resource type="Script" uid="uid://dusp0uqr0c0uc" path="res://Scripts/OverwriteSaveConfirmationPopup/ConfirmButton.cs" id="5_jhhmk"]
+[ext_resource type="Script" uid="uid://cntcp057uylhm" path="res://Scripts/OverwriteSaveConfirmationPopup/CancelButton.cs" id="6_bjxuk"]
 
 [node name="CreateGameConfirmationPopup" type="Node2D"]
 
@@ -40,8 +40,8 @@ offset_right = 78.0
 offset_bottom = 61.0
 scale = Vector2(0.285, 0.285)
 theme = ExtResource("3_lr351")
-theme_override_colors/font_focus_color = Color(0.761386, 0.273843, 0.27925, 1)
 theme_override_colors/font_color = Color(0.823529, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.761386, 0.273843, 0.27925, 1)
 theme_override_font_sizes/font_size = 41
 text = "JA"
 script = ExtResource("5_jhhmk")

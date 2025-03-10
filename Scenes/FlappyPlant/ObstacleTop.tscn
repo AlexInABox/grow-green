@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cvaiuw1pb6imx"]
 
-[ext_resource type="Script" path="res://Scripts/FlappyPlant/Obstacle.cs" id="1_iyk2f"]
-[ext_resource type="Script" path="res://Scripts/FlappyPlant/Collision.cs" id="2_8kq5m"]
+[ext_resource type="Script" uid="uid://cbnaynagqmrl2" path="res://Scripts/FlappyPlant/Obstacle.cs" id="1_iyk2f"]
+[ext_resource type="Script" uid="uid://c3gdy5rapdruy" path="res://Scripts/FlappyPlant/Collision.cs" id="2_8kq5m"]
 [ext_resource type="Texture2D" uid="uid://dk2qxcgwtlox6" path="res://Textures/Minigames/Flappy Plant/pixil-frame-0_2.png" id="3_bkx7b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t3f5r"]
