@@ -87,6 +87,7 @@ jobs:
 
       - name: Setup Godot-mono
         run: |
+          brew update
           brew install --cask godot-mono
 
       - name: Setup Godot Templates
