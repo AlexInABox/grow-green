@@ -88,6 +88,7 @@ jobs:
       - name: Setup Godot-mono
         run: |
           brew install --cask godot-mono
+          brew install tree
 
       - name: Setup Godot Templates
         run: |
@@ -95,6 +96,7 @@ jobs:
           mkdir -p "$GODOT_TEMPLATES_PATH"
           wget -q https://github.com/godotengine/godot/releases/download/${{ env.GODOT_VERSION}}-stable/Godot_v${{ env.GODOT_VERSION}}-stable_mono_export_templates.tpz
           unzip -j Godot_v${{ env.GODOT_VERSION}}-stable_mono_export_templates.tpz -d "$GODOT_TEMPLATES_PATH"
+          tree $GODOT_TEMPLATES_PATH
 
       - name: MacOS Build
         run: |
